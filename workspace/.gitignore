@@ -1,1 +1,7 @@
 /.metadata/
+
+/.gitignore/
+/.recommenders/
+
+/RemoteSystemsTempFiles/
+/Servers/

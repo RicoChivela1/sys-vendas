@@ -1,4 +1,4 @@
-package br.com.aluizio.sysvendas.connection;
+package br.com.aluizio.sysvendas.testes;
 
 import java.sql.Connection;
 import java.sql.SQLException;

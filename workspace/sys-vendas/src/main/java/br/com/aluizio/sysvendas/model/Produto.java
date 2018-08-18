@@ -11,6 +11,17 @@ public class Produto extends Categoria {
 	private String volume;
 	private Integer custoUnid;
 	private Integer sugestaoVenda;
+	
+	private Estoque estoque;
+	private Categoria categoria;
+
+	public Estoque getEstoque() {
+		return estoque;
+	}
+
+	public void setEstoque(Estoque estoque) {
+		this.estoque = estoque;
+	}
 
 	public Integer getId() {
 		return id;
@@ -97,6 +108,14 @@ public class Produto extends Categoria {
 	public String toString() {
 		return "Produto [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", indicacao=" + indicacao
 				+ ", volume=" + volume + ", custoUnid=" + custoUnid + ", sugestaoVenda=" + sugestaoVenda + "]";
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 	
 	

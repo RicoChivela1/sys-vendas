@@ -4,7 +4,7 @@ package br.com.aluizio.sysvendas.model;
  * @author Aluizio Monteiro
  */
 
-public class Fornecedor extends Pessoa {
+public class Fornecedor {
 	private Integer id;
 	private EnumPessoa pessoa;
 	private String nome;
@@ -17,7 +17,7 @@ public class Fornecedor extends Pessoa {
 	private String uf;
 	private String fone;
 	private String email;
-	private String observacao;
+	private String observacoes;
 
 	public Integer getId() {
 		return id;
@@ -28,7 +28,7 @@ public class Fornecedor extends Pessoa {
 	}
 	
 	public EnumPessoa getPessoa() {
-		return pessoa;
+		return this.pessoa;
 	}
 
 	public String getNome() {
@@ -115,19 +115,22 @@ public class Fornecedor extends Pessoa {
 		this.email = email;
 	}
 
-	public String getObservacao() {
-		return observacao;
+	public String getObservacoes() {
+		return observacoes;
 	}
 
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
+	public void setObservacoes(String observacoes) {
+		this.observacoes = observacoes;
 	}
 
 	@Override
 	public String toString() {
-		return "Fornecedor [id=" + id + ", cnpjCpf=" + cnpjCpf + ", cep=" + cep + ", endereco=" + endereco + ", bairro="
-				+ bairro + ", cidade=" + cidade + ", complemento=" + complemento + ", uf=" + uf + ", fone=" + fone
-				+ ", email=" + email + ", observacao=" + observacao + "]";
+		return "Fornecedor [id=" + id + ", pessoa=" + pessoa + ", nome=" + nome + ", cnpjCpf=" + cnpjCpf + ", cep="
+				+ cep + ", endereco=" + endereco + ", bairro=" + bairro + ", cidade=" + cidade + ", complemento="
+				+ complemento + ", uf=" + uf + ", fone=" + fone + ", email=" + email + ", observacoes=" + observacoes
+				+ "]";
 	}
+
+	
 
 }

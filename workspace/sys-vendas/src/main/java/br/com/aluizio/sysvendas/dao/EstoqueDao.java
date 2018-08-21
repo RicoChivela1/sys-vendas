@@ -44,7 +44,7 @@ public class EstoqueDao {
 	//Alterar estoque
 	public void alterar(Estoque estoque) {
 		String sql = "Update Estoques set qtdEntrada=?, qtdSaida=?, qtdMinima=?"
-				+ "where id=?";
+				+ " where id=?";
 				
 		try (PreparedStatement stmt = connection.prepareStatement(sql)){
 			stmt.setInt(1, estoque.getQtdEntrada());
@@ -59,6 +59,7 @@ public class EstoqueDao {
 			throw new RuntimeException(e);
 		}
 	}
+
 	
 	
 }

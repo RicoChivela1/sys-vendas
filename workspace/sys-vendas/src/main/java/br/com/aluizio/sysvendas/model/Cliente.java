@@ -1,16 +1,20 @@
 package br.com.aluizio.sysvendas.model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * @author Aluizio Monteiro
  */
-public class Cliente extends Pessoa{
+public class Cliente{
 	private Integer id;
 	private EnumPessoa pessoa;
 	private EnumSituacao situacao;
 	private EnumSexo sexo;
 	private String nome;
 	private String sobreNome;
-	private String nascimento;
+	private Calendar nascimento;
 	private String observacao;
 	private String email;
 	private String celular;
@@ -47,11 +51,11 @@ public class Cliente extends Pessoa{
 		this.nome = nome;
 	}
 
-	public String getNascimento() {
+	public Calendar getNascimento() {
 		return nascimento;
 	}
 
-	public void setNascimento(String nascimento) {
+	public void setNascimento(Calendar nascimento) {
 		this.nascimento = nascimento;
 	}
 
@@ -97,8 +101,9 @@ public class Cliente extends Pessoa{
 
 	@Override
 	public String toString() {
+		 DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 		return "Cliente [id=" + id + ", pessoa=" + pessoa + ", nome=" + nome + ", sobreNome=" + sobreNome
-				+ ", nascimento=" + nascimento + ", situacao=" + situacao + ", sexo=" + sexo + ", observacao="
+				+ ", nascimento=" + df.format(this.nascimento.getTime()) + ", situacao=" + situacao + ", sexo=" + sexo + ", observacao="
 				+ observacao + ", email=" + email + ", celular=" + celular + "]";
 	}
 

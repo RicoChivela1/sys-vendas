@@ -10,33 +10,35 @@ import br.com.aluizio.sysvendas.model.EnumSexo;
 import br.com.aluizio.sysvendas.model.EnumSituacao;
 
 /**
- * TestaInsereCliente.java
- * @author Aluizio Monteiro
- * 20 de ago de 2018
+ * TestaAlteraCliente.java
+ * 
+ * @author Aluizio Monteiro 22 de ago de 2018
  */
 
-public class TestaInsereCliente {
+public class TestaAlteraCliente {
 
 	public static void main(String[] args) {
-			
+
 		Cliente cliente = new Cliente();
-		
-		cliente.setSituacao(EnumSituacao.ATIVO);
-		cliente.setPessoa(EnumPessoa.FISICA);
-		cliente.setSexo(EnumSexo.M);
-		cliente.setNome("Aluizio");
-		cliente.setSobreNome("Monteiro");
-		
-		Calendar nascimento = new GregorianCalendar(1990, 12, 30);
+
+		cliente.setSituacao(EnumSituacao.BLOQUEADO);
+		cliente.setPessoa(EnumPessoa.JURIDICA);
+		cliente.setSexo(EnumSexo.F);
+		cliente.setNome("Flávia");
+		cliente.setSobreNome("Marinho");
+
+		Calendar nascimento = new GregorianCalendar(2000, 11, 12);
 		cliente.setNascimento(nascimento);
-		
+
 		cliente.setObservacao("Conta de teste");
-		cliente.setEmail("insejunior@gemail.com");
+		cliente.setEmail("flavinha9090@gemail.com");
 		cliente.setCelular("61-99349-5309");
+		
+		cliente.setId(2);
 
 		ClienteDao dao = new ClienteDao();
-		dao.adicionar(cliente);
-		System.out.println("Cliente cadastrado com sucesso.");
-	}
+		dao.alterar(cliente);
+		System.out.println("Cliente alterado com sucesso");
 
+	}
 }

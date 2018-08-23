@@ -63,4 +63,21 @@ public class UsuarioDao {
 		}
 		
 	}
+
+	public void alterar(Usuario usuario) {
+		String sql = "Update Usuarios set senha=? where id=?";
+		
+		try (PreparedStatement stmt = connection.prepareStatement(sql)){
+			stmt.setString(1, usuario.getSenha());
+			stmt.setInt(2, usuario.getId());
+			stmt.execute();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+		
+		
+		
+		
+	}
 }

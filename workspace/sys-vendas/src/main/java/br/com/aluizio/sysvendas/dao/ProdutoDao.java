@@ -119,7 +119,6 @@ public class ProdutoDao {
 	public List<Produto> buscaProdutoPorNome(Produto p) {
 
 		List<Produto> produtos = new ArrayList<>();
-
 		if (!existProduto(p)) {
 			System.out.println("Produto não existe.");
 		} else {

@@ -3,7 +3,9 @@ package br.com.aluizio.sysvendas.model;
 import java.util.Calendar;
 
 /**
+ * TestaInsereOrcamento.java
  * @author Aluizio Monteiro
+ * 22 de ago de 2018
  */
 
 public class Orcamento {
@@ -13,6 +15,9 @@ public class Orcamento {
 	private Integer total;
 	private Calendar dataLancamento;
 	private boolean confirmado;
+	
+	private Cliente cliente;
+	private Usuario usuario;
 
 	public Integer getId() {
 		return id;
@@ -62,11 +67,31 @@ public class Orcamento {
 		this.confirmado = confirmado;
 	}
 
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	@Override
 	public String toString() {
 		return "Orcamento [id=" + id + ", subTotal=" + subTotal + ", desconto=" + desconto + ", total=" + total
-				+ ", dataLancamento=" + dataLancamento + ", confirmado=" + confirmado + "]";
+				+ ", dataLancamento=" + dataLancamento + ", confirmado=" + confirmado + ", cliente=" + cliente
+				+ ", usuario=" + usuario + "]";
 	}
+
+	
+	
 
 	
 }

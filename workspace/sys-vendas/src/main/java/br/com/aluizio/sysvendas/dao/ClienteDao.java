@@ -39,7 +39,9 @@ public class ClienteDao {
 			stmt.setString(3, cliente.getSexo().name());
 			stmt.setString(4, cliente.getNome());
 			stmt.setString(5, cliente.getSobreNome());
+			
 			stmt.setDate(6, new Date(cliente.getNascimento().getTimeInMillis()));
+			
 			stmt.setString(7, cliente.getObservacao());
 			stmt.setString(8, cliente.getEmail());
 			stmt.setString(9, cliente.getCelular());

@@ -5,7 +5,7 @@ package br.com.aluizio.sysvendas.model;
  */
 
 public enum EnumStatus {
-	ATRASADO, EM_DIAS, QUITADO;
+	EM_ATRASO, EM_DIAS, QUITADO;
 	
 	/*ATRASADO(0), EM_DIAS(1), QUITADO(2);
 	private final int valor;

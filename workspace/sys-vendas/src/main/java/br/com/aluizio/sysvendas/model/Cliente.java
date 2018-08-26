@@ -5,9 +5,14 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
+ * Cliente.java
  * @author Aluizio Monteiro
+ * 20 de ago de 2018
  */
+
 public class Cliente{
+
+
 	private Integer id;
 	private EnumPessoa pessoa;
 	private EnumSituacao situacao;
@@ -18,6 +23,8 @@ public class Cliente{
 	private String observacao;
 	private String email;
 	private String celular;
+	private Endereco endereco;
+
 
 	public Integer getId() {
 		return id;
@@ -98,6 +105,14 @@ public class Cliente{
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
+	
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 
 	@Override
 	public String toString() {
@@ -105,31 +120,6 @@ public class Cliente{
 		return "Cliente [id=" + id + ", pessoa=" + pessoa + ", nome=" + nome + ", sobreNome=" + sobreNome
 				+ ", nascimento=" + df.format(this.nascimento.getTime()) + ", situacao=" + situacao + ", sexo=" + sexo + ", observacao="
 				+ observacao + ", email=" + email + ", celular=" + celular + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Cliente other = (Cliente) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
 	}
 
 }

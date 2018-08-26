@@ -28,11 +28,12 @@ public class ClienteDao {
 		this.connection = new ConnectionFactory().getConnection();
 	}
 
-	//Adiciona
+	//Adiciona Cliente
 	public void adicionar(Cliente cliente) {
 		String sql = "insert into Clientes (pessoa, situacao,"
 				+ " sexo, nome, sobreNome, nascimento, observacao, email, celular) "
 				+ " values (?,?,?,?,?,?,?,?,?)";
+		
 		try (PreparedStatement stmt = connection.prepareStatement(sql)){
 			stmt.setString(1, cliente.getPessoa().name());
 			stmt.setString(2, cliente.getSituacao().name());
@@ -45,13 +46,37 @@ public class ClienteDao {
 			stmt.setString(7, cliente.getObservacao());
 			stmt.setString(8, cliente.getEmail());
 			stmt.setString(9, cliente.getCelular());
+		
 			stmt.execute();
 			
+			System.out.println("Cliente adicionado com sucesso");
+			
 		} catch (SQLException e) {
-			throw new RuntimeException(e);
+			System.out.println("Erro ao adicionar cliente");
+			e.printStackTrace();
+			throw new RuntimeException(e);	
+			
+		}	
+	}
+
+	// Busca o ultimo Id
+		public int buscaMaiorId(){
+			String sql = "Select MAX(id) from Clientes";
+			int id = 0;
+			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+				ResultSet rs = stmt.executeQuery();
+
+				while (rs.next()) {
+					id = rs.getInt(1);
+				}
+			} 
+
+			catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+			return id;
 		}
 		
-	}
 
 	//Alterar
 	public void alterar(Cliente cliente) {

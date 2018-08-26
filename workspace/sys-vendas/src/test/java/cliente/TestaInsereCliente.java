@@ -33,9 +33,10 @@ public class TestaInsereCliente {
 		cliente.setObservacao("Conta de teste");
 		cliente.setEmail("insejunior@gemail.com");
 		cliente.setCelular("61-99349-5309");
-
+		
 		ClienteDao dao = new ClienteDao();
 		dao.adicionar(cliente);
+		
 		System.out.println("Cliente cadastrado com sucesso.");
 	}
 

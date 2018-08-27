@@ -14,16 +14,17 @@ public class TestaAdicionaProduto {
 	public static void main(String[] args) {
 		// Testa Adicionar
 		Produto produto = new Produto();
-		produto.setNome("AlizaBel");
-		produto.setDescricao("Alizante Capilar");
-		produto.setIndicacao("Alizante Quimico");
+		produto.setNome("Creme");
+		produto.setDescricao("Creme");
+		produto.setIndicacao("Quimico");
 		produto.setVolume("200ml");
 		produto.setCustoUnid(1000);
 		produto.setSugestaoVenda(2000);
-
+		
 		ProdutoDao dao = new ProdutoDao();
 		dao.adicionar(produto);
 
+		System.out.println("Produto adicionado.");
 	}
 
 }

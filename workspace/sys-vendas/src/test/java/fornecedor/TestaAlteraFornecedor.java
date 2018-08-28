@@ -25,7 +25,7 @@ public class TestaAlteraFornecedor {
 		fornecedor.setUf("AL");
 		fornecedor.setFone("41-12123434");
 		fornecedor.setEmail("hinode@hino.com.br");
-		fornecedor.setObservacoes("Dados fictício");
+		fornecedor.setObservacao("Dados fictício");
 		
 		fornecedor.setId(1);
 		

@@ -17,7 +17,7 @@ public class Fornecedor {
 	private String uf;
 	private String fone;
 	private String email;
-	private String observacoes;
+	private String observacao;
 
 	public Integer getId() {
 		return id;
@@ -115,21 +115,23 @@ public class Fornecedor {
 		this.email = email;
 	}
 
-	public String getObservacoes() {
-		return observacoes;
+	public String getObservacao() {
+		return observacao;
 	}
 
-	public void setObservacoes(String observacoes) {
-		this.observacoes = observacoes;
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
 
 	@Override
 	public String toString() {
 		return "Fornecedor [id=" + id + ", pessoa=" + pessoa + ", nome=" + nome + ", cnpjCpf=" + cnpjCpf + ", cep="
 				+ cep + ", endereco=" + endereco + ", bairro=" + bairro + ", cidade=" + cidade + ", complemento="
-				+ complemento + ", uf=" + uf + ", fone=" + fone + ", email=" + email + ", observacoes=" + observacoes
+				+ complemento + ", uf=" + uf + ", fone=" + fone + ", email=" + email + ", observacao=" + observacao
 				+ "]";
 	}
+
+
 
 	
 

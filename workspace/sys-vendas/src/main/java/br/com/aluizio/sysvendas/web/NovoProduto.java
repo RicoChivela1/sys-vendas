@@ -13,9 +13,11 @@ import javax.swing.JOptionPane;
 import br.com.aluizio.sysvendas.dao.CategoriaDao;
 import br.com.aluizio.sysvendas.dao.EstoqueDao;
 import br.com.aluizio.sysvendas.dao.ProdutoDao;
+import br.com.aluizio.sysvendas.dao.ProdutoFornecedorDao;
 import br.com.aluizio.sysvendas.model.Categoria;
 import br.com.aluizio.sysvendas.model.Estoque;
 import br.com.aluizio.sysvendas.model.Produto;
+import br.com.aluizio.sysvendas.model.ProdutoFornecedor;
 
 /**
  * NovoCliente.java
@@ -52,15 +54,13 @@ public class NovoProduto extends HttpServlet {
 		// Popula Produto
 		Produto produto = new Produto();
 		
-		int idC = new CategoriaDao().buscaMaiorId();
+		int idCategoria = new CategoriaDao().buscaMaiorId();
 		Categoria c = new Categoria();
-		c.setId(idC);
-		System.out.println("Id da categoria"+c.getId());
+		c.setId(idCategoria);
 		
-		int idE = new EstoqueDao().buscaMaiorId();
+		int idEstoque = new EstoqueDao().buscaMaiorId();
 		Estoque e = new Estoque();
-		e.setId(idE);
-		System.out.println("Id do estoque"+e.getId());
+		e.setId(idEstoque);
 		
 		produto.setCategoria(c);
 		produto.setEstoque(e);
@@ -75,7 +75,18 @@ public class NovoProduto extends HttpServlet {
 		ProdutoDao produtoDao = new ProdutoDao();
 		produtoDao.adicionar(produto);
 
+		//Faz busca pelo listbox fornecedor retornando o id da seleção
+		int idFornecedor = Integer.parseInt(req.getParameter("fornecedor"));
 		
+		//Faz busca do último produto adicionado e retorna
+		int idProduto = new ProdutoDao().buscaMaiorId();
+		
+		//Salva o relacionamento
+		ProdutoFornecedor produtoFornecedor = new ProdutoFornecedor();
+		produtoFornecedor.setIdFornecedor(idFornecedor);
+		produtoFornecedor.setIdProduto(idProduto);
+		
+		new ProdutoFornecedorDao().relacionar(produtoFornecedor);
 
 		JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso");
 

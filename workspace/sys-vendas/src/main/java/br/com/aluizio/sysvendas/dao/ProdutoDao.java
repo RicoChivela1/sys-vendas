@@ -160,6 +160,22 @@ public class ProdutoDao {
 			}
 		}
 		return produtos;
+	}
 
+	//Busca maxId
+	public int buscaMaiorId() {
+		String sql = "Select max(id) from Produtos";
+		int id = 0;
+		try (PreparedStatement stmt = connection.prepareStatement(sql)){
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				id = rs.getInt(1);
+			}
+			return id;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+		
 	}
 }

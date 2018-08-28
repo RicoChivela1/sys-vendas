@@ -26,10 +26,10 @@ public class FornecedorDao {
 	}
 	
 	//Adicionar
-	public void adiciona(Fornecedor fornecedor) {
+	public void adicionar(Fornecedor fornecedor) {
 		String sql = "Insert into Fornecedores (pessoa, nome, "
 				+ "cnpjCpf, cep, endereco, bairro, cidade, complemento, "
-				+ "uf, fone, email, observacoes) "
+				+ "uf, fone, email, observacao) "
 				+ "values (?,?,?,?,?,?,?,?,?,?,?,?)";
 		try (PreparedStatement stmt = connection.prepareStatement(sql)){
 			stmt.setString(1, fornecedor.getPessoa().name());
@@ -43,7 +43,7 @@ public class FornecedorDao {
 			stmt.setString(9, fornecedor.getUf());
 			stmt.setString(10, fornecedor.getFone());
 			stmt.setString(11, fornecedor.getEmail());
-			stmt.setString(12, fornecedor.getObservacoes());
+			stmt.setString(12, fornecedor.getObservacao());
 			
 			stmt.execute();
 		} catch (SQLException e) {
@@ -69,7 +69,7 @@ public class FornecedorDao {
 			stmt.setString(9, fornecedor.getUf());
 			stmt.setString(10, fornecedor.getFone());
 			stmt.setString(11, fornecedor.getEmail());
-			stmt.setString(12, fornecedor.getObservacoes());
+			stmt.setString(12, fornecedor.getObservacao());
 			
 			stmt.setInt(13, fornecedor.getId());
 			
@@ -114,7 +114,7 @@ public class FornecedorDao {
 				fornecedor.setUf(rs.getString("uf"));
 				fornecedor.setFone(rs.getString("fone"));
 				fornecedor.setEmail(rs.getString("email"));
-				fornecedor.setObservacoes(rs.getString("observacoes"));
+				fornecedor.setObservacao(rs.getString("observacao"));
 				
 				lista.add(fornecedor);
 			}
@@ -125,4 +125,19 @@ public class FornecedorDao {
 		return lista;
 	}
 	
+	// Busca Maior Id
+		public int buscaMaiorId() {
+			String sql = "Select max(id) from Fornecedores";
+			int id = 0;
+			try (PreparedStatement stmt = connection.prepareStatement(sql)){
+				ResultSet rs = stmt.executeQuery();
+				while(rs.next()) {
+					id = rs.getInt(1);
+				}
+				return id;
+				
+			}catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
 }

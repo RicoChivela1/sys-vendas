@@ -25,10 +25,10 @@ public class TestaInsereFornecedor {
 		fornecedor.setUf("AL");
 		fornecedor.setFone("41-12123434");
 		fornecedor.setEmail("hinode@hino.com.br");
-		fornecedor.setObservacoes("Endereço fictício");
+		fornecedor.setObservacao("Endereço fictício");
 		
 		FornecedorDao dao = new FornecedorDao();
-		dao.adiciona(fornecedor);
+		dao.adicionar(fornecedor);
 		System.out.println("Fornecedor adicionado com sucesso");
 
 	}

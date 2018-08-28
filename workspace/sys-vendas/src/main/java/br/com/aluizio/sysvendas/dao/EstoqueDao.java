@@ -60,6 +60,40 @@ public class EstoqueDao {
 		}
 	}
 
+	//Adiciona Estoque
+	public void adicionar(Estoque estoque) {
+		String sql = "Insert Into Estoques (qtdEntrada, qtdSaida, qtdMinima)"
+				+ " values (?,?,?)";
+		
+		try (PreparedStatement stmt = connection.prepareStatement(sql)){
+			stmt.setInt(1, estoque.getQtdEntrada());
+			stmt.setInt(2, estoque.getQtdSaida());
+			stmt.setInt(3, estoque.getQtdMinima());
+			stmt.execute();
+			System.out.println("Estoque adicionado com sucesso");
+		} catch (SQLException e) {
+			System.out.println("Problemas ao adicionar Estoque");
+			throw new RuntimeException(e);
+		}
+		
+	}
+
+	// Busca Maior Id
+	public int buscaMaiorId() {
+		String sql = "Select max(id) from Estoques";
+		int id = 0;
+		try (PreparedStatement stmt = connection.prepareStatement(sql)){
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				id = rs.getInt(1);
+			}
+			return id;
+			
+		}catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
 	
 	
 }

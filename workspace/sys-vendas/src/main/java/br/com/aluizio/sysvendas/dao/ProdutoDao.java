@@ -76,7 +76,8 @@ public class ProdutoDao {
 	// Adicionar Produto
 	public void adicionar(Produto produto) {
 		String sql = "insert into Produtos (nome, descricao, indicacao, "
-				+ "volume, custoUnid, sugestaoVenda) values ( ?, ?, ?, ?, ?, ?)";
+				+ "volume, custoUnid, sugestaoVenda, fk_categoria, fk_estoque)"
+				+ " values ( ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 
@@ -86,7 +87,9 @@ public class ProdutoDao {
 			stmt.setString(4, produto.getVolume());
 			stmt.setInt(5, produto.getCustoUnid());
 			stmt.setInt(6, produto.getSugestaoVenda());
-			System.out.println("Produto adicionado com sucesso.");
+			stmt.setInt(7, produto.getCategoria().getId());
+			stmt.setInt(8, produto.getEstoque().getId());
+			
 			stmt.execute();
 
 		} catch (SQLException e) {

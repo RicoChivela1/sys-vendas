@@ -1,7 +1,6 @@
 package br.com.aluizio.sysvendas.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -10,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 import br.com.aluizio.sysvendas.dao.ClienteDao;
 import br.com.aluizio.sysvendas.dao.EnderecoClienteDao;
@@ -26,12 +26,13 @@ import br.com.aluizio.sysvendas.model.EnumSituacao;
  * @author Aluizio Monteiro
  * 24 de ago de 2018
  */
+
 @WebServlet(urlPatterns="/novoCliente")
 public class NovoCliente extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {
 		
 		//Popula Cliente
@@ -82,9 +83,9 @@ public class NovoCliente extends HttpServlet{
 		enderecoCliente.setIdEndereco(new EnderecoDao().buscaMaiorId());
 		
 		new EnderecoClienteDao().relacionar(enderecoCliente);
-				
-		System.out.println("Cliente cadastrado com sucesso!");
-		PrintWriter writer = resp.getWriter();
-		writer.println("<htm><body>Cliente Adicionado com sucesso</body></html>");
+		
+		JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
+		
+		req.getRequestDispatcher("index.html").forward(req, resp);
 	}
 }

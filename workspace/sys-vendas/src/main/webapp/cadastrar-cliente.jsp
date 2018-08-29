@@ -13,7 +13,7 @@
 	<div class="page-header">
   		<h1>Cadastro de Clientes </h1>
 	</div>
-	<form action="novoCliente" >
+	<form action="novoCliente" method="post">
 	<fieldset class="campo">
 	<legend>Informações pessoais</legend>
 

@@ -29,7 +29,7 @@ import br.com.aluizio.sysvendas.model.ProdutoFornecedor;
 public class NovoProduto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		// Popula Categoria
 		Categoria categoria = new Categoria();

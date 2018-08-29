@@ -23,7 +23,7 @@ public class NovoFornecedor extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {
 		
 		
@@ -63,7 +63,7 @@ public class NovoFornecedor extends HttpServlet{
 		
 		JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso");
 		
-		
+		req.getRequestDispatcher("cadastrar-produto.jsp").forward(req, resp);
 	
 	}
 }

@@ -58,6 +58,7 @@ public class CategoriaDao {
 		}
 	}
 
+	//Lista Categorias
 	public List<Categoria> getList() {
 		String sql = "select * from Categorias";
 		

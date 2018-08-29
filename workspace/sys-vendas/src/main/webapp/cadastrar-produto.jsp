@@ -15,7 +15,6 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"  >
 
-<title>Insert title here</title>
 </head>
 <body>
 	<div class="principal">
@@ -23,7 +22,7 @@
 			<h1>Cadastro de Produtos</h1>
 		</div>
 
-<form action="novoProduto">
+<form action="novoProduto" method="post">
 
 <fieldset class="campo">
 			<legend>Dados do Produto</legend>
@@ -41,7 +40,7 @@
 							</select>
       						
       						<span class="input-group-btn" >
-        						<button class="btn btn-default" type="button"><a href="http://localhost:8180/sys-vendas/index.html">&#10010;</a></button>
+        						<button class="btn btn-default" type="button"><a href="http://localhost:8180/sys-vendas/cadastrar-fornecedor.jsp">&#10010;</a></button>
       						</span>
       		
       		
@@ -60,7 +59,7 @@
 							</select>
 							
 							<span class="input-group-btn" >
-        						<button class="btn btn-default" type="button"><a href="http://localhost:8180/sys-vendas/index.html">&#10010;</a></button>
+        						<button class="btn btn-default" type="button"><a href="http://localhost:8180/sys-vendas/cadastrar-categoria.jsp">&#10010;</a></button>
       						</span>
       						
       						

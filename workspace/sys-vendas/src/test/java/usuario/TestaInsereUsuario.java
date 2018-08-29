@@ -18,7 +18,7 @@ public class TestaInsereUsuario {
 		 usuario.setSenha("eduardo");
 		 
 		 UsuarioDao dao = new UsuarioDao();
-		 dao.cadastrar(usuario);
+		 dao.adicionar(usuario);
 	}
 
 }

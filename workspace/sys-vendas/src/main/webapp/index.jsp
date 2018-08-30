@@ -15,10 +15,20 @@
 
 </head>
 <body>
- <div class="principal"><br />
-		<div class="page-header">
+<div class="page-header">
 			<h1>Bem vindo</h1>
+			<form action="logout" method="post">
+			
+			<div class="caixa">
+						<input name="usuario" value="nome" size="20" class="form-control" style="border-style: none;">
+						<input type="submit" name="logout" value="Log-out" class="btn btn-primary" > 	
+					</div>
+					
+			</form>
 		</div>
+		
+ <div class="principal"><br />
+		
 	
 	<a href="http://localhost:8180/sys-vendas/cadastrar-usuario.jsp">Cadastrar Usuário</a><br />
 	<a href="http://localhost:8180/sys-vendas/cadastrar-cliente.jsp">Cadastrar Cliente</a><br /> 	

@@ -20,6 +20,8 @@ public class Logout extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		//Deslogar em 10 minutos
 		request.getSession().setMaxInactiveInterval(10 * 60);
 		request.getSession().removeAttribute("usuario.logado");
 

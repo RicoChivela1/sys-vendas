@@ -2,6 +2,7 @@ package br.com.aluizio.sysvendas.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.aluizio.sysvendas.jdbc.ConnectionFactory;
@@ -59,4 +60,56 @@ public class UsuarioDao {
 		}
 
 	}
+
+	// Busca Usuario por login e senha
+	public Usuario buscaUsuario(Usuario usuarioBuscado) {
+		String sql = "Select * from Usuarios where login=? and senha=?";
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			stmt.setString(1, usuarioBuscado.getLogin());
+			stmt.setString(2, usuarioBuscado.getSenha());
+			
+			ResultSet rs = stmt.executeQuery();
+			Usuario usuario = new Usuario();
+			
+			while(rs.next()) {
+				usuario.setId(rs.getInt("id"));
+				usuario.setNome(rs.getString("nome"));
+				usuario.setLogin(rs.getString("login"));
+				usuario.setSenha(rs.getString("senha"));
+			}
+			
+			return usuario;
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
+	
+	//Se usuario existe
+	public boolean isUsuario(Usuario usuario) {
+		String sql = "Select * from Usuarios where login=?";
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			stmt.setString(1, usuario.getLogin());
+			
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()) {
+				return true;
+			}else{
+				return false;
+			}
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
+
+
+
+
+
+
+
+
+

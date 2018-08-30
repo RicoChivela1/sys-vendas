@@ -1,12 +1,13 @@
 @charset "ISO-8859-1";
 
-.caixa{
+.caixa {
 	border: 2px solid #ffffff;
 	padding: 5px;
 	width: 90%;
 	margin-bottom: 5px;;
 }
-.radio{
+
+.radio {
 	border: 1px solid #c0c0c0;
 	border-radius: 15px;
 	margin-left: 5px;
@@ -15,17 +16,24 @@
 	margin-bottom: 5px;;
 }
 
-.direita{
+.direita {
 	float: left;
 	width: 48%;
 }
 
-.esquerda{
+.esquerda {
 	width: 48%;
 	float: left;
 }
 
-.principal{
+.centro {
+	align-content: center;
+}
+
+.login{
+		
+}
+.principal {
 	padding: 10px;
 }
 
@@ -33,5 +41,4 @@ fieldset legend {
 	font-weight: bolder;
 	border-bottom: 1px solid #c0c0c0;
 	padding-top: 60px;
-	
 }

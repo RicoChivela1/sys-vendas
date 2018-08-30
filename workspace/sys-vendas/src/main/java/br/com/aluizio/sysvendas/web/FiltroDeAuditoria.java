@@ -11,10 +11,11 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * NovaCategoria.java
+ * FiltroDeUri.java
  * @author Aluizio Monteiro
  * 29 de ago de 2018
  */
@@ -22,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 //Para quem rodar
 @WebFilter(urlPatterns="/*")
 
-public class FiltroDeUri implements Filter {
+public class FiltroDeAuditoria implements Filter {
 
 	public void destroy() {
 	}
@@ -33,14 +34,29 @@ public class FiltroDeUri implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		String uri = req.getRequestURI();
 		
+		String usuario = getUsuario(req);
+		
 		Date dataHoraAtual = new Date();
 		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 		
-		System.out.println(" - "+hora+" "+data+" - Uri acessada: ("+uri+")");
+		System.out.println(" - "+hora+" "+data+" - Usuário"+usuario+" acessando a url: ("+uri+")");
 		
 		//Continua fluxo
 		chain.doFilter(request, response);
+	}
+
+	//Pega o cookie do usuario
+	private String getUsuario(HttpServletRequest req) {
+		String usuario = "<deslogado>";
+		Cookie[] cookies = req.getCookies();
+		if(cookies == null) return usuario;
+		for (Cookie cookie : cookies) {
+			if(cookie.getName().equals("usuario.logado")) {
+				usuario = cookie.getValue();
+			}
+		}
+		return usuario;
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {

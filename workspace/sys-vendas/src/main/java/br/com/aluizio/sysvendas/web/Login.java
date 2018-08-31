@@ -14,7 +14,7 @@ import br.com.aluizio.sysvendas.dao.UsuarioDao;
 import br.com.aluizio.sysvendas.model.Usuario;
 
 /**
- * Login.java
+ * Servlet implementation class Login
  * @author Aluizio Monteiro
  * 29 de ago de 2018
  */
@@ -47,9 +47,10 @@ public class Login extends HttpServlet {
 
 			//Coloca a sessão na memória do servidor e retorna um cookie.
 			HttpSession session = request.getSession();
-			session.setAttribute("usuario.logado", usuario);
-
-			request.getRequestDispatcher("index.jsp")
+			session.setAttribute("usuarioLogado", usuario);
+			
+			request.setAttribute("usuario", usuario.getNome());
+			request.getRequestDispatcher("/index.jsp")
 			.forward(request, response);
 		}
 			

@@ -22,7 +22,7 @@ import br.com.aluizio.sysvendas.model.EnumSexo;
 import br.com.aluizio.sysvendas.model.EnumSituacao;
 
 /**
- * NovoCliente.java
+ * Servlet implementation class NovoCliente
  * @author Aluizio Monteiro
  * 24 de ago de 2018
  */
@@ -86,6 +86,6 @@ public class NovoCliente extends HttpServlet{
 		
 		JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
 		
-		req.getRequestDispatcher("index.html").forward(req, resp);
+		req.getRequestDispatcher("/index.html").forward(req, resp);
 	}
 }

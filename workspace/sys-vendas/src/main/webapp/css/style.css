@@ -30,9 +30,6 @@
 	align-content: center;
 }
 
-.login{
-		
-}
 .principal {
 	padding: 10px;
 }
@@ -41,4 +38,19 @@ fieldset legend {
 	font-weight: bolder;
 	border-bottom: 1px solid #c0c0c0;
 	padding-top: 60px;
+}
+
+
+.container{
+    width:400px;
+    height:100px;
+    background:gray;
+}
+
+.container > div {
+    width: 32%;
+    height: 50%;
+    position: relative;
+    float: left;
+    border-left: 1px solid blue;
 }

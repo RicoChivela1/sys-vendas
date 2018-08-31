@@ -3,7 +3,7 @@ package br.com.aluizio.sysvendas.web;
 import javax.servlet.http.Cookie;
 
 /**
- * Cookies.java
+ * Servlet implementation class Cookies
  * @author Aluizio Monteiro
  * 30 de ago de 2018
  */

@@ -14,7 +14,7 @@ import br.com.aluizio.sysvendas.model.EnumPessoa;
 import br.com.aluizio.sysvendas.model.Fornecedor;
 
 /**
- * NovoFornecedor.java
+ * Servlet implementation class NovoFornecedor
  * @author Aluizio Monteiro
  * 28 de ago de 2018
  */
@@ -63,7 +63,7 @@ public class NovoFornecedor extends HttpServlet{
 		
 		JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso");
 		
-		req.getRequestDispatcher("cadastrar-produto.jsp").forward(req, resp);
+		req.getRequestDispatcher("/cadastrar-produto.jsp").forward(req, resp);
 	
 	}
 }

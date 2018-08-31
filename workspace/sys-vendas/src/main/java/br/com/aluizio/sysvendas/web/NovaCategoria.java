@@ -13,7 +13,7 @@ import br.com.aluizio.sysvendas.dao.CategoriaDao;
 import br.com.aluizio.sysvendas.model.Categoria;
 
 /**
- * NovaCategoria.java
+ * Servlet implementation class NovaCategoria
  * @author Aluizio Monteiro
  * 29 de ago de 2018
  */
@@ -31,7 +31,7 @@ public class NovaCategoria extends HttpServlet {
 		
 		JOptionPane.showMessageDialog(null,  "Categoria adicionada com sucesso.");
 		
-		request.getRequestDispatcher("cadastrar-produto.jsp")
+		request.getRequestDispatcher("/cadastrar-produto.jsp")
 		.forward(request, response);
 		
 	}

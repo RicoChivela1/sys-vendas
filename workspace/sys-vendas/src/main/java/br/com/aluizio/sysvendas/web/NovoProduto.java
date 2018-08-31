@@ -20,7 +20,7 @@ import br.com.aluizio.sysvendas.model.Produto;
 import br.com.aluizio.sysvendas.model.ProdutoFornecedor;
 
 /**
- * NovoCliente.java
+ * Servlet implementation class NovoCliente
  * 
  * @author Aluizio Monteiro 27 de ago de 2018
  */
@@ -90,7 +90,7 @@ public class NovoProduto extends HttpServlet {
 
 		JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso");
 
-		RequestDispatcher rd = req.getRequestDispatcher("index.html");
+		RequestDispatcher rd = req.getRequestDispatcher("/index.html");
 		rd.forward(req, resp);
 	}
 

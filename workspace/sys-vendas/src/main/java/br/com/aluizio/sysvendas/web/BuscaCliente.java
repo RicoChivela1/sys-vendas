@@ -14,9 +14,9 @@ import br.com.aluizio.sysvendas.dao.ClienteDao;
 import br.com.aluizio.sysvendas.model.Cliente;
 
 /**
- * BuscaCliente.java
+ * ToDo
  * @author Aluizio Monteiro
- * 24 de ago de 2018
+ * 31 de ago de 2018
  */
 @WebServlet("/buscaClientePorNome")
 public class BuscaCliente extends HttpServlet {

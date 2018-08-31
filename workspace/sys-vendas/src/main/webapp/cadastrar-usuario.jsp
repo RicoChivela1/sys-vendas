@@ -12,7 +12,7 @@
 
 </head>
 <body>
-<div class="principal">
+<div class="principal">${usuarioLogado.nome}
 		<div class="page-header">
 			<h1>Cadastro de Usuário</h1>
 		</div>

@@ -13,7 +13,7 @@ import br.com.aluizio.sysvendas.dao.UsuarioDao;
 import br.com.aluizio.sysvendas.model.Usuario;
 
 /**
- * NovoUsuario.java
+ * Servlet implementation class NovoUsuario
  * @author Aluizio Monteiro
  * 29 de ago de 2018
  */
@@ -33,7 +33,7 @@ public class NovoUsuario extends HttpServlet {
 		
 		JOptionPane.showMessageDialog(null,  "Usuário Adicionado com sucesso");
 		
-		request.getRequestDispatcher("cadastrar-produto.jsp")
+		request.getRequestDispatcher("/index.jsp")
 		.forward(request, response);
 		
 	}

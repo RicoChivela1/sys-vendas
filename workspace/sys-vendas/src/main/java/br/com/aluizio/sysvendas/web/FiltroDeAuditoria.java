@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import br.com.aluizio.sysvendas.model.Usuario;
 
 /**
- * FiltroDeAuditoria.java
+ * Servlet implementation class FiltroDeAuditoria
  * @author Aluizio Monteiro
  * 29 de ago de 2018
  */
@@ -50,7 +50,7 @@ public class FiltroDeAuditoria implements Filter {
 
 	//Pega o resultado da classe Cookies, se null então está deslogado
 	private String getUsuario(HttpServletRequest req) {
-		Usuario usuario = (Usuario) req.getSession().getAttribute("usuario.logado");
+		Usuario usuario = (Usuario) req.getSession().getAttribute("usuarioLogado");
 		if(usuario == null) return "<deslogado>";
 		
 		return usuario.getLogin();

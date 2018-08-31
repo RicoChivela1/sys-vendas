@@ -10,7 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
 /**
- * FiltroDeLogin.java
+ * FiltroDeServlet implementation class Login
  * @author Aluizio Monteiro
  * 29 de ago de 2018
  */

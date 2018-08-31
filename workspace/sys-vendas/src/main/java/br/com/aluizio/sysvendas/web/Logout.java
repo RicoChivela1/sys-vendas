@@ -7,12 +7,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JOptionPane;
 
 /**
- * Logout.java
- * 
- * @author Aluizio Monteiro 30 de ago de 2018
+ * Servlet implementation class Logout
+ * @author Aluizio Monteiro
+ * 31 de ago de 2018
  */
 @WebServlet("/logout")
 public class Logout extends HttpServlet {
@@ -23,9 +22,8 @@ public class Logout extends HttpServlet {
 		
 		//Deslogar em 10 minutos
 		request.getSession().setMaxInactiveInterval(10 * 60);
-		request.getSession().removeAttribute("usuario.logado");
-
-		JOptionPane.showMessageDialog(null, "Deslogado com sucesso");
-		request.getRequestDispatcher("index.html").forward(request, response);
+		request.getSession().removeAttribute("usuarioLogado");
+		System.out.println("Usuário deslogado");
+		request.getRequestDispatcher("/index.html").forward(request, response);
 	}
 }

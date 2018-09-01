@@ -3,15 +3,14 @@ package br.com.aluizio.sysvendas.web;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.aluizio.sysvendas.dao.ClienteDao;
-import br.com.aluizio.sysvendas.model.Cliente;
+import br.com.aluizio.sysvendas.dao.FornecedorDao;
+import br.com.aluizio.sysvendas.model.Fornecedor;
 
 /**
  * ToDo
@@ -19,7 +18,7 @@ import br.com.aluizio.sysvendas.model.Cliente;
  * 31 de ago de 2018
  */
 @WebServlet("/buscaClientes")
-public class BuscaCliente extends HttpServlet {
+public class BuscaFornecedor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -27,16 +26,14 @@ public class BuscaCliente extends HttpServlet {
 		
 		String filtro = request.getParameter("filtro");
 		
-		Cliente c = new Cliente();
-		c.setNome(filtro);
+		Fornecedor f = new Fornecedor();
+		f.setNome(filtro);
 		
-		ClienteDao dao = new ClienteDao();
+		FornecedorDao dao = new FornecedorDao();
 			
-		List<Cliente> clientes = dao.buscaPorNome(c);
+		List<Fornecedor> fornecedores = dao.getList();
 		
-		request.setAttribute("clientes", clientes);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/busca-clientes.jsp");
-		rd.forward(request, response);
+		request.setAttribute("fornecedores", fornecedores);
+		System.out.println("Populand listbox [fornecedor]");
 	}
 }

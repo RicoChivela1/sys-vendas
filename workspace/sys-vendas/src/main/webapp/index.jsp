@@ -26,36 +26,40 @@
 			</form>
 		</div>
 		
- <div class=""><br />
+		
+		
 
-	<div class="container">
+ <div class="caixa"><br />
+
+	<div class="menutemp">
 	    <div>	
 	    	<a href="${pageContext.request.contextPath}/cadastrar-usuario.jsp">Cadastrar Usuário</a><br />		
 			<a href="${pageContext.request.contextPath}/cadastrar-cliente.jsp">Cadastrar Cliente</a><br /> 	
 			<a href="${pageContext.request.contextPath}/cadastrar-fornecedor.jsp">Cadastrar Fornecedor</a><br /> 
 		 	<a href="${pageContext.request.contextPath}/cadastrar-categoria.jsp">Cadastrar Categoria</a><br />
-		 	<a href="${pageContext.request.contextPath}/cadastrar-produto.jsp">Cadastrar Produto</a><br /></div>
-	    <div>
-	    	<a href="${pageContext.request.contextPath}/index.jsp">x Pesquisar Usuário</a><br />		
-			<a href="${pageContext.request.contextPath}/index.jsp">x Pesquisar Cliente</a><br /> 	
+		 	<a href="${pageContext.request.contextPath}/cadastrar-produto.jsp">Cadastrar Produto</a><br />
+		 
+		 </div>
+	    <div
+	    ><form action="buscaClientes" method="post">
+	    
+	    <a href="${pageContext.request.contextPath}/buscaClientes?filtro=" > Pesquisar Clientes</a><br />
+	    </form>
+	    	<a href="/buscaClientes">x Pesquisar Clientes</a><br />		
+			<a href="${pageContext.request.contextPath}/index.jsp">x Pesquisar Usuários</a><br /> 	
 			<a href="${pageContext.request.contextPath}/index.jsp">x Pesquisar Fornecedor</a><br /> 
 		 	<a href="${pageContext.request.contextPath}/index.jsp">x Pesquisar Categoria</a><br />
-		 	<a href="${pageContext.request.contextPath}/index.jsp">x Pesquisar Produto</a><br /></div>
+		 	<a href="${pageContext.request.contextPath}/index.jsp">x Pesquisar Produto</a><br />
+		 </div>
 	    <div>
 	    	<a href="${pageContext.request.contextPath}/index.jsp">x Lista de Orçamento</a><br />		
 			<a href="${pageContext.request.contextPath}/index.jsp">x Realizar Vendas</a><br /> 	
 			<a href="${pageContext.request.contextPath}/index.jsp">x Verificar Atividades</a><br /> 
 		 	<a href="${pageContext.request.contextPath}/index.jsp">x Relatórios</a><br />
-		 	<a href="${pageContext.request.contextPath}/index.jsp">x Estimativas</a><br /></div>
+		 	<a href="${pageContext.request.contextPath}/index.jsp">x Estimativas</a><br />
+		 </div>
 	    </div>
-	</div>
-
-	
-	 	
-	 	
-	
-	
-	
-</div>	
+	    
+	</div>	
 </body>
 </html>

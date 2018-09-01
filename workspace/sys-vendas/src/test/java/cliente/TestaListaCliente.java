@@ -7,16 +7,18 @@ import br.com.aluizio.sysvendas.model.Cliente;
 
 /**
  * TestaListaCliente.java
- * @author Aluizio Monteiro
- * 22 de ago de 2018
+ * 
+ * @author Aluizio Monteiro 22 de ago de 2018
  */
 
 public class TestaListaCliente {
 
 	public static void main(String[] args) {
 		ClienteDao dao = new ClienteDao();
-		List<Cliente> clientes = dao.getList();
-		clientes.forEach(c -> System.out.println(c));
+		Cliente c = new Cliente();
+		c.setNome("Aluizio");
+		List<Cliente> clientes = dao.buscaPorNome(c);
+		clientes.forEach(cli -> System.out.println(cli));
 		System.out.println("Fim da listagem");
 	}
 }

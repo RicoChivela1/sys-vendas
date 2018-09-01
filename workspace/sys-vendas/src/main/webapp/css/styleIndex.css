@@ -1,12 +1,14 @@
-.container{
- 
+.menutemp{
+    width:70%;
+    height:auto;
+    
 }
 
-.container > div {
+.menutemp > div {
     width: 32%;
+    height: 50%;
     position: relative;
     float: left;
     border-left: 2px solid #c0c0c0;
-    padding: 5px;
-    margin-left: -50px
+    padding-left: 10px;
 }

@@ -8,54 +8,60 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"  >
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Buscar Clientes</title>
 </head>
 <body>
 
-<ul>
-	<c:forEach var="cliente" items="${clientes}">
-		<li> 
-			${cliente.nome} 
+<div class="principal">
+<br />
+<br />
+		<div class="page-header">
+			<h2>Lista de Clientes</h2>
+		</div>
+<form action="gerenciaCliente" method="post">
+<div class="table-responsive">
+	<table class="table table-hover table-striped">
+	<caption>Lista de Clientes</caption>
+		  <thead class="thead-dark">
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Nome</th>
+		      <th scope="col">Sobre Nome</th>
+		      <th scope="col">Situação</th>
+		      <th scope="col">Celular</th>
+		      <th scope="col" ></th>
 
-			${cliente.situacao}
+		    </tr>
+		  </thead>
+	  <tbody>
+	
+	   <c:forEach var="cliente" items="${clientes}">
+		    <tr>
+		      <th scope="row">${cliente.id}</th>
+		      <td>${cliente.nome}</td>
+		      <td>${cliente.sobreNome}</td>
+		      <td>${cliente.situacao}</td>
+		      <td>${cliente.celular}</td>
+		     
+		      <td> 
+		      <button type="submit" name="orcamento" value="${cliente.id}" style="font-size:14px;" class="btn btn-success"> <i class="fa fa-money"></i></button> 
+		      &nbsp;-&nbsp; 
+		      <button  type="submit" name="info" value="${cliente.id}" style="font-size:14px;" class="btn btn-outline-info"> <i class="fa fa-info-circle"></i></button>
+		      	
+		      <button type="submit" name="alterar" value="${cliente.id}" style="font-size:14px;" class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i></button>
+			  	
+			  <button type="submit" name="remover" value="${cliente.id}" style="font-size:14px;" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i></button>
+				
 
-			${cliente.celular}
-
-			${cliente.observacao}
-		</li>
-	</c:forEach>
-</ul>
-
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Situação</th>
-      <th scope="col">Celular</th>
-      <th scope="col">+Info</th>
-      <th scope="col">Orçamento</th>
-      <th scope="col">Alterar</th>
-      <th scope="col">Remover</th>
-    </tr>
-  </thead>
-  <tbody>
-
-   <c:forEach var="cliente" items="${clientes}">
-	    <tr>
-	      <th scope="row">${cliente.id}</th>
-	      <td>${cliente.nome}</td>
-	      <td>${cliente.situacao}</td>
-	      <td>${cliente.celular}</td>
-	      <td>button</td>
-	      <td>button</td>
-	      <td>button</td>
-	      <td>button</td>
-	    </tr>
-   </c:forEach>
-  </tbody>
-</table>
-
+		      </td>
+		    	
+		    </tr>
+	   </c:forEach>
+	  </tbody>
+	</table>
+</div>
+</form>
+</div>
 </body>
 </html>

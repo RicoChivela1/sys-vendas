@@ -34,7 +34,7 @@
 							
 							<select name="fornecedor" style="width: 170px; height: 38px" class="form-control" >
 								<option value="0">SELECIONE</option>
-								<c:forEach var="lista" items="${fornecedores}">
+								<c:forEach var="lista" items="${fornecedorDao.list}">
 									<option value="${lista.id}">${lista.nome}</option>
 								</c:forEach>
 							</select>

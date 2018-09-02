@@ -189,6 +189,7 @@ public class ClienteDao {
 			
 				while(rs.next()) {
 					Cliente cliente = new Cliente();
+					cliente.setId(rs.getInt("id"));
 					cliente.setPessoa(EnumPessoa.valueOf(rs.getString("pessoa")));
 					cliente.setSituacao(EnumSituacao.valueOf(rs.getString("situacao")));
 					cliente.setSexo(EnumSexo.valueOf(rs.getString("sexo")));

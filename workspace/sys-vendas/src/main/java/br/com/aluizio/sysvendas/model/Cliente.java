@@ -117,7 +117,7 @@ public class Cliente{
 	@Override
 	public String toString() {
 		 DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-		return "Cliente [id=" + id + ", pessoa=" + pessoa + ", nome=" + nome + ", sobreNome=" + sobreNome
+		return "Cliente [id=" + this.id + ", pessoa=" + pessoa + ", nome=" + nome + ", sobreNome=" + sobreNome
 				+ ", nascimento=" + df.format(this.nascimento.getTime()) + ", situacao=" + situacao + ", sexo=" + sexo + ", observacao="
 				+ observacao + ", email=" + email + ", celular=" + celular + "]";
 	}

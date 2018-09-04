@@ -38,32 +38,41 @@ public class GerenciaCliente extends HttpServlet {
     		int id = Integer.parseInt(request.getParameter("info"));
     		System.out.println("Id da info do cliente é: "+ id);
     		
+    		// 
     		pagina = "/info-cliente.jsp";
     	}
     	
-    	//permite alterar clientes
+    	//alterar clientes
     	if(request.getParameter("alterar") != null) {
     		int id = Integer.parseInt(request.getParameter("alterar"));
     		
+    		//objeto contendo o id do cliente
     		Cliente clienteBuscado = new Cliente();
     		clienteBuscado.setId(id);
     		
+    		//busca cliente pelo id e o coloca na requisição
 			Cliente cliente = new ClienteDao().buscaPorId(clienteBuscado);
     		request.setAttribute("cliente", cliente);
-    		
-    		RequestDispatcher rd = request.getRequestDispatcher("/alterar-cliente.jsp");
-    		rd.forward(request, response);
     	
+    		//formulário de alteração
     		pagina = "/alterar-cliente.jsp";
     	}
     	
     	//remove cliente
     	if(request.getParameter("remover") != null) {
     		int id = Integer.parseInt(request.getParameter("remover"));
-    		System.out.println("Id do remover cliente é: "+ id);
     		
-    		pagina = "/remover-cliente.jsp";
-    	}
+    		//Objeto contendo o id do cliente a ser removido
+    		Cliente clienteARemover = new Cliente();
+    		clienteARemover.setId(id);
+    		
+    		//Remove
+			new ClienteDao().remover(clienteARemover);
+    	
+			//Vai para lista de clientes
+    		pagina = "/index.jsp";
+    		
+    	} 
     	
     	RequestDispatcher rd = request.getRequestDispatcher(pagina);
 		rd.forward(request, response);

@@ -2,7 +2,9 @@ package br.com.aluizio.sysvendas.model;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * Cliente.java
@@ -24,8 +26,13 @@ public class Cliente{
 	private String email;
 	private String celular;
 	private Endereco endereco;
+	
+	private List<Endereco> enderecos = new ArrayList<>();
+	
+	DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
-
+	
+		
 	public Integer getId() {
 		return id;
 	}
@@ -99,12 +106,22 @@ public class Cliente{
 	}
 
 	public String getCelular() {
-		return celular;
+		return this.celular;
 	}
 
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
+
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
+	}
+	
+	
 	
 	public Endereco getEndereco() {
 		return endereco;
@@ -113,13 +130,19 @@ public class Cliente{
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+	
 
+	
+	
 	@Override
 	public String toString() {
-		 DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-		return "Cliente [id=" + this.id + ", pessoa=" + pessoa + ", nome=" + nome + ", sobreNome=" + sobreNome
-				+ ", nascimento=" + df.format(this.nascimento.getTime()) + ", situacao=" + situacao + ", sexo=" + sexo + ", observacao="
-				+ observacao + ", email=" + email + ", celular=" + celular + "]";
+		return "Cliente [id=" + id + ", pessoa=" + pessoa + ", situacao=" + situacao + ", sexo=" + sexo + ", nome="
+				+ nome + ", sobreNome=" + sobreNome + ", nascimento=" + nascimento + ", observacao=" + observacao
+				+ ", email=" + email + ", celular=" + celular + ", enderecos=" + enderecos + "]";
 	}
+
+	
+
+	
 
 }

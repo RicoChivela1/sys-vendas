@@ -96,4 +96,10 @@ public class Endereco {
 		this.observacao = observacao;
 	}
 
+	@Override
+	public String toString() {
+		return "\n Endereco [id=" + id + ", endereco=" + endereco + ", bairro=" + bairro + ", cidade=" + cidade
+				+ ", complemento=" + complemento + ", numero=" + numero + ", uf=" + uf + ", cep=" + cep + ", fone="
+				+ fone + ", observacao=" + observacao + "]";
+	}
 }

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="css/bootstrap.css"  >
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Buscar Clientes</title>
@@ -43,7 +43,7 @@
 		      <td>${cliente.sobreNome}</td>
 		      <td>${cliente.situacao}</td>
 		      <td>${cliente.celular}</td>
-		     
+		 
 		      <td> 
 		      <button type="submit" name="orcamento" value="${cliente.id}" style="font-size:14px;" class="btn btn-success"> <i class="fa fa-money"></i></button> 
 		      &nbsp;-&nbsp; 

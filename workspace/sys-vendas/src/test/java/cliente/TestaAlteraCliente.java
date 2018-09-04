@@ -24,8 +24,8 @@ public class TestaAlteraCliente {
 		cliente.setSituacao(EnumSituacao.BLOQUEADO);
 		cliente.setPessoa(EnumPessoa.JURIDICA);
 		cliente.setSexo(EnumSexo.F);
-		cliente.setNome("Flávia");
-		cliente.setSobreNome("Marinho");
+		cliente.setNome("Antônia");
+		cliente.setSobreNome("Morgado");
 
 		Calendar nascimento = new GregorianCalendar(2000, 11, 12);
 		cliente.setNascimento(nascimento);

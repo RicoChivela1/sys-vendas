@@ -62,4 +62,30 @@ public class EnderecoDao {
 		}
 		return id;
 	}
+	
+	//Alterar
+	public void alterar(Endereco endereco) {
+		String sql = "Update Enderecos set endereco=?, bairro=?, cidade=?, "
+				+ "complemento=?, numero=?, uf=?, cep=?, fone=?, observacao=? "
+				+ "where id=?";
+		
+		try (PreparedStatement stmt = connection.prepareStatement(sql)){
+			
+			stmt.setString(1, endereco.getEndereco());
+			stmt.setString(2, endereco.getBairro());
+			stmt.setString(3, endereco.getCidade());
+			stmt.setString(4, endereco.getComplemento());
+			stmt.setString(5, endereco.getNumero());
+			stmt.setString(6, endereco.getUf());
+			stmt.setString(7, endereco.getCep());
+			stmt.setString(8, endereco.getFone());
+			stmt.setString(9, endereco.getObservacao());
+			stmt.setInt(10, endereco.getId());
+			
+			stmt.execute();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

@@ -14,6 +14,7 @@ import br.com.aluizio.sysvendas.model.Produto;
 public class ProdutoDao {
 	Connection connection;
 
+	
 	public ProdutoDao() {
 		this.connection = new ConnectionFactory().getConnection();
 	}
@@ -35,7 +36,7 @@ public class ProdutoDao {
 				produto.setVolume(rs.getString("volume"));
 				produto.setCustoUnid(rs.getInt("custoUnid"));
 				produto.setSugestaoVenda(rs.getInt("sugestaoVenda"));
-
+				produto.setImagem(rs.getString("imagem"));
 				estoque.setId(rs.getInt("fk_categoria"));
 				produto.setEstoque(estoque);
 
@@ -63,7 +64,7 @@ public class ProdutoDao {
 				return false;
 
 			} else {
-				System.out.println("existe");
+				System.out.println("existe sim");
 				return true;
 
 			}
@@ -76,8 +77,8 @@ public class ProdutoDao {
 	// Adicionar Produto
 	public void adicionar(Produto produto) {
 		String sql = "insert into Produtos (nome, descricao, indicacao, "
-				+ "volume, custoUnid, sugestaoVenda, fk_categoria, fk_estoque)"
-				+ " values ( ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "volume, custoUnid, sugestaoVenda, fk_categoria, fk_estoque, imagem)"
+				+ " values ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 
@@ -89,7 +90,7 @@ public class ProdutoDao {
 			stmt.setInt(6, produto.getSugestaoVenda());
 			stmt.setInt(7, produto.getCategoria().getId());
 			stmt.setInt(8, produto.getEstoque().getId());
-			
+			stmt.setString(9, produto.getImagem());
 			stmt.execute();
 
 		} catch (SQLException e) {
@@ -100,7 +101,7 @@ public class ProdutoDao {
 	// Atualizar Produto
 	public void atualizar(Produto produto) {
 		String sql = "update Produtos set nome=?, descricao=?, indicacao=?, "
-				+ "volume=?, custoUnid=?, sugestaoVenda=? where id=?";
+				+ "volume=?, custoUnid=?, sugestaoVenda=?, imagem=? where id=?";
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setString(1, produto.getNome());
 			stmt.setString(2, produto.getDescricao());
@@ -108,9 +109,9 @@ public class ProdutoDao {
 			stmt.setString(4, produto.getVolume());
 			stmt.setInt(5, produto.getCustoUnid());
 			stmt.setInt(6, produto.getSugestaoVenda());
-
 			stmt.setInt(7, produto.getId());
-			System.out.println("Produto: " + produto.getNome() + " alterado com sucesso.");
+			stmt.setString(8, produto.getImagem());
+	
 			stmt.execute();
 
 		} catch (SQLException e) {
@@ -142,7 +143,8 @@ public class ProdutoDao {
 					produto.setVolume(rs.getString("volume"));
 					produto.setCustoUnid(rs.getInt("custoUnid"));
 					produto.setSugestaoVenda(rs.getInt("sugestaoVenda"));
-
+					produto.setImagem(rs.getString("imagem"));
+					
 					Estoque estoque = new Estoque();
 					estoque.setQtdEntrada(rs.getInt("qtdEntrada"));
 					estoque.setQtdSaida(rs.getInt("qtdSaida"));
@@ -178,4 +180,22 @@ public class ProdutoDao {
 		
 		
 	}
+	
+	// Busca Imagem
+	   public String recuperaImagem(int id){
+	        
+	        String sql = "select imagem from Produtos where id=?";
+	        
+	        try (PreparedStatement stmt = connection.prepareStatement(sql)){ 
+	        	stmt.setInt(1, id);
+	            ResultSet rs = stmt.executeQuery();
+	            if(rs.next()) {
+	            	return rs.getString("imagem");
+	            }
+	        } catch (Exception ex) {
+	            ex.printStackTrace();
+	        }
+			return null;
+	       
+	    }
 }

@@ -1,6 +1,4 @@
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -27,36 +25,39 @@
 		</div>
 		
 		
-		
 
  <div class="caixa"><br />
 
 	<div class="menutemp">
 	    <div>	
-	    	<a href="${pageContext.request.contextPath}/cadastrar-usuario.jsp">Cadastrar Usuário</a><br />		
-			<a href="${pageContext.request.contextPath}/cadastrar-cliente.jsp">Cadastrar Cliente</a><br /> 	
-			<a href="${pageContext.request.contextPath}/cadastrar-fornecedor.jsp">Cadastrar Fornecedor</a><br /> 
-		 	<a href="${pageContext.request.contextPath}/cadastrar-categoria.jsp">Cadastrar Categoria</a><br />
-		 	<a href="${pageContext.request.contextPath}/cadastrar-produto.jsp">Cadastrar Produto</a><br />
+	    	<a href="cadastrar-usuario.jsp">Cadastrar Usuário</a><br />		
+			<a href="cadastrar-cliente.jsp">Cadastrar Cliente</a><br /> 	
+			<a href="cadastrar-fornecedor.jsp">Cadastrar Fornecedor</a><br /> 
+		 	<a href="cadastrar-produto.jsp">Cadastrar Categoria</a><br />
+		 	<a href="cadastrar-produto.jsp">Cadastrar Produto</a><br />
 		 
 		 </div>
-	    <div
-	    ><form action="buscaClientes" method="post">
+	    <div>
+	    <form action="buscaClientes" method="post">
 	    
-	    <a href="${pageContext.request.contextPath}/buscaClientes?filtro=" > Pesquisar Clientes</a><br />
+	    	<a href="buscaClientes?filtro=" > Pesquisar Clientes</a><br />
 	    </form>
-	    	<a href="/buscaClientes">x Pesquisar Clientes</a><br />		
-			<a href="${pageContext.request.contextPath}/index.jsp">x Pesquisar Usuários</a><br /> 	
-			<a href="${pageContext.request.contextPath}/index.jsp">x Pesquisar Fornecedor</a><br /> 
-		 	<a href="${pageContext.request.contextPath}/index.jsp">x Pesquisar Categoria</a><br />
-		 	<a href="${pageContext.request.contextPath}/index.jsp">x Pesquisar Produto</a><br />
+	    
+	    <form action="buscaProdutos" method="post">
+	    	<a href="buscaProdutos?filtro="> Pesquisar Produto</a><br />
+	    </form>
+	    	<a href="buscaClientes">x Pesquisar Clientes</a><br />		
+			<a href="index.jsp">x Pesquisar Usuários</a><br /> 	
+			<a href="index.jsp">x Pesquisar Fornecedor</a><br /> 
+		 	<a href="index.jsp">x Pesquisar Categoria</a><br />
+		 	
 		 </div>
 	    <div>
-	    	<a href="${pageContext.request.contextPath}/index.jsp">x Lista de Orçamento</a><br />		
-			<a href="${pageContext.request.contextPath}/index.jsp">x Realizar Vendas</a><br /> 	
-			<a href="${pageContext.request.contextPath}/index.jsp">x Verificar Atividades</a><br /> 
-		 	<a href="${pageContext.request.contextPath}/index.jsp">x Relatórios</a><br />
-		 	<a href="${pageContext.request.contextPath}/index.jsp">x Estimativas</a><br />
+	    	<a href="index.jsp">x Lista de Orçamento</a><br />		
+			<a href="index.jsp">x Realizar Vendas</a><br /> 	
+			<a href="index.jsp">x Verificar Atividades</a><br /> 
+		 	<a href="index.jsp">x Relatórios</a><br />
+		 	<a href="index.jsp">x Estimativas</a><br />
 		 </div>
 	    </div>
 	    

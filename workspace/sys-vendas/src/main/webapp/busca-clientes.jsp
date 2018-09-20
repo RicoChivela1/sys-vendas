@@ -23,7 +23,7 @@
 	
 <form action="buscaClientes" method="post">
 	<div>
-	<div class="esquerda">		
+	<div class="esquerda" style=" width: 30%">		
 		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" /> 
 	</div>
 	<div class="direita">		

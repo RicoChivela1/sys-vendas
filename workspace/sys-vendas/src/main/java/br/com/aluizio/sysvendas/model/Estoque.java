@@ -43,8 +43,9 @@ public class Estoque {
 
 	@Override
 	public String toString() {
-		return "Estoque [id=" + id + ", qtdEntrada=" + qtdEntrada + ", qtdSaida=" + qtdSaida + ", qtdMinima="
-				+ qtdMinima + "]";
+		return "- Qtd. Entrada=" + qtdEntrada
+				+ "- Qtd. Saida=" + qtdSaida 
+				+ "- Qtd. Mínima=" + qtdMinima;
 	}
 
 }

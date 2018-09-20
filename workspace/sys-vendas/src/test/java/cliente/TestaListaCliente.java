@@ -18,7 +18,7 @@ public class TestaListaCliente {
 		Cliente c = new Cliente();
 		c.setNome("Aluizio");
 		List<Cliente> clientes = dao.buscaPorNome(c);
-		clientes.forEach(cli -> System.out.println(cli));
+		clientes.forEach(cli -> System.out.println(cli.getCelular()));
 		System.out.println("Fim da listagem");
 	}
 }

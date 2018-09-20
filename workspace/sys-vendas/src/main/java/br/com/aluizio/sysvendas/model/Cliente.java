@@ -106,7 +106,7 @@ public class Cliente{
 	}
 
 	public String getCelular() {
-		return this.celular;
+		return celular;
 	}
 
 	public void setCelular(String celular) {
@@ -130,19 +130,15 @@ public class Cliente{
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	
 
-	
-	
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", pessoa=" + pessoa + ", situacao=" + situacao + ", sexo=" + sexo + ", nome="
 				+ nome + ", sobreNome=" + sobreNome + ", nascimento=" + nascimento + ", observacao=" + observacao
-				+ ", email=" + email + ", celular=" + celular + ", enderecos=" + enderecos + "]";
+				+ ", email=" + email + ", celular=" + celular + ", endereco=" + endereco + ", enderecos=" + enderecos
+				+ ", df=" + df + "]";
 	}
-
 	
-
-	
+		
 
 }

@@ -246,7 +246,7 @@ public class ClienteDao {
 				
 				cliente.setObservacao(rs.getString("observacao"));
 				cliente.setEmail(rs.getString("email"));
-				cliente.setCelular("celular");
+				cliente.setCelular(rs.getString("celular"));
 				
 			}
 		} catch (SQLException e) {

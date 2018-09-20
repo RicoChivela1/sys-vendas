@@ -1,7 +1,7 @@
 package br.com.aluizio.sysvendas.model;
 
 /**
- * @author Aluizio Monteiro
+ * @author Aluizio Monteiro novo
  */
 public class Produto extends Categoria {
 	private Integer id;
@@ -11,7 +11,8 @@ public class Produto extends Categoria {
 	private String volume;
 	private Integer custoUnid;
 	private Integer sugestaoVenda;
-	
+	private String imagem;
+
 	private Estoque estoque;
 	private Categoria categoria;
 
@@ -79,37 +80,6 @@ public class Produto extends Categoria {
 		this.sugestaoVenda = sugestaoVenda;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Produto other = (Produto) obj;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Produto [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", indicacao=" + indicacao
-				+ ", volume=" + volume + ", custoUnid=" + custoUnid + ", sugestaoVenda=" + sugestaoVenda + "]";
-	}
-
 	public Categoria getCategoria() {
 		return categoria;
 	}
@@ -118,5 +88,18 @@ public class Produto extends Categoria {
 		this.categoria = categoria;
 	}
 	
-	
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+
+	@Override
+	public String toString() {
+		return "Produto [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", indicacao=" + indicacao
+				+ ", volume=" + volume + ", custoUnid=" + custoUnid + ", sugestaoVenda=" + sugestaoVenda + ", imagem="
+				+ imagem + ", estoque=" + estoque + ", categoria=" + categoria + "]";
+	}
 }

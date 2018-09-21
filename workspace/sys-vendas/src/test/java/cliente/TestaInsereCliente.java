@@ -30,12 +30,21 @@ public class TestaInsereCliente {
 		Calendar nascimento = new GregorianCalendar(1990, 12, 30);
 		cliente.setNascimento(nascimento);
 		
-		cliente.setObservacao("Conta de teste");
 		cliente.setEmail("insejunior@gemail.com");
-		cliente.setCelular("61-99349-5309");
+		cliente.setCelular("61-99349-5309");	
+
+		cliente.setEndereco("Rua do Batizado");
+		cliente.setBairro("Novo");
+		cliente.setCidade("Ortolãndia");
+		cliente.setComplemento("123");
+		cliente.setNumero("12123");
+		cliente.setUf("df");
+		cliente.setCep("123121233");
+		cliente.setFone("22 322322");
+		cliente.setObservacao("Endereço de casa");
 		
 		ClienteDao dao = new ClienteDao();
-		dao.adicionar(cliente);
+		dao.adicionaAltera(cliente);
 		
 		System.out.println("Cliente cadastrado com sucesso.");
 	}

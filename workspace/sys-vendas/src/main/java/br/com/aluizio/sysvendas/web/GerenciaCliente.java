@@ -13,7 +13,7 @@ import br.com.aluizio.sysvendas.dao.ClienteDao;
 import br.com.aluizio.sysvendas.model.Cliente;
 
 /**
- * Servlet implementation class GerenciaCliente
+ * Servlet responsável pelos botões alterar, excluir e exibir Cliente
  */
 @WebServlet("/gerenciaCliente")
 public class GerenciaCliente extends HttpServlet {

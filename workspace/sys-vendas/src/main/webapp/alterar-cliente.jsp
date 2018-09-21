@@ -18,14 +18,8 @@
 	</div>
 	
 	
+	<form action="adicionaAlteraCliente" method="post">
 	
-	
-	
-	
-	
-	
-	
-	<form action="alterarCliente" method="post">
 	<fieldset class="campo">
 	<legend>Informações pessoais</legend>
 
@@ -85,65 +79,47 @@
 					type="radio" id="situacao2" name="situacao" value="BLOQUEADO">
 				<label for="situacao2">Bloqueado</label>
 			</div>
-			<div class="caixa"><br />
-			<input type="submit" class="btn btn-primary" value="Salvar"> 
-			<input type="hidden" name="clienteId" value="${cliente.id}" />	
-		</div>
+	
 		</div>
 	</fieldset>
-</form>
-
-
-
-
 	
-	<br /><br />
 	
-
-
-	<c:forEach var="e" items="${cliente.enderecos}">
-<form action="alterarCliente" method="post">
 	<fieldset>
 	
-	<legend>Endereço ${e.observacao}</legend>
+	<legend>Endereço ${cliente.observacao}</legend>
 	<div class="esquerda">	
 		<div class="caixa">
-			Endereço: <input type="text" name="endereco" value="${e.endereco}" size="40" class="form-control" aria-describedby="sizing-addon3" required="required"> 
-			Bairro: <input type="text" name="bairro" value="${e.bairro}" size="20" class="form-control" aria-describedby="sizing-addon3">
-			Cidade: <input type="text" name="cidade" value="${e.cidade}" size="20" class="form-control" aria-describedby="sizing-addon3">  
-			Complemento: <input type="text" name="complemento" value="${e.complemento}" size="20" class="form-control" aria-describedby="sizing-addon3">
+			Endereço: <input type="text" name="endereco" value="${cliente.endereco}" size="40" class="form-control" aria-describedby="sizing-addon3" required="required"> 
+			Bairro: <input type="text" name="bairro" value="${cliente.bairro}" size="20" class="form-control" aria-describedby="sizing-addon3">
+			Cidade: <input type="text" name="cidade" value="${cliente.cidade}" size="20" class="form-control" aria-describedby="sizing-addon3">  
+			Complemento: <input type="text" name="complemento" value="${cliente.complemento}" size="20" class="form-control" aria-describedby="sizing-addon3">
 		</div>
 		
 	</div>
 	
-	
 	<div class="direita">
 		<div class="caixa">
-			UF: <input type="text" name="uf" value="${e.uf} "size="2" class="form-control" aria-describedby="sizing-addon3"> 
-			CEP: <input type="text" name="cep" value="${e.cep}" size="20" class="form-control" aria-describedby="sizing-addon3">
-			Fone: <input type="text" name="fone" value="${e.fone}" size="20" class="form-control" aria-describedby="sizing-addon3">
-			Observação: <input type="text" name="observacao" value="${e.observacao}" size="40" class="form-control" aria-describedby="sizing-addon3">
-			Número: <input type="text" name="numero" value="${e.numero}"size="10" class="form-control" aria-describedby="sizing-addon3"> 
+			UF: <input type="text" name="uf" value="${cliente.uf} "size="2" class="form-control" aria-describedby="sizing-addon3"> 
+			CEP: <input type="text" name="cep" value="${cliente.cep}" size="20" class="form-control" aria-describedby="sizing-addon3">
+			Fone: <input type="text" name="fone" value="${cliente.fone}" size="20" class="form-control" aria-describedby="sizing-addon3">
+			Observação: <input type="text" name="observacao" value="${cliente.observacao}" size="40" class="form-control" aria-describedby="sizing-addon3">
+			Número: <input type="text" name="numero" value="${cliente.numero}"size="10" class="form-control" aria-describedby="sizing-addon3"> 
 		</div>
 			
 	</div>
 	<div class="caixa">
-			<input type="submit" class="btn btn-primary" name="Salvar">
-			<input type="hidden" name="enderecoId" value="${e.id}"> 		
+			<input type="submit" class="btn btn-primary" name="Concluir">
+			<input type="hidden" name="clienteId" value="${cliente.id}"> 		
 		</div>
 	
-		
-	<br /><br />
 	
 	</fieldset>	
 	
-	</form>
-	
-	
-</c:forEach>
+</form>		
 
+</div>
 	
-	
-	</div>
+
+
 </body>
 </html>

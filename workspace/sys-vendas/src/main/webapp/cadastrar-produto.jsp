@@ -55,7 +55,6 @@
       						<span class="input-group-btn" >
         						<button class="btn btn-default" type="button"><a href="http://localhost:8080/sys-vendas/cadastrar-fornecedor.jsp">&#10010;</a></button>
       						</span>
-      		
 						</div>
 					</div>
 	
@@ -71,13 +70,11 @@
 							
 							<span class="input-group-btn" >
         						<button class="btn btn-default" type="button"><a href="http://localhost:8080/sys-vendas/cadastrar-categoria.jsp">&#10010;</a></button>
-      						</span>
-    						
+      						</span>						
       						
 						</div>
 					</div>		
 			</div>
-
 
 				<div class="direita">
 				<div class="caixa">
@@ -104,9 +101,6 @@
 								Mínima:</label> <input type="text" name="qtdMinima" size="30"
 								class="form-control" style="width: 160px;" required="required"> <br />
 						</div>
-
-
-
 
 						<div class="esquerda">
 							<label for="custoUnid" style="margin-top: 5px; color: maroon;">Custo

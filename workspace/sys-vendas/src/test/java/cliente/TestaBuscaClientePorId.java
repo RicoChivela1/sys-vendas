@@ -6,7 +6,7 @@ import br.com.aluizio.sysvendas.model.Cliente;
 /**
  * TestaBuscaPorNome.java
  * @author Aluizio Monteiro
- * 22 de ago de 2018
+ * 21 de set de 2018
  */
 
 public class TestaBuscaClientePorId {
@@ -14,7 +14,7 @@ public class TestaBuscaClientePorId {
 	public static void main(String[] args) {
 		//id buscado
 		Cliente clienteBuscado = new Cliente();
-		clienteBuscado.setId(1);
+		clienteBuscado.setId(24);
 		
 		//cria o dao
 		ClienteDao dao = new ClienteDao();
@@ -24,13 +24,6 @@ public class TestaBuscaClientePorId {
 		
 		//Imprime tudo
 		System.out.println(cliente);
-		
-		//imprime um atributo do primeiro item
-		System.out.println(cliente.getEnderecos().get(1).getCidade());
-		
-		//imprime só os enderecos
-		System.out.println(cliente.getEnderecos());
-		
 		
 	}
 }

@@ -74,6 +74,9 @@ public class ProdutoDao {
 		}
 	}
 
+	
+	
+	
 	// Adicionar Produto
 	public void adicionar(Produto produto) {
 		String sql = "insert into Produtos (nome, descricao, indicacao, "

@@ -51,7 +51,7 @@ public class GerenciaProdutos extends HttpServlet {
     		clienteBuscado.setId(id);
     		
     		//busca cliente pelo id e o coloca na requisição
-			Cliente cliente = new ClienteDao().buscaPorId(clienteBuscado);
+			Cliente cliente = (Cliente) new ClienteDao().buscaPorId(clienteBuscado);
     		request.setAttribute("cliente", cliente);
     	
     		//formulário de alteração
@@ -77,6 +77,4 @@ public class GerenciaProdutos extends HttpServlet {
     	RequestDispatcher rd = request.getRequestDispatcher(pagina);
 		rd.forward(request, response);
 	}
-	
-
 }

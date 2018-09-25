@@ -34,12 +34,32 @@ import br.com.aluizio.sysvendas.model.ProdutoFornecedor;
 		maxRequestSize = 1024 * 1024 * 4 // limite da requisição 4MB
 )
 
-@WebServlet("/novoProduto")
-public class NovoProduto extends HttpServlet {
+@WebServlet("/adicionaProduto")
+public class AdicionaProduto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		String message = "";
+
+		// Cria produto
+		Produto produto = new Produto();
+
+		// Verifica se adiciona ou atualiza
+		System.out.println("Id String "+req.getParameter("produtoId"));
+		if ( req.getParameter("produtoId") != null) {
+			System.out.println("Id String "+req.getParameter("produtoId"));
+			produto.setId(Integer.parseInt(req.getParameter("produtoId")));
+			message = "Produto atualizado com sucesso.";
+		} else {
+			message = "Produto adicionado com sucesso.";
+		}
+		
+
+		
+		//recebe a request
+		
+		
 		//imagem separa em uma classe que recebe request e retorna string
 
 		// Path da pasta no computador
@@ -77,19 +97,15 @@ public class NovoProduto extends HttpServlet {
 		
 		// Popula Estoque
 		Estoque estoque = new Estoque();
-		estoque.setQtdEntrada(Integer.parseInt(req.getParameter("qtdEstoque")));
 		
+		estoque.setQtdEntrada( Integer.parseInt(req.getParameter("qtdEntrada")));
 		estoque.setQtdMinima(Integer.parseInt(req.getParameter("qtdMinima")));
-		
-		estoque.setQtdSaida(Integer.parseInt(req.getParameter("qtdMinima")));
-				
 		
 		EstoqueDao estoqueDao = new EstoqueDao();
 		estoqueDao.adicionar(estoque);
 		
-		// Popula Produto
-		Produto produto = new Produto();
 		
+		//Define se é uma nova relação ou uma relação já existente
 		int idCategoria = new CategoriaDao().buscaMaiorId();
 		Categoria c = new Categoria();
 		c.setId(idCategoria);
@@ -111,11 +127,20 @@ public class NovoProduto extends HttpServlet {
 		//seta a imagem
 		String caminho = String.valueOf(arquivo);
 		caminho = caminho.replace("\\", "\\");
+		
+		
+		
+		
+		
+		
+		//retorna caminho
+		
+		
+		
 		produto.setImagem(caminho);
 		
-		
 		ProdutoDao produtoDao = new ProdutoDao();
-		produtoDao.adicionar(produto);
+		produtoDao.adicionaAltera(produto);
 
 		//Faz busca pelo listbox fornecedor retornando o id da seleção
 		int idFornecedor = Integer.parseInt(req.getParameter("fornecedor"));
@@ -130,7 +155,7 @@ public class NovoProduto extends HttpServlet {
 		
 		new ProdutoFornecedorDao().relacionar(produtoFornecedor);
 
-		JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso");
+		JOptionPane.showMessageDialog(null, message);
 
 		RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
 		rd.forward(req, resp);

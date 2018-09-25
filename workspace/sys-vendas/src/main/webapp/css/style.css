@@ -55,3 +55,7 @@ fieldset legend {
     border-left: 1px solid blue;
 }
 
+imagem.input[type="file"] {
+  display: none;
+}
+

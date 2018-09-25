@@ -8,7 +8,7 @@ public class TestaEstoque {
 		
 		
 		Estoque estoqueBuscado = new Estoque();
-		estoqueBuscado.setId(1);
+		estoqueBuscado.setId(13);
 		
 		EstoqueDao dao = new EstoqueDao();
 		System.out.println(dao.buscaEstoqueId(estoqueBuscado));

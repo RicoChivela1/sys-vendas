@@ -15,6 +15,10 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/bootstrap.min.css"  >
 
+<script type="text/javascript" src="js/script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+
 </head>
 <body>
 	<div class="principal">
@@ -22,77 +26,21 @@
 			<h1>Cadastro de Produtos</h1>
 		</div>
 
-<form action="novoProduto" method="post"   class="md-form" >
+<form action="adicionaAlteraProduto" method="post"   class="md-form" enctype="multipart/form-data">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-<div id="wrapper">       
-    <input id="fileUpload" type="file"><br />
-    <div id="image-holder"></div>
-    
-    <script type="text/javascript">
-
-</script>
-    
-</div>
-
-<script type="text/javascript">
-
-$("#fileUpload").on('change', function () {
- 
-    if (typeof (FileReader) != "undefined") {
- 
-        var image_holder = $("#image-holder");
-        image_holder.empty();
- 
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $("<img />", {
-                "src": e.target.result,
-                "class": "thumb-image"
-            }).appendTo(image_holder);
-        }
-        image_holder.show();
-        reader.readAsDataURL($(this)[0].files[0]);
-    } else{
-        alert("Este navegador nao suporta FileReader.");
-    }
-});
-</script>
-  ..  
-    
-    
-    ...
-    
-    <input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="js/vendor/jquery.ui.widget.js"></script>
-<script src="js/jquery.iframe-transport.js"></script>
-<script src="js/jquery.fileupload.js"></script>
-<script>
-$(function () {
-    $('#fileupload').fileupload({
-        dataType: 'json',
-        done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                $('<p/>').text(file.name).appendTo(document.body);
-            });
-        }
-    });
-});
-</script>
-
-
-
-
-
-.....
-    
     
 <fieldset class="campo">
-			<legend>Dados do Produto</legend>
+	<legend>Dados do Produto</legend>
     
+	<div class="esquerda">
+	<div id=""> 
+		      
+  		<input type="file" name="imagem" id="imagem" onchange="previewImagem()" required="required"><br /><br />
+        <img style="width: 150px; height: 150px;"><br />
+   
+	</div><br /><br />
 			<div class="esquerda">
+			</div>
 					<div class="esquerda">
 						<div class="caixa">
 							<label for="fornecedor">Fornecedor:</label> 
@@ -105,14 +53,11 @@ $(function () {
 							</select>
       						
       						<span class="input-group-btn" >
-        						<button class="btn btn-default" type="button"><a href="http://localhost:8180/sys-vendas/cadastrar-fornecedor.jsp">&#10010;</a></button>
+        						<button class="btn btn-default" type="button"><a href="http://localhost:8080/sys-vendas/cadastrar-fornecedor.jsp">&#10010;</a></button>
       						</span>
-      		
-      		
 						</div>
 					</div>
 	
-
 					<div class="direita">
 						<div class="caixa">
 							<label for="categoria">Categoria:</label> 
@@ -124,26 +69,21 @@ $(function () {
 							</select>
 							
 							<span class="input-group-btn" >
-        						<button class="btn btn-default" type="button"><a href="http://localhost:8180/sys-vendas/cadastrar-categoria.jsp">&#10010;</a></button>
-      						</span>
-      						
+        						<button class="btn btn-default" type="button"><a href="http://localhost:8080/sys-vendas/cadastrar-categoria.jsp">&#10010;</a></button>
+      						</span>						
       						
 						</div>
-					</div>
+					</div>		
+			</div>
 
-
-					<div class="caixa">
+				<div class="direita">
+				<div class="caixa">
 						<label for="nome">Nome:</label> 
 						<input required="required" name="nome"size="40" class="form-control" >
 
 						<label for="descricao">Descrição:</label> 
 						<input type="text" name="descricao" size="40" class="form-control" >
-					</div>
-			</div>
-
-
-				<div class="direita">
-					<div class="caixa">
+					
 						<label for="indicacao" style="margin-top: 4px;">Indicação:</label>
 						<input type="text" name="indicacao" size="40" class="form-control"> 
 						
@@ -161,9 +101,6 @@ $(function () {
 								Mínima:</label> <input type="text" name="qtdMinima" size="30"
 								class="form-control" style="width: 160px;" required="required"> <br />
 						</div>
-
-
-
 
 						<div class="esquerda">
 							<label for="custoUnid" style="margin-top: 5px; color: maroon;">Custo
@@ -185,11 +122,8 @@ $(function () {
 			<input type="submit" class="btn btn-primary" name="Enviar"> 
 			<input type="reset" class="btn btn-default" name="Limpar">		
 		</div>
-		
-		
-		
-</fieldset>
-		
+				
+</fieldset>		
 
 </form>
 

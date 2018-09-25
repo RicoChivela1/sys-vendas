@@ -22,7 +22,7 @@ public class TestaAdicionaProduto {
 		produto.setSugestaoVenda(2000);
 		
 		ProdutoDao dao = new ProdutoDao();
-		dao.adicionar(produto);
+		dao.adicionaAltera(produto);
 
 		System.out.println("Produto adicionado.");
 	}

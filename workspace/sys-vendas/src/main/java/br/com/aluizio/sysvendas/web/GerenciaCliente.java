@@ -13,7 +13,9 @@ import br.com.aluizio.sysvendas.dao.ClienteDao;
 import br.com.aluizio.sysvendas.model.Cliente;
 
 /**
- * Servlet responsável pelos botões alterar, excluir e exibir Cliente
+ * Servlet responsável pelas funcionalidades dos botões
+ * da página busca-clientes.jsp.
+ * Recebe os ids dos clientes
  */
 @WebServlet("/gerenciaCliente")
 public class GerenciaCliente extends HttpServlet {

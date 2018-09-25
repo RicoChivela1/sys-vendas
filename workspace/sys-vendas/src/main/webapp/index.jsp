@@ -33,7 +33,7 @@
 	    	<a href="cadastrar-usuario.jsp">Cadastrar Usuário</a><br />		
 			<a href="cadastrar-cliente.jsp">Cadastrar Cliente</a><br /> 	
 			<a href="cadastrar-fornecedor.jsp">Cadastrar Fornecedor</a><br /> 
-		 	<a href="cadastrar-produto.jsp">Cadastrar Categoria</a><br />
+		 	<a href="cadastrar-categoria.jsp">Cadastrar Categoria</a><br />
 		 	<a href="cadastrar-produto.jsp">Cadastrar Produto</a><br />
 		 
 		 </div>

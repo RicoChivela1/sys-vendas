@@ -9,6 +9,7 @@ import java.util.List;
 
 import br.com.aluizio.sysvendas.jdbc.ConnectionFactory;
 import br.com.aluizio.sysvendas.model.Categoria;
+import br.com.aluizio.sysvendas.model.Produto;
 
 /**
  * CategoriaDao.java
@@ -93,6 +94,28 @@ public class CategoriaDao {
 		}
 		
 	}
+	
+	// Busca Categoria pelo id do produto
+		public Categoria buscaPorId(Produto produto) {
+			Categoria categoria = new Categoria();
+			String sql = "select * from Categorias join Produtos "
+					+ " on Categorias.id = Produtos.fk_categoria where Produtos.id=?";
+
+			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+				stmt.setInt(1, produto.getId());
+				System.out.println("Id do Produto: "+produto.getId());
+				ResultSet rs = stmt.executeQuery();
+				if (rs.next()) {
+					
+					categoria.setId(rs.getInt("id"));
+					categoria.setNome(rs.getString("nome"));
+				}
+
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+			return categoria;
+		}
 	
 	
 

@@ -31,7 +31,7 @@ public class TestaAlteraProduto {
 		produto.setId(6);
 
 		ProdutoDao dao = new ProdutoDao();
-		dao.atualizar(produto);
+		dao.adicionaAltera(produto);
 
 	}
 

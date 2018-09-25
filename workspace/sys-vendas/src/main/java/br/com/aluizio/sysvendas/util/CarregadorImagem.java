@@ -31,7 +31,7 @@ public class CarregadorImagem extends HttpServlet
 
     	ProdutoDao dao = new ProdutoDao();
     	
-    	//camininho da imagem;
+    	//camininho da imagem baseado no id do produto;
     	byte[] imageData = carregarImagem(dao.recuperaImagem(id));
     	
     	response.setContentType("image/jpeg");

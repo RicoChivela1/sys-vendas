@@ -56,16 +56,16 @@
 		    <tr>
 		      <th scope="row">${produto.id}</th>
 		      <td><img  src="./carregadorImagem?id=${produto.id}" width="100" height="100"  /></td>
-				<td>-${produto.nome}
+				<td>-${produto.nome}<br />
 					-${produto.volume}
 				</td>
 				<td>-${produto.descricao}<br />
 					-${produto.indicacao}
 				</td>
 				
-			    <td>${produto.custoUnid}</td>
-				<td>${produto.sugestaoVenda}</td>
-				<td>${produto.estoque.qtdEntrada-produto.estoque.qtdSaida}</td>
+			    <td>R$ ${produto.custoUnid}</td>
+				<td style="color: red; font-size: 22px; font-style: oblique;">R$ ${produto.sugestaoVenda}</td>
+				<td>${produto.estoque.qtdDisponivel}</td>
 
 		 
 

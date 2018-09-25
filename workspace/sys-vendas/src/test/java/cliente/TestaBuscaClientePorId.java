@@ -20,7 +20,7 @@ public class TestaBuscaClientePorId {
 		ClienteDao dao = new ClienteDao();
 		
 		//retorna cliente e respectívos endereços
-		Cliente cliente = dao.buscaPorId(clienteBuscado);
+		Cliente cliente = (Cliente) dao.buscaPorId(clienteBuscado);
 		
 		//Imprime tudo
 		System.out.println(cliente);

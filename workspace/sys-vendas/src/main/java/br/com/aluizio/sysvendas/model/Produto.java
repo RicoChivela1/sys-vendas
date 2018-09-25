@@ -11,6 +11,7 @@ public class Produto extends Categoria {
 	private String volume;
 	private Integer custoUnid;
 	private Integer sugestaoVenda;
+	
 	private String imagem;
 
 	private Estoque estoque;
@@ -102,4 +103,8 @@ public class Produto extends Categoria {
 				+ ", volume=" + volume + ", custoUnid=" + custoUnid + ", sugestaoVenda=" + sugestaoVenda + ", imagem="
 				+ imagem + ", estoque=" + estoque + ", categoria=" + categoria + "]";
 	}
+
+	
+
+	
 }

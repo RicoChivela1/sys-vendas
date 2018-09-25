@@ -14,11 +14,16 @@ public class TestaAlteraEstoque {
 	public static void main(String[] args) {
 		// Alterar
 		Estoque estoque = new Estoque();
-
-		estoque.setQtdEntrada(20);
+		estoque.setId(27);
+		estoque.setQtdEntrada(10);
 		estoque.setQtdMinima(10);
 		estoque.setQtdSaida(10);
-		estoque.setId(1);
+		
+		Estoque estoqueBuscado = new EstoqueDao().buscaEstoqueId(estoque);
+	
+		
+		estoque.setQtdEntrada(estoque.getQtdEntrada()+estoqueBuscado.getQtdEntrada());
+
 
 		EstoqueDao dao = new EstoqueDao();
 		dao.alterar(estoque);

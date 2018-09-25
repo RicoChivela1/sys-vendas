@@ -19,7 +19,7 @@ public class EstoqueDao {
 	//Busca Estoque por Id
 	public Estoque buscaEstoqueId(Estoque estoqueBuscado) {
 		String sql = "select * from Estoques "
-				+ "where id = ?";
+				+ " where id=?";
 		
 		try (PreparedStatement stmt = connection.prepareStatement(sql)){
 			stmt.setInt(1, estoqueBuscado.getId());
@@ -30,7 +30,8 @@ public class EstoqueDao {
 				estoque.setQtdEntrada(rs.getInt("qtdEntrada"));
 				estoque.setQtdSaida(rs.getInt("qtdSaida"));
 				estoque.setQtdMinima(rs.getInt("qtdMinima"));
-				
+				estoque.setQtdDisponivel(rs.getInt("qtdDisponivel"));
+				estoque.setId(rs.getInt("id"));
 			}
 			return estoque;
 		} catch (SQLException e) {
@@ -43,14 +44,13 @@ public class EstoqueDao {
 	
 	//Alterar estoque
 	public void alterar(Estoque estoque) {
-		String sql = "Update Estoques set qtdEntrada=?, qtdSaida=?, qtdMinima=?"
+		String sql = "Update Estoques set qtdEntrada=?, qtdMinima=?"
 				+ " where id=?";
 				
 		try (PreparedStatement stmt = connection.prepareStatement(sql)){
 			stmt.setInt(1, estoque.getQtdEntrada());
-			stmt.setInt(2, estoque.getQtdSaida());
-			stmt.setInt(3, estoque.getQtdMinima());
-			stmt.setInt(4, estoque.getId());
+			stmt.setInt(2, estoque.getQtdMinima());
+			stmt.setInt(3, estoque.getId());
 			
 			System.out.println("Estoque alterado com sucesso");
 			stmt.execute();
@@ -62,13 +62,15 @@ public class EstoqueDao {
 
 	//Adiciona Estoque
 	public void adicionar(Estoque estoque) {
-		String sql = "Insert Into Estoques (qtdEntrada, qtdSaida, qtdMinima)"
-				+ " values (?,?,?)";
+		String sql = "Insert Into Estoques "
+				+ " (qtdEntrada, qtdMinima)"
+				+ " values (?,?)";
 		
 		try (PreparedStatement stmt = connection.prepareStatement(sql)){
 			stmt.setInt(1, estoque.getQtdEntrada());
-			stmt.setInt(2, estoque.getQtdSaida());
-			stmt.setInt(3, estoque.getQtdMinima());
+
+			stmt.setInt(2, estoque.getQtdMinima());
+
 			stmt.execute();
 			System.out.println("Estoque adicionado com sucesso");
 		} catch (SQLException e) {

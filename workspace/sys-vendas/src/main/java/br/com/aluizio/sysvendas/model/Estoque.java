@@ -8,6 +8,7 @@ public class Estoque {
 	private Integer qtdEntrada;
 	private Integer qtdSaida;
 	private Integer qtdMinima;
+	private Integer qtdDisponivel;
 
 	public Integer getId() {
 		return id;
@@ -41,11 +42,22 @@ public class Estoque {
 		this.qtdMinima = qtdMinima;
 	}
 
+	public Integer getQtdDisponivel() {
+		return qtdDisponivel;
+	}
+
+	public void setQtdDisponivel(Integer qtdDisponivel) {
+		this.qtdDisponivel = qtdDisponivel;
+	}
+
 	@Override
 	public String toString() {
-		return "- Qtd. Entrada=" + qtdEntrada
-				+ "- Qtd. Saida=" + qtdSaida 
-				+ "- Qtd. Mínima=" + qtdMinima;
+		return "Estoque [id=" + id + ", qtdEntrada=" + qtdEntrada + ", qtdSaida=" + qtdSaida + ", qtdMinima="
+				+ qtdMinima + ", qtdDisponivel=" + qtdDisponivel + "]";
 	}
+	
+	
+
+
 
 }

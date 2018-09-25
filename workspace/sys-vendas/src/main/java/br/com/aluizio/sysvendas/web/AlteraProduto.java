@@ -41,8 +41,15 @@ public class AlteraProduto extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String message = "Produto atualizado com sucesso.";
-		String produtoId = req.getParameter("produtoId");
+
+		int produtoId = Integer.parseInt(req.getParameter("produtoId"));
+		int categoriaId = Integer.parseInt(req.getParameter("categoriaId"));
+		int fornecedorId = Integer.parseInt(req.getParameter("fornecedorId"));
 		int estoqueId = Integer.parseInt(req.getParameter("estoqueId"));
+		int custoUnid = Integer.parseInt(req.getParameter("custoUnid"));
+		int sugestaoVenda = Integer.parseInt(req.getParameter("sugestaoVenda"));
+		int qtdAdicional = Integer.parseInt(req.getParameter("qtdAdicional"));
+		int qtdMinima = Integer.parseInt(req.getParameter("qtdMinima"));
 
 		// imagem separa em uma classe que recebe request e retorna string
 
@@ -68,87 +75,65 @@ public class AlteraProduto extends HttpServlet {
 
 		// fim da imagem
 
-		// Cria produto
-		Produto produto = new Produto();
-
-		produto.setId(Integer.parseInt(produtoId));
-
-		produto.setNome(req.getParameter("nome"));
-		produto.setDescricao(req.getParameter("descricao"));
-		produto.setIndicacao(req.getParameter("indicacao"));
-		produto.setVolume(req.getParameter("volume"));
-		produto.setCustoUnid(Integer.parseInt(req.getParameter("custoUnid")));
-		produto.setSugestaoVenda(Integer.parseInt(req.getParameter("sugestaoVenda")));
-
-		// Busca a categria pelo id do produto
-		
 		// Popula Categoria
 		Categoria categoria = new Categoria();
-		
-		int categoriaId = Integer.parseInt(req.getParameter("categoriaId"));
 		categoria.setId(categoriaId);
-		
 		categoria.setNome(req.getParameter("categoria"));
-
-		//change categoria of the produto
 		CategoriaDao categoriaDao = new CategoriaDao();
 		categoriaDao.alterar(categoria);
 
-		// Busca o estoque do produto em questão
+		// Cria este estoque para levar o id a ser buscado
 		Estoque estoque = new Estoque();
 		estoque.setId(estoqueId);
-		Estoque estoqueBuscado = new EstoqueDao().buscaEstoqueId(estoque);
-		
-		System.out.println("Estoque buscado id: "+estoqueId);
 
-		// Soma valor do input com valor da tabela e seta tudo no db
-		int qtdAdicional = Integer.parseInt(req.getParameter("qtdAdicional"));
-		System.out.println("QTD Entrada: "+qtdAdicional);
-		
-		int qtdMinima = Integer.parseInt(req.getParameter("qtdMinima"));
+		// Busca o estoque d banco para ser somado
+		Estoque estoqueBuscado = new EstoqueDao().buscaEstoqueId(estoque);
+
+		// Soma valor do input com valor que tem no banco 
 		qtdAdicional += estoqueBuscado.getQtdEntrada();
 		
-		System.out.println("QTD ATUALIZADA"+qtdAdicional);
-		
 		estoque.setQtdEntrada(qtdAdicional);
-		System.out.println("Nova entrada de Estoque: "+estoque.getQtdEntrada());
-		
 		estoque.setQtdMinima(qtdMinima);
-
 		EstoqueDao estoqueDao = new EstoqueDao();
 		estoqueDao.alterar(estoque);
-
-		int idCategoria = new CategoriaDao().buscaMaiorId();
-		Categoria c = new Categoria();
-		c.setId(idCategoria);
 
 		// seta a imagem
 		String caminho = String.valueOf(arquivo);
 		caminho = caminho.replace("\\", "\\");
 
-		// retorna caminho
+		// Cria produto
+		Produto produto = new Produto();
+		produto.setId(produtoId);
+		produto.setNome(req.getParameter("nome"));
+		produto.setDescricao(req.getParameter("descricao"));
+		produto.setIndicacao(req.getParameter("indicacao"));
+		produto.setVolume(req.getParameter("volume"));
+		produto.setCustoUnid(custoUnid);
+		produto.setSugestaoVenda(sugestaoVenda);
 		produto.setImagem(caminho);
 
-		produto.setCategoria(c);
+		produto.setCategoria(categoria);
 		produto.setEstoque(estoque);
 
 		ProdutoDao produtoDao = new ProdutoDao();
 		produtoDao.adicionaAltera(produto);
 
-		// Faz busca pelo listbox fornecedor retornando o id da seleção
-		int idFornecedor = Integer.parseInt(req.getParameter("fornecedor"));
+		/*// Recebe o listBox fornecedor
+		Fornecedor fornecedor = new Fornecedor();
+		fornecedor.setId(fornecedorId);
+		fornecedor.setNome(req.getParameter("fornecedor"));
+		new FornecedorDao().alterar(fornecedor);*/
 
-		// Faz busca do último produto adicionado e retorna
-		int idProduto = new ProdutoDao().buscaMaiorId();
 
-		// Salva o relacionamento
+		System.out.println("Nome do Id: "+fornecedorId);
+		System.out.println("Id do Produto: "+produtoId);
+		
+	//Atualizar relacionamento
 		ProdutoFornecedor produtoFornecedor = new ProdutoFornecedor();
-
-		produtoFornecedor.setIdFornecedor(idFornecedor);
-		produtoFornecedor.setIdProduto(idProduto);
-
-		new ProdutoFornecedorDao().relacionar(produtoFornecedor);
-
+		produtoFornecedor.setIdFornecedor(fornecedorId);
+		produtoFornecedor.setIdProduto(produtoId);
+		
+		new ProdutoFornecedorDao().alterar(produtoFornecedor);
 		JOptionPane.showMessageDialog(null, message);
 
 		RequestDispatcher rd = req.getRequestDispatcher("buscaProdutos?filtro=");

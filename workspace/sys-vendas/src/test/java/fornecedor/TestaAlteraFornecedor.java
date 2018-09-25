@@ -25,9 +25,9 @@ public class TestaAlteraFornecedor {
 		fornecedor.setUf("AL");
 		fornecedor.setFone("41-12123434");
 		fornecedor.setEmail("hinode@hino.com.br");
-		fornecedor.setObservacao("Dados fictício");
+		fornecedor.setObservacao("Dados Fictício");
 		
-		fornecedor.setId(1);
+		fornecedor.setId(9);
 		
 		FornecedorDao dao = new FornecedorDao();
 		dao.alterar(fornecedor);

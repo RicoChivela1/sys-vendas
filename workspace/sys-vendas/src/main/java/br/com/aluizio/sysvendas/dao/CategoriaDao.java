@@ -80,7 +80,7 @@ public class CategoriaDao {
 		
 	}
 
-	public int buscaMaiorId() {
+	/*public int buscaMaiorId() {
 		String sql = "select max(id) from Categorias";
 		int id = 0;
 		try (PreparedStatement stmt = connection.prepareStatement(sql)){
@@ -93,7 +93,7 @@ public class CategoriaDao {
 			throw new RuntimeException(e);
 		}
 		
-	}
+	}*/
 	
 	// Busca Categoria pelo id do produto
 		public Categoria buscaPorId(Produto produto) {

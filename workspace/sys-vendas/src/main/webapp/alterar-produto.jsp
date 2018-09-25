@@ -44,12 +44,13 @@
 			</div>
 					<div class="esquerda">
 						<div class="caixa">
-							<label for="fornecedor">Fornecedor:</label> 
+							<label for="fornecedorId">Fornecedor:</label> 
 							
-							<select name="fornecedor" style="width: 170px; height: 38px" class="form-control" >
+							<select name="fornecedorId" style="width: 170px; height: 38px" class="form-control" >
 								<option value="0">SELECIONE</option>
-								<c:forEach var="lista" items="${fornecedorDao.list}">
-									<option value="${lista.id}">${lista.nome}</option>
+								<c:forEach var="fornecedor" items="${fornecedorDao.list}">
+									<option value="${fornecedor.id}">${fornecedor.nome}</option>
+								<input type="hidden" value="${fornecedor.nome}" name="fornecedor" >
 								</c:forEach>
 							</select>
       						
@@ -68,7 +69,7 @@
 									<option value="${lista.nome}">${lista.nome}</option>
 								</c:forEach>
 							</select>
-							<input type="hidden" name="categoriaId" value="${produto.categoria.id}">
+					
 							<span class="input-group-btn" >
         						<button class="btn btn-default" type="button"><a href="http://localhost:8080/sys-vendas/cadastrar-categoria.jsp">&#10010;</a></button>
       						</span>						
@@ -138,6 +139,7 @@
 			<input type="submit" class="btn btn-primary" name="Enviar"> 
 			<input type="hidden" name="produtoId" value="${produto.id}">
 			<input type="hidden" name="estoqueId" value="${produto.estoque.id}">
+			<input type="hidden" name="categoriaId" value="${produto.categoria.id}">
 					
 		</div>
 				

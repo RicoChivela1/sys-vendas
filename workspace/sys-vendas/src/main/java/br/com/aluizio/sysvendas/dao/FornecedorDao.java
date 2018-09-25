@@ -56,7 +56,7 @@ public class FornecedorDao {
 	public void alterar(Fornecedor fornecedor) {
 		String sql = "Update Fornecedores set pessoa=?, nome=?, "
 				+ "cnpjCpf=?, cep=?, endereco=?, bairro=?, cidade=?, complemento=?, "
-				+ "uf=?, fone=?, email=?, observacoes=? where id=?";
+				+ "uf=?, fone=?, email=?, observacao=? where id=?";
 		try (PreparedStatement stmt = connection.prepareStatement(sql)){
 			stmt.setString(1, fornecedor.getPessoa().name());
 			stmt.setString(2, fornecedor.getNome());

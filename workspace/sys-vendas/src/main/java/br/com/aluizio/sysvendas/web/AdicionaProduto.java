@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import javax.swing.JOptionPane;
 
-import br.com.aluizio.sysvendas.dao.CategoriaDao;
 import br.com.aluizio.sysvendas.dao.EstoqueDao;
 import br.com.aluizio.sysvendas.dao.ProdutoDao;
 import br.com.aluizio.sysvendas.dao.ProdutoFornecedorDao;
@@ -40,26 +39,11 @@ public class AdicionaProduto extends HttpServlet {
 
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		String message = "";
+		String message = "Produto adicionado com sucesso.";
 
 		// Cria produto
 		Produto produto = new Produto();
 
-		// Verifica se adiciona ou atualiza
-		System.out.println("Id String "+req.getParameter("produtoId"));
-		if ( req.getParameter("produtoId") != null) {
-			System.out.println("Id String "+req.getParameter("produtoId"));
-			produto.setId(Integer.parseInt(req.getParameter("produtoId")));
-			message = "Produto atualizado com sucesso.";
-		} else {
-			message = "Produto adicionado com sucesso.";
-		}
-		
-
-		
-		//recebe a request
-		
-		
 		//imagem separa em uma classe que recebe request e retorna string
 
 		// Path da pasta no computador
@@ -84,17 +68,10 @@ public class AdicionaProduto extends HttpServlet {
 		
 
 	//fim da imagem
-		
-		
-		
-		// Popula Categoria
-		Categoria categoria = new Categoria();
-		categoria.setNome(req.getParameter("categoria"));
 
-		CategoriaDao categoriaDao = new CategoriaDao();
-		categoriaDao.adicionar(categoria);
-		categoria.setId(categoriaDao.buscaMaiorId());
-		
+	    // Id da categria
+		int categoriaId = Integer.parseInt(req.getParameter("categoriaId"));
+
 		// Popula Estoque
 		Estoque estoque = new Estoque();
 		
@@ -104,17 +81,16 @@ public class AdicionaProduto extends HttpServlet {
 		EstoqueDao estoqueDao = new EstoqueDao();
 		estoqueDao.adicionar(estoque);
 		
-		
-		//Define se é uma nova relação ou uma relação já existente
-		int idCategoria = new CategoriaDao().buscaMaiorId();
-		Categoria c = new Categoria();
-		c.setId(idCategoria);
-		
+		//Após adicionar o estoque, ele busca o id para poder relacionar
 		int idEstoque = new EstoqueDao().buscaMaiorId();
 		Estoque e = new Estoque();
 		e.setId(idEstoque);
-		
-		produto.setCategoria(c);
+	
+	    //Insere a categoria no produto
+		Categoria categoria = new Categoria();
+		categoria.setId(categoriaId);
+		produto.setCategoria(categoria);
+
 		produto.setEstoque(e);
 		
 		produto.setNome(req.getParameter("nome"));
@@ -127,25 +103,17 @@ public class AdicionaProduto extends HttpServlet {
 		//seta a imagem
 		String caminho = String.valueOf(arquivo);
 		caminho = caminho.replace("\\", "\\");
-		
-		
-		
-		
-		
-		
+
 		//retorna caminho
-		
-		
-		
 		produto.setImagem(caminho);
 		
 		ProdutoDao produtoDao = new ProdutoDao();
 		produtoDao.adicionaAltera(produto);
 
-		//Faz busca pelo listbox fornecedor retornando o id da seleção
-		int idFornecedor = Integer.parseInt(req.getParameter("fornecedor"));
+		//Pega id da listbox fornecedor
+		int idFornecedor = Integer.parseInt(req.getParameter("fornecedorId"));
 		
-		//Faz busca do último produto adicionado e retorna
+		//Depois do produto adicionado, este método busca o último id
 		int idProduto = new ProdutoDao().buscaMaiorId();
 		
 		//Salva o relacionamento

@@ -9,8 +9,8 @@ import br.com.aluizio.sysvendas.model.ProdutoFornecedor;
 
 /**
  * ProdutoFornecedorDao.java
- * @author Aluizio Monteiro
- * 28 de ago de 2018
+ * 
+ * @author Aluizio Monteiro 28 de ago de 2018
  */
 
 public class ProdutoFornecedorDao {
@@ -20,23 +20,33 @@ public class ProdutoFornecedorDao {
 		this.connection = new ConnectionFactory().getConnection();
 	}
 
-	//Adiciona Fornecedor
+	// Adiciona Fornecedor
 	public void relacionar(ProdutoFornecedor produtoFornecedor) {
-		String sql = "Insert into Produtos_Fornecedores "
+		String sql = "Insert into Produtos_Fornecedores " 
 				+ " (fk_fornecedor, fk_produto) value (?,?)";
-		
-		try (PreparedStatement stmt = connection.prepareStatement(sql)){
+
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setInt(1, produtoFornecedor.getIdFornecedor());
 			stmt.setInt(2, produtoFornecedor.getIdProduto());
 			stmt.execute();
-			
+
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 	}
-	
-	
-	
-	
-	
+
+	// Alterar Fornecedor
+	public void alterar(ProdutoFornecedor produtoFornecedor) {
+		String sql = "update produtos_fornecedores "
+				+ "set fk_fornecedor=? where fk_produto=?";
+		
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			stmt.setInt(1, produtoFornecedor.getIdFornecedor());
+			stmt.setInt(2, produtoFornecedor.getIdProduto());
+			stmt.execute();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

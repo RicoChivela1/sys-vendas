@@ -44,9 +44,9 @@
 			</div>
 					<div class="esquerda">
 						<div class="caixa">
-							<label for="fornecedor">Fornecedor:</label> 
+							<label for="fornecedorId">Fornecedor:</label> 
 							
-							<select name="fornecedor" style="width: 170px; height: 38px" class="form-control" >
+							<select name="fornecedorId" style="width: 170px; height: 38px" class="form-control" >
 								<option value="0">SELECIONE</option>
 								<c:forEach var="lista" items="${fornecedorDao.list}">
 									<option value="${lista.id}">${lista.nome}</option>
@@ -61,12 +61,12 @@
 	
 					<div class="direita">
 						<div class="caixa">
-							<label for="categoria">Categoria:</label> 
+							<label for="categoriaId">Categoria:</label> 
 							
-						    <select name="categoria" style="width: 170px; height: 38px" class="form-control" >
+						    <select name="categoriaId" style="width: 170px; height: 38px" class="form-control" >
 								<option value="0">SELECIONE</option>
 								<c:forEach var="lista" items="${categoriaDao.list}">
-									<option value="${lista.nome}">${lista.nome}</option>
+									<option value="${lista.id}">${lista.nome}</option>
 								</c:forEach>
 							</select>
 							

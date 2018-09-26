@@ -17,7 +17,7 @@
 			<h1>Cadastro de Usuário</h1>
 		</div>
 
-	<form action="novoUsuario" method="post">
+	<form action="adicionaUsuario" method="post">
 
 	<fieldset class="campo">
 		<legend>Dados do Usuário</legend>

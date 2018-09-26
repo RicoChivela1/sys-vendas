@@ -15,13 +15,13 @@ public class TestaAlteraUsuario {
 	public static void main(String[] args) {
 
 		Usuario usuario = new Usuario();
-		usuario.setId(2);
+		usuario.setId(7);
+		usuario.setNome("Junior");
+		usuario.setLogin("junior");
 		usuario.setSenha("junior");
-		
 		UsuarioDao dao = new UsuarioDao();
-		dao.alterar(usuario);
+		dao.adicionaAltera(usuario);
 		
 		System.out.println("Usuário alterado com sucesso.");
-		
 	}
 }

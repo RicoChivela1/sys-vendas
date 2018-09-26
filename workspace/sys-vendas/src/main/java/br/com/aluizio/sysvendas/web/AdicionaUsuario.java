@@ -18,8 +18,8 @@ import br.com.aluizio.sysvendas.model.Usuario;
  * 29 de ago de 2018
  */
 
-@WebServlet("/novoUsuario")
-public class NovoUsuario extends HttpServlet {
+@WebServlet("/adicionaUsuario")
+public class AdicionaUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
      
 
@@ -29,7 +29,7 @@ public class NovoUsuario extends HttpServlet {
 		usuario.setLogin(request.getParameter("login"));
 		usuario.setSenha(request.getParameter("senha"));
 	
-		new UsuarioDao().adicionar(usuario);
+		new UsuarioDao().adicionaAltera(usuario);
 		
 		JOptionPane.showMessageDialog(null,  "Usuário Adicionado com sucesso");
 		

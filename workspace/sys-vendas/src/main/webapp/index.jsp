@@ -39,15 +39,17 @@
 		 </div>
 	    <div>
 	    <form action="buscaClientes" method="post">
-	    
 	    	<a href="buscaClientes?filtro=" > Pesquisar Clientes</a><br />
 	    </form>
 	    
 	    <form action="buscaProdutos" method="post">
 	    	<a href="buscaProdutos?filtro="> Pesquisar Produto</a><br />
-	    </form>
-	    	<a href="buscaClientes">x Pesquisar Clientes</a><br />		
-			<a href="index.jsp">x Pesquisar Usuários</a><br /> 	
+	    </form>	
+	    
+	    <form action="buscaUsuarios" method="post">
+	    	<a href="buscaUsuario?filtro="> Pesquisar Usuários</a><br />
+	    </form>	
+	     	
 			<a href="index.jsp">x Pesquisar Fornecedor</a><br /> 
 		 	<a href="index.jsp">x Pesquisar Categoria</a><br />
 		 	

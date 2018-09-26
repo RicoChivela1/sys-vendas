@@ -44,7 +44,8 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuário: " + this.nome;
+		return "Usuario [id=" + id + ", nome=" + nome + ", login=" + login + ", senha=" + senha + "]";
 	}
+	
 
 }

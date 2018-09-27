@@ -11,7 +11,7 @@ public class TestaEstoque {
 		estoqueBuscado.setId(13);
 		
 		EstoqueDao dao = new EstoqueDao();
-		System.out.println(dao.buscaEstoqueId(estoqueBuscado));
+		System.out.println(dao.buscaPorId(estoqueBuscado));
 		
 
 		

@@ -30,7 +30,7 @@ public class TestaAlteraFornecedor {
 		fornecedor.setId(9);
 		
 		FornecedorDao dao = new FornecedorDao();
-		dao.alterar(fornecedor);
+		dao.adicionaAltera(fornecedor);
 		System.out.println("Fornecedor atualizado com sucesso");
 
 	}

@@ -22,8 +22,10 @@ public class UsuarioDao implements IDAO {
 		this.connection = new ConnectionFactory().getConnection();
 	}
 
-	// Exclui Usuarios
-	public void excluir(Usuario usuario) {
+	// Excluir Usuários
+	@Override
+	public void remover(Object object) {
+		Usuario usuario = (Usuario) object;
 		String sql = "delete from Usuarios where id=?";
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setInt(1, usuario.getId());
@@ -35,20 +37,8 @@ public class UsuarioDao implements IDAO {
 		}
 	}
 
-	// Alterar Usuario
-	public void alterar(Usuario usuario) {
-		String sql = "Update Usuarios set senha=? where id=?";
 
-		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-			stmt.setString(1, usuario.getSenha());
-			stmt.setInt(2, usuario.getId());
-			stmt.execute();
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-	// Busca Usuario por login e senha
+	// Busca por Login e Senha
 	public Usuario buscaUsuario(Usuario usuarioBuscado) {
 		String sql = "Select * from Usuarios where login=? and senha=?";
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -113,12 +103,6 @@ public class UsuarioDao implements IDAO {
 	}
 
 	@Override
-	public void remover(Object object) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public Object buscaPorId(Object object) {
 		// TODO Auto-generated method stub
 		return null;
@@ -145,9 +129,10 @@ public class UsuarioDao implements IDAO {
 	}
 
 	// Busca por nome
-	public List<Usuario> buscaPorNome(Usuario u) {
-
-		List<Usuario> usuarios = new ArrayList<>();
+	@Override
+	public List<Object> buscaPorNome(Object object) {
+		Usuario u = (Usuario) object;
+		List<Object> usuarios = new ArrayList<>();
 		if (!existUsuario(u)) {
 			System.out.println("Usuario não existe.");
 		} else {

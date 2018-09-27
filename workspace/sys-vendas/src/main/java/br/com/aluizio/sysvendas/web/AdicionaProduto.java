@@ -79,7 +79,7 @@ public class AdicionaProduto extends HttpServlet {
 		estoque.setQtdMinima(Integer.parseInt(req.getParameter("qtdMinima")));
 		
 		EstoqueDao estoqueDao = new EstoqueDao();
-		estoqueDao.adicionar(estoque);
+		estoqueDao.adicionaAltera(estoque);
 		
 		//Após adicionar o estoque, ele busca o id para poder relacionar
 		int idEstoque = new EstoqueDao().buscaMaiorId();

@@ -16,7 +16,7 @@ public class TestaRemoveCategoria {
 		categoria.setId(1);
 		
 		CategoriaDao dao = new CategoriaDao();
-		dao.excluir(categoria);
+		dao.remover(categoria);
 		System.out.println("Categoria removida com sucesso");
 
 	}

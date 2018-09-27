@@ -31,7 +31,7 @@ public class ProdutoDao implements IDAO {
 				Produto produto = new Produto();
 				Estoque estoque = new Estoque();
 				Categoria categoria = new Categoria();
-				
+
 				produto.setId(rs.getInt("id"));
 				produto.setNome(rs.getString("nome"));
 				produto.setDescricao(rs.getString("descricao"));
@@ -142,7 +142,7 @@ public class ProdutoDao implements IDAO {
 
 				Estoque estoque = new Estoque();
 				Categoria categoria = new Categoria();
-				
+
 				produto.setId(rs.getInt("id"));
 				produto.setNome(rs.getString("nome"));
 				produto.setDescricao(rs.getString("descricao"));
@@ -151,16 +151,16 @@ public class ProdutoDao implements IDAO {
 				produto.setCustoUnid(rs.getInt("custoUnid"));
 				produto.setSugestaoVenda(rs.getInt("sugestaoVenda"));
 				produto.setImagem(rs.getString("imagem"));
-				
+
 				estoque.setId(rs.getInt("fk_estoque"));
 				estoque.setQtdEntrada(rs.getInt("qtdEntrada"));
 				estoque.setQtdSaida(rs.getInt("qtdSaida"));
 				estoque.setQtdMinima(rs.getInt("qtdMinima"));
 				estoque.setQtdDisponivel(rs.getInt("qtdDisponivel"));
-				
+
 				categoria.setId(rs.getInt("fk_categoria"));
 				categoria.setNome(rs.getString("nome"));
-				
+
 				produto.setEstoque(estoque);
 				produto.setCategoria(categoria);
 			}
@@ -171,7 +171,7 @@ public class ProdutoDao implements IDAO {
 		return produto;
 	}
 
-	// Busca Imagem separadamente baseado no id do produto 
+	// Busca Imagem separadamente baseado no id do produto
 	public String recuperaImagem(int id) {
 
 		String sql = "select imagem from Produtos where id=?";
@@ -190,9 +190,10 @@ public class ProdutoDao implements IDAO {
 	}
 
 	// Busca Produto por nome
-	public List<Produto> buscaProdutoPorNome(Produto p) {
-
-		List<Produto> produtos = new ArrayList<>();
+	@Override
+	public List<Object> buscaPorNome(Object object) {
+		Produto p = (Produto) object;
+		List<Object> produtos = new ArrayList<>();
 		if (!existProduto(p)) {
 			System.out.println("Produto não existe.");
 		} else {
@@ -248,7 +249,4 @@ public class ProdutoDao implements IDAO {
 			throw new RuntimeException(e);
 		}
 	}
-	
-
-
 }

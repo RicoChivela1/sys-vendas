@@ -11,7 +11,7 @@ public class TestaBuscaPorId {
 		Produto produto = new Produto();
 		
 		produto.setId(20);
-		Categoria categoria = new CategoriaDao().buscaPorId(produto);
+		Categoria categoria = (Categoria) new CategoriaDao().buscaPorId(produto);
 		
 		System.out.println(categoria);
 

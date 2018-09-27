@@ -5,8 +5,8 @@ import br.com.aluizio.sysvendas.model.Estoque;
 
 /**
  * TestaInsereEstoque.java
- * @author Aluizio Monteiro
- * 27 de ago de 2018
+ * 
+ * @author Aluizio Monteiro 27 de ago de 2018
  */
 
 public class TestaInsereEstoque {
@@ -18,10 +18,9 @@ public class TestaInsereEstoque {
 		estoque.setQtdEntrada(20);
 		estoque.setQtdMinima(10);
 		estoque.setQtdSaida(1);
-		
 
 		EstoqueDao dao = new EstoqueDao();
-		dao.adicionar(estoque);
+		dao.adicionaAltera(estoque);
 		System.out.println("Estoque adicionado com sucesso");
 
 	}

@@ -20,13 +20,13 @@ public class BuscaProdutoPorNome {
 	public static void main(String[] args) {
 
 		Produto produtoBuscado = new Produto();
-		produtoBuscado.setNome("rec");
+		produtoBuscado.setNome("");
 
 		ProdutoDao dao = new ProdutoDao();
-		List<Produto> produtos = dao.buscaProdutoPorNome(produtoBuscado);
-		for (Produto produto : produtos) {
+		List<Object> produtos = dao.buscaPorNome(produtoBuscado);
+		for (Object produto : produtos) {
 			System.out.println(produto);
-			System.out.println(produto.getEstoque());
+			System.out.println(((Produto) produto).getEstoque());
 		}
 
 	}

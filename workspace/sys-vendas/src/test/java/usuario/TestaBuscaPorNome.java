@@ -14,10 +14,10 @@ import br.com.aluizio.sysvendas.model.Usuario;
 public class TestaBuscaPorNome {
 	public static void main(String[] args) {
 		Usuario usuarioBuscado = new Usuario();
-		usuarioBuscado.setNome("");
+		usuarioBuscado.setNome("as");
 		
 		UsuarioDao dao = new UsuarioDao();
-		List<Usuario> buscaPorNome = dao.buscaPorNome(usuarioBuscado);
+		List<Object> buscaPorNome = dao.buscaPorNome(usuarioBuscado);
 		buscaPorNome.forEach(b -> System.out.println(b));
 		
 	}

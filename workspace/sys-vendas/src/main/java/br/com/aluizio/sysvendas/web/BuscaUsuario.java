@@ -32,7 +32,7 @@ public class BuscaUsuario extends HttpServlet {
 		
 		UsuarioDao dao = new UsuarioDao();
 			
-		List<Usuario> usuarios = dao.buscaPorNome(usuario);
+		List<Object> usuarios = dao.buscaPorNome(usuario);
 		request.setAttribute("usuarios", usuarios);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/busca-usuarios.jsp");

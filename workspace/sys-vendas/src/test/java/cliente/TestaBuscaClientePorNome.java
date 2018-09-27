@@ -18,7 +18,7 @@ public class TestaBuscaClientePorNome {
 		clienteBuscado.setNome("a");
 		
 		ClienteDao dao = new ClienteDao();
-		List<Cliente> clientes = dao.buscaPorNome(clienteBuscado);
+		List<Object> clientes = dao.buscaPorNome(clienteBuscado);
 		
 		clientes.forEach(c -> System.out.println(c));
 		

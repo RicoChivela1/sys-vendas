@@ -196,8 +196,10 @@ public class ClienteDao implements IDAO {
 	}
 
 	// Busca por nome
-	public List<Cliente> buscaPorNome(Cliente c) {
-		List<Cliente> lista = new ArrayList<>();
+	@Override
+	public List<Object> buscaPorNome(Object object) {
+		Cliente c = (Cliente) object;
+		List<Object> lista = new ArrayList<>();
 
 		if (!existCliente(c)) {
 			System.out.println("Cliente não existe");

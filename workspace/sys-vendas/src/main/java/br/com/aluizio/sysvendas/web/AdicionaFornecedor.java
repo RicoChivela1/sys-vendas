@@ -18,8 +18,8 @@ import br.com.aluizio.sysvendas.model.Fornecedor;
  * @author Aluizio Monteiro
  * 28 de ago de 2018
  */
-@WebServlet(urlPatterns="/novoFornecedor")
-public class NovoFornecedor extends HttpServlet{
+@WebServlet("/adicionaFornecedor")
+public class AdicionaFornecedor extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -47,7 +47,7 @@ public class NovoFornecedor extends HttpServlet{
 		fornecedor.setObservacao(req.getParameter("observacao"));
 		
 		//Salva Fornecedor
-		new FornecedorDao().adicionar(fornecedor);
+		new FornecedorDao().adicionaAltera(fornecedor);
 		System.out.println("Fornecedor salvo");
 	
 
@@ -63,7 +63,7 @@ public class NovoFornecedor extends HttpServlet{
 		
 		JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso");
 		
-		req.getRequestDispatcher("/cadastrar-produto.jsp").forward(req, resp);
+		req.getRequestDispatcher("/index.jsp").forward(req, resp);
 	
 	}
 }

@@ -24,8 +24,6 @@
 			</form>
 		</div>
 		
-		
-
  <div class="caixa"><br />
 
 	<div class="menutemp">
@@ -43,15 +41,20 @@
 	    </form>
 	    
 	    <form action="buscaProdutos" method="post">
-	    	<a href="buscaProdutos?filtro="> Pesquisar Produto</a><br />
+	    	<a href="buscaProdutos?filtro="> Pesquisar Produtos</a><br />
 	    </form>	
 	    
 	    <form action="buscaUsuarios" method="post">
 	    	<a href="buscaUsuario?filtro="> Pesquisar Usuários</a><br />
 	    </form>	
-	     	
+	    
+	    <form action="buscaCategorias" method="post">
+	    	<a href="buscaCategoria?filtro="> Pesquisar Categorias</a><br />
+	    </form>
+	    
+	    
 			<a href="index.jsp">x Pesquisar Fornecedor</a><br /> 
-		 	<a href="index.jsp">x Pesquisar Categoria</a><br />
+		 	
 		 	
 		 </div>
 	    <div>

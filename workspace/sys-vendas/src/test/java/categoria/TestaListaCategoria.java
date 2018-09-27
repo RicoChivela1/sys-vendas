@@ -3,7 +3,6 @@ package categoria;
 import java.util.List;
 
 import br.com.aluizio.sysvendas.dao.CategoriaDao;
-import br.com.aluizio.sysvendas.model.Categoria;
 
 /**
  * TestaListaCategoria.java
@@ -15,7 +14,7 @@ public class TestaListaCategoria {
 
 	public static void main(String[] args) {
 		
-		List<Categoria> list = new CategoriaDao().getList();
+		List<Object> list = new CategoriaDao().getList();
 		list.forEach(c -> System.out.println(c));
 
 	}

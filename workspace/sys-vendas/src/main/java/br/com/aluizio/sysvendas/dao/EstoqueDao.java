@@ -11,22 +11,21 @@ import br.com.aluizio.sysvendas.model.Estoque;
 public class EstoqueDao {
 
 	Connection connection;
-	
+
 	public EstoqueDao() {
 		this.connection = new ConnectionFactory().getConnection();
 	}
-	
-	//Busca Estoque por Id
-	public Estoque buscaEstoqueId(Estoque estoqueBuscado) {
-		String sql = "select * from Estoques "
-				+ " where id=?";
-		
-		try (PreparedStatement stmt = connection.prepareStatement(sql)){
+
+	// Busca Estoque por Id
+	public Object buscaPorId(Object object) {
+		Estoque estoqueBuscado = (Estoque) object;
+		String sql = "select * from Estoques " + " where id=?";
+
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setInt(1, estoqueBuscado.getId());
 			ResultSet rs = stmt.executeQuery();
 			Estoque estoque = new Estoque();
-			while(rs.next()) {
-				
+			while (rs.next()) {
 				estoque.setQtdEntrada(rs.getInt("qtdEntrada"));
 				estoque.setQtdSaida(rs.getInt("qtdSaida"));
 				estoque.setQtdMinima(rs.getInt("qtdMinima"));
@@ -37,38 +36,20 @@ public class EstoqueDao {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-		
-		
-				
 	}
-	
-	//Alterar estoque
-	public void alterar(Estoque estoque) {
-		String sql = "Update Estoques set qtdEntrada=?, qtdMinima=?"
-				+ " where id=?";
-				
-		try (PreparedStatement stmt = connection.prepareStatement(sql)){
-			stmt.setInt(1, estoque.getQtdEntrada());
-			stmt.setInt(2, estoque.getQtdMinima());
-			stmt.setInt(3, estoque.getId());
-			
-			System.out.println("Estoque alterado com sucesso");
-			stmt.execute();
-			
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
+
+	// Adiciona e Altera
+	public void adicionaAltera(Object object) {
+		String sql = "";
+		Estoque estoque = (Estoque) object;
+		if (estoque.getId() == null) {
+			sql = "Insert Into Estoques (qtdEntrada, qtdMinima)" + " values (?,?)";
+		} else {
+			sql = "Update Estoques set qtdEntrada=?, qtdMinima=?" + " where id=?";
 		}
-	}
 
-	//Adiciona Estoque
-	public void adicionar(Estoque estoque) {
-		String sql = "Insert Into Estoques "
-				+ " (qtdEntrada, qtdMinima)"
-				+ " values (?,?)";
-		
-		try (PreparedStatement stmt = connection.prepareStatement(sql)){
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setInt(1, estoque.getQtdEntrada());
-
 			stmt.setInt(2, estoque.getQtdMinima());
 
 			stmt.execute();
@@ -77,25 +58,21 @@ public class EstoqueDao {
 			System.out.println("Problemas ao adicionar Estoque");
 			throw new RuntimeException(e);
 		}
-		
 	}
 
 	// Busca Maior Id
 	public int buscaMaiorId() {
 		String sql = "Select max(id) from Estoques";
 		int id = 0;
-		try (PreparedStatement stmt = connection.prepareStatement(sql)){
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				id = rs.getInt(1);
 			}
 			return id;
-			
-		}catch (SQLException e) {
+
+		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-		
 	}
-	
-	
 }

@@ -3,7 +3,6 @@ package fornecedor;
 import java.util.List;
 
 import br.com.aluizio.sysvendas.dao.FornecedorDao;
-import br.com.aluizio.sysvendas.model.Fornecedor;
 
 /**
  * TestaListaFuncionario.java
@@ -15,9 +14,9 @@ public class TestaListaFuncionario {
 
 	public static void main(String[] args) {
 		FornecedorDao dao = new FornecedorDao();
-		List<Fornecedor> fornecedores = dao.getList();
+		List<Object> fornecedores = dao.getList();
 		
-		for (Fornecedor fornecedor : fornecedores) {
+		for (Object fornecedor : fornecedores) {
 			System.out.println(fornecedor);
 		}
 	

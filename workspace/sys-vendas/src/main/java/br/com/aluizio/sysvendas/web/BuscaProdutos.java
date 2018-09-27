@@ -31,7 +31,7 @@ public class BuscaProdutos extends HttpServlet {
 		
 		ProdutoDao dao = new ProdutoDao();
 			
-		List<Produto> produtos = dao.buscaProdutoPorNome(produto);
+		List<Object> produtos = dao.buscaPorNome(produto);
 		
 		request.setAttribute("produtos", produtos);
 		

@@ -19,14 +19,14 @@ public class TestaAlteraEstoque {
 		estoque.setQtdMinima(10);
 		estoque.setQtdSaida(10);
 		
-		Estoque estoqueBuscado = new EstoqueDao().buscaEstoqueId(estoque);
+		Estoque estoqueBuscado = (Estoque) new EstoqueDao().buscaPorId(estoque);
 	
 		
 		estoque.setQtdEntrada(estoque.getQtdEntrada()+estoqueBuscado.getQtdEntrada());
 
 
 		EstoqueDao dao = new EstoqueDao();
-		dao.alterar(estoque);
+		dao.adicionaAltera(estoque);
 
 	}
 

@@ -10,16 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.aluizio.sysvendas.dao.ClienteDao;
-import br.com.aluizio.sysvendas.model.Cliente;
+import br.com.aluizio.sysvendas.dao.CategoriaDao;
+import br.com.aluizio.sysvendas.model.Categoria;
 
 /**
- * ToDo
  * @author Aluizio Monteiro
- * 31 de ago de 2018
+ * 26 de set de 2018
  */
-@WebServlet("/buscaClientes")
-public class BuscaCliente extends HttpServlet {
+@WebServlet("/buscaCategoria")
+public class BuscaCategoria extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
@@ -27,16 +26,16 @@ public class BuscaCliente extends HttpServlet {
 		
 		String filtro = request.getParameter("filtro");
 		
-		Cliente c = new Cliente();
-		c.setNome(filtro);
+		Categoria categoria = new Categoria();
+		categoria.setNome(filtro);
 		
-		ClienteDao dao = new ClienteDao();
+		CategoriaDao dao = new CategoriaDao();
 			
-		List<Object> clientes = dao.buscaPorNome(c);
+		List<Object> categorias = dao.buscaPorNome(categoria);
 		
-		request.setAttribute("clientes", clientes);
+		request.setAttribute("categorias", categorias);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/busca-clientes.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/busca-categorias.jsp");
 		rd.forward(request, response);
 	}
 }

@@ -13,7 +13,7 @@
 	<div class="page-header">
   		<h1>Cadastro de Fornecedor </h1>
 	</div>
-	<form action="novoFornecedor" method="post">
+	<form action="adicionaFornecedor" method="post">
 	<fieldset class="campo">
 	<legend>Identificação</legend>
 

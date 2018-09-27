@@ -10,6 +10,6 @@ public class TestaExcluiUsuairo {
 		Usuario usuario = new Usuario();
 		usuario.setId(1);
 		UsuarioDao dao = new UsuarioDao();
-		dao.excluir(usuario);
+		dao.remover(usuario);
 	}
 }

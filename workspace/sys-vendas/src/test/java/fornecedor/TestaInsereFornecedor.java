@@ -28,7 +28,7 @@ public class TestaInsereFornecedor {
 		fornecedor.setObservacao("Endereço fictício");
 		
 		FornecedorDao dao = new FornecedorDao();
-		dao.adicionar(fornecedor);
+		dao.adicionaAltera(fornecedor);
 		System.out.println("Fornecedor adicionado com sucesso");
 
 	}

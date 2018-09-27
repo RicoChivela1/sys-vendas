@@ -17,7 +17,7 @@
 			<h1>Cadastro de Categoria</h1>
 		</div>
 
-	<form action="novaCategoria" method="post">
+	<form action="adicionaCategoria" method="post">
 
 	<fieldset class="campo">
 		<legend>Dados da Categoria</legend>

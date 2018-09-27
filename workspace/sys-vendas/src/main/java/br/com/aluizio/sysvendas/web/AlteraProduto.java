@@ -80,14 +80,14 @@ public class AlteraProduto extends HttpServlet {
 		categoria.setId(categoriaId);
 		categoria.setNome(req.getParameter("categoria"));
 		CategoriaDao categoriaDao = new CategoriaDao();
-		categoriaDao.alterar(categoria);
+		categoriaDao.adicionaAltera(categoria);
 
 		// Cria este estoque para levar o id a ser buscado
 		Estoque estoque = new Estoque();
 		estoque.setId(estoqueId);
 
 		// Busca o estoque d banco para ser somado
-		Estoque estoqueBuscado = new EstoqueDao().buscaEstoqueId(estoque);
+		Estoque estoqueBuscado = (Estoque) new EstoqueDao().buscaPorId(estoque);
 
 		// Soma valor do input com valor que tem no banco 
 		qtdAdicional += estoqueBuscado.getQtdEntrada();
@@ -95,7 +95,7 @@ public class AlteraProduto extends HttpServlet {
 		estoque.setQtdEntrada(qtdAdicional);
 		estoque.setQtdMinima(qtdMinima);
 		EstoqueDao estoqueDao = new EstoqueDao();
-		estoqueDao.alterar(estoque);
+		estoqueDao.adicionaAltera(estoque);
 
 		// seta a imagem
 		String caminho = String.valueOf(arquivo);

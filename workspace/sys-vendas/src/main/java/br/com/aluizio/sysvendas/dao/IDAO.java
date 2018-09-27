@@ -13,4 +13,5 @@ public interface IDAO {
 	void remover(Object object);
 	Object buscaPorId(Object object);
 	List<Object> getList();
+	List<Object> buscaPorNome(Object object);
 }

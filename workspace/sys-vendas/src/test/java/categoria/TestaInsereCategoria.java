@@ -16,7 +16,7 @@ public class TestaInsereCategoria {
 		categoria.setNome("Mãos");
 		
 		CategoriaDao dao = new CategoriaDao();
-		dao.adicionar(categoria);
+		dao.adicionaAltera(categoria);
 		System.out.println("Categoria adicionada com sucesso.");
 		
 	}

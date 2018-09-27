@@ -32,7 +32,7 @@
 	</div>	
 </form>	
 		
-<form action="gerenciaCliente" method="post">
+<form action="gerenciaUsuario" method="post">
 
 
 <div class="table-responsive">
@@ -59,11 +59,11 @@
 		 
 		      <td> 
 		     
-		      <button  type="submit" name="func" value="${usuario.id}" style="font-size:14px;" class="btn btn-outline-info"> <i class="fa fa-info-circle"></i></button>
+		      <button  type="submit" name="info" value="${usuario.id}" style="font-size:14px;" class="btn btn-outline-info"> <i class="fa fa-info-circle"></i></button>
 		      	
-		      <button type="submit" name="func" value="${usuario.id}" style="font-size:14px;" class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i></button>
+		      <button type="submit" name="alterar" value="${usuario.id}" style="font-size:14px;" class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i></button>
 			  	
-			  <button type="submit" name="func" value="${usuario.id}" style="font-size:14px;" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i></button>
+			  <button type="submit" name="remover" value="${usuario.id}" style="font-size:14px;" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i></button>
 				
 
 		      </td>

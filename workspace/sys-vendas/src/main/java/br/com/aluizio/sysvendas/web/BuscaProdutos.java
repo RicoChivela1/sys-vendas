@@ -14,6 +14,8 @@ import br.com.aluizio.sysvendas.dao.ProdutoDao;
 import br.com.aluizio.sysvendas.model.Produto;
 
 /**
+ * Filtra a busca pelo nome. 
+ * Se o filtro for vazio, retorna a lista completa.
  * @author Aluizio Monteiro
  * 19 de set de 2018
  */

@@ -14,7 +14,8 @@ import br.com.aluizio.sysvendas.dao.UsuarioDao;
 import br.com.aluizio.sysvendas.model.Usuario;
 
 /**
- * ToDo
+ * Filtra a busca pelo nome. 
+ * Se o filtro for vazio, retorna a lista completa.
  * @author Aluizio Monteiro
  * 26 de set de 2018
  */

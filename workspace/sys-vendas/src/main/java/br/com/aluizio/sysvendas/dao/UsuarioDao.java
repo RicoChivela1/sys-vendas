@@ -104,8 +104,24 @@ public class UsuarioDao implements IDAO {
 
 	@Override
 	public Object buscaPorId(Object object) {
-		// TODO Auto-generated method stub
-		return null;
+		Usuario usuario = (Usuario) object;
+
+		String sql = "select * from Usuarios where id=?";
+
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			stmt.setInt(1, usuario.getId());
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+				usuario.setId(rs.getInt("id"));
+				usuario.setNome(rs.getString("nome"));
+				usuario.setLogin(rs.getString("login"));
+				usuario.setSenha(rs.getString("senha"));
+			}
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return usuario;
 	}
 
 	@Override

@@ -14,7 +14,8 @@ import br.com.aluizio.sysvendas.dao.ClienteDao;
 import br.com.aluizio.sysvendas.model.Cliente;
 
 /**
- * ToDo
+ * Filtra a busca pelo nome. 
+ * Se o filtro for vazio, retorna a lista completa.
  * @author Aluizio Monteiro
  * 31 de ago de 2018
  */

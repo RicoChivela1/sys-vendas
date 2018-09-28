@@ -52,10 +52,10 @@
 	    	<a href="buscaCategoria?filtro="> Pesquisar Categorias</a><br />
 	    </form>
 	    
+	    <form action="buscaFornecedor" method="post">
+	    	<a href="buscaFornecedor?filtro="> Pesquisar Fornecedor</a><br />
+	    </form>
 	    
-			<a href="index.jsp">x Pesquisar Fornecedor</a><br /> 
-		 	
-		 	
 		 </div>
 	    <div>
 	    	<a href="index.jsp">x Lista de Orçamento</a><br />		

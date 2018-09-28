@@ -159,36 +159,93 @@ public class FornecedorDao implements IDAO {
 	//
 	@Override
 	public List<Object> buscaPorNome(Object object) {
+
 		Fornecedor f = (Fornecedor) object;
 		List<Object> lista = new ArrayList<>();
-		String sql = "select * where Produtos.nome like ?";
+		if (!existFornecedor(f)) {
+			System.out.println("Fornecedor não existe.");
+		} else {
+			String sql = "select * from Fornecedores where nome like ?";
+
+			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+				String termo = "%" + f.getNome() + "%";
+				stmt.setString(1, termo);
+				ResultSet rs = stmt.executeQuery();
+
+				while (rs.next()) {
+					Fornecedor fornecedor = new Fornecedor();
+					fornecedor.setPessoa(EnumPessoa.valueOf(rs.getString("pessoa")));
+					fornecedor.setId(rs.getInt("id"));
+					fornecedor.setNome(rs.getString("nome"));
+					fornecedor.setCnpjCpf(rs.getString("cnpjCpf"));
+					fornecedor.setCep(rs.getString("cep"));
+					fornecedor.setEndereco(rs.getString("endereco"));
+					fornecedor.setBairro(rs.getString("bairro"));
+					fornecedor.setCidade(rs.getString("cidade"));
+					fornecedor.setComplemento(rs.getString("complemento"));
+					fornecedor.setUf(rs.getString("uf"));
+					fornecedor.setFone(rs.getString("fone"));
+					fornecedor.setEmail(rs.getString("email"));
+					fornecedor.setObservacao(rs.getString("observacao"));
+					lista.add(fornecedor);
+				}
+
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return lista;
+
+	}
+
+	public boolean existFornecedor(Fornecedor fornecedor) {
+		String sql = "select * from Fornecedores where nome like ?";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-			String termo = "%" + f.getNome() + "%";
+			String termo = "%" + fornecedor.getNome() + "%";
 			stmt.setString(1, termo);
 			ResultSet rs = stmt.executeQuery();
+			if (!rs.next()) {
+				System.out.println("não existe");
+				return false;
 
-			while (rs.next()) {
-				Fornecedor fornecedor = new Fornecedor();
-				fornecedor.setPessoa(EnumPessoa.valueOf(rs.getString("pessoa")));
-				fornecedor.setId(rs.getInt("id"));
-				fornecedor.setNome(rs.getString("nome"));
-				fornecedor.setCnpjCpf(rs.getString("cnpjCpf"));
-				fornecedor.setCep(rs.getString("cep"));
-				fornecedor.setEndereco(rs.getString("endereco"));
-				fornecedor.setBairro(rs.getString("bairro"));
-				fornecedor.setCidade(rs.getString("cidade"));
-				fornecedor.setComplemento(rs.getString("complemento"));
-				fornecedor.setUf(rs.getString("uf"));
-				fornecedor.setFone(rs.getString("fone"));
-				fornecedor.setEmail(rs.getString("email"));
-				fornecedor.setObservacao(rs.getString("observacao"));
-				lista.add(fornecedor);
+			} else {
+				System.out.println("existe sim");
+				return true;
+
 			}
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-		return lista;
 	}
+
+	/*
+	 * //
+	 * 
+	 * @Override public List<Object> buscaPorNome(Object object) { Fornecedor f =
+	 * (Fornecedor) object; List<Object> lista = new ArrayList<>(); String sql =
+	 * "select * where Produtos.nome like ?";
+	 * 
+	 * try (PreparedStatement stmt = connection.prepareStatement(sql)) { String
+	 * termo = "%" + f.getNome() + "%"; stmt.setString(1, termo); ResultSet rs =
+	 * stmt.executeQuery();
+	 * 
+	 * while (rs.next()) { Fornecedor fornecedor = new Fornecedor();
+	 * fornecedor.setPessoa(EnumPessoa.valueOf(rs.getString("pessoa")));
+	 * fornecedor.setId(rs.getInt("id")); fornecedor.setNome(rs.getString("nome"));
+	 * fornecedor.setCnpjCpf(rs.getString("cnpjCpf"));
+	 * fornecedor.setCep(rs.getString("cep"));
+	 * fornecedor.setEndereco(rs.getString("endereco"));
+	 * fornecedor.setBairro(rs.getString("bairro"));
+	 * fornecedor.setCidade(rs.getString("cidade"));
+	 * fornecedor.setComplemento(rs.getString("complemento"));
+	 * fornecedor.setUf(rs.getString("uf"));
+	 * fornecedor.setFone(rs.getString("fone"));
+	 * fornecedor.setEmail(rs.getString("email"));
+	 * fornecedor.setObservacao(rs.getString("observacao")); lista.add(fornecedor);
+	 * }
+	 * 
+	 * } catch (SQLException e) { throw new RuntimeException(e); } return lista; }
+	 */
 }

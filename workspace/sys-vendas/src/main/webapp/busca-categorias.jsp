@@ -53,12 +53,10 @@
 		      <td>${categorias.nome}</td>
 		 
 		      <td> 
-		     
-		      <button  type="submit" name="func" value="${categorias.id}" style="font-size:14px;" class="btn btn-outline-info"> <i class="fa fa-info-circle"></i></button>
 		      	
-		      <button type="submit" name="func" value="${categorias.id}" style="font-size:14px;" class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i></button>
+		      <button type="submit" name="alterar" value="${categorias.id}" style="font-size:14px;" class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i></button>
 			  	
-			  <button type="submit" name="func" value="${categorias.id}" style="font-size:14px;" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i></button>
+			  <button type="submit" name="excluir" value="${categorias.id}" style="font-size:14px;" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i></button>
 				
 
 		      </td>

@@ -9,7 +9,6 @@ import java.util.List;
 
 import br.com.aluizio.sysvendas.jdbc.ConnectionFactory;
 import br.com.aluizio.sysvendas.model.Categoria;
-import br.com.aluizio.sysvendas.model.Produto;
 
 /**
  * CategoriaDao.java
@@ -43,9 +42,8 @@ public class CategoriaDao implements IDAO {
 		}
 	}
 
-	// Busca Categoria pelo id do produto
-	@Override
-	public Object buscaPorId(Object object) {
+	/*// Busca Categoria pelo id do produto
+	public Object buscaPorProdutoId(Object object) {
 		Produto produto = (Produto) object;
 		Categoria categoria = new Categoria();
 		String sql = "select * from Categorias join Produtos "
@@ -64,7 +62,7 @@ public class CategoriaDao implements IDAO {
 			throw new RuntimeException(e);
 		}
 		return categoria;
-	}
+	}*/
 
 	// Busca por nome
 	@Override
@@ -153,6 +151,26 @@ public class CategoriaDao implements IDAO {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+	}
+	@Override
+	public Object buscaPorId(Object object) {
+		Categoria categoria = (Categoria) object;
+		String sql = "select * from Categorias "
+				+ " where id=?";
+
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			stmt.setInt(1, categoria.getId());
+			System.out.println("Id da categoria: " + categoria.getId());
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+				categoria.setId(rs.getInt("id"));
+				categoria.setNome(rs.getString("nome"));
+			}
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return categoria;
 	}
 
 }

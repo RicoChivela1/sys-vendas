@@ -32,8 +32,7 @@
 	</div>	
 </form>	
 		
-<form action="buscaFornecedor" method="post">
-
+<form action="gerenciaFornecedor" method="post">
 
 <div class="table-responsive">
 	<table class="table table-hover table-striped">
@@ -47,19 +46,6 @@
 		      <th scope="col">Email</th>
 		      <th scope="col">Observação</th>
 
-	  id;
-	 EnumPessoa pessoa;
-	  nome;
-	  cnpjCpf;
-	  cep;
-	  endereco;
-	  bairro;
-	  cidade;
-	  complemento;
-	  uf;
-	  fone;
-	  email;
-	  observacao;
 		    </tr>
 		  </thead>
 	  <tbody>

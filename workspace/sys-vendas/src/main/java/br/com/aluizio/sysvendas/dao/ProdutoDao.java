@@ -44,7 +44,6 @@ public class ProdutoDao implements IDAO {
 				categoria.setId(rs.getInt("fk_categoria"));
 
 				produtos.add(produto);
-
 			}
 			return produtos;
 

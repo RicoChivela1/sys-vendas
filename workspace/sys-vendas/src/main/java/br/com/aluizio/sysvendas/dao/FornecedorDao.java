@@ -37,7 +37,7 @@ public class FornecedorDao implements IDAO {
 		} else {
 			sql = "Update Fornecedores set pessoa=?, nome=?, "
 					+ "cnpjCpf=?, cep=?, endereco=?, bairro=?, cidade=?, complemento=?, "
-					+ "uf=?, fone=?, email=?, observacao=? where id=?" + fornecedor.getId();
+					+ "uf=?, fone=?, email=?, observacao=? where id="+ fornecedor.getId();
 		}
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -58,7 +58,6 @@ public class FornecedorDao implements IDAO {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-
 	}
 
 	// Remover
@@ -72,7 +71,6 @@ public class FornecedorDao implements IDAO {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-
 	}
 
 	// Listar

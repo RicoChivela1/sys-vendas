@@ -1,5 +1,7 @@
 package br.com.aluizio.sysvendas.model;
 
+import java.math.BigDecimal;
+
 /**
  * @author Aluizio Monteiro novo
  */
@@ -9,8 +11,10 @@ public class Produto extends Categoria {
 	private String descricao;
 	private String indicacao;
 	private String volume;
-	private Integer custoUnid;
-	private Integer sugestaoVenda;
+	private BigDecimal custoUnid;
+	private BigDecimal sugestaoVenda;
+	private BigDecimal lucro;
+	private double percentual;
 	
 	private String imagem;
 
@@ -65,19 +69,20 @@ public class Produto extends Categoria {
 		this.volume = volume;
 	}
 
-	public Integer getCustoUnid() {
+	
+	public BigDecimal getCustoUnid() {
 		return custoUnid;
 	}
 
-	public void setCustoUnid(Integer custoUnid) {
+	public void setCustoUnid(BigDecimal custoUnid) {
 		this.custoUnid = custoUnid;
 	}
 
-	public Integer getSugestaoVenda() {
+	public BigDecimal getSugestaoVenda() {
 		return sugestaoVenda;
 	}
 
-	public void setSugestaoVenda(Integer sugestaoVenda) {
+	public void setSugestaoVenda(BigDecimal sugestaoVenda) {
 		this.sugestaoVenda = sugestaoVenda;
 	}
 
@@ -97,14 +102,27 @@ public class Produto extends Categoria {
 		this.imagem = imagem;
 	}
 
+	public BigDecimal getLucro() {
+		return lucro;
+	}
+
+	public void setLucro(BigDecimal lucro) {
+		this.lucro = lucro;
+	}
+
+	public double getPercentual() {
+		return percentual;
+	}
+
+	public void setPercentual(double percentual) {
+		this.percentual = percentual;
+	}
+
 	@Override
 	public String toString() {
 		return "Produto [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", indicacao=" + indicacao
-				+ ", volume=" + volume + ", custoUnid=" + custoUnid + ", sugestaoVenda=" + sugestaoVenda + ", imagem="
-				+ imagem + ", estoque=" + estoque + ", categoria=" + categoria + "]";
-	}
-
-	
-
-	
+				+ ", volume=" + volume + ", custoUnid=" + custoUnid + ", sugestaoVenda=" + sugestaoVenda + ", lucro="
+				+ lucro + ", percentual=" + percentual + ", imagem=" + imagem + ", estoque=" + estoque + ", categoria="
+				+ categoria + "]";
+	}	
 }

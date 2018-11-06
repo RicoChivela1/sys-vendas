@@ -37,8 +37,10 @@ public class ProdutoDao implements IDAO {
 				produto.setDescricao(rs.getString("descricao"));
 				produto.setIndicacao(rs.getString("indicacao"));
 				produto.setVolume(rs.getString("volume"));
-				produto.setCustoUnid(rs.getInt("custoUnid"));
-				produto.setSugestaoVenda(rs.getInt("sugestaoVenda"));
+				produto.setCustoUnid(rs.getBigDecimal("custoUnid"));
+				produto.setSugestaoVenda(rs.getBigDecimal("sugestaoVenda"));
+				produto.setPercentual(rs.getDouble("percentual"));
+				produto.setLucro(rs.getBigDecimal("lucro"));
 				produto.setImagem(rs.getString("imagem"));
 				estoque.setId(rs.getInt("fk_estoque"));
 				categoria.setId(rs.getInt("fk_categoria"));
@@ -84,8 +86,9 @@ public class ProdutoDao implements IDAO {
 
 		if (produto.getId() == null) {
 			sql = "insert into Produtos (nome, descricao, indicacao, volume, "
-					+ " custoUnid, sugestaoVenda, fk_categoria, fk_estoque, imagem)"
-					+ " values ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+					+ " custoUnid, sugestaoVenda, fk_categoria, fk_estoque, "
+					+ " lucro, percentual, imagem)"
+					+ " values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		} else {
 			sql = "update Produtos set nome=?, descricao=?, indicacao=?, "
 					+ " volume=?, custoUnid=?, sugestaoVenda=?, fk_categoria=?, " + " fk_estoque=?, imagem=? "
@@ -98,11 +101,13 @@ public class ProdutoDao implements IDAO {
 			stmt.setString(2, produto.getDescricao());
 			stmt.setString(3, produto.getIndicacao());
 			stmt.setString(4, produto.getVolume());
-			stmt.setInt(5, produto.getCustoUnid());
-			stmt.setInt(6, produto.getSugestaoVenda());
+			stmt.setBigDecimal(5, produto.getCustoUnid());
+			stmt.setBigDecimal(6, produto.getSugestaoVenda());
 			stmt.setInt(7, produto.getCategoria().getId());
 			stmt.setInt(8, produto.getEstoque().getId());
-			stmt.setString(9, produto.getImagem());
+			stmt.setBigDecimal(9, produto.getLucro());
+			stmt.setDouble(10, produto.getPercentual());
+			stmt.setString(11, produto.getImagem());
 			stmt.execute();
 
 		} catch (SQLException e) {
@@ -147,8 +152,10 @@ public class ProdutoDao implements IDAO {
 				produto.setDescricao(rs.getString("descricao"));
 				produto.setIndicacao(rs.getString("indicacao"));
 				produto.setVolume(rs.getString("volume"));
-				produto.setCustoUnid(rs.getInt("custoUnid"));
-				produto.setSugestaoVenda(rs.getInt("sugestaoVenda"));
+				produto.setCustoUnid(rs.getBigDecimal("custoUnid"));
+				produto.setSugestaoVenda(rs.getBigDecimal("sugestaoVenda"));
+				produto.setPercentual(rs.getDouble("percentual"));
+				produto.setLucro(rs.getBigDecimal("lucro"));
 				produto.setImagem(rs.getString("imagem"));
 
 				estoque.setId(rs.getInt("fk_estoque"));
@@ -211,8 +218,10 @@ public class ProdutoDao implements IDAO {
 					produto.setDescricao(rs.getString("descricao"));
 					produto.setIndicacao(rs.getString("indicacao"));
 					produto.setVolume(rs.getString("volume"));
-					produto.setCustoUnid(rs.getInt("custoUnid"));
-					produto.setSugestaoVenda(rs.getInt("sugestaoVenda"));
+					produto.setCustoUnid(rs.getBigDecimal("custoUnid"));
+					produto.setPercentual(rs.getDouble("percentual"));
+					produto.setLucro(rs.getBigDecimal("lucro"));
+					produto.setSugestaoVenda(rs.getBigDecimal("sugestaoVenda"));
 					produto.setImagem(rs.getString("imagem"));
 
 					Estoque estoque = new Estoque();

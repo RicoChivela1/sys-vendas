@@ -2,6 +2,7 @@ package br.com.aluizio.sysvendas.web;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -97,9 +98,25 @@ public class AdicionaProduto extends HttpServlet {
 		produto.setDescricao(req.getParameter("descricao"));
 		produto.setIndicacao(req.getParameter("indicacao"));
 		produto.setVolume(req.getParameter("volume"));
-		produto.setCustoUnid(Integer.parseInt(req.getParameter("custoUnid")));
-		produto.setSugestaoVenda(Integer.parseInt(req.getParameter("sugestaoVenda")));
-
+		
+		//Custo Unidade
+		String custoUnid = req.getParameter("custoUnid").replace(".", "");
+		custoUnid = custoUnid.replace(",", ".");
+		System.out.println("Custo unid: "+custoUnid);
+		produto.setCustoUnid(new BigDecimal(custoUnid));
+		 
+		//Sugestão de venda
+		String sugestao = req.getParameter("sugestaoVenda");
+		System.out.println("Sugestão de venda: "+sugestao);
+		produto.setSugestaoVenda(new BigDecimal(sugestao));
+		
+		//Valor Lucro
+		String lucro = req.getParameter("lucro");
+		System.out.println("Lucro: "+lucro);
+		produto.setLucro(new BigDecimal(lucro));
+		
+		produto.setPercentual(Double.parseDouble(req.getParameter("percentual")));
+		
 		//seta a imagem
 		String caminho = String.valueOf(arquivo);
 		caminho = caminho.replace("\\", "\\");

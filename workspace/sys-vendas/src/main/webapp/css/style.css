@@ -59,3 +59,57 @@ imagem.input[type="file"] {
   display: none;
 }
 
+
+/* css do percentual*/
+label, input {
+	position: relative;
+	
+}
+
+label::after {
+	content: '' attr(unit);
+	position: absolute;
+	top: 7px;
+	left: 53px;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 19px;
+	color: rgba(0, 0, 0, 0.6);
+	font-weight: bold;
+}
+
+/* Divs de valor e percentual */
+.dirValor {
+	float: left;
+	width: 33%;
+}
+
+.esqValor {
+	width: 33%;
+	float: left;
+}
+
+.centValor {
+	align-content: center;
+}
+
+/*input de valor do produto*/
+#sugestaoVenda{
+	height:35px; 
+	width: 140px;
+	font-size: 20px;
+	color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

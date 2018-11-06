@@ -2,6 +2,7 @@ package br.com.aluizio.sysvendas.web;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -46,8 +47,8 @@ public class AlteraProduto extends HttpServlet {
 		int categoriaId = Integer.parseInt(req.getParameter("categoriaId"));
 		int fornecedorId = Integer.parseInt(req.getParameter("fornecedorId"));
 		int estoqueId = Integer.parseInt(req.getParameter("estoqueId"));
-		int custoUnid = Integer.parseInt(req.getParameter("custoUnid"));
-		int sugestaoVenda = Integer.parseInt(req.getParameter("sugestaoVenda"));
+		BigDecimal custoUnid = new BigDecimal(req.getParameter("custoUnid"));
+		BigDecimal sugestaoVenda = new BigDecimal(req.getParameter("sugestaoVenda"));
 		int qtdAdicional = Integer.parseInt(req.getParameter("qtdAdicional"));
 		int qtdMinima = Integer.parseInt(req.getParameter("qtdMinima"));
 

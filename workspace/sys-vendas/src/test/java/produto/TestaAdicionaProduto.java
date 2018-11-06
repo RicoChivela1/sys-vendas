@@ -1,5 +1,7 @@
 package produto;
 
+import java.math.BigDecimal;
+
 import br.com.aluizio.sysvendas.dao.ProdutoDao;
 import br.com.aluizio.sysvendas.model.Produto;
 
@@ -18,8 +20,8 @@ public class TestaAdicionaProduto {
 		produto.setDescricao("Creme");
 		produto.setIndicacao("Quimico");
 		produto.setVolume("200ml");
-		produto.setCustoUnid(1000);
-		produto.setSugestaoVenda(2000);
+		produto.setCustoUnid(new BigDecimal("1000"));
+		produto.setSugestaoVenda(new BigDecimal("1200"));
 		
 		ProdutoDao dao = new ProdutoDao();
 		dao.adicionaAltera(produto);

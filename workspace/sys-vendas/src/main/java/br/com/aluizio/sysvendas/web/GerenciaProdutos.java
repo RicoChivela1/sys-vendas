@@ -23,24 +23,23 @@ public class GerenciaProdutos extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String pOrcamento = request.getParameter("orcamento");
+		
 		String pagina = "";
-
-		// abre orçamento
-		if (pOrcamento != null) {
-			int id = Integer.parseInt(pOrcamento);
-			System.out.println("Id do orcamento do produto é: " + id);
-
-			pagina = "/orcamento-produto.jsp";
-		}
 
 		// Exibe informações completas sobre o produto
 		if (request.getParameter("info") != null) {
 			int id = Integer.parseInt(request.getParameter("info"));
 			System.out.println("Id da info do produto é: " + id);
 
-			//
+			// objeto contendo o id do produto
+			Produto produtoBuscado = new Produto();
+			produtoBuscado.setId(id);
+			
+			// busca produto pelo id e o coloca na requisição
+			Produto produto = (Produto) new ProdutoDao().buscaPorId(produtoBuscado);
+			request.setAttribute("produto", produto);
+			
+			// página de info
 			pagina = "/info-produto.jsp";
 		}
 

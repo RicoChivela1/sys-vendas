@@ -23,11 +23,11 @@
 	
 <form action="buscaFornecedor" method="post">
 	<div>
-	<div class="esquerda" style=" width: 30%">		
+	<div class="campoBusca" >		
 		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" /> 
 	</div>
 	<div class="direita">		
-		<button  type="submit" name="Enviar" style=" font-size:24px;" class="btn btn-outline-info"> <i class="fa fa-search" aria-hidden="true"></i></button>
+		<button id="btnBusca" type="submit" name="Enviar" class="btn btn-outline-info"> <i class="fa fa-search" aria-hidden="true"></i></button>
 	</div>
 	</div>	
 </form>	
@@ -35,8 +35,8 @@
 <form action="gerenciaFornecedor" method="post">
 
 <div class="table-responsive">
-	<table class="table table-hover table-striped">
-	<caption>Lista de Clientes</caption>
+	<table class="table table-hover">
+	<caption>Lista de Fornecedores</caption>
 		  <thead class="thead-dark">
 		    <tr>
 		      <th scope="col">#</th>
@@ -45,6 +45,7 @@
 		      <th scope="col">Fone</th>
 		      <th scope="col">Email</th>
 		      <th scope="col">Observação</th>
+		      <th> Ações</th>
 
 		    </tr>
 		  </thead>
@@ -60,15 +61,13 @@
 		 	  <td>${fornecedor.observacao}</td>
 		 
 		      <td> 
-		      <button type="submit" name="orcamento" value="${fornecedor.id}" style="font-size:14px;" class="btn btn-success"> <i class="fa fa-money"></i></button> 
-		      &nbsp;-&nbsp; 
-		      <button  type="submit" name="info" value="${fornecedor.id}" style="font-size:14px;" class="btn btn-outline-info"> <i class="fa fa-info-circle"></i></button>
-		      	
-		      <button type="submit" name="alterar" value="${fornecedor.id}" style="font-size:14px;" class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i></button>
-			  	
-			  <button type="submit" name="remover" value="${fornecedor.id}" style="font-size:14px;" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i></button>
+		      <div class="btnAcoes">
+		  
+		      <button type="submit" name="info" value="${fornecedor.id}"  class="btn btn-outline-info"> <i class="fa fa-info-circle"></i> Info</button>
+		      <button type="submit" name="alterar" value="${fornecedor.id}"  class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i> Alterar</button>
+			  <button type="submit" name="remover" value="${fornecedor.id}" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i> Remover</button>
 				
-
+			  </div>
 		      </td>
 		    	
 		    </tr>

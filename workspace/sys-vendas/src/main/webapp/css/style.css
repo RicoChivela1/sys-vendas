@@ -40,7 +40,6 @@ fieldset legend {
 	padding-top: 60px;
 }
 
-
 .container{
     width:400px;
     height:100px;
@@ -59,11 +58,9 @@ imagem.input[type="file"] {
   display: none;
 }
 
-
 /* css do percentual*/
 label, input {
-	position: relative;
-	
+	position: relative;	
 }
 
 label::after {
@@ -100,10 +97,34 @@ label::after {
 	color: red;
 }
 
+/*miniatura da imagem do produto para a list*/
+tbody,td,img.miniaturaProduto{
+	width: 100px;
+}
 
+/*valor de venda para a list*/
+td.sugestaoVenda{
+	color: red; 
+	font-size: 22px; 
+	font-style: oblique;
+}
 
+/*botão de busca para a list*/
+#btnBusca {
+	font-size:25px;
+}
 
+/*campo de busca para a list*/
+.campoBusca {
+	width: 48%;
+	float: left;
+	padding-bottom: 5px;
+}
 
+/*div contendo botões de ações da list*/
+.btnAcoes{
+	width: max-content;
+}
 
 
 

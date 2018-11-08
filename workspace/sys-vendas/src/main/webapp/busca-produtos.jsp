@@ -23,11 +23,11 @@
 	
 <form action="buscaProdutos" method="post">
 	<div>
-	<div class="esquerda" style=" width: 30%">		
+	<div class="campoBusca">		
 		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" /> 
 	</div>
 	<div class="direita">		
-		<button  type="submit" name="Enviar" style=" font-size:24px;" class="btn btn-outline-info"> <i class="fa fa-search" aria-hidden="true"></i></button>
+		<button  id="btnBusca" type="submit" name="Enviar" class="btn btn-outline-info"> <i class="fa fa-search" aria-hidden="true"></i></button>
 	</div>
 	</div>	
 </form>	
@@ -36,7 +36,7 @@
 
 
 <div class="table-responsive">
-	<table class="table table-hover table-striped">
+	<table class="table table-hover ">
 	<caption>Lista de Produtos</caption>
 		  <thead class="thead-dark">
 		    <tr>
@@ -47,7 +47,7 @@
 		      <th scope="col"> Custo Unid </th>
 		      <th scope="col"> Sugestão Venda </th>
 		      <th scope="col"> Estoque </th>
-		      <th scope="col"> </th>
+		      <th scope="col"> Ações</th>
 		    </tr>
 		  </thead>
 	  <tbody>
@@ -55,7 +55,7 @@
 	   <c:forEach var="produto" items="${produtos}">
 		    <tr>
 		      <th scope="row">${produto.id}</th>
-		      <td><img  src="./carregadorImagem?id=${produto.id}" width="100" height="100"  /></td>
+		      <td><img class="miniaturaProduto" src="./carregadorImagem?id=${produto.id}" /></td>
 				<td>-${produto.nome}<br />
 					-${produto.volume}
 				</td>
@@ -64,21 +64,17 @@
 				</td>
 				
 			    <td>R$ ${produto.custoUnid}</td>
-				<td style="color: red; font-size: 22px; font-style: oblique;">R$ ${produto.sugestaoVenda}</td>
+				<td class="sugestaoVenda">R$ ${produto.sugestaoVenda}</td>
 				<td>${produto.estoque.qtdDisponivel}</td>
 
 		 
 
 		      <td> 
-		      <button type="submit" name="orcamento" value="${produto.id}" style="font-size:14px;" class="btn btn-success"> <i class="fa fa-money"></i></button> 
-		      &nbsp;-&nbsp; 
-		      <button  type="submit" name="info" value="${produto.id}" style="font-size:14px;" class="btn btn-outline-info"> <i class="fa fa-info-circle"></i></button>
-		      	
-		      <button type="submit" name="alterar" value="${produto.id}" style="font-size:14px;" class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i></button>
-			  	
-			  <button type="submit" name="remover" value="${produto.id}" style="font-size:14px;" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i></button>
-				
-
+		    <div class="btnAcoes">
+		      <button  type="submit" name="info" value="${produto.id}"  class="btn btn-outline-info"> <i class="fa fa-info-circle"></i> Info</button>
+		      <button type="submit" name="alterar" value="${produto.id}" class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i> Atualizar</button>	
+			  <button type="submit" name="remover" value="${produto.id}" class="btn btn-outline-danger">  <i class="fa fa-trash-o"></i> Remover</button>
+			</div>
 		      </td>
 		    	
 		    </tr>

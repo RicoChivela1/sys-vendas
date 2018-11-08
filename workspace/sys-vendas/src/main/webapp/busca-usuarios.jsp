@@ -23,11 +23,11 @@
 	
 <form action="buscaUsuario" method="post">
 	<div>
-	<div class="esquerda" style=" width: 30%">		
+	<div class="campoBusca">		
 		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" /> 
 	</div>
 	<div class="direita">		
-		<button  type="submit" name="Enviar" style=" font-size:24px;" class="btn btn-outline-info"> <i class="fa fa-search" aria-hidden="true"></i></button>
+		<button id="btnBusca" type="submit" name="Enviar" class="btn btn-outline-info"> <i class="fa fa-search" aria-hidden="true"></i></button>
 	</div>
 	</div>	
 </form>	
@@ -36,7 +36,7 @@
 
 
 <div class="table-responsive">
-	<table class="table table-hover table-striped">
+	<table class="table table-hover">
 	<caption>Lista de Usuarios</caption>
 		  <thead class="thead-dark">
 		    <tr>
@@ -44,27 +44,26 @@
 		      <th scope="col">Nome</th>
 		      <th scope="col">Login</th>
 		      <th scope="col">Senha</th>
-		      <th scope="col" ></th>
-
+		      <th scope="col" >Ações</th>
 		    </tr>
 		  </thead>
 	  <tbody>
 	
 	   <c:forEach var="usuario" items="${usuarios}">
-		    <tr>
-		      <th scope="row">${usuario.id}</th>
+		    <tr> 
+		      <td>${usuario.id}</td>
 		      <td>${usuario.nome}</td>
 		      <td>${usuario.login}</td>
 		      <td>${usuario.senha}</td>
-		 
-		      <td> 
-		     
-		      <button  type="submit" name="info" value="${usuario.id}" style="font-size:14px;" class="btn btn-outline-info"> <i class="fa fa-info-circle"></i></button>
-		      	
-		      <button type="submit" name="alterar" value="${usuario.id}" style="font-size:14px;" class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i></button>
-			  	
-			  <button type="submit" name="remover" value="${usuario.id}" style="font-size:14px;" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i></button>
+		      <td>
+		       
+		      <div class="btnAcoes">
+		  
+		      <button type="submit" name="info" value="${usuario.id}"  class="btn btn-outline-info"> <i class="fa fa-info-circle"></i> Info</button>
+		      <button type="submit" name="alterar" value="${usuario.id}"  class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i> Alterar</button>
+			  <button type="submit" name="remover" value="${usuario.id}" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i> Remover</button>
 				
+			  </div>
 
 		      </td>
 		    	

@@ -23,11 +23,11 @@
 	
 <form action="buscaCategoria" method="post">
 	<div>
-	<div class="esquerda" style=" width: 30%">		
+	<div class="campoBusca">		
 		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" /> 
 	</div>
 	<div class="direita">		
-		<button  type="submit" name="Enviar" style=" font-size:24px;" class="btn btn-outline-info"> <i class="fa fa-search" aria-hidden="true"></i></button>
+		<button id="btnBusca" type="submit" name="Enviar" class="btn btn-outline-info"> <i class="fa fa-search" aria-hidden="true"></i></button>
 	</div>
 	</div>	
 </form>	
@@ -36,30 +36,32 @@
 
 
 <div class="table-responsive">
-	<table class="table table-hover table-striped">
+	<table class="table table-hover">
 	<caption>Lista de Categorias</caption>
 		  <thead class="thead-dark">
 		    <tr>
 		      <th scope="col">#</th>
 		      <th scope="col">Nome</th>
-
+			  <th scope="col">Ações</th>
 		    </tr>
 		  </thead>
 	  <tbody>
 	
 	   <c:forEach var="categorias" items="${categorias}">
 		    <tr>
-		      <th scope="row">${categorias.id}</th>
+		      <td>${categorias.id}</td>
 		      <td>${categorias.nome}</td>
 		 
 		      <td> 
-		      	
-		      <button type="submit" name="alterar" value="${categorias.id}" style="font-size:14px;" class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i></button>
-			  	
-			  <button type="submit" name="excluir" value="${categorias.id}" style="font-size:14px;" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i></button>
+		     
+		      <div class="btnAcoes">
+		  
+		      <button type="submit" name="alterar" value="${categorias.id}"  class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i> Alterar</button>
+			  <button type="submit" name="remover" value="${categorias.id}" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i> Remover</button>
 				
-
+			  </div>
 		      </td>
+		    	
 		    	
 		    </tr>
 	   </c:forEach>

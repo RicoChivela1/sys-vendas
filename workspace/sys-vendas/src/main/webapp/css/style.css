@@ -2,18 +2,18 @@
 
 .caixa {
 	border: 2px solid #ffffff;
-	padding: 5px;
+	/*padding: 5px;*/
 	width: 90%;
-	margin-bottom: 5px;;
+	/*margin-bottom: 5px;*/
 }
 
 .radio {
-	border: 1px solid #c0c0c0;
-	border-radius: 15px;
-	margin-left: 5px;
-	padding: 5px;
-	width: 40%;
-	margin-bottom: 5px;;
+    border: 1px solid #f1f2fc;
+    border-radius: 15px;
+    margin-left: 15px;
+    padding: 5px;
+    width: 48%;
+    margin-bottom: 15px;
 }
 
 .direita {
@@ -98,7 +98,7 @@ label::after {
 }
 
 /*miniatura da imagem do produto para a list*/
-tbody,td,img.miniaturaProduto{
+img.miniaturaProduto{
 	width: 100px;
 }
 
@@ -126,11 +126,68 @@ td.sugestaoVenda{
 	width: max-content;
 }
 
+/*preview de imagens de produto*/
+img.preview {
+	width: 150px; 
+	/*height: 150px;*/
+}
 
+/*caixa de seleção para produto*/
+select#selectDeProdutos {
+	width: 170px; 
+	height: 38px;
+}
 
+/*labels gerais*/
+label{
+	margin-top: 15px;
+	font-size: 18px;
+	color: navy;
+}
 
+/*labels vermelhos para produto*/
+label#labelsProdutosValor{
+	margin-top: 12px;
+	color: maroon;
+}
 
+/*inputs vermelhos para valores*/
+input#fieldsValor{
+	width: 180px; 
+	border-color: maroon;
+	color: maroon;
+	margin-left: 15px;
+}
 
+/*inputs médios normais*/
+input#fieldsMedio{
+	width: 180px; 
+	margin-left: 15px;
+}
+
+/*inputs normais*/
+input#fieldComum{
+	margin-left: 15px;
+}
+
+/*inputs pequenos*/
+input#fieldsPequenoData{
+	margin-left: 15px;
+	width: 60px;
+	float: left;
+}
+
+/*inputs pequenos*/
+input#fieldsPequeno{
+	margin-left: 15px;
+	width: 60px;
+}
+
+/*Conjuto de imputs para data*/
+div.fieldsData{
+	width: 92%;
+	height: 100px;
+}
 
 
 

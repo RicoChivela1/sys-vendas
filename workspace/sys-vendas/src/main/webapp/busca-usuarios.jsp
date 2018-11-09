@@ -40,11 +40,11 @@
 	<caption>Lista de Usuarios</caption>
 		  <thead class="thead-dark">
 		    <tr>
-		      <th scope="col">#</th>
-		      <th scope="col">Nome</th>
-		      <th scope="col">Login</th>
-		      <th scope="col">Senha</th>
-		      <th scope="col" >Ações</th>
+		      <th>#</th>
+		      <th>Nome</th>
+		      <th>Login</th>
+		      <th>Senha</th>
+		      <th>Ações</th>
 		    </tr>
 		  </thead>
 	  <tbody>

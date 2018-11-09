@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Cadastrar Fornecedor</title>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
+<link rel="stylesheet" href="css/bootstrap.css" >
 
 </head>
 <body>
@@ -21,12 +21,12 @@
 		
 		<div class="caixa">
 			<label for="nome">Nome - RS:</label>
-			<input type="text" value="${fornecedor.nome}" name="nome" size="40" class="form-control" aria-describedby="sizing-addon3">  
+			<input id="fieldComum" type="text" value="${fornecedor.nome}" name="nome" size="40" class="form-control" aria-describedby="sizing-addon3">  
 		</div>
 
 		<div class="caixa">
 			<label for="cnpjCpf">CNPJ - CPF:</label>
-			<input type="text" value="${fornecedor.cnpjCpf}" name="cnpjCpf" size="40" class="form-control" aria-describedby="sizing-addon3">  	
+			<input id="fieldComum" type="text" value="${fornecedor.cnpjCpf}" name="cnpjCpf" size="40" class="form-control" aria-describedby="sizing-addon3">  	
 		</div> 
 	  
 	</div>
@@ -49,25 +49,25 @@
 
 		<div class="caixa">
 			<label for="endereco">Endereço:</label>
-			<input type="text" name="endereco" value="${fornecedor.endereco}" size="40" class="form-control" aria-describedby="sizing-addon3">  
+			<input id="fieldComum" type="text" name="endereco" value="${fornecedor.endereco}" size="40" class="form-control" aria-describedby="sizing-addon3">  
 			
 			<div class="esquerda">
 				<label for="cep">CEP:</label>
-				<input type="text" name="cep" value="${fornecedor.cep}" size="40" class="form-control" style="width: 225px; " >  
+				<input id="fieldsMedio"  type="text" name="cep" value="${fornecedor.cep}" class="form-control"  >  
 			</div>
 			<div class="direita">
 				<label for="bairro">Bairro:</label>
-				<input type="text" name="bairro" value="${fornecedor.bairro}" size="40" class="form-control" style="width: 225px; margin-left: 20px;" >  
+				<input id="fieldsMedio" type="text" name="bairro" value="${fornecedor.bairro}" class="form-control"  >  
 			</div>
 			
 			<div class="esquerda">
 				<label for="cidade">Cidade:</label>
-				<input type="text" name="cidade" value="${fornecedor.cidade}" size="40" class="form-control" style="width: 225px; margin-right: 20px" >  
+				<input id="fieldsMedio" type="text" name="cidade" value="${fornecedor.cidade}"  class="form-control"  >  
 			</div>
 			
 			<div class="direita">
 				<label for="uf">UF:</label>
-				<input type="text" name="uf" value="${fornecedor.uf}" size="30" class="form-control" style="width: 50px; margin-left: 20px;" >
+				<input id="fieldsPequeno" type="text" name="uf" value="${fornecedor.uf}" class="form-control">
 			</div>
 		</div>
 	</div>
@@ -75,18 +75,20 @@
 	<div class="direita">
 		<div class="caixa">
 			<label for="complemento">Complemento:</label>
-			<input type="text" name="complemento" value="${fornecedor.complemento}" size="30" class="form-control" >
+			<input id="fieldsMedio" type="text" name="complemento" value="${fornecedor.complemento}" class="form-control" >
 			
 			<div class="esquerda">
 				<label for="fone">Fone:</label>
-				<input type="text" name="fone" value="${fornecedor.fone}" size="30" class="form-control" style="width: 225px; height: 38px" >
+				<input id="fieldsMedio" type="text" name="fone" value="${fornecedor.fone}" class="form-control" >
 			</div>
 			<div class="direita">
 				<label for="email">Email:</label>
-				<input type="text" name="email" value="${fornecedor.email}" size="30" class="form-control" style="width: 225px; margin-left: 20px;" >
+				<input id="fieldsMedio" type="text" name="email" 
+				value="${fornecedor.email}" class="form-control" >
 			</div>
 			<label for="observacao">Observação:</label>
-			<input type="text" name="observacao" value="${fornecedor.observacao}" size="30" class="form-control" >	
+			<input type="text" name="observacao" value="${fornecedor.observacao}"
+			 id="fieldComum" class="form-control" >	
 		</div>
 	</div>
 	

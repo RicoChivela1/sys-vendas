@@ -40,9 +40,9 @@
 	<caption>Lista de Categorias</caption>
 		  <thead class="thead-dark">
 		    <tr>
-		      <th scope="col">#</th>
-		      <th scope="col">Nome</th>
-			  <th scope="col">Ações</th>
+		      <th scope="row">#</th>
+		      <th>Nome</th>
+			  <th>Ações</th>
 		    </tr>
 		  </thead>
 	  <tbody>
@@ -51,6 +51,7 @@
 		    <tr>
 		      <td>${categorias.id}</td>
 		      <td>${categorias.nome}</td>
+		      
 		 
 		      <td> 
 		     

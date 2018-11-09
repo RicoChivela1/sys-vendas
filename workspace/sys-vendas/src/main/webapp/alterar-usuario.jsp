@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Alterar Usuário</title>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="css/bootstrap.min.css"  >
 
 </head>
 <body>
@@ -27,19 +27,19 @@
 				<div class="esquerda">
 					<div class="caixa">
 						<label for="nome">Nome:</label> 
-						<input required="required" name="nome" value="${usuario.nome}" size="40" class="form-control" >
+						<input id="fieldComum" required="required" name="nome" value="${usuario.nome}" class="form-control" >
 					</div>
 					<div class="caixa">
 						<label for="login">Login:</label> 
-						<input required="required" name="login" value="${usuario.login}" size="40" class="form-control" >
+						<input id="fieldComum" required="required" name="login" value="${usuario.login}" class="form-control" >
 					</div>
 					<div class="caixa">
 						<label for="senha">Senha:</label> 
-						<input required="required" name="senha" value="${usuario.senha}" size="40" class="form-control" >
+						<input id="fieldComum" required="required" name="senha" value="${usuario.senha}" size="40" class="form-control" >
 					</div>
 					<div class="caixa">
 						<label for="senha2">Repita a senha:</label> 
-						<input required="required" name="senha2" value="${usuario.nome}" size="40" class="form-control" >
+						<input id="fieldComum" required="required" name="senha2" value="${usuario.nome}" size="40" class="form-control" >
 					</div>
 					
 					<div class="caixa">

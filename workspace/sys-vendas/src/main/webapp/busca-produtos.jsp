@@ -40,21 +40,21 @@
 	<caption>Lista de Produtos</caption>
 		  <thead class="thead-dark">
 		    <tr>
-		      <th scope="col"> # </th>
-		      <th scope="col"> Imagem </th>
-		      <th scope="col"> Nome </th>
-		      <th scope="col"> Descricao/Indicação </th>
-		      <th scope="col"> Custo Unid </th>
-		      <th scope="col"> Sugestão Venda </th>
-		      <th scope="col"> Estoque </th>
-		      <th scope="col"> Ações</th>
+		      <th > # </th>
+		      <th > Imagem </th>
+		      <th > Nome </th>
+		      <th > Descricao/Indicação </th>
+		      <th > Custo Unid </th>
+		      <th > Sugestão Venda </th>
+		      <th > Estoque </th>
+		      <th > Ações</th>
 		    </tr>
 		  </thead>
 	  <tbody>
 	
 	   <c:forEach var="produto" items="${produtos}">
 		    <tr>
-		      <th scope="row">${produto.id}</th>
+		      <td >${produto.id}</td>
 		      <td><img class="miniaturaProduto" src="./carregadorImagem?id=${produto.id}" /></td>
 				<td>-${produto.nome}<br />
 					-${produto.volume}

@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Alterar Cliente</title>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
+<link rel="stylesheet" href="css/bootstrap.min.css" >
 
 </head>
 <body>
@@ -27,34 +27,34 @@
 		
 		<div class="caixa">
 			<label for="nome">Primeiro Nome:</label>
-			<input type="text" name="nome" value="${cliente.nome}" size="40" class="form-control" aria-describedby="sizing-addon3">  
+			<input id="fieldComum" type="text" name="nome" value="${cliente.nome}" class="form-control" aria-describedby="sizing-addon3">  
 			
 			<label for="sobreNome">Segundo Nome:</label>
-			<input type="text" name="sobreNome" value="${cliente.sobreNome}" size="40" class="form-control" aria-describedby="sizing-addon3">
+			<input id="fieldComum" type="text" name="sobreNome" value="${cliente.sobreNome}" class="form-control" aria-describedby="sizing-addon3">
 			<br />
 		</div>
-		<div class="caixa">
-		<div class="input-group input-group-sm">
-			Nascimento: <br /> 
-			<input type="text" name="dia" size="2" maxlength="2" placeholder="dd" class="form-control" aria-describedby="sizing-addon3" required="required"> &nbsp; / &nbsp;
-			<input type="text" name="mes" size="2" maxlength="2" placeholder="mm" class="form-control" aria-describedby="sizing-addon3"required="required"> &nbsp; / &nbsp;
-			<input type="text" name="ano" size="4" maxlength="4" placeholder="aaaa" class="form-control" aria-describedby="sizing-addon3" required="required"><br />
-		</div>
-		</div>
-		<br />
+		<div class="fieldsData">
 		
+			<label>Nascimento: </label><br /> 
+			<input id="fieldsPequenoData" type="text" name="dia" size="2" maxlength="2" placeholder="dd" class="form-control" aria-describedby="sizing-addon3" required="required"> 
+			<input id="fieldsPequenoData" type="text" name="mes" size="2" maxlength="2" placeholder="mm" class="form-control" aria-describedby="sizing-addon3"required="required"> 
+			<input id="fieldsPequenoData" type="text" name="ano" size="4" maxlength="4" placeholder="aaaa" class="form-control" aria-describedby="sizing-addon3" required="required"><br />
+		
+		</div>
+		
+		<label>Pessoa:</label>
 		<div class="radio">
-				<p>Pessoa:</p>
+				
 				<input type="radio" id="pessoa1" name="pessoa" value="FISICA"
-					checked> <label for="situacao1">Física</label> <input
+					checked> <label for="situacao1">Física</label> &nbsp; <input
 					type="radio" id="pessoa2" name="pessoa" value="JURIDICA"> <label
 					for="situacao2">Jurídica</label>
 			</div>
-
+			
+		<label>Sexo:</label>
 			<div class="radio">
-				<p>Sexo:</p>
 				<input type="radio" id="sexo1" name="sexo" value="M"> <label
-					for="situacao1">Masculino</label> <input type="radio" id="sexo2"
+					for="situacao1">Masculino</label> &nbsp; <input type="radio" id="sexo2"
 					name="sexo" value="F" checked> <label for="situacao2">Feminino</label>
 			</div>
 			
@@ -64,18 +64,21 @@
 		
 		<div class="direita">
 		<div class="caixa">
+		
+		
 			<label for="email">Email:</label>
-			<input type="text" name="email" value="${cliente.email}" size="30" class="form-control" aria-describedby="sizing-addon3">
+			<input id="fieldsMedio" type="text" name="email" value="${cliente.email}" class="form-control" aria-describedby="sizing-addon3">
 			<label for="celular">Celular:</label>
-			<input type="text" name="celular" value="${cliente.celular}" size="30" class="form-control" aria-describedby="sizing-addon3">
+			<input id="fieldsMedio" type="text" name="celular" value="${cliente.celular}" class="form-control" aria-describedby="sizing-addon3">
+			
 			<label for="observacao">Observação:</label>
-			<input type="text" name="observacao" value="${cliente.observacao}" size="30" class="form-control" aria-describedby="sizing-addon3">
+			<input id="fieldComum" type="text" name="observacao" value="${cliente.observacao}" class="form-control" aria-describedby="sizing-addon3">
 		</div>
 		
+		<label>Situação:</label>
 			<div class="radio">
-				<p>Situação:</p>
 				<input type="radio" id="situacao1" name="situacao" value="ATIVO"
-					checked> <label for="situacao1">Ativo</label> <input
+					checked> <label for="situacao1">Ativo</label> &nbsp; <input
 					type="radio" id="situacao2" name="situacao" value="BLOQUEADO">
 				<label for="situacao2">Bloqueado</label>
 			</div>
@@ -89,24 +92,34 @@
 	<legend>Endereço ${cliente.observacao}</legend>
 	<div class="esquerda">	
 		<div class="caixa">
-			Endereço: <input type="text" name="endereco" value="${cliente.endereco}" size="40" class="form-control" aria-describedby="sizing-addon3" required="required"> 
-			Bairro: <input type="text" name="bairro" value="${cliente.bairro}" size="20" class="form-control" aria-describedby="sizing-addon3">
-			Cidade: <input type="text" name="cidade" value="${cliente.cidade}" size="20" class="form-control" aria-describedby="sizing-addon3">  
-			Complemento: <input type="text" name="complemento" value="${cliente.complemento}" size="20" class="form-control" aria-describedby="sizing-addon3">
+			<label>Endereço:</label>
+			<input id="fieldComum" type="text" name="endereco" value="${cliente.endereco}" class="form-control" aria-describedby="sizing-addon3" required="required"> 
+			<label>Bairro:</label>
+			<input id="fieldsMedio" type="text" name="bairro" value="${cliente.bairro}" class="form-control" aria-describedby="sizing-addon3">
+			<label>Cidade:</label>
+			<input id="fieldsMedio" type="text" name="cidade" value="${cliente.cidade}" class="form-control" aria-describedby="sizing-addon3">  
+			<label>Complemento:</label>
+			<input id="fieldComum" type="text" name="complemento" value="${cliente.complemento}" class="form-control" aria-describedby="sizing-addon3">
 		</div>
 		
 	</div>
 	
 	<div class="direita">
 		<div class="caixa">
-			UF: <input type="text" name="uf" value="${cliente.uf} "size="2" class="form-control" aria-describedby="sizing-addon3"> 
-			CEP: <input type="text" name="cep" value="${cliente.cep}" size="20" class="form-control" aria-describedby="sizing-addon3">
-			Fone: <input type="text" name="fone" value="${cliente.fone}" size="20" class="form-control" aria-describedby="sizing-addon3">
-			Observação: <input type="text" name="observacao" value="${cliente.observacao}" size="40" class="form-control" aria-describedby="sizing-addon3">
-			Número: <input type="text" name="numero" value="${cliente.numero}"size="10" class="form-control" aria-describedby="sizing-addon3"> 
-		</div>
+			<label for="uf">UF:</label>
+			<input id="fieldsPequeno" type="text" name="uf" value="${cliente.uf} "size="2" class="form-control" aria-describedby="sizing-addon3" > 
 			
+			<label for="cep">CEP:</label>
+			<input id="fieldComum" type="text" name="cep" value="${cliente.cep}" class="form-control" aria-describedby="sizing-addon3" >
+			<label>Fone:</label>
+			<input id="fieldsMedio" type="text" name="fone" value="${cliente.fone}"  class="form-control" aria-describedby="sizing-addon3">
+			<label>Observação:</label>
+			<input id="fieldComum" type="text" name="observacao" value="${cliente.observacao}" class="form-control" aria-describedby="sizing-addon3">
+			<label>Número:</label>
+			<input id="fieldsMedio" type="text" name="numero" value="${cliente.numero}" class="form-control" aria-describedby="sizing-addon3"> 
+		</div>	
 	</div>
+	
 	<div class="caixa">
 			<input type="submit" class="btn btn-primary" name="Concluir">
 			<input type="hidden" name="clienteId" value="${cliente.id}"> 		

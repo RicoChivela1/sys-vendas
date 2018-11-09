@@ -40,12 +40,12 @@
 	<caption>Lista de Clientes</caption>
 		  <thead class="thead-dark">
 		    <tr>
-		      <th scope="col">#</th>
-		      <th scope="col">Nome</th>
-		      <th scope="col">Sobre Nome</th>
-		      <th scope="col">Situação</th>
-		      <th scope="col">Celular</th>
-		      <th scope="col" ></th>
+		      <th>#</th>
+		      <th>Nome</th>
+		      <th>Sobre Nome</th>
+		      <th>Situação</th>
+		      <th>Celular</th>
+		      <th>Ações</th>
 
 		    </tr>
 		  </thead>
@@ -53,7 +53,7 @@
 	
 	   <c:forEach var="cliente" items="${clientes}">
 		    <tr>
-		      <th scope="row">${cliente.id}</th>
+		      <td>${cliente.id}</td>
 		      <td>${cliente.nome}</td>
 		      <td>${cliente.sobreNome}</td>
 		      <td>${cliente.situacao}</td>

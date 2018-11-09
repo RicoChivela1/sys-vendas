@@ -37,16 +37,16 @@
 	<div >	      
   		<input type="file" class=" btn btn-primary"  name="imagem" id="imagem" onchange="previewImagem()" /><br /><br />
     </div></div>
-        <img style="width: 150px; height: 150px;" src="carregadorImagem?id=${produto.id} "/><br />
+        <img class="preview" src="carregadorImagem?id=${produto.id} "/><br />
    		
 	<br /><br />
 			<div class="esquerda">
 			</div>
 					<div class="esquerda">
 						<div class="caixa">
-							<label for="fornecedorId">Fornecedor:</label> 
+							<label for="fornecedorId"  >Fornecedor:</label> 
 							
-							<select name="fornecedorId" style="width: 170px; height: 38px" class="form-control" >
+							<select name="fornecedorId" id="selectDeProdutos" class="form-control" >
 								<option value="0">SELECIONE</option>
 								<c:forEach var="fornecedor" items="${fornecedorDao.list}">
 									<option value="${fornecedor.id}">${fornecedor.nome}</option>
@@ -55,15 +55,15 @@
 							</select>
       						
       						<span class="input-group-btn" >
-        						<button class="btn btn-default" type="button"><a href="http://localhost:8080/sys-vendas/cadastrar-fornecedor.jsp">&#10010;</a></button>
+        						<button class="btn btn-default" type="button"><a href="cadastrar-fornecedor.jsp">&#10010;</a></button>
       						</span>
 						</div>
 					</div>
 	
 					<div class="direita">
 						<div class="caixa">
-							<label for="categoria">Categoria:</label> 
-							<select name="categoria" style="width: 170px; height: 38px" class="form-control" >
+							<label for="categoria" >Categoria:</label> 
+							<select name="categoria" id="selectDeProdutos" class="form-control" >
 								<option value="0">SELECIONE</option>
 								<c:forEach var="lista" items="${categoriaDao.list}">
 									<option value="${lista.nome}">${lista.nome}</option>
@@ -71,7 +71,7 @@
 							</select>
 					
 							<span class="input-group-btn" >
-        						<button class="btn btn-default" type="button"><a href="http://localhost:8080/sys-vendas/cadastrar-categoria.jsp">&#10010;</a></button>
+        						<button class="btn btn-default" type="button"><a href="cadastrar-categoria.jsp">&#10010;</a></button>
       						</span>						
 						</div>
 					</div>		
@@ -80,55 +80,55 @@
 				<div class="direita">
 				<div class="caixa">
 						<label for="nome">Nome:</label> 
-						<input type="text" name="nome" value="${produto.nome}" size="40" class="form-control" required="required" >
+						<input id="fieldComum" type="text" name="nome" value="${produto.nome}" size="40" class="form-control" required="required" >
 
 						<label for="descricao">Descrição:</label> 
-						<input type="text" name="descricao" value="${produto.descricao}" size="40" class="form-control" >
+						<input id="fieldComum" type="text" name="descricao" value="${produto.descricao}" size="40" class="form-control" >
 					
-						<label for="indicacao" style="margin-top: 4px;">Indicação:</label>
-						<input type="text" name="indicacao" value="${produto.indicacao}" size="40" class="form-control"> 
+						<label for="indicacao" >Indicação:</label>
+						<input id="fieldComum" type="text" name="indicacao" value="${produto.indicacao}" size="40" class="form-control"> 
 						
-						<label for="volume" style="margin-top: 4px;">Volume:</label> 
-						<input type="text" name="volume" value="${produto.volume}" size="30" class="form-control" >
+						<label for="volume" >Volume:</label> 
+						<input id="fieldComum" type="text" name="volume" value="${produto.volume}" size="30" class="form-control" >
 
 
 						<div class="esquerda">
 						
-							<label for="qtdDisponivel" style="margin-top: 5px;">Quantidade
+							<label for="qtdDisponivel"  >Quantidade
 								Disponível:</label> 
 
-								<input type="text" name="qtdDisponivel" 
+								<input type="text" name="qtdDisponivel" id="fieldsMedio"
 								value="${produto.estoque.qtdDisponivel}" 
-								size="10" disabled="disabled" class="form-control" style="width: 160px;" >
+								disabled="disabled" class="form-control"  >
 					
-							<label for="qtdMinima" style="margin-top: 5px;">Limite Mínimo:</label> <input type="text" name="qtdMinima" 
-								value="${produto.estoque.qtdMinima}" size="10"
-								class="form-control" style="width: 160px;" required="required"> 
+							<label for="qtdMinima"  >Limite Mínimo:</label> <input type="text" name="qtdMinima" 
+								value="${produto.estoque.qtdMinima}" id="fieldsMedio"
+								class="form-control"  required="required"> 
 							
-							<label for="qtdAdicional" style="margin-top: 5px; color: maroon;">Adicionar Quantidade:</label> 
-								<input type="text" name="qtdAdicional"  size="10" class="form-control" required="required" 
-								style="width: 120px; border-color: maroon;">
+							<label for="qtdAdicional" id="labelsProdutosValor">Adicionar Quantidade:</label> 
+								<input type="text" name="qtdAdicional" class="form-control" required="required" 
+								id="fieldsValor">
 								
 								<input type="hidden" name="qtdEntrada" value="${produto.estoque.qtdEntrada}">
 								
 						</div>
 
 						<div class="esquerda">
-							<label for="custoUnid" style="margin-top: 5px; color: maroon;">Custo
-								Unitário:</label> <input  type="text" name="custoUnid" 
+							<label for="custoUnid" id="labelsProdutosValor">Custo
+								Unitário:</label> <input id="fieldsValor" type="text" name="custoUnid" 
 								value="${produto.custoUnid}" size="30"
-								class="form-control" style="width: 120px; border-color: maroon;" required="required">
+								class="form-control" required="required">
 						</div>
 						<div class="direita">
 							<label for="sugestaoVenda"
-								style="margin-top: 5px; color: maroon;">Valor de
+								id="labelsProdutosValor">Valor de
 								Venda:</label> <input  type="text" name="sugestaoVenda" size="30"
-								class="form-control" value="${produto.sugestaoVenda}" style="width: 120px; border-color: maroon;"required="required">
+								class="form-control" value="${produto.sugestaoVenda}" id="fieldsValor"required="required">
 								
 								<label for="percentual"
-								style="margin-top: 5px; color: maroon;">Percentual
+								id="labelsProdutosValor">Percentual
 								Venda:</label> <input  type="text" name="percentual" size="30"
-								class="form-control" style="width: 120px; border-color: maroon;"required="required">
+								class="form-control" id="fieldsValor" required="required">
 
 						</div>
 

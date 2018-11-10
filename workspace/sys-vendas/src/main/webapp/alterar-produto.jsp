@@ -26,7 +26,7 @@
 			<h1>Alterar Produto</h1>
 		</div>
 
-<form action="alteraProduto" method="post"   class="md-form" enctype="multipart/form-data">
+<form action="alteraProduto" method="post" class="md-form" enctype="multipart/form-data">
 
     
 <fieldset class="campo">
@@ -38,11 +38,7 @@
   			<input type="file" class=" btn btn-primary"  name="imagem" id="imagem" onchange="previewImagem()" />
     	</div>
         <img class="preview" src="carregadorImagem?id=${produto.id} "/>
-   	 </div>
-	
-	
-	
-			
+   	 </div>	
 		<div class="esquerda">
 			<div class="caixa">
 				<label for="fornecedorId"  >Fornecedor:</label> 
@@ -78,74 +74,66 @@
 			</div>		
 			</div>
 
-				<div class="direita">
-				<div class="caixa">
-						<label for="nome">Nome:</label> 
-						<input id="fieldComum" type="text" name="nome" value="${produto.nome}" size="40" class="form-control" required="required" >
+			<div class="direita">
+			<div class="caixa">
+				<label for="nome">Nome:</label> 
+				<input id="fieldComum" type="text" name="nome" value="${produto.nome}" size="40" class="form-control" required="required" >
 
-						<label for="descricao">Descrição:</label> 
-						<input id="fieldComum" type="text" name="descricao" value="${produto.descricao}" size="40" class="form-control" >
-					
-						<label for="indicacao" >Indicação:</label>
-						<input id="fieldComum" type="text" name="indicacao" value="${produto.indicacao}" size="40" class="form-control"> 
-						
-						<label for="volume" >Volume:</label> 
-						<input id="fieldComum" type="text" name="volume" value="${produto.volume}" size="30" class="form-control" >
-
-
-						<div class="esquerda">
-						
-							<label for="qtdDisponivel"  >Quantidade
-								Disponível:</label> 
-
-								<input type="text" name="qtdDisponivel" id="fieldsMedio"
-								value="${produto.estoque.qtdDisponivel}" 
-								disabled="disabled" class="form-control"  >
-					
-							<label for="qtdMinima"  >Limite Mínimo:</label> <input type="text" name="qtdMinima" 
-								value="${produto.estoque.qtdMinima}" id="fieldsMedio"
-								class="form-control"  required="required"> 
-							
-							<label for="qtdAdicional" id="labelsProdutosValor">Adicionar Quantidade:</label> 
-								<input type="text" name="qtdAdicional" class="form-control" required="required" 
-								id="fieldsValor">
-								
-								<input type="hidden" name="qtdEntrada" value="${produto.estoque.qtdEntrada}">
-								
-						</div>
-
-						<div class="esquerda">
-							<label for="custoUnid" id="labelsProdutosValor">Custo
-								Unitário:</label> <input id="fieldsValor" type="text" name="custoUnid" 
-								value="${produto.custoUnid}" size="30"
-								class="form-control" required="required">
-						</div>
-						<div class="direita">
-							<label for="sugestaoVenda"
-								id="labelsProdutosValor">Valor de
-								Venda:</label> <input  type="text" name="sugestaoVenda" size="30"
-								class="form-control" value="${produto.sugestaoVenda}" id="fieldsValor"required="required">
-								
-								<label for="percentual"
-								id="labelsProdutosValor">Percentual
-								Venda:</label> <input  type="text" name="percentual" size="30"
-								class="form-control" id="fieldsValor" required="required">
-
-						</div>
-
-					</div>
-				</div>
-	
-		<div class="caixa">
-			<input type="submit" class="btn btn-primary" name="Enviar"> 
-			<input type="hidden" name="produtoId" value="${produto.id}">
-			<input type="hidden" name="estoqueId" value="${produto.estoque.id}">
-			<input type="hidden" name="categoriaId" value="${produto.categoria.id}">
-					
-		</div>
+				<label for="descricao">Descrição:</label> 
+				<input id="fieldComum" type="text" name="descricao" value="${produto.descricao}" size="40" class="form-control" >
+			
+				<label for="indicacao">Indicação:</label>
+				<input id="fieldComum" type="text" name="indicacao" value="${produto.indicacao}" size="40" class="form-control"> 
 				
-</fieldset>		
+				<label for="volume" >Volume:</label> 
+				<input id="fieldComum" type="text" name="volume" value="${produto.volume}" size="30" class="form-control" >
 
+				<div class="esquerda">					
+					<label for="qtdDisponivel">Quantidade Disponível:</label> 
+
+					<input type="text" name="qtdDisponivel" id="fieldsMedio"
+					value="${produto.estoque.qtdDisponivel}" 
+					disabled="disabled" class="form-control"  >
+			
+					<label for="qtdMinima"  >Limite Mínimo:</label> <input type="text" name="qtdMinima" 
+					value="${produto.estoque.qtdMinima}" id="fieldsMedio"
+					class="form-control"  required="required"> 
+					
+					<label for="qtdAdicional" id="labelsProdutosValor">Adicionar Quantidade:</label> 
+					<input type="text" name="qtdAdicional" class="form-control" required="required" 
+					id="fieldsValor">
+						
+					<input type="hidden" name="qtdEntrada" value="${produto.estoque.qtdEntrada}">
+						
+				</div>
+
+				<div class="esquerda">
+					<label for="custoUnid" id="labelsProdutosValor">Custo
+					Unitário:</label> <input id="fieldsValor" type="text" name="custoUnid" 
+					value="${produto.custoUnid}" size="30"
+					class="form-control" required="required">
+				</div>
+				<div class="direita">
+					<label for="sugestaoVenda"
+					id="labelsProdutosValor">Valor de
+					Venda:</label> <input  type="text" name="sugestaoVenda" size="30"
+					class="form-control" value="${produto.sugestaoVenda}" id="fieldsValor"required="required">
+						
+					<label for="percentual"
+					id="labelsProdutosValor">Percentual
+					Venda:</label> <input  type="text" name="percentual" size="30"
+					class="form-control" id="fieldsValor" required="required">
+
+				</div>
+				</div>
+			</div>
+	</fieldset>		
+	<div id="btnForm">
+		<input type="submit" class="btn btn-primary" name="Enviar" value=" Enviar "> 
+		<input type="hidden" name="produtoId" value="${produto.id}">
+		<input type="hidden" name="estoqueId" value="${produto.estoque.id}">
+		<input type="hidden" name="categoriaId" value="${produto.categoria.id}">		
+	</div>
 </form>
 
 	</div>

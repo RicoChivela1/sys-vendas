@@ -13,9 +13,9 @@
 </head>
 <body>
 <div class="principal">${usuarioLogado.nome}
-		<div class="page-header">
-			<h1>Cadastro de Usuário</h1>
-		</div>
+	<div class="page-header">
+		<h1>Cadastro de Usuário</h1>
+	</div>
 
 	<form action="adicionaAlteraUsuario" method="post">
 
@@ -23,33 +23,29 @@
 		<legend>Dados do Usuário</legend>
     
 		<div class="esquerda">
-				<div class="esquerda">
-					<div class="caixa">
-						<label for="nome">Nome:</label> 
-						<input id="fieldComum" required="required" name="nome"size="40" class="form-control" >
-					</div>
-					<div class="caixa">
-						<label for="login">Login:</label> 
-						<input id="fieldComum" required="required" name="login"size="40" class="form-control" >
-					</div>
-					<div class="caixa">
-						<label for="senha">Senha:</label> 
-						<input id="fieldComum" required="required" name="senha"size="40" class="form-control" >
-					</div>
-					<div class="caixa">
-						<label for="senha2">Repita a senha:</label> 
-						<input id="fieldComum" required="required" name="senha2"size="40" class="form-control" >
-					</div>
-					
-					<div class="caixa">
-						<input type="submit" class="btn btn-primary" name="Enviar"> 	
-					</div>
-		
+			<div class="esquerda">
+				<div class="caixa">
+					<label for="nome">Nome:</label> 
+					<input id="fieldComum" required="required" name="nome"size="40" class="form-control" >
+				</div>
+				<div class="caixa">
+					<label for="login">Login:</label> 
+					<input id="fieldComum" required="required" name="login"size="40" class="form-control" >
+				</div>
+				<div class="caixa">
+					<label for="senha">Senha:</label> 
+					<input id="fieldComum" required="required" name="senha"size="40" class="form-control" >
+				</div>
+				<div class="caixa">
+					<label for="senha2">Repita a senha:</label> 
+					<input id="fieldComum" required="required" name="senha2"size="40" class="form-control" >
 				</div>
 			</div>
-
+		</div>
 	</fieldset>
-		
+	<div id="btnForm">
+		<input type="submit" class="btn btn-primary" name="Enviar" value="Enviar"> 	
+	</div>	
 	</form>
 </div>
 </body>

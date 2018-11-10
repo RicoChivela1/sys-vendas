@@ -31,11 +31,11 @@
 			
 			<label for="sobreNome">Segundo Nome:</label>
 			<input id="fieldComum" type="text" name="sobreNome" value="${cliente.sobreNome}" class="form-control" aria-describedby="sizing-addon3">
-			<br />
 		</div>
-		<div class="fieldsData">
 		
-			<label>Nascimento: </label><br /> 
+		<label>Nascimento: </label>
+		<div class="fieldsData">
+
 			<input id="fieldsPequenoData" type="text" name="dia" size="2" maxlength="2" placeholder="dd" class="form-control" aria-describedby="sizing-addon3" required="required"> 
 			<input id="fieldsPequenoData" type="text" name="mes" size="2" maxlength="2" placeholder="mm" class="form-control" aria-describedby="sizing-addon3"required="required"> 
 			<input id="fieldsPequenoData" type="text" name="ano" size="4" maxlength="4" placeholder="aaaa" class="form-control" aria-describedby="sizing-addon3" required="required"><br />
@@ -117,15 +117,11 @@
 			<input id="fieldsMedio" type="text" name="numero" value="${cliente.numero}" class="form-control" aria-describedby="sizing-addon3"> 
 		</div>	
 	</div>
-	
-	<div class="caixa">
-			<input type="submit" class="btn btn-primary" name="Concluir">
-			<input type="hidden" name="clienteId" value="${cliente.id}"> 		
-		</div>
-	
-	
 	</fieldset>	
-	
+	<div id="btnForm">
+		<input type="submit" class="btn btn-primary" name="Concluir">
+		<input type="hidden" name="clienteId" value="${cliente.id}"> 		
+	</div>
 </form>		
 
 </div>

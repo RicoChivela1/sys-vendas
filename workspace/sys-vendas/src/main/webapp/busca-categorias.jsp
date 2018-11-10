@@ -38,23 +38,21 @@
 <div class="table-responsive">
 	<table class="table table-hover">
 	<caption>Lista de Categorias</caption>
-		  <thead class="thead-dark">
-		    <tr>
-		      <th scope="row">#</th>
-		      <th>Nome</th>
-			  <th>Ações</th>
-		    </tr>
-		  </thead>
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="row">#</th>
+	      <th>Nome</th>
+		  <th>Ações</th>
+	    </tr>
+	  </thead>
 	  <tbody>
 	
 	   <c:forEach var="categorias" items="${categorias}">
 		    <tr>
 		      <td>${categorias.id}</td>
 		      <td>${categorias.nome}</td>
-		      
-		 
+		       
 		      <td> 
-		     
 		      <div class="btnAcoes">
 		  
 		      <button type="submit" name="alterar" value="${categorias.id}"  class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i> Alterar</button>
@@ -62,7 +60,6 @@
 				
 			  </div>
 		      </td>
-		    	
 		    	
 		    </tr>
 	   </c:forEach>

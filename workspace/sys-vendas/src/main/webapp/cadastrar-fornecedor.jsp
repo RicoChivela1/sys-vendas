@@ -14,6 +14,7 @@
   		<h1>Cadastro de Fornecedor </h1>
 	</div>
 	<form action="adicionaFornecedor" method="post">
+	
 	<fieldset class="campo">
 	<legend>Identificação</legend>
 
@@ -24,14 +25,6 @@
 			<input id="fieldComum" type="text" name="nome" size="40" class="form-control" aria-describedby="sizing-addon3">  
 		</div>
 
-		<div class="caixa">
-			<label for="cnpjCpf">CNPJ - CPF:</label>
-			<input id="fieldComum" type="text" name="cnpjCpf" size="40" class="form-control" aria-describedby="sizing-addon3">  	
-		</div>
-		
-	</div>
-		<br />
-	<div class="direita">
 		<label>Pessoa:</label>
 		<div class="radio">
 			<input type="radio" id="pessoa1" name="pessoa" value="FISICA"
@@ -39,9 +32,15 @@
 				type="radio" id="pessoa2" name="pessoa" value="JURIDICA"> <label
 				for="situacao2">Jurídica</label>
 		</div>
+		
+	</div>
+	<div class="direita">
+		<div class="caixa">
+			<label for="cnpjCpf">CNPJ - CPF:</label>
+			<input id="fieldComum" type="text" name="cnpjCpf" size="40" class="form-control" aria-describedby="sizing-addon3">  	
+		</div>
 	</div>
 	</fieldset>
-	
 
 	<fieldset>
 	<legend>Endereço</legend>
@@ -91,16 +90,11 @@
 			<input type="text" name="observacao" id="fieldComum" class="form-control" >	
 		</div>
 	</div>
-	
-	<br />
-		<div class="caixa">
-			<input type="submit" class="btn btn-primary" name="Enviar"> 
-			<input type="reset" class="btn btn-default" name="Limpar">		
-		</div>
-	<br /><br />
-	
 	</fieldset>	
-		
+		<div id="btnForm">
+			<input type="submit" class="btn btn-primary" name="Enviar" value="Enviar"> 
+			<input type="reset" class="btn btn-default" name="Limpar" value="Limpar">		
+		</div>	
 	</form>
 	</div>
 </body>

@@ -2,9 +2,7 @@
 
 .caixa {
 	border: 2px solid #ffffff;
-	/*padding: 5px;*/
 	width: 90%;
-	/*margin-bottom: 5px;*/
 }
 
 .radio {
@@ -239,12 +237,19 @@ input#fieldsPequeno{
 /*Conjuto de imputs para data*/
 div.fieldsData{
 	width: 92%;
-	height: 100px;
+	height: 39px;
 }
 
+/*Links do select*/
 a#linkSelect {
 	margin-left: 15px;
 }
 
-
+/*Div dos botões*/
+div#btnForm {
+	width: 50%;
+    margin-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
 

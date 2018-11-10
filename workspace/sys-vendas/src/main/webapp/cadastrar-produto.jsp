@@ -126,14 +126,11 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="caixa">
-			<input type="submit" class="btn btn-primary" name="Enviar" value="Enviar">
-			<input type="reset" class="btn btn-default" name="Limpar" value="Limpar">
-		</div>
-
 	</fieldset>
-
+	<div id="btnForm">
+		<input type="submit" class="btn btn-primary" name="Enviar" value="Enviar">
+		<input type="reset" class="btn btn-default" name="Limpar" value="Limpar">
+	</div>
 </form>
 
 </div>

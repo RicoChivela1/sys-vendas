@@ -29,16 +29,15 @@
 						<input id="fieldComum" required="required" name="nome" value="${categoria.nome}" class="form-control" >
 					</div>
 					
-					<div class="caixa">
-						<input type="submit" class="btn btn-primary" name="Enviar"> 
-						<input type="hidden" name="categriaId" value="${categoria.id}">	
-					</div>
-		
 				</div>
+				
 			</div>
 
 	</fieldset>
-		
+		<div id="btnForm">
+			<input type="submit" class="btn btn-primary" name="Enviar"> 
+			<input type="hidden" name="categriaId" value="${categoria.id}">	
+		</div>
 	</form>
 </div>
 </body>

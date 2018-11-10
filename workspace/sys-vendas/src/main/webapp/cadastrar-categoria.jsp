@@ -13,9 +13,9 @@
 </head>
 <body>
 <div class="principal">
-		<div class="page-header">
-			<h1>Cadastro de Categoria</h1>
-		</div>
+	<div class="page-header">
+		<h1>Cadastro de Categoria</h1>
+	</div>
 
 	<form action="adicionaCategoria" method="post">
 
@@ -23,20 +23,18 @@
 		<legend>Dados da Categoria</legend>
     
 		<div class="esquerda">
-				<div class="esquerda">
-					<div class="caixa">
-						<label for="nome">Nome:</label> 
-						<input id="fieldComum" required="required" name="nome" class="form-control" >
-					</div>
-					
-					<div class="caixa">
-						<input type="submit" class="btn btn-primary" name="Enviar"> 	
-					</div>
-		
+			<div class="esquerda">
+				<div class="caixa">
+					<label for="nome">Nome:</label> 
+					<input id="fieldComum" required="required" name="nome" class="form-control" >
 				</div>
 			</div>
+		</div>
 	</fieldset>
-		
+	
+	<div id="btnForm">
+		<input type="submit" class="btn btn-primary" name="Enviar" value="Enviar"> 	
+	</div>
 	</form>
 </div>
 </body>

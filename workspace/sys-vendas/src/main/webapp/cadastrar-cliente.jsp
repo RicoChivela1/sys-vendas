@@ -22,13 +22,14 @@
 		<div class="caixa">
 			<label for="nome">Primeiro Nome:</label>
 			<input id="fieldComum" type="text" name="nome"  class="form-control" aria-describedby="sizing-addon3">  
+			
 			<label for="sobreNome">Segundo Nome:</label>
 			<input id="fieldComum" type="text" name="sobreNome"  class="form-control" aria-describedby="sizing-addon3">
 		</div>
 		
+		<label>Nascimento: </label>
 		<div class="fieldsData">
-		
-			<label>Nascimento: </label><br /> 
+		 
 			<input id="fieldsPequenoData" type="text" name="dia" size="2" maxlength="2" placeholder="dd" class="form-control" aria-describedby="sizing-addon3" required="required"> 
 			<input id="fieldsPequenoData" type="text" name="mes" size="2" maxlength="2" placeholder="mm" class="form-control" aria-describedby="sizing-addon3"required="required"> 
 			<input id="fieldsPequenoData" type="text" name="ano" size="4" maxlength="4" placeholder="aaaa" class="form-control" aria-describedby="sizing-addon3" required="required"><br />
@@ -38,19 +39,17 @@
 		<label>Pessoa:</label>
 		<div class="radio">
 				
-				<input type="radio" id="pessoa1" name="pessoa" value="FISICA"
-					checked> <label for="situacao1">Física</label> &nbsp; <input
-					type="radio" id="pessoa2" name="pessoa" value="JURIDICA"> <label
-					for="situacao2">Jurídica</label>
-			</div>
+			<input type="radio" id="pessoa1" name="pessoa" value="FISICA" checked> 
+			<label for="situacao1">Física</label> &nbsp; 
+			<input type="radio" id="pessoa2" name="pessoa" value="JURIDICA"> <label for="situacao2">Jurídica</label>
+		</div>
 			
 		<label>Sexo:</label>
 			<div class="radio">
 				<input type="radio" id="sexo1" name="sexo" value="M"> <label
-					for="situacao1">Masculino</label> &nbsp; <input type="radio" id="sexo2"
-					name="sexo" value="F" checked> <label for="situacao2">Feminino</label>
+				for="situacao1">Masculino</label> &nbsp; <input type="radio" id="sexo2"
+				name="sexo" value="F" checked> <label for="situacao2">Feminino</label>
 			</div>
-
 		</div>
 		
 		<div class="direita">
@@ -88,7 +87,6 @@
 		</div>
 	</div>
 	
-	
 	<div class="direita">
 			<div class="caixa">
 			<label for="uf">UF:</label>
@@ -104,14 +102,12 @@
 			<input id="fieldsMedio" type="text" name="numero" class="form-control" aria-describedby="sizing-addon3"> 
 		</div>	
 	</div>
-		<div class="caixa">
-			<input type="submit" class="btn btn-primary" name="Enviar"> 
-			<input type="reset" class="btn btn-default" name="Limpar">		
-		</div>
-	<br /><br />
-	
-	</fieldset>	
 		
+	</fieldset>	
+		<div id="btnForm">
+			<input type="submit" class="btn btn-primary" name="Enviar" value="Enviar"> 
+			<input type="reset" class="btn btn-default" name="Limpar" value="Limpar">		
+		</div>
 	</form>
 	</div>
 </body>

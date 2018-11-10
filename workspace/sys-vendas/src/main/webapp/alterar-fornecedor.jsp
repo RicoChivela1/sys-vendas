@@ -92,16 +92,11 @@
 			 id="fieldComum" class="form-control" >	
 		</div>
 	</div>
-	
-	<br />
-		<div class="caixa">
-			<input type="submit" class="btn btn-primary" name="Enviar"> 
-			<input type="hidden"  name="fornecedorId" value="${fornecedor.id}">		
-		</div>
-	<br /><br />
-	
 	</fieldset>	
-		
+	<div id="btnForm">
+		<input type="submit" class="btn btn-primary" name="Enviar"> 
+		<input type="hidden"  name="fornecedorId" value="${fornecedor.id}">		
+	</div>	
 	</form>
 	</div>
 </body>

@@ -57,9 +57,7 @@
 					for="situacao1">Masculino</label> &nbsp; <input type="radio" id="sexo2"
 					name="sexo" value="F" checked> <label for="situacao2">Feminino</label>
 			</div>
-			
-		
-		
+
 		</div>
 		
 		<div class="direita">

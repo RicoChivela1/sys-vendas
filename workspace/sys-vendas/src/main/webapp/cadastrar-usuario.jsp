@@ -26,19 +26,19 @@
 				<div class="esquerda">
 					<div class="caixa">
 						<label for="nome">Nome:</label> 
-						<input required="required" name="nome"size="40" class="form-control" >
+						<input id="fieldComum" required="required" name="nome"size="40" class="form-control" >
 					</div>
 					<div class="caixa">
 						<label for="login">Login:</label> 
-						<input required="required" name="login"size="40" class="form-control" >
+						<input id="fieldComum" required="required" name="login"size="40" class="form-control" >
 					</div>
 					<div class="caixa">
 						<label for="senha">Senha:</label> 
-						<input required="required" name="senha"size="40" class="form-control" >
+						<input id="fieldComum" required="required" name="senha"size="40" class="form-control" >
 					</div>
 					<div class="caixa">
 						<label for="senha2">Repita a senha:</label> 
-						<input required="required" name="senha2"size="40" class="form-control" >
+						<input id="fieldComum" required="required" name="senha2"size="40" class="form-control" >
 					</div>
 					
 					<div class="caixa">

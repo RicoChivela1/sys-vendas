@@ -33,48 +33,49 @@
 	<legend>Dados do Produto</legend>
     
 	<div class="esquerda">
-	<div id=""> 
-	<div >	      
-  		<input type="file" class=" btn btn-primary"  name="imagem" id="imagem" onchange="previewImagem()" /><br /><br />
-    </div></div>
-        <img class="preview" src="carregadorImagem?id=${produto.id} "/><br />
-   		
-	<br /><br />
-			<div class="esquerda">
-			</div>
-					<div class="esquerda">
-						<div class="caixa">
-							<label for="fornecedorId"  >Fornecedor:</label> 
-							
-							<select name="fornecedorId" id="selectDeProdutos" class="form-control" >
-								<option value="0">SELECIONE</option>
-								<c:forEach var="fornecedor" items="${fornecedorDao.list}">
-									<option value="${fornecedor.id}">${fornecedor.nome}</option>
-								<input type="hidden" value="${fornecedor.nome}" name="fornecedor" >
-								</c:forEach>
-							</select>
-      						
-      						<span class="input-group-btn" >
-        						<button class="btn btn-default" type="button"><a href="cadastrar-fornecedor.jsp">&#10010;</a></button>
-      						</span>
-						</div>
-					</div>
+	 <div id=""> 
+		<div >	      
+  			<input type="file" class=" btn btn-primary"  name="imagem" id="imagem" onchange="previewImagem()" />
+    	</div>
+        <img class="preview" src="carregadorImagem?id=${produto.id} "/>
+   	 </div>
 	
-					<div class="direita">
-						<div class="caixa">
-							<label for="categoria" >Categoria:</label> 
-							<select name="categoria" id="selectDeProdutos" class="form-control" >
-								<option value="0">SELECIONE</option>
-								<c:forEach var="lista" items="${categoriaDao.list}">
-									<option value="${lista.nome}">${lista.nome}</option>
-								</c:forEach>
-							</select>
-					
-							<span class="input-group-btn" >
-        						<button class="btn btn-default" type="button"><a href="cadastrar-categoria.jsp">&#10010;</a></button>
-      						</span>						
-						</div>
-					</div>		
+	
+	
+			
+		<div class="esquerda">
+			<div class="caixa">
+				<label for="fornecedorId"  >Fornecedor:</label> 
+				
+				<select name="fornecedorId" id="selectDeProdutos" class="form-control" >
+					<option value="0">SELECIONE</option>
+					<c:forEach var="fornecedor" items="${fornecedorDao.list}">
+						<option value="${fornecedor.id}">${fornecedor.nome}</option>
+					<input type="hidden" value="${fornecedor.nome}" name="fornecedor" >
+					</c:forEach>
+				</select>
+   						
+   				<span class="input-group-btn">
+					<a id="linkSelect" href="cadastrar-fornecedor.jsp">&#10010; Novo Fornecedor</a>
+				</span>
+			</div>
+		</div>
+	
+			<div class="direita">
+				<div class="caixa">
+					<label for="categoria" >Categoria:</label> 
+					<select name="categoria" id="selectDeProdutos" class="form-control" >
+						<option value="0">SELECIONE</option>
+						<c:forEach var="lista" items="${categoriaDao.list}">
+							<option value="${lista.nome}">${lista.nome}</option>
+						</c:forEach>
+					</select>
+			
+					<span class="input-group-btn">
+						<a id="linkSelect" href="cadastrar-categoria.jsp">&#10010; Nova Categoria</a>
+					</span>					
+				</div>
+			</div>		
 			</div>
 
 				<div class="direita">

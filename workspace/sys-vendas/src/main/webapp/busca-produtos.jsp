@@ -54,7 +54,7 @@
 	
 	   <c:forEach var="produto" items="${produtos}">
 		    <tr>
-		      <td >${produto.id}</td>
+		      <td>${produto.id}</td>
 		      <td><img class="miniaturaProduto" src="./carregadorImagem?id=${produto.id}" /></td>
 				<td>-${produto.nome}<br />
 					-${produto.volume}

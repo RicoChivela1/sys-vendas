@@ -66,11 +66,11 @@ label, input {
 label::after {
 	content: '' attr(unit);
 	position: absolute;
-	top: 7px;
-	left: 53px;
+	top: -8px;
+    left: 68px;
 	font-family: arial, helvetica, sans-serif;
-	font-size: 19px;
-	color: rgba(0, 0, 0, 0.6);
+	font-size: 20px;
+	color: maroon;
 	font-weight: bold;
 }
 
@@ -128,14 +128,24 @@ td.sugestaoVenda{
 
 /*preview de imagens de produto*/
 img.preview {
+	height: 150px; 
+    margin-bottom: 47px;
+    margin-top: 24px;
+}
+
+img#imgPreview{
 	width: 150px; 
-	/*height: 150px;*/
+	height: 150px;
+	margin-bottom: 47px;
+    margin-top: 24px;
 }
 
 /*caixa de seleção para produto*/
 select#selectDeProdutos {
 	width: 170px; 
 	height: 38px;
+	margin-left: 15px;
+	margin-bottom: 10px;
 }
 
 /*labels gerais*/
@@ -147,7 +157,7 @@ label{
 
 /*labels vermelhos para produto*/
 label#labelsProdutosValor{
-	margin-top: 12px;
+	margin-top: 15px;
 	color: maroon;
 }
 
@@ -158,6 +168,49 @@ input#fieldsValor{
 	color: maroon;
 	margin-left: 15px;
 }
+
+/*inputs vermelhos pequenos*/
+input#fieldsValorSmall {
+	width: 120px; 
+	border-color: maroon;
+	color: maroon;
+	margin-left: 15px;
+}
+
+/*inputs específicos do cadastro de produtos*/
+input#custoUnid {
+	width: 120px; 
+	border-color: maroon;
+	color: maroon;
+	margin-left: 15px;
+}
+
+input#percentual {
+	width: 120px; 
+	border-color: maroon;
+	color: maroon;
+	margin-left: 15px;
+	margin-top: -15px;	
+}
+
+input#lucro {
+	width: 120px; 
+	border-color: maroon;
+	color: maroon;
+	margin-left: 15px;
+	margin-top: 0px;	
+}
+
+input#sugestaoVenda {
+	width: 120px; 
+	border-color: maroon;
+	color: maroon;
+	margin-left: 15px;
+	margin-top: 0px;	
+}
+
+/* fim dos inputs específicos do cadastro de produtos*/
+
 
 /*inputs médios normais*/
 input#fieldsMedio{
@@ -187,6 +240,10 @@ input#fieldsPequeno{
 div.fieldsData{
 	width: 92%;
 	height: 100px;
+}
+
+a#linkSelect {
+	margin-left: 15px;
 }
 
 

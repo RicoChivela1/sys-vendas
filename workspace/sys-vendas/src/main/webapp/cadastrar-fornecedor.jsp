@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Cadastrar Fornecedor</title>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
+<link rel="stylesheet" href="css/bootstrap.min.css" >
 
 </head>
 <body>
@@ -21,27 +21,25 @@
 		
 		<div class="caixa">
 			<label for="nome">Nome - RS:</label>
-			<input type="text" name="nome" size="40" class="form-control" aria-describedby="sizing-addon3">  
+			<input id="fieldComum" type="text" name="nome" size="40" class="form-control" aria-describedby="sizing-addon3">  
 		</div>
 
 		<div class="caixa">
 			<label for="cnpjCpf">CNPJ - CPF:</label>
-			<input type="text" name="cnpjCpf" size="40" class="form-control" aria-describedby="sizing-addon3">  	
+			<input id="fieldComum" type="text" name="cnpjCpf" size="40" class="form-control" aria-describedby="sizing-addon3">  	
 		</div>
 		
 	</div>
 		<br />
 	<div class="direita">
+		<label>Pessoa:</label>
 		<div class="radio">
-				<p>Pessoa:</p>
-				<input type="radio" id="pessoa1" name="pessoa" value="FISICA"
-					checked> <label for="situacao1">Física</label> <input
-					type="radio" id="pessoa2" name="pessoa" value="JURIDICA"> <label
-					for="situacao2">Jurídica</label>
+			<input type="radio" id="pessoa1" name="pessoa" value="FISICA"
+				checked> <label for="situacao1">Física</label> &nbsp;<input
+				type="radio" id="pessoa2" name="pessoa" value="JURIDICA"> <label
+				for="situacao2">Jurídica</label>
 		</div>
-
 	</div>
-		
 	</fieldset>
 	
 
@@ -51,46 +49,46 @@
 		
 		<div class="caixa">
 			<label for="endereco">Endereço:</label>
-			<input type="text" name="endereco" size="40" class="form-control" aria-describedby="sizing-addon3">  
+			<input id="fieldComum" type="text" name="endereco" size="40" class="form-control" aria-describedby="sizing-addon3">  
 			
 			<div class="esquerda">
 				<label for="cep">CEP:</label>
-				<input type="text" name="cep" size="40" class="form-control" style="width: 225px; " >  
+				<input id="fieldsMedio"  type="text" name="cep" class="form-control"  >  
 			</div>
 			<div class="direita">
 				<label for="bairro">Bairro:</label>
-				<input type="text" name="bairro" size="40" class="form-control" style="width: 225px; margin-left: 20px;" >  
+				<input id="fieldsMedio" type="text" name="bairro" class="form-control"  >  
 			</div>
 			
 			<div class="esquerda">
 				<label for="cidade">Cidade:</label>
-				<input type="text" name="cidade" size="40" class="form-control" style="width: 225px; margin-right: 20px" >  
+				<input id="fieldsMedio" type="text" name="cidade" class="form-control"  >  
 			</div>
 			
 			<div class="direita">
 				<label for="uf">UF:</label>
-				<input type="text" name="uf" size="30" class="form-control" style="width: 50px; margin-left: 20px;" >
+				<input id="fieldsPequeno" type="text" name="uf" class="form-control">
 			</div>
 			
 		</div>
 	</div>
 	
 	
-	<div class="direita">
+		<div class="direita">
 		<div class="caixa">
 			<label for="complemento">Complemento:</label>
-			<input type="text" name="complemento" size="30" class="form-control" >
+			<input id="fieldComum" type="text" name="complemento" class="form-control" >
 			
 			<div class="esquerda">
 				<label for="fone">Fone:</label>
-				<input type="text" name="fone" size="30" class="form-control" style="width: 225px; height: 38px" >
+				<input id="fieldsMedio" type="text" name="fone" class="form-control" >
 			</div>
 			<div class="direita">
 				<label for="email">Email:</label>
-				<input type="text" name="email" size="30" class="form-control" style="width: 225px; margin-left: 20px;" >
+				<input id="fieldsMedio" type="text" name="email" class="form-control" >
 			</div>
 			<label for="observacao">Observação:</label>
-			<input type="text" name="observacao" size="30" class="form-control" >	
+			<input type="text" name="observacao" id="fieldComum" class="form-control" >	
 		</div>
 	</div>
 	

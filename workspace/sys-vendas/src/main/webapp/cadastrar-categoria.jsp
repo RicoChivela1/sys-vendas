@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Cadastrar Categoria</title>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="css/bootstrap.min.css"  >
 
 </head>
 <body>
@@ -26,7 +26,7 @@
 				<div class="esquerda">
 					<div class="caixa">
 						<label for="nome">Nome:</label> 
-						<input required="required" name="nome"size="40" class="form-control" >
+						<input id="fieldComum" required="required" name="nome" class="form-control" >
 					</div>
 					
 					<div class="caixa">
@@ -35,7 +35,6 @@
 		
 				</div>
 			</div>
-
 	</fieldset>
 		
 	</form>

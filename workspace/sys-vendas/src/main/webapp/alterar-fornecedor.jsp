@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Cadastrar Fornecedor</title>
+<title>Alterar Fornecedor</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/bootstrap.css" >
 
@@ -11,7 +11,7 @@
 <body>
 <div class="principal">
 	<div class="page-header">
-  		<h1>Cadastro de Fornecedor </h1>
+  		<h1>Alterar Fornecedor </h1>
 	</div>
 	<form action="alteraFornecedor" method="post">
 	<fieldset class="campo">
@@ -30,12 +30,13 @@
 		</div> 
 	  
 	</div>
-		<br />
+		
 	<div class="direita">
+	<label>Pessoa:</label>
 		<div class="radio">
-				<p>Pessoa:</p>
+				
 				<input type="radio" id="pessoa1" name="pessoa" value="${fornecedor.pessoa}"
-					checked> <label for="situacao1">Física</label> <input
+					checked> <label for="situacao1">Física</label>&nbsp; <input
 					type="radio" id="pessoa2" name="pessoa" value="JURIDICA"> <label
 					for="situacao2">Jurídica</label>
 		</div>
@@ -75,7 +76,7 @@
 	<div class="direita">
 		<div class="caixa">
 			<label for="complemento">Complemento:</label>
-			<input id="fieldsMedio" type="text" name="complemento" value="${fornecedor.complemento}" class="form-control" >
+			<input id="fieldComum" type="text" name="complemento" value="${fornecedor.complemento}" class="form-control" >
 			
 			<div class="esquerda">
 				<label for="fone">Fone:</label>

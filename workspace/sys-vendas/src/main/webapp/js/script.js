@@ -1,3 +1,4 @@
+/*Envia a imagem para a div de preview*/
 function previewImagem() {
 	var imagem = document.querySelector('input[name=imagem]').files[0];
 	var preview = document.querySelector('img');
@@ -15,6 +16,7 @@ function previewImagem() {
 	}
 }
 
+/* Calcula o percentual */
 function calcular() {
 	var n1 = parseFloat(document.getElementById('custoUnid').value.replace(".",
 			""));
@@ -27,7 +29,15 @@ function calcular() {
 			.toFixed(2);
 }
 
-// -----------------------------------------------------
+/*Calcula o estoque do Carrinho - info-produto.jsp */
+function calcularEstoque() {
+	  var n1 = parseInt(document.getElementById('fieldQtdEstoque').value, 10);
+	  var n2 = parseInt(document.getElementById('fieldQtdInfo').value, 10);
+	 
+	  document.querySelector("[name='result']").value = ((n1 - n2));
+}
+
+// Pego na Internet-----------------------------------------------------
 // Funcao: MascaraMoeda
 // Sinopse: Mascara de preenchimento de moeda
 // Parametro:

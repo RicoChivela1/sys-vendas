@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="js/script.js"></script>
 <title>Buscar Produtos</title>
 </head>
 <body>
@@ -36,7 +37,9 @@
 			<div class="btnForm">
 				<div class="divQtdInfo">
 					<label>Quatidade disponível:</label>
-					<input id="redInputInfo" type="text" value="${produto.estoque.qtdDisponivel}" size="5">
+					
+					<input id="redInputInfo" name="result" type="text" value="${produto.estoque.qtdDisponivel}" size="5">
+					<input type="hidden" id="fieldQtdEstoque" value="${produto.estoque.qtdDisponivel}" />
 				</div>
 				
 				<fieldset class="campo">
@@ -45,11 +48,11 @@
 				<div class="divCarrinho"><br />
 					<div class="esquerdaValor">
 						<label>Quantidade: </label>
-						<input type="number" name="qtd" value="qtd" min="0" id="fieldsValorSmall" class="form-control" required="required">
+						<input type="number" name="qtd" id="fieldQtdInfo" onmouseup="calcularEstoque()" class="form-control" required="required" min="0" max="${produto.estoque.qtdDisponivel}">
 					</div>
 					
 				    <div class="centroValor"> 	
-				     	<button type="submit" name="AddCarrinho" value="${produto.id}"  class="btn btn-outline-success"> <i class="fa fa-cart-plus" aria-hidden="true"></i> Add ao Carriho</button>
+				     	<button type="submit" name="AddCarrinho" value="${produto.id}"  class="btn btn-success"> <i class="fa fa-cart-plus" aria-hidden="true"></i> Add</button>
 					</div>	
 				</div>
 				

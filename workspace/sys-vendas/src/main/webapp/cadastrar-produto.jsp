@@ -105,7 +105,7 @@
 						
 						step='0.01' value='0.00'
 						min="0.01" max="70.00" placeholder='0.00' size="30"
-						class="form-control" required="required" onchange="calcular()" />			
+						class="form-control" required="required" onmouseup="calcular()" />			
 					</label>
 				</div>
 

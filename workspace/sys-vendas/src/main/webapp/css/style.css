@@ -199,6 +199,14 @@ input#fieldsValorSmall {
 	margin-left: 15px;
 }
 
+/*inputs vermelhos pequenos*/
+input#fieldQtdInfo {
+	width: 120px; 
+	border-color: maroon;
+	color: maroon;
+	margin-left: 15px;
+}
+
 /*inputs específicos do cadastro de produtos*/
 input#custoUnid {
 	width: 120px; 
@@ -292,9 +300,22 @@ input#redInputInfo{
 	font-style: italic;
 }
 
+/*inputs vermelhos para valores*/
+input#redInputInfo{
+	border: none; 
+	font-size: 40px; 
+	color: maroon; 
+	font-style: italic;
+}
+
 div#divQtdInfo {
 	margin-bottom: 20px;
 }
 div.divCarrinho {
-	background-color: blue;
+	padding-left: 24px;
+    background-color: #f0f0ff;
+    height: 161px;
+    width: 281px;
 }
+
+

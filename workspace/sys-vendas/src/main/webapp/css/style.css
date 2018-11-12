@@ -78,9 +78,28 @@ label::after {
 	width: 33%;
 }
 
+/* Botão de adicionar ao carrinh na págia Info */
+div.btnCarrinho {
+	float: left;
+	width: 33%;
+	background-color: red;
+}
+
 .esqValor {
 	width: 33%;
 	float: left;
+}
+/*Div carrinho*/
+.centroValor {
+	width: 33%;
+	float: left;
+	margin-top: 41px;
+}
+/*Div carrinho*/
+.esquerdaValor {
+	width: 140px;
+    margin-right: 1px;
+    float: left;
 }
 
 .centValor {
@@ -93,11 +112,6 @@ label::after {
 	width: 140px;
 	font-size: 20px;
 	color: red;
-}
-
-/*miniatura da imagem do produto para a list*/
-img.miniaturaProduto{
-	width: 100px;
 }
 
 /*valor de venda para a list*/
@@ -136,6 +150,16 @@ img#imgPreview{
 	height: 150px;
 	margin-bottom: 47px;
     margin-top: 24px;
+}
+
+/*miniatura da imagem do produto para a list*/
+img.miniaturaProduto{
+	width: 100px;
+}
+
+/*miniatura da imagem do produto para a info*/
+img.miniaturaProdutoInf{
+	width: 150px;
 }
 
 /*caixa de seleção para produto*/
@@ -253,3 +277,24 @@ div#btnForm {
     margin-bottom: 50px;
 }
 
+span {
+	font-size: 18px;
+	color: #222a2e;
+    font-style: italic;
+	
+}
+
+/*inputs vermelhos para valores*/
+input#redInputInfo{
+	border: none; 
+	font-size: 40px; 
+	color: maroon; 
+	font-style: italic;
+}
+
+div#divQtdInfo {
+	margin-bottom: 20px;
+}
+div.divCarrinho {
+	background-color: blue;
+}

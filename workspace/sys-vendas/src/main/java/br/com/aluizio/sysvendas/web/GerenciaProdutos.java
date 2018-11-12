@@ -27,10 +27,11 @@ public class GerenciaProdutos extends HttpServlet {
 		String pagina = "";
 
 		// Exibe informações completas sobre o produto
+	
 		if (request.getParameter("info") != null) {
 			int id = Integer.parseInt(request.getParameter("info"));
 			System.out.println("Id da info do produto é: " + id);
-
+	
 			// objeto contendo o id do produto
 			Produto produtoBuscado = new Produto();
 			produtoBuscado.setId(id);
@@ -40,6 +41,8 @@ public class GerenciaProdutos extends HttpServlet {
 			request.setAttribute("produto", produto);
 			
 			// página de info
+				
+			
 			pagina = "/info-produto.jsp";
 		}
 

@@ -34,7 +34,6 @@
 		
 <form action="gerenciaProdutos" method="post">
 
-
 <div class="table-responsive">
 	<table class="table table-hover ">
 	<caption>Lista de Produtos</caption>

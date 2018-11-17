@@ -19,7 +19,7 @@
 	<div class="page-header">
 
 	</div>
-  <form action="      " method="post">	
+  <form action="agregar-carrinho.jsp" method="post">	
 	<fieldset class="campo">
 	<legend>${produto.nome} <span>${produto.volume}</span></legend>
 	
@@ -28,7 +28,7 @@
 			<img class="miniaturaProdutoInf" src="./carregadorImagem?id=${produto.id}" />
 			<label>R$ </label> 
 			<input type="text" value="${produto.sugestaoVenda}" id="redInputInfo" size="10">
-				
+			<input type="hidden" name="sugestaoVenda" value="${produto.sugestaoVenda}" />	
 		
 		</div>
 		
@@ -48,11 +48,12 @@
 				<div class="divCarrinho"><br />
 					<div class="esquerdaValor">
 						<label>Quantidade: </label>
-						<input type="number" name="qtd" id="fieldQtdInfo" onmouseup="calcularEstoque()" class="form-control" required="required" min="0" max="${produto.estoque.qtdDisponivel}">
+						<input type="number" name="qtdProduto" id="fieldQtdInfo" onmouseup="calcularEstoque()" class="form-control" required="required" min="1" max="${produto.estoque.qtdDisponivel}">
 					</div>
 					
 				    <div class="centroValor"> 	
-				     	<button type="submit" name="AddCarrinho" value="${produto.id}"  class="btn btn-success"> <i class="fa fa-cart-plus" aria-hidden="true"></i> Add</button>
+				     	<button type="submit" name="idProduto" value="${produto.id}"  class="btn btn-success"> <i class="fa fa-cart-plus" aria-hidden="true"></i> Add</button>
+						<input type="hidden" name="nomeProduto" value="${produto.nome}">
 					</div>	
 				</div>
 				

@@ -13,10 +13,12 @@
 
 </head>
 <body>
-<div class="principal">${usuarioLogado.nome}
-	<div class="page-header">
-		<h1>Alterar Usuário</h1>
-	</div>
+<div class="page-header">
+	<c:import url="cabecalho.jsp"/>	
+</div>
+
+<div id="container">
+	
 
 	<form action="adicionaAlteraUsuario" method="post">
 	<fieldset class="campo">
@@ -51,6 +53,9 @@
 	</fieldset>
 		
 	</form>
+	<footer class="site-footer push">
+    	<c:import url="rodape.jsp"/>
+	</footer>
 </div>
 </body>
 </html>

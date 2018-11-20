@@ -14,18 +14,15 @@
 
 </head>
 <body>
-<div class="page-header">
-			<h1>Bem vindo</h1>
-			
-			<form action="logout" method="post">
-			<div class="caixa" style="margin-left: 80%;">		
-				Olá, ${usuarioLogado.nome} <input type="submit" name="logout" value="Log-out" class="btn btn-primary" > 	
-			</div>	
-			</form>
-		</div>
-		
- <div class="caixa"><br />
 
+
+
+<div class="page-header">
+	<c:import url="cabecalho.jsp"/>	
+</div>
+
+<div id="container"> 
+<div class="caixaIndex">
 	<div class="menutemp">
 	    <div>	
 	    	<a href="cadastrar-usuario.jsp">Cadastrar Usuário</a><br />		
@@ -58,14 +55,19 @@
 	    
 		 </div>
 	    <div>
-	    	<a href="index.jsp">x Lista de Orçamento</a><br />		
-			<a href="index.jsp">x Realizar Vendas</a><br /> 	
+	    	<a href="orcamento.jsp">Orçamento</a><br />			
 			<a href="index.jsp">x Verificar Atividades</a><br /> 
 		 	<a href="index.jsp">x Relatórios</a><br />
 		 	<a href="index.jsp">x Estimativas</a><br />
 		 </div>
 	    </div>
-	    
-	</div>	
+    
+	</div>
+</div>	
+<footer class="site-footer push">
+    <c:import url="rodape.jsp"/>
+</footer>
+       
+        
 </body>
 </html>

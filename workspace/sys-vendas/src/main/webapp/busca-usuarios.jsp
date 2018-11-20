@@ -14,12 +14,10 @@
 </head>
 <body>
 
-<div class="principal">
-<br />
-<br />
-		<div class="page-header">
-			<h2>Lista de Usuários</h2>
-		</div>
+<div class="page-header">
+	<c:import url="cabecalho.jsp"/>	
+</div>
+<div id="container">
 	
 <form action="buscaUsuario" method="post">
 	<div>
@@ -75,6 +73,9 @@
 </form>
 </div>
 
+<footer class="site-footer push">
+    <c:import url="rodape.jsp"/>
+</footer>
 
 </body>
 </html>

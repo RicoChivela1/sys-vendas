@@ -65,6 +65,7 @@
 		      <button type="submit" name="info" value="${cliente.id}"  class="btn btn-outline-info"> <i class="fa fa-info-circle"></i> Info</button>
 		      <button type="submit" name="alterar" value="${cliente.id}"  class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i> Alterar</button>
 			  <button type="submit" name="remover" value="${cliente.id}" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i> Remover</button>
+		
 				
 			  </div>
 		      </td>

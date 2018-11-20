@@ -13,13 +13,10 @@
 <title>Buscar Categorias</title>
 </head>
 <body>
-
-<div class="principal">
-<br />
-<br />
-		<div class="page-header">
-			<h2>Lista de Categorias</h2>
-		</div>
+<div class="page-header">
+	<c:import url="cabecalho.jsp"/>	
+</div>
+<div id="container">
 	
 <form action="buscaCategoria" method="post">
 	<div>
@@ -68,7 +65,9 @@
 </div>
 </form>
 </div>
-
+<footer class="site-footer push">
+    <c:import url="rodape.jsp"/>
+</footer>
 
 </body>
 </html>

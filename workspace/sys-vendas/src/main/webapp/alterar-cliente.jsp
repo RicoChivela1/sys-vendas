@@ -12,12 +12,12 @@
 
 </head>
 <body>
-<div class="principal">
 	<div class="page-header">
-  		<h1>Alterar Cliente</h1>
+		<c:import url="cabecalho.jsp"/>	
 	</div>
 	
-	
+	<div id="container">
+
 	<form action="adicionaAlteraCliente" method="post">
 	
 	<fieldset class="campo">
@@ -87,7 +87,7 @@
 	
 	<fieldset>
 	
-	<legend>Endereço ${cliente.observacao}</legend>
+	<legend>Endereço</legend>
 	<div class="esquerda">	
 		<div class="caixa">
 			<label>Endereço:</label>
@@ -125,8 +125,8 @@
 </form>		
 
 </div>
-	
-
-
+<footer class="site-footer push">
+    <c:import url="rodape.jsp"/>
+</footer>
 </body>
 </html>

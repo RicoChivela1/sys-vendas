@@ -34,16 +34,27 @@ public class GerenciaCliente extends HttpServlet {
     		
     		pagina = "/orcamento-cliente.jsp";
     	}
+
     	
     	//Exibe informações completas sobre o cliente
-    	if(request.getParameter("info") != null) {
-    		int id = Integer.parseInt(request.getParameter("info"));
+    	String info = request.getParameter("info");
+    	if(info != null) {
+    		int id = Integer.parseInt(info);
     		System.out.println("Id da info do cliente é: "+ id);
     		
-    		// 
+    		//objeto contendo o id do cliente
+    		Cliente clienteBuscado = new Cliente();
+    		clienteBuscado.setId(id);
+    		
+    		//busca cliente pelo id e o coloca na requisição
+    		
+			Cliente cliente = (Cliente) new ClienteDao()
+					.buscaPorId(clienteBuscado);
+    		
+			request.setAttribute("cliente", cliente);
     		pagina = "/info-cliente.jsp";
     	}
-    	
+
     	//alterar clientes
     	if(request.getParameter("alterar") != null) {
     		int id = Integer.parseInt(request.getParameter("alterar"));
@@ -82,6 +93,4 @@ public class GerenciaCliente extends HttpServlet {
     	RequestDispatcher rd = request.getRequestDispatcher(pagina);
 		rd.forward(request, response);
 	}
-	
-
 }

@@ -15,7 +15,7 @@ public class Carrinho {
 	private Integer qtdProduto;
 	private BigDecimal custoUnid;
 	private BigDecimal subTotal;
-
+	
 	public Integer getQtdProduto() {
 		return qtdProduto;
 	}

@@ -14,12 +14,11 @@
 </head>
 <body>
 
-<div class="principal">
-<br />
-<br />
-		<div class="page-header">
-			<h2>Lista de Fornecedores</h2>
-		</div>
+<div class="page-header">
+	<c:import url="cabecalho.jsp"/>	
+</div>
+
+<div id="container">
 	
 <form action="buscaFornecedor" method="post">
 	<div>
@@ -77,5 +76,8 @@
 </div>
 </form>
 </div>
+<footer class="site-footer push">
+    <c:import url="rodape.jsp"/>
+</footer>
 </body>
 </html>

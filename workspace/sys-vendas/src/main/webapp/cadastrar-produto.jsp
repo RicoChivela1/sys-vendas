@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!--Pegando os selects -->
+
 <jsp:useBean id="categoriaDao"
 	class="br.com.aluizio.sysvendas.dao.CategoriaDao" />
 <jsp:useBean id="fornecedorDao"
 	class="br.com.aluizio.sysvendas.dao.FornecedorDao" />
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
 <html>
@@ -24,12 +26,14 @@
 
 </head>
 <body>
-	<div class="principal">
-		<div class="page-header">
-			<h1>Cadastrar Produto</h1>
-		</div>
 
-<form action="adicionaProduto" method="post" class="md-form" enctype="multipart/form-data">
+	<div class="page-header">
+		<c:import url="cabecalho.jsp"/>	
+	</div>
+
+	<div id="container">
+
+	<form action="adicionaProduto" method="post" class="md-form" enctype="multipart/form-data">
 
 	<fieldset class="campo">
 		<legend>Dados do Produto</legend>
@@ -134,5 +138,10 @@
 </form>
 
 </div>
+
+<footer class="site-footer push">
+    <c:import url="rodape.jsp"/>
+</footer>
+
 </body>
 </html>

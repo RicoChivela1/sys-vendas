@@ -1,4 +1,6 @@
-<!doctype html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
 <meta charset="ISO-8859-1">
@@ -9,10 +11,13 @@
 
 </head>
 <body>
-<div class="principal">
-	<div class="page-header">
-  		<h1>Alterar Fornecedor </h1>
-	</div>
+
+<div class="page-header">
+	<c:import url="cabecalho.jsp"/>	
+</div>
+
+<div id="container">
+
 	<form action="alteraFornecedor" method="post">
 	<fieldset class="campo">
 	<legend>Identificação</legend>
@@ -99,5 +104,10 @@
 	</div>	
 	</form>
 	</div>
+	
+	<footer class="site-footer push">
+    	<c:import url="rodape.jsp"/>
+	</footer>
+
 </body>
 </html>

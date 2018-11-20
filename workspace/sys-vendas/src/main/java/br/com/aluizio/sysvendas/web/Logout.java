@@ -17,12 +17,18 @@ import javax.servlet.http.HttpServletResponse;
 public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		//Deslogar em 10 minutos
 		request.getSession().setMaxInactiveInterval(10 * 60);
+		
 		request.getSession().removeAttribute("usuarioLogado");
+		
+		request.getSession().removeAttribute("carroCompras");
+		request.getSession().removeAttribute("sessaoCliente");
+		request.getSession().removeAttribute("total");
+		
 		System.out.println("Usuário deslogado");
 		request.getRequestDispatcher("/index.html").forward(request, response);
 	}

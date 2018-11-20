@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
 
 import br.com.aluizio.sysvendas.model.Carrinho;
 
@@ -20,23 +19,22 @@ import br.com.aluizio.sysvendas.model.Carrinho;
 @WebServlet({ "/remover-carrinho.jsp", "/agregar-carrinho.jsp" })
 public class OrcamentoProduto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	String url = "" ;
-	HttpSession sessionProdutos;
-	ArrayList<Carrinho> list;
-	Carrinho carrinho;
+	private String url = "" ;
+	private HttpSession sessionProdutos;
+	private ArrayList<Carrinho> list;
+	private Carrinho carrinho;
+	private BigDecimal total = new BigDecimal(0);
+	
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		defineOperacao(request, response);
 	}
-	
 
 	private void defineOperacao(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		url = request.getServletPath();
-
-		System.out.println("A URL É: "+url);
 		
 		if (url.equals("/agregar-carrinho.jsp")) {
 			agregar(request, response);
@@ -49,10 +47,8 @@ public class OrcamentoProduto extends HttpServlet {
 	private void remover(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		sessionProdutos = request.getSession(false);
 		list = (ArrayList<Carrinho>) sessionProdutos.getAttribute("carroCompras");
-		System.out.println("Id a ser removeido: "+Integer.parseInt(request.getParameter("id")));
 		list.remove(Integer.parseInt(request.getParameter("id")));
-		
-		JOptionPane.showMessageDialog(null, "Produto Excluido");
+		atualizaTotal();
 		response.sendRedirect("orcamento.jsp");
 	}
 
@@ -73,21 +69,17 @@ public class OrcamentoProduto extends HttpServlet {
 		//Calcula subtotal
 		BigDecimal sugestaoVenda = new BigDecimal(request.getParameter("sugestaoVenda"));
 		BigDecimal qtdProduto = new BigDecimal(request.getParameter("qtdProduto"));
-	
-		System.out.println("SUGESTÃO DE VENDA BIGDECIMAL" + sugestaoVenda);
-		System.out.println("QTD PRODUTO BIGDECIMAL" + sugestaoVenda);
 		
 		carrinho.setCustoUnid(sugestaoVenda);
 		carrinho.setSubTotal(sugestaoVenda.multiply(qtdProduto));
-		System.out.println("SUBTOTAL" + carrinho.getCustoUnid());
-
+				
 		// Bloqueia produtos repetidos
 		int indice = -1;
 
 		for (int i = 0; i < list.size(); i++) {
 			Carrinho carrinhoAux = list.get(i);
 			if (carrinhoAux.getIdProduto() == carrinho.getIdProduto()) {
-				indice = 1;
+				indice = i;
 				break;
 			}
 		}
@@ -99,7 +91,17 @@ public class OrcamentoProduto extends HttpServlet {
 		}
 
 		sessionProdutos.setAttribute("carroCompras", list);
-		JOptionPane.showMessageDialog(null, "Registrado corretamente");
+		atualizaTotal();
 		response.sendRedirect("orcamento.jsp");
+	}
+
+	public void atualizaTotal() {
+		//Calcula total
+		total = new BigDecimal(0);
+		for (int i = 0; i < list.size(); i++) {
+			total = total.add(list.get(i).getSubTotal());
+		}
+		System.out.println("Somatório do total: "+total);
+		sessionProdutos.setAttribute("total", total);
 	}
 }

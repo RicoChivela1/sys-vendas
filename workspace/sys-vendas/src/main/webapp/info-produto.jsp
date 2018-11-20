@@ -15,10 +15,11 @@
 </head>
 <body>
 
-<div class="principal">
 	<div class="page-header">
-
+		<c:import url="cabecalho.jsp"/>
 	</div>
+	
+<div id="container">
   <form action="agregar-carrinho.jsp" method="post">	
 	<fieldset class="campo">
 	<legend>${produto.nome} <span>${produto.volume}</span></legend>
@@ -48,7 +49,7 @@
 				<div class="divCarrinho"><br />
 					<div class="esquerdaValor">
 						<label>Quantidade: </label>
-						<input type="number" name="qtdProduto" id="fieldQtdInfo" onmouseup="calcularEstoque()" class="form-control" required="required" min="1" max="${produto.estoque.qtdDisponivel}">
+						<input type="number" name="qtdProduto" value="0" id="fieldQtdInfo" onmouseup="calcularEstoque()" class="form-control" required="required" min="1" max="${produto.estoque.qtdDisponivel}">
 					</div>
 					
 				    <div class="centroValor"> 	
@@ -60,7 +61,6 @@
 				</fieldset>
 			</div>
 		</div>
-
 		
 	</fieldset>
 	<fieldset class="campo">
@@ -78,14 +78,16 @@
 		</div>
 		
 		<div class="direita">
-			
-			
+						
 		</div>
 	</fieldset>
 	
 	</form>
 </div>
 
+<footer class="site-footer push">
+    <c:import url="rodape.jsp"/>
+</footer>
 
 </body>
 </html>

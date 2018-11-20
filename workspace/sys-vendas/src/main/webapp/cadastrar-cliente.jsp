@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
+
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -9,10 +13,12 @@
 
 </head>
 <body>
-<div class="principal">
-	<div class="page-header">
-  		<h1>Cadastro de Clientes </h1>
-	</div>
+
+<div class="page-header">
+	<c:import url="cabecalho.jsp"/>	
+</div>
+
+<div id="container">
 	<form action="adicionaAlteraCliente" method="post">
 	<fieldset class="campo">
 	<legend>Informações pessoais</legend>
@@ -110,5 +116,10 @@
 		</div>
 	</form>
 	</div>
+	
+	<footer class="site-footer push">
+    	<c:import url="rodape.jsp"/>
+	</footer>
+
 </body>
 </html>

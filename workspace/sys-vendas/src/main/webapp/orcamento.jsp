@@ -32,7 +32,7 @@
 		
 		<div class="titOrcamento">Cliente</div>
 		
-		<fieldset class="campoOrcamento" title="Adicionar um cliente é opcional mas, caso queira fazer isso, saiba que este cliente deve estar previamente cadastrado no sistema.">
+		<fieldset class="campoOrcamento" title="Adicionar um cliente é opcional.">
 		
 		<c:choose>
 			<c:when test="${empty sessaoCliente.nome}">

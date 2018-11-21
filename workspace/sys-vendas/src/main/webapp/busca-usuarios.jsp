@@ -22,54 +22,77 @@
 <form action="buscaUsuario" method="post">
 	<div>
 	<div class="campoBusca">		
-		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" /> 
+		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva algo para pesquisar."/> 
 	</div>
 	<div class="direita">		
 		<button id="btnBusca" type="submit" name="Enviar" class="btn btn-outline-info"> <i class="fa fa-search" aria-hidden="true"></i></button>
 	</div>
 	</div>	
+	<c:choose>	
+		<c:when test="${empty usuarios}">
+				<button  id="btnBuscaTodos" value="buscaUsuario?filtro=" type="submit" name="btnBuscaTodos" class="btn btn-outline-secondary" title="Listar todos." style="float: right;"> <i class="fa fa-search" aria-hidden="true" > Qualé todos</i></button>
+		</c:when>
+	</c:choose>	
 </form>	
 		
 <form action="gerenciaUsuario" method="post">
-
-
-<div class="table-responsive">
-	<table class="table table-hover">
-	<caption>Lista de Usuarios</caption>
-		  <thead class="thead-dark">
-		    <tr>
-		      <th>#</th>
-		      <th>Nome</th>
-		      <th>Login</th>
-		      <th>Senha</th>
-		      <th>Ações</th>
-		    </tr>
-		  </thead>
-	  <tbody>
+	<c:choose>	
+		<c:when test="${empty usuarios}">
+		<div class="box">
+		<div>
+			<label class="listaNula">Não encontramos registros.</label>	
+		</div>
+		<div>
+			<a href="buscaUsuario?filtro=" title="Listar todos os usuários."> Ver todos.</a> | 
+			<a href="cadastrar-usuario.jsp" title="Cadastrar um novo usuário."> Adicionar </a> |
+			<a href="orcamento.jsp" title="Página de orçamento."> Orçamento </a>
+		</div>
 	
-	   <c:forEach var="usuario" items="${usuarios}">
-		    <tr> 
-		      <td>${usuario.id}</td>
-		      <td>${usuario.nome}</td>
-		      <td>${usuario.login}</td>
-		      <td>${usuario.senha}</td>
-		      <td>
-		       
-		      <div class="btnAcoes">
-		  
-		      <button type="submit" name="info" value="${usuario.id}"  class="btn btn-outline-info"> <i class="fa fa-info-circle"></i> Info</button>
-		      <button type="submit" name="alterar" value="${usuario.id}"  class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i> Alterar</button>
-			  <button type="submit" name="remover" value="${usuario.id}" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i> Remover</button>
-				
-			  </div>
-
-		      </td>
-		    	
-		    </tr>
-	   </c:forEach>
-	  </tbody>
+		</div>
+			
+		</c:when>
+		
+		<c:when test="${not empty usuarios}">
+			<div class="table-responsive">
+			<table class="table table-striped">
+			<caption>Lista de Usuários</caption>
+				<thead>
+					<tr>
+				     <th>#</th>
+				     <th>Nome</th>
+				     <th>Login</th>
+				     <th>Senha</th>
+				     <th>Ações</th>
+					</tr>
+				</thead>
+			    <tbody>	
+			
+		   <c:forEach var="usuario" items="${usuarios}">
+			    <tr> 
+			      <td>${usuario.id}</td>
+			      <td>${usuario.nome}</td>
+			      <td>${usuario.login}</td>
+			      <td>${usuario.senha}</td>
+			      
+			      <td>
+			      		<div class="btnAcoes">
+			  
+				      		<button type="submit" name="info" value="${usuario.id}"  class="btn btn-outline-info" title="Mais informações."> <i class="fa fa-info-circle"></i> Info</button>
+				      		<button type="submit" name="alterar" value="${usuario.id}"  class="btn btn-outline-warning" title="Alterar informações."> <i class="fa fa-pencil-square-o"></i> Alterar</button>
+					  		<button type="submit" name="remover" value="${usuario.id}" class="btn btn-outline-danger" title="Excluir usuário do sistema."><i class="fa fa-trash-o"></i> Remover</button>
+						
+				  		</div>
+			      </td>
+			    	
+			  	</tr>
+		   	</c:forEach>
+		</tbody>
 	</table>
-</div>
+	</div>
+	
+	</c:when>
+	</c:choose>
+
 </form>
 </div>
 

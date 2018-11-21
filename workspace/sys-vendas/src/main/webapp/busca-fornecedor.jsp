@@ -23,61 +23,87 @@
 <form action="buscaFornecedor" method="post">
 	<div>
 	<div class="campoBusca" >		
-		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" /> 
+		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva um nome para pesquisar." /> 
 	</div>
 	<div class="direita">		
 		<button id="btnBusca" type="submit" name="Enviar" class="btn btn-outline-info"> <i class="fa fa-search" aria-hidden="true"></i></button>
 	</div>
 	</div>	
+	
+	<c:choose>	
+		<c:when test="${empty fornecedor}">
+			<button id="btnBuscaTodos" value="buscaFornecedor?filtro=" type="submit" name="btnBuscaTodos" class="btn btn-outline-secondary" title="Listar todos" style="float: right;"> <i class="fa fa-search" aria-hidden="true" > Qualé todos</i></button>
+		</c:when>
+	</c:choose>	
 </form>	
 		
 <form action="gerenciaFornecedor" method="post">
-
-<div class="table-responsive">
-	<table class="table table-hover">
-	<caption>Lista de Fornecedores</caption>
-		  <thead class="thead-dark">
-		    <tr>
-		      <th scope="col">#</th>
-		      <th scope="col">Nome</th>
-		      <th scope="col">Endereco</th>
-		      <th scope="col">Fone</th>
-		      <th scope="col">Email</th>
-		      <th scope="col">Observação</th>
-		      <th> Ações</th>
-
-		    </tr>
-		  </thead>
-	  <tbody>
-	
-	   <c:forEach var="fornecedor" items="${fornecedor}">
-		    <tr>
-		      <th scope="row">${fornecedor.id}</th>
-		      <td>${fornecedor.nome}</td>
-		      <td>${fornecedor.endereco}</td>
-		      <td>${fornecedor.fone}</td>
-		      <td>${fornecedor.email}</td>
-		 	  <td>${fornecedor.observacao}</td>
-		 
-		      <td> 
-		      <div class="btnAcoes">
-		  
-		      <button type="submit" name="info" value="${fornecedor.id}"  class="btn btn-outline-info"> <i class="fa fa-info-circle"></i> Info</button>
-		      <button type="submit" name="alterar" value="${fornecedor.id}"  class="btn btn-outline-warning"> <i class="fa fa-pencil-square-o"></i> Alterar</button>
-			  <button type="submit" name="remover" value="${fornecedor.id}" class="btn btn-outline-danger"> <i class="	fa fa-trash-o"></i> Remover</button>
+	<c:choose>	
+		<c:when test="${empty fornecedor}">
+			<div class="box">
+			<div>
+				<label class="listaNula">Não encontramos registros.</label>	
+			</div>
+			<div>
+				<a href="buscaFornecedor?filtro=" title="Listar todos os fornecedores."> Ver todos.</a> |
+				<a href="cadastrar-fornecedor.jsp" title="Cadastrar um novo fornecedor."> Adicionar </a> |
+				<a href="orcamento.jsp" title="Página de orçamento."> Orçamento </a>
+			</div>
+		
+			</div>
 				
-			  </div>
-		      </td>
-		    	
-		    </tr>
-	   </c:forEach>
-	  </tbody>
-	</table>
-</div>
+		</c:when>
+			
+		<c:when test="${not empty fornecedor}">
+		<div class="table-responsive">
+			<table class="table table-hover">
+			<caption>Lista de Fornecedores</caption>
+				  <thead class="thead-dark">
+				    <tr>
+				      <th scope="col">#</th>
+				      <th scope="col">Nome</th>
+				      <th scope="col">Endereco</th>
+				      <th scope="col">Fone</th>
+				      <th scope="col">Email</th>
+				      <th scope="col">Observação</th>
+				      <th> Ações</th>
+		
+				    </tr>
+				  </thead>
+			  <tbody>
+			
+			   <c:forEach var="fornecedor" items="${fornecedor}">
+				    <tr>
+				      <th scope="row">${fornecedor.id}</th>
+				      <td>${fornecedor.nome}</td>
+				      <td>${fornecedor.endereco}</td>
+				      <td>${fornecedor.fone}</td>
+				      <td>${fornecedor.email}</td>
+				 	  <td>${fornecedor.observacao}</td>
+				 
+				      <td> 
+				      <div class="btnAcoes">
+				  
+				      <button type="submit" name="info" value="${fornecedor.id}"  class="btn btn-outline-info" title="Mais Informações."> <i class="fa fa-info-circle"></i> Info</button>
+				      <button type="submit" name="alterar" value="${fornecedor.id}"  class="btn btn-outline-warning" title="Alterar Fornecedor."> <i class="fa fa-pencil-square-o"></i> Alterar</button>
+					  <button type="submit" name="remover" value="${fornecedor.id}" class="btn btn-outline-danger" title="Remover fornecedor do sistema."> <i class="	fa fa-trash-o"></i> Remover</button>
+						
+					  </div>
+				      </td>
+				    	
+				    </tr>
+			   </c:forEach>
+			  </tbody>
+			</table>
+		</div>
+</c:when>
+</c:choose>
 </form>
 </div>
+
 <footer class="site-footer push">
     <c:import url="rodape.jsp"/>
 </footer>
+
 </body>
 </html>

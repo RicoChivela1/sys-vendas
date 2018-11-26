@@ -3,40 +3,32 @@ package br.com.aluizio.sysvendas.model;
 import java.math.BigDecimal;
 
 /**
- * TestaInsereOrcamento.java
+ * Orcamento.java 24 de nov de 2018
  * 
- * @author Aluizio Monteiro 22 de ago de 2018
+ * @author Aluizio Monteiro
  */
-	
+
 public class OrcamentoProduto {
-	private Integer id;
-	private Integer fk_orcamento;
-	private Integer fk_produto;
+	private Integer orcamentoId;
+	private String produtoNome;
 	private Integer qtd;
-	private BigDecimal subtotal;
+	private BigDecimal valorUnid;
+	private BigDecimal subTotal;
 
-	public Integer getId() {
-		return id;
+	public Integer getOrcamentoId() {
+		return orcamentoId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setOrcamentoId(Integer orcamentoId) {
+		this.orcamentoId = orcamentoId;
 	}
 
-	public Integer getFk_orcamento() {
-		return fk_orcamento;
+	public String getProdutoNome() {
+		return produtoNome;
 	}
 
-	public void setFk_orcamento(Integer fk_orcamento) {
-		this.fk_orcamento = fk_orcamento;
-	}
-
-	public Integer getFk_produto() {
-		return fk_produto;
-	}
-
-	public void setFk_produto(Integer fk_produto) {
-		this.fk_produto = fk_produto;
+	public void setProdutoNome(String produtoNome) {
+		this.produtoNome = produtoNome;
 	}
 
 	public Integer getQtd() {
@@ -47,18 +39,26 @@ public class OrcamentoProduto {
 		this.qtd = qtd;
 	}
 
-	public BigDecimal getSubtotal() {
-		return subtotal;
+	public BigDecimal getValorUnid() {
+		return valorUnid;
 	}
 
-	public void setSubtotal(BigDecimal subtotal) {
-		this.subtotal = subtotal;
+	public void setValorUnid(BigDecimal valorUnid) {
+		this.valorUnid = valorUnid;
+	}
+
+	public BigDecimal getSubTotal() {
+		return subTotal;
+	}
+
+	public void setSubTotal(BigDecimal subTotal) {
+		this.subTotal = subTotal;
 	}
 
 	@Override
 	public String toString() {
-		return "OrcamentoProduto [id=" + id + ", fk_orcamento=" + fk_orcamento + ", fk_produto=" + fk_produto + ", qtd="
-				+ qtd + ", subtotal=" + subtotal + "]";
+		return "\n *** OrcamentoProduto [orcamentoId=" + orcamentoId + ", produtoNome=" + produtoNome + ", qtd=" + qtd
+				+ ", valorUnid=" + valorUnid + ", subTotal=" + subTotal + "]";
 	}
 
 }

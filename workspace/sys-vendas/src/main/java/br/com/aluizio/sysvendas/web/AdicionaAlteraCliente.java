@@ -1,8 +1,7 @@
 package br.com.aluizio.sysvendas.web;
 
 import java.io.IOException;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -57,12 +56,9 @@ public class AdicionaAlteraCliente extends HttpServlet {
 		cliente.setSobreNome(req.getParameter("sobreNome"));
 
 		// Data
-		int dia = Integer.parseInt(req.getParameter("dia"));
-		int mes = Integer.parseInt(req.getParameter("mes"));
-		int ano = Integer.parseInt(req.getParameter("ano"));
-		Calendar nascimento = new GregorianCalendar(ano, mes, dia);
+		LocalDate nascimento = LocalDate.parse(req.getParameter("nascimento"));
 		cliente.setNascimento(nascimento);
-
+		
 		cliente.setEmail(req.getParameter("email"));
 		cliente.setCelular(req.getParameter("celular"));
 
@@ -76,7 +72,7 @@ public class AdicionaAlteraCliente extends HttpServlet {
 		cliente.setFone(req.getParameter("fone"));
 		cliente.setObservacao(req.getParameter("observacao"));
 
-		// Salva Cliente e Endereço
+		// Salva Cliente
 		new ClienteDao().adicionaAltera(cliente);
 
 		JOptionPane.showMessageDialog(null, message);

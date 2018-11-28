@@ -303,19 +303,10 @@ input#fieldComum{
 	margin-left: 15px;
 }
 
-/*inputs pequenos Deve ser 
-apagado e substituido pelo 
-campoData abaixo*/
-
+/*inputs pequenos*/
 input#fieldsPequenoData{
 	margin-left: 15px;
-	width: 150px;
-	float: left;
-}
-
-input#campoData{
-	margin-left: 15px;
-	width: 150px;
+	width: 60px;
 	float: left;
 }
 

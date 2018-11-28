@@ -1,12 +1,10 @@
 package br.com.aluizio.sysvendas.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import br.com.aluizio.sysvendas.jdbc.ConnectionFactory;
@@ -50,9 +48,7 @@ public class ClienteDao implements IDAO {
 			stmt.setString(3, cliente.getSexo().name());
 			stmt.setString(4, cliente.getNome());
 			stmt.setString(5, cliente.getSobreNome());
-
-			stmt.setDate(6, new Date(cliente.getNascimento().getTimeInMillis()));
-
+			stmt.setDate(6, java.sql.Date.valueOf(cliente.getNascimento()));
 			stmt.setString(7, cliente.getEmail());
 			stmt.setString(8, cliente.getCelular());
 			stmt.setString(9, cliente.getEndereco());
@@ -109,14 +105,9 @@ public class ClienteDao implements IDAO {
 				cliente.setSexo(EnumSexo.valueOf(rs.getString("sexo")));
 				cliente.setNome(rs.getString("nome"));
 				cliente.setSobreNome(rs.getString("sobreNome"));
-
-				Calendar nascimento = Calendar.getInstance();
-				nascimento.setTime(rs.getDate("nascimento"));
-				cliente.setNascimento(nascimento);
-
+				cliente.setNascimento(rs.getDate("nascimento").toLocalDate());
 				cliente.setEmail(rs.getString("email"));
 				cliente.setCelular(rs.getString("celular"));
-
 				cliente.setEndereco(rs.getString("endereco"));
 				cliente.setBairro(rs.getString("bairro"));
 				cliente.setCidade(rs.getString("cidade"));
@@ -151,15 +142,10 @@ public class ClienteDao implements IDAO {
 				cliente.setSexo(EnumSexo.valueOf(rs.getString("sexo")));
 				cliente.setNome(rs.getString("nome"));
 				cliente.setSobreNome(rs.getString("sobreNome"));
-
-				Calendar nascimento = Calendar.getInstance();
-				nascimento.setTime(rs.getDate("nascimento"));
-				cliente.setNascimento(nascimento);
-
+				cliente.setNascimento(rs.getDate("nascimento").toLocalDate());
 				cliente.setObservacao(rs.getString("observacao"));
 				cliente.setEmail(rs.getString("email"));
 				cliente.setCelular("celular");
-
 				cliente.setBairro(rs.getString("bairro"));
 				cliente.setCidade(rs.getString("cidade"));
 				cliente.setComplemento(rs.getString("complemento"));
@@ -221,11 +207,7 @@ public class ClienteDao implements IDAO {
 					cliente.setSexo(EnumSexo.valueOf(rs.getString("sexo")));
 					cliente.setNome(rs.getString("nome"));
 					cliente.setSobreNome(rs.getString("sobreNome"));
-
-					Calendar nascimento = Calendar.getInstance();
-					nascimento.setTime(rs.getDate("nascimento"));
-					cliente.setNascimento(nascimento);
-
+					cliente.setNascimento(rs.getDate("nascimento").toLocalDate());
 					cliente.setObservacao(rs.getString("observacao"));
 					cliente.setEmail(rs.getString("email"));
 					cliente.setCelular(rs.getString("celular"));

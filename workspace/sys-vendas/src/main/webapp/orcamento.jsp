@@ -87,6 +87,7 @@
 				</thead>
 				
 				<c:forEach var="produtoCarrinho" items="${carroCompras}" varStatus="counter">
+				
 				<tbody>
 				<tr>
 					<td scope="row">${counter.index + 1}</td>
@@ -128,7 +129,8 @@
 					<label for="valorParcela">Valor da Parcela:</label>
 					<input id ="fieldsMedio" type="text" name="valorParcela" value="${total}" class="form-control"  title="Não é possível editar." disabled="disabled" />
 					<label for="vencParcela">Data Vecimento:</label>  
-					<input id ="fieldsMedio" type="date" name="vencParcela" class="form-control" required="required">
+		
+					<input id ="fieldsMedio" type="date" name="vencParcela" value="${vencParcela}" class="form-control" required="required">
 				</div>
 				</fieldset>
 			</c:when>

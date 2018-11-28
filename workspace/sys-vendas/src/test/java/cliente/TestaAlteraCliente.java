@@ -1,7 +1,6 @@
 package cliente;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
 
 import br.com.aluizio.sysvendas.dao.ClienteDao;
 import br.com.aluizio.sysvendas.model.Cliente;
@@ -27,7 +26,7 @@ public class TestaAlteraCliente {
 		cliente.setNome("Silvia");
 		cliente.setSobreNome("Carla");
 		
-		Calendar nascimento = new GregorianCalendar(1990, 12, 30);
+		LocalDate nascimento = LocalDate.of(1990, 12, 30);
 		cliente.setNascimento(nascimento);
 		
 		cliente.setEmail("Silvia@gemail.com");

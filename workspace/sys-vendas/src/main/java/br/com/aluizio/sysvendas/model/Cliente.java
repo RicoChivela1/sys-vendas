@@ -1,8 +1,6 @@
 package br.com.aluizio.sysvendas.model;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDate;
 
 /**
  * Cliente.java
@@ -18,7 +16,7 @@ public class Cliente {
 	private EnumSexo sexo;
 	private String nome;
 	private String sobreNome;
-	private Calendar nascimento;
+	private LocalDate nascimento;
 	private String observacao;
 	private String email;
 	private String celular;
@@ -30,8 +28,6 @@ public class Cliente {
 	private String uf;
 	private String cep;
 	private String fone;
-
-	DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
 	public Integer getId() {
 		return id;
@@ -81,12 +77,11 @@ public class Cliente {
 		this.sobreNome = sobreNome;
 	}
 
-	public Calendar getNascimento() {
-
+	public LocalDate getNascimento() {
 		return nascimento;
 	}
 
-	public void setNascimento(Calendar nascimento) {
+	public void setNascimento(LocalDate nascimento) {
 		this.nascimento = nascimento;
 	}
 
@@ -181,10 +176,9 @@ public class Cliente {
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", pessoa=" + pessoa + ", situacao=" + situacao + ", sexo=" + sexo + ", nome="
-				+ nome + ", sobreNome=" + sobreNome + ", nascimento=" + df.format(this.nascimento.getTime())
-				+ ", observacao=" + observacao + ", email=" + email + ", celular=" + celular + ", endereco=" + endereco
-				+ ", bairro=" + bairro + ", cidade=" + cidade + ", complemento=" + complemento + ", numero=" + numero
-				+ ", uf=" + uf + ", cep=" + cep + ", fone=" + fone + "]";
+				+ nome + ", sobreNome=" + sobreNome + ", nascimento=" + nascimento + ", observacao=" + observacao
+				+ ", email=" + email + ", celular=" + celular + ", endereco=" + endereco + ", bairro=" + bairro
+				+ ", cidade=" + cidade + ", complemento=" + complemento + ", numero=" + numero + ", uf=" + uf + ", cep="
+				+ cep + ", fone=" + fone + "]";
 	}
-
 }

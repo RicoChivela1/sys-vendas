@@ -8,7 +8,7 @@
         <title>Pushy - Off-Canvas Navigation Menu</title>
         <meta name="description" content="Pushy is an off-canvas navigation menu for your website.">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+	
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/demo.css">
         <!-- Pushy CSS -->
@@ -18,6 +18,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     
     	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    	
     </head>
     <body>
 

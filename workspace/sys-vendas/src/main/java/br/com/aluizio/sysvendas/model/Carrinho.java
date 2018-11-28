@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 /**
  * @author Aluizio Monteiro
+ * Esta classe formará uma lista de produtos do orçamento
  */
 
 public class Carrinho {
@@ -15,21 +16,21 @@ public class Carrinho {
 	private Integer qtdProduto;
 	private BigDecimal custoUnid;
 	private BigDecimal subTotal;
-	
-	public Integer getQtdProduto() {
-		return qtdProduto;
+
+	public Integer getIdCliente() {
+		return idCliente;
 	}
 
-	public void setQtdProduto(Integer qtdProduto) {
-		this.qtdProduto = qtdProduto;
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
 	}
 
-	public BigDecimal getCustoUnid() {
-		return custoUnid;
+	public String getNomeCliente() {
+		return nomeCliente;
 	}
 
-	public void setCustoUnid(BigDecimal custoUnid) {
-		this.custoUnid = custoUnid;
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
 	}
 
 	public Integer getIdProduto() {
@@ -48,20 +49,20 @@ public class Carrinho {
 		this.nomeProduto = nomeProduto;
 	}
 
-	public Integer getIdCliente() {
-		return idCliente;
+	public Integer getQtdProduto() {
+		return qtdProduto;
 	}
 
-	public void setIdCliente(Integer idCliente) {
-		this.idCliente = idCliente;
+	public void setQtdProduto(Integer qtdProduto) {
+		this.qtdProduto = qtdProduto;
 	}
 
-	public String getNomeCliente() {
-		return nomeCliente;
+	public BigDecimal getCustoUnid() {
+		return custoUnid;
 	}
 
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
+	public void setCustoUnid(BigDecimal custoUnid) {
+		this.custoUnid = custoUnid;
 	}
 
 	public BigDecimal getSubTotal() {
@@ -78,10 +79,5 @@ public class Carrinho {
 				+ ", nomeProduto=" + nomeProduto + ", qtdProduto=" + qtdProduto + ", custoUnid=" + custoUnid
 				+ ", subTotal=" + subTotal + "]";
 	}
-	
-	
-
-	
-
 	
 }

@@ -1,7 +1,7 @@
 package br.com.aluizio.sysvendas.model;
 
 import java.math.BigDecimal;
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -20,9 +20,10 @@ public class Orcamento {
 	private BigDecimal descontos;
 	private BigDecimal total;
 
-	private Calendar dataLancamento;
+	private LocalDate dataLancamento;
+
 	private boolean confirmado;
-	
+
 	private List<OrcamentoProduto> list;
 
 	public List<OrcamentoProduto> getList() {
@@ -73,11 +74,11 @@ public class Orcamento {
 		this.total = total;
 	}
 
-	public Calendar getDataLancamento() {
+	public LocalDate getDataLancamento() {
 		return dataLancamento;
 	}
 
-	public void setDataLancamento(Calendar dataLancamento) {
+	public void setDataLancamento(LocalDate dataLancamento) {
 		this.dataLancamento = dataLancamento;
 	}
 
@@ -88,7 +89,7 @@ public class Orcamento {
 	public void setConfirmado(boolean confirmado) {
 		this.confirmado = confirmado;
 	}
-	
+
 	public BigDecimal getSubTotal() {
 		return subTotal;
 	}
@@ -100,10 +101,8 @@ public class Orcamento {
 	@Override
 	public String toString() {
 		return "Orcamento [id=" + id + ", cliente=" + cliente + ", usuario=" + usuario + ", subTotal=" + subTotal
-				+ ", descontos=" + descontos + ", total=" + total + ", dataLancamento=" + dataLancamento + ", confirmado="
-				+ confirmado + ", list=" + list + "]";
+				+ ", descontos=" + descontos + ", total=" + total + ", dataLancamento=" + dataLancamento
+				+ ", confirmado=" + confirmado + ", list=" + list + "]";
 	}
-
-	
 
 }

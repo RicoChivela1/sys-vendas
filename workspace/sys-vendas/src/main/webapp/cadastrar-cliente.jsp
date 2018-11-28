@@ -32,15 +32,13 @@
 			<label for="sobreNome">Segundo Nome:</label>
 			<input id="fieldComum" type="text" name="sobreNome"  class="form-control" aria-describedby="sizing-addon3">
 		</div>
-		
+	
+	
 		<label>Nascimento: </label>
 		<div class="fieldsData">
-		 
-			<input id="fieldsPequenoData" type="text" name="dia" size="2" maxlength="2" placeholder="dd" class="form-control" aria-describedby="sizing-addon3" required="required"> 
-			<input id="fieldsPequenoData" type="text" name="mes" size="2" maxlength="2" placeholder="mm" class="form-control" aria-describedby="sizing-addon3"required="required"> 
-			<input id="fieldsPequenoData" type="text" name="ano" size="4" maxlength="4" placeholder="aaaa" class="form-control" aria-describedby="sizing-addon3" required="required"><br />
-		
+			<input type="date" name="nascimento" id="campoData" class="form-control">
 		</div>
+		
 		
 		<label>Pessoa:</label>
 		<div class="radio">

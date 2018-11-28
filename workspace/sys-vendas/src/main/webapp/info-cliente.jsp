@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -21,32 +22,24 @@
 
 	<div id="container">
   	<form action="agregar-cliente.jsp" method="post">	
-	<fieldset class="campo">
-	<legend>${cliente.nome} ${cliente.sobreNome}</legend>
-		
-		<div class="direita">
-
-			<div class="btnForm">
-				
-				<fieldset class="campo">
-				<legend><span>Adicionar ao Orçamento</span></legend>
-				
-				<div class="divCarrinho"><br />
-					<div class="esquerdaValor">
-						
-						rsrsr
-					</div>
-					
-				    <div class="centroValor"> 	
-				     	<button type="submit" name="id" value="${cliente.id}"  class="btn btn-success"> <i class="fa fa-cart-plus" aria-hidden="true"></i> Add </button>
-						<input type="hidden" name="nomeProduto" value="${produto.nome}">
-					</div>	
-				</div>
-				
-				</fieldset>
-			</div>
+  	<div>			 	
+	
+			
 		</div>
-
+	<fieldset class="campo">
+	
+	<legend>${cliente.nome} ${cliente.sobreNome} 
+	<button type="submit" name="id" value="${cliente.id}" class="btn btn-success"> <i class="fa fa-cart-plus" aria-hidden="true"></i> Add </button></legend>
+		
+		
+		<div class="esquerda">
+			<label>Celular:</label> ${cliente.celular}<br />
+			<label>Edereço:</label> ${cliente.endereco} n°: ${cliente.numero}<br />
+			<label>Bairro:</label> ${cliente.bairro}<br />
+			<label>Cidade:</label> ${cliente.cidade}
+			<label>-</label> ${cliente.uf}<br />
+			<label>Complemento:</label> ${cliente.complemento}<br />
+		</div>
 		
 	</fieldset>
 	<fieldset class="campo">
@@ -54,26 +47,18 @@
 	
 		<div class="esquerda">
 			<br />
-			<label>Nome:</label> ${cliente.nome}<br />
-			<label>Sobre Nome:</label> ${cliente.sobreNome}<br />
 			<label>Sexo:</label> ${cliente.sexo}<br />
 			<label>Pessoa:</label> ${cliente.pessoa}<br />
 			<label>SItuação:</label> ${cliente.situacao}<br />
 		
-			<label>Nascimento:</label> ${cliente.nascimento}<br />
-			<label>Observação:</label> ${cliente.observacao}<br />
+			<label>Nascimento:</label> 
+			<fmt:parseDate value="${cliente.nascimento}" pattern="yyyy-MM-dd" var="data" type="both" />
+			<fmt:formatDate pattern="dd-MM-yyyy" value="${data}" /> <br />
 			
 			<label>E-mail:</label> ${cliente.email}<br />
-			<label>Celular:</label> ${cliente.celular}<br />
-
-	  		<label>Edereço:</label> ${cliente.endereco}<br />
-			<label>Bairro:</label> ${cliente.bairro}<br />
-			<label>Cidade:</label> ${cliente.cidade}<br />
-			<label>Complemento:</label> ${cliente.complemento}<br />
-			<label>Número:</label> ${cliente.numero}<br />
-			<label>Uf:</label> ${cliente.uf}<br />
+			<label>Fone Residencial:</label> ${cliente.fone}<br />
 			<label>CEP:</label> ${cliente.cep}<br />
-			<label>Fone:</label> ${cliente.fone}<br />
+			<label>Observação:</label> ${cliente.observacao}<br />
 		</div>
 		
 		<div class="direita">

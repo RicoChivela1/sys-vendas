@@ -1,12 +1,10 @@
 package br.com.aluizio.sysvendas.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import br.com.aluizio.sysvendas.jdbc.ConnectionFactory;
@@ -41,9 +39,8 @@ public class OrcamentoDao {
 			stmt.setBigDecimal(1, orcamento.getDescontos());
 			stmt.setBigDecimal(2, orcamento.getTotal());
 
-			stmt.setDate(3, new Date(orcamento.getDataLancamento().getTimeInMillis()));
+			stmt.setDate(3, java.sql.Date.valueOf(orcamento.getDataLancamento()));
 			stmt.setBoolean(4, orcamento.isConfirmado());
-
 			stmt.setInt(5, orcamento.getCliente().getId());
 			stmt.setInt(6, orcamento.getUsuario().getId());
 			stmt.execute();
@@ -62,8 +59,7 @@ public class OrcamentoDao {
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setBigDecimal(1, orcamento.getDescontos());
 			stmt.setBigDecimal(2, orcamento.getTotal());
-
-			stmt.setDate(3, new Date(orcamento.getDataLancamento().getTimeInMillis()));
+			stmt.setDate(3, java.sql.Date.valueOf(orcamento.getDataLancamento()));
 			stmt.setBoolean(4, orcamento.isConfirmado());
 
 			stmt.setInt(5, orcamento.getCliente().getId());
@@ -145,6 +141,7 @@ public class OrcamentoDao {
 				orcamento.setTotal(rs.getBigDecimal("total"));
 				
 				//orcamento.setDataLancamento(dataLancamento);
+				
 				orcamento.setConfirmado(true);
 				
 				//Carrega Cliente
@@ -154,10 +151,7 @@ public class OrcamentoDao {
 				cliente.setSexo(EnumSexo.valueOf(rs.getString("c.sexo")));
 				cliente.setNome(rs.getString("c.nome"));
 				cliente.setSobreNome(rs.getString("c.sobreNome"));
-
-				Calendar nascimento = Calendar.getInstance();
-				nascimento.setTime(rs.getDate("c.nascimento"));
-				cliente.setNascimento(nascimento);
+				cliente.setNascimento(rs.getDate("nascimento").toLocalDate());
 				cliente.setEmail(rs.getString("c.email"));
 				cliente.setCelular(rs.getString("c.celular"));
 				cliente.setEndereco(rs.getString("c.endereco"));

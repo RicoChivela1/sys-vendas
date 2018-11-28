@@ -1,9 +1,8 @@
 package orcamento;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import br.com.aluizio.sysvendas.dao.OrcamentoDao;
@@ -32,7 +31,7 @@ public class TestaInsereOrcamento {
 		orcamento.setTotal(new BigDecimal("10.00"));
 		orcamento.setDescontos(new BigDecimal("0.50"));
 		
-		Calendar dataLancamento = new GregorianCalendar(2018,11,10);
+		LocalDate dataLancamento = LocalDate.now();
 		orcamento.setDataLancamento(dataLancamento);
 		
 		orcamento.setConfirmado(true);

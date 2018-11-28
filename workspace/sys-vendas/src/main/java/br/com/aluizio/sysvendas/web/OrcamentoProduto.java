@@ -2,6 +2,7 @@ package br.com.aluizio.sysvendas.web;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import br.com.aluizio.sysvendas.model.Carrinho;
 
 /**
- * Servlet implementation class Carrinho
+ * Controla a adição e remoção de produtos no um orçamento (session).
  */
 @WebServlet({ "/remover-carrinho.jsp", "/agregar-carrinho.jsp" })
 public class OrcamentoProduto extends HttpServlet {
@@ -24,7 +25,8 @@ public class OrcamentoProduto extends HttpServlet {
 	private ArrayList<Carrinho> list;
 	private Carrinho carrinho;
 	private BigDecimal total = new BigDecimal(0);
-	
+	private LocalDate hoje;
+	private LocalDate vencParcela;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -72,7 +74,18 @@ public class OrcamentoProduto extends HttpServlet {
 		
 		carrinho.setCustoUnid(sugestaoVenda);
 		carrinho.setSubTotal(sugestaoVenda.multiply(qtdProduto));
-				
+		
+		
+		
+		// Data que vem do input
+		String dataTexto = request.getParameter("vencParcela");
+		if(dataTexto == null) {
+			sessionProdutos.setAttribute("vencParcela", LocalDate.now());		
+		}
+		
+		
+		
+	
 		// Bloqueia produtos repetidos
 		int indice = -1;
 

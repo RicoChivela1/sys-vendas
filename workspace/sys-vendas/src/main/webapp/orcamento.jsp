@@ -28,7 +28,7 @@
 <fieldset class="caixa" >
 <legend>Orçamento:</legend>
 
-	<form action="#" method="post">
+	<form action="salvaOrcamento" method="post">
 		
 		<div class="titOrcamento">Cliente</div>
 		
@@ -135,15 +135,18 @@
 				</fieldset>
 			</c:when>
 		</c:choose>
-	</form>		
-</fieldset>	
-	<c:choose>
+		
+		<c:choose>
 		<c:when test="${not empty carroCompras}">
 			<div id="btnForm"> 	
 				<button type="submit" name="idProduto" class="btn btn-success"> <i class="fa fa-money" style="font-size:24px"> </i> Efetivar Venda</button>
 			</div>
 		</c:when>
 	</c:choose>
+	
+	</form>		
+</fieldset>	
+	
 </div>	
 
 <footer class="site-footer push">

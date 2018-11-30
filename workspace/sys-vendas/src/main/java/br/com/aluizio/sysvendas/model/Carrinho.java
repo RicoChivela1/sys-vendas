@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 
 /**
  * @author Aluizio Monteiro
- * Esta classe formará uma lista de produtos do orçamento
+ * Esta classe formará uma lista de produtos do orçamento.
+ * cada ocorrencia de produto possui um id do cliente associado.
+ * Ela guarda os ítens exibidos na JSP "sessão"
  */
 
 public class Carrinho {
@@ -75,9 +77,10 @@ public class Carrinho {
 
 	@Override
 	public String toString() {
-		return "Carrinho [idCliente=" + idCliente + ", nomeCliente=" + nomeCliente + ", idProduto=" + idProduto
-				+ ", nomeProduto=" + nomeProduto + ", qtdProduto=" + qtdProduto + ", custoUnid=" + custoUnid
-				+ ", subTotal=" + subTotal + "]";
+		return "Carrinho [idProduto=" + idProduto + ", nomeProduto=" + nomeProduto + ", qtdProduto=" + qtdProduto
+				+ ", custoUnid=" + custoUnid + ", subTotal=" + subTotal + "]";
 	}
+
+	
 	
 }

@@ -1,4 +1,4 @@
-package br.com.aluizio.sysvendas.model;
+package backup;
 
 import java.math.BigDecimal;
 

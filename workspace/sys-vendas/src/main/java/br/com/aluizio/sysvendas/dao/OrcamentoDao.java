@@ -4,16 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.aluizio.sysvendas.jdbc.ConnectionFactory;
+import br.com.aluizio.sysvendas.model.Carrinho;
 import br.com.aluizio.sysvendas.model.Cliente;
 import br.com.aluizio.sysvendas.model.EnumPessoa;
 import br.com.aluizio.sysvendas.model.EnumSexo;
 import br.com.aluizio.sysvendas.model.EnumSituacao;
 import br.com.aluizio.sysvendas.model.Orcamento;
-import br.com.aluizio.sysvendas.model.OrcamentoProduto;
 import br.com.aluizio.sysvendas.model.Usuario;
 
 /**
@@ -91,19 +90,19 @@ public class OrcamentoDao {
 	/**
 	 *
 	 */
-	public void salvarOrcametoProduto(List<OrcamentoProduto> list) {
-		int maiorId = buscaMaiorId();
-		String sql = "Insert into orcamentos_produtos ("
+	public void salvarCarrinho(List<Carrinho> list) {
+		int maiorId = buscaMaiorId(); // orçamento
+		String sql = "Insert into carrinho ("
 				+ "fk_orcamento, produtoNome, qtd, valorUnid, subTotal)"
 				+ "values (?,?,?,?,?)";
 		
 		try (PreparedStatement stmt = connection.prepareStatement(sql)){
-			for (OrcamentoProduto orcamentoProduto : list) {
+			for (Carrinho carrinho : list) {
 				stmt.setInt(1, maiorId); //fk_orcamento
-				stmt.setString(2, orcamentoProduto.getProdutoNome());
-				stmt.setInt(3, orcamentoProduto.getQtd());
-				stmt.setBigDecimal(4, orcamentoProduto.getValorUnid());
-				stmt.setBigDecimal(5, orcamentoProduto.getSubTotal());
+				stmt.setString(2, carrinho.getProdutoNome());
+				stmt.setInt(3, carrinho.getQtd());
+				stmt.setBigDecimal(4, carrinho.getValorUnid());
+				stmt.setBigDecimal(5, carrinho.getSubTotal());
 				stmt.execute();
 			}
 		} catch (SQLException e) {
@@ -111,14 +110,15 @@ public class OrcamentoDao {
 		}  
 	}
 	
+	
 	public Orcamento buscaPorId(Orcamento orcamentoBuscado){
 		Orcamento orcamento = new Orcamento();
 		Cliente cliente = new Cliente();
 		Usuario usuario = new Usuario();
 		
 		String sql = "select * from orcamentos as o "
-				+ "inner join orcamentos_produtos as op "
-				+ "on op.fk_orcamento = o.id "
+				+ "inner join carrinho as c "
+				+ "on c.fk_orcamento = o.id "
 				+ "inner join clientes as c on o.fk_cliente = c.id "
 				+ "inner join usuarios as u on o.fk_usuario = u.id "
 				+ "where o.id = "+orcamentoBuscado.getId();
@@ -165,10 +165,6 @@ public class OrcamentoDao {
 				cliente.setObservacao(rs.getString("c.observacao"));
 				
 				orcamento.setCliente(cliente);
-				
-				//Seta lista de produtos do orçamento
-				List<OrcamentoProduto> list = listOrcamentoProduto(orcamento);
-				orcamento.setList(list);
 			}
 			
 			return orcamento;
@@ -177,7 +173,7 @@ public class OrcamentoDao {
 		}	
 	}
 
-	private List<OrcamentoProduto> listOrcamentoProduto(Orcamento orcBuscado) {
+	/*private List<listOrcamentoProduto> listOrcamentoProduto(Orcamento orcBuscado) {
 		String sql = "Select * from orcamentos_produtos where fk_orcamento ="+orcBuscado.getId();
 		List<OrcamentoProduto> list = new ArrayList<>();
 		
@@ -199,6 +195,6 @@ public class OrcamentoDao {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-	}
+	}*/
 
 }

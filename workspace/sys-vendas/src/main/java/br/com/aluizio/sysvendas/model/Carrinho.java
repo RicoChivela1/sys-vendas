@@ -3,20 +3,20 @@ package br.com.aluizio.sysvendas.model;
 import java.math.BigDecimal;
 
 /**
- * @author Aluizio Monteiro
- * Esta classe formará uma lista de produtos do orçamento.
- * cada ocorrencia de produto possui um id do cliente associado.
- * Ela guarda os ítens exibidos na JSP "sessão"
+ * @author Aluizio Monteiro Esta classe formará uma lista de produtos do
+ *         orçamento. cada ocorrencia de produto possui um id do cliente
+ *         associado. Ela guarda os ítens exibidos na JSP "sessão"
  */
 
 public class Carrinho {
-	private Integer idCliente;
-	private String nomeCliente;
-	
-	private Integer idProduto;
-	private String nomeProduto;
-	private Integer qtdProduto;
-	private BigDecimal custoUnid;
+	private Integer idCliente; // não armazenar
+	private String nomeCliente; // não armazenar
+
+	private Integer produtoId;
+	private Integer orcamentoId;
+	private String produtoNome;
+	private Integer qtd;
+	private BigDecimal valorUnid;
 	private BigDecimal subTotal;
 
 	public Integer getIdCliente() {
@@ -35,36 +35,44 @@ public class Carrinho {
 		this.nomeCliente = nomeCliente;
 	}
 
-	public Integer getIdProduto() {
-		return idProduto;
+	public Integer getProdutoId() {
+		return produtoId;
 	}
 
-	public void setIdProduto(Integer idProduto) {
-		this.idProduto = idProduto;
+	public void setProdutoId(Integer produtoId) {
+		this.produtoId = produtoId;
 	}
 
-	public String getNomeProduto() {
-		return nomeProduto;
+	public Integer getOrcamentoId() {
+		return orcamentoId;
 	}
 
-	public void setNomeProduto(String nomeProduto) {
-		this.nomeProduto = nomeProduto;
+	public void setOrcamentoId(Integer orcamentoId) {
+		this.orcamentoId = orcamentoId;
 	}
 
-	public Integer getQtdProduto() {
-		return qtdProduto;
+	public String getProdutoNome() {
+		return produtoNome;
 	}
 
-	public void setQtdProduto(Integer qtdProduto) {
-		this.qtdProduto = qtdProduto;
+	public void setProdutoNome(String produtoNome) {
+		this.produtoNome = produtoNome;
 	}
 
-	public BigDecimal getCustoUnid() {
-		return custoUnid;
+	public Integer getQtd() {
+		return qtd;
 	}
 
-	public void setCustoUnid(BigDecimal custoUnid) {
-		this.custoUnid = custoUnid;
+	public void setQtd(Integer qtd) {
+		this.qtd = qtd;
+	}
+
+	public BigDecimal getValorUnid() {
+		return valorUnid;
+	}
+
+	public void setValorUnid(BigDecimal valorUnid) {
+		this.valorUnid = valorUnid;
 	}
 
 	public BigDecimal getSubTotal() {
@@ -77,10 +85,9 @@ public class Carrinho {
 
 	@Override
 	public String toString() {
-		return "Carrinho [idProduto=" + idProduto + ", nomeProduto=" + nomeProduto + ", qtdProduto=" + qtdProduto
-				+ ", custoUnid=" + custoUnid + ", subTotal=" + subTotal + "]";
+		return "Carrinho [idCliente=" + idCliente + ", nomeCliente=" + nomeCliente + ", produtoId=" + produtoId
+				+ ", orcamentoId=" + orcamentoId + ", produtoNome=" + produtoNome + ", qtd=" + qtd + ", valorUnid="
+				+ valorUnid + ", subTotal=" + subTotal + "]";
 	}
 
-	
-	
 }

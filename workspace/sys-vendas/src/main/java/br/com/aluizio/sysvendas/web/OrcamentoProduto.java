@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import br.com.aluizio.sysvendas.model.Carrinho;
 
 /**
- * Controla a adição e remoção de produtos no um orçamento (session).
+ * Controla a adição e remoção de produtos do orçamento.jsp (session).
  */
 @WebServlet({ "/remover-carrinho.jsp", "/agregar-carrinho.jsp" })
 public class OrcamentoProduto extends HttpServlet {
@@ -25,8 +25,6 @@ public class OrcamentoProduto extends HttpServlet {
 	private ArrayList<Carrinho> list;
 	private Carrinho carrinho;
 	private BigDecimal total = new BigDecimal(0);
-	private LocalDate hoje;
-	private LocalDate vencParcela;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -64,15 +62,15 @@ public class OrcamentoProduto extends HttpServlet {
 		}
 
 		carrinho = new Carrinho();
-		carrinho.setIdProduto(Integer.parseInt(request.getParameter("idProduto")));
-		carrinho.setNomeProduto(request.getParameter("nomeProduto"));
-		carrinho.setQtdProduto(Integer.parseInt(request.getParameter("qtdProduto")));
+		carrinho.setProdutoId(Integer.parseInt(request.getParameter("idProduto")));
+		carrinho.setProdutoNome(request.getParameter("nomeProduto"));
+		carrinho.setQtd(Integer.parseInt(request.getParameter("qtdProduto")));
 		
 		//Calcula subtotal
 		BigDecimal sugestaoVenda = new BigDecimal(request.getParameter("sugestaoVenda"));
 		BigDecimal qtdProduto = new BigDecimal(request.getParameter("qtdProduto"));
 		
-		carrinho.setCustoUnid(sugestaoVenda);
+		carrinho.setValorUnid(sugestaoVenda);
 		carrinho.setSubTotal(sugestaoVenda.multiply(qtdProduto));
 		
 		
@@ -91,7 +89,7 @@ public class OrcamentoProduto extends HttpServlet {
 
 		for (int i = 0; i < list.size(); i++) {
 			Carrinho carrinhoAux = list.get(i);
-			if (carrinhoAux.getIdProduto() == carrinho.getIdProduto()) {
+			if (carrinhoAux.getProdutoId() == carrinho.getProdutoId()) {
 				indice = i;
 				break;
 			}

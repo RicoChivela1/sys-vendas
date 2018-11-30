@@ -91,9 +91,9 @@
 				<tbody>
 				<tr>
 					<td scope="row">${counter.index + 1}</td>
-					<td>${produtoCarrinho.nomeProduto}</td>
-					<td>${produtoCarrinho.qtdProduto}</td>
-					<td>R$ ${produtoCarrinho.custoUnid}</td>
+					<td>${produtoCarrinho.produtoNome}</td>
+					<td>${produtoCarrinho.qtd}</td>
+					<td>R$ ${produtoCarrinho.valorUnid}</td>
 					<td>R$ ${produtoCarrinho.subTotal}</td>
 					<td> 
 						<a href="remover-carrinho.jsp?id=${counter.index}" title="Remover este produto do carrinho"><i class="fa fa-trash-o" style="font-size:24px; color: red;"></i></a>	

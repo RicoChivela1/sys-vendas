@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.aluizio.sysvendas.dao.OrcamentoDao;
+import br.com.aluizio.sysvendas.model.Carrinho;
 import br.com.aluizio.sysvendas.model.Cliente;
 import br.com.aluizio.sysvendas.model.Orcamento;
-import br.com.aluizio.sysvendas.model.OrcamentoProduto;
 import br.com.aluizio.sysvendas.model.Usuario;
 
 /**
@@ -46,30 +46,30 @@ public class TestaInsereOrcamento {
 			
 		
 		
-		OrcamentoProduto oP1 = new OrcamentoProduto();
-		oP1.setProdutoNome("teste orçamento 1");
-		oP1.setQtd(2);
-		oP1.setValorUnid(new BigDecimal("12.00"));
-		oP1.setSubTotal(new BigDecimal("24.00"));
+		Carrinho car1 = new Carrinho();
+		car1.setProdutoNome("produto 1");
+		car1.setQtd(2);
+		car1.setValorUnid(new BigDecimal("12.00"));
+		car1.setSubTotal(new BigDecimal("24.00"));
 		
-		OrcamentoProduto oP2 = new OrcamentoProduto();
-		oP2.setProdutoNome("teste orçamento 2");
-		oP2.setQtd(2);
-		oP2.setValorUnid(new BigDecimal("12.00"));
-		oP2.setSubTotal(new BigDecimal("24.00"));
+		Carrinho car2 = new Carrinho();
+		car2.setProdutoNome("produto 2");
+		car2.setQtd(2);
+		car2.setValorUnid(new BigDecimal("12.00"));
+		car2.setSubTotal(new BigDecimal("24.00"));
 		
-		OrcamentoProduto oP3 = new OrcamentoProduto();
-		oP3.setProdutoNome("teste orçamento 3");
-		oP3.setQtd(2);
-		oP3.setValorUnid(new BigDecimal("12.00"));
-		oP3.setSubTotal(new BigDecimal("24.00"));
+		Carrinho car3 = new Carrinho();
+		car3.setProdutoNome("produto 3");
+		car3.setQtd(2);
+		car3.setValorUnid(new BigDecimal("12.00"));
+		car3.setSubTotal(new BigDecimal("24.00"));
 		
-		List<OrcamentoProduto> list = new ArrayList<>();
-		list.add(oP1);
-		list.add(oP2);
-		list.add(oP3);
+		List<Carrinho> list = new ArrayList<>();
+		list.add(car1);
+		list.add(car2);
+		list.add(car3);
 		
-		dao.salvarOrcametoProduto(list);
+		dao.salvarCarrinho(list);
 		
 		System.out.println("Produtos do orçamento salvos com sucesso.");		
 	}

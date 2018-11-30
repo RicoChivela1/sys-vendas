@@ -24,13 +24,13 @@ public class Orcamento {
 
 	private boolean confirmado;
 
-	private List<OrcamentoProduto> list;
+	private List<Carrinho> list;
 
-	public List<OrcamentoProduto> getList() {
+	public List<Carrinho> getList() {
 		return list;
 	}
 
-	public void setList(List<OrcamentoProduto> list) {
+	public void setList(List<Carrinho> list) {
 		this.list = list;
 	}
 

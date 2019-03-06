@@ -26,6 +26,7 @@ public class TestaInsereOrcamento {
 		Usuario usuario = new Usuario();
 		usuario.setId(6);
 		
+		
 		Orcamento orcamento = new Orcamento();
 
 		orcamento.setTotal(new BigDecimal("10.00"));
@@ -40,7 +41,7 @@ public class TestaInsereOrcamento {
 		orcamento.setUsuario(usuario);
 		
 		OrcamentoDao dao = new OrcamentoDao();
-		dao.salvarOrcamento(orcamento);
+		dao.salvaOrcamento(orcamento);
 		
 		System.out.println("Orcamento salvo com sucesso");
 			
@@ -69,7 +70,7 @@ public class TestaInsereOrcamento {
 		list.add(car2);
 		list.add(car3);
 		
-		dao.salvarCarrinho(list);
+		dao.salvaCarrinho(list);
 		
 		System.out.println("Produtos do orçamento salvos com sucesso.");		
 	}

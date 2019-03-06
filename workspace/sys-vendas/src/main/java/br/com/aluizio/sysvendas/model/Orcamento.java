@@ -20,12 +20,13 @@ public class Orcamento {
 	private BigDecimal descontos;
 	private BigDecimal total;
 
-	private LocalDate dataLancamento;
+	private LocalDate dataLancamento = LocalDate.now();
 
 	private boolean confirmado;
 
 	private List<Carrinho> list;
 
+	
 	public List<Carrinho> getList() {
 		return list;
 	}

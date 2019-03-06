@@ -8,13 +8,8 @@
 <link rel="stylesheet" href="css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <script type="text/javascript" src="js/script.js"></script>
-
-
-
-<script type="text/javascript" src="js/jquery.js"> </script>
-<script type="text/javascript" src="js/campos.js"> </script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Orçamento</title>
 </head>
@@ -115,92 +110,31 @@
 		
 		</fieldset>
 
-
-
-
-
-
-
-
-
-
-
-
 		<c:choose>
 			<c:when test="${not empty carroCompras}">
-
 				<div class="titOrcamento"> Pagamento</div>
 		
 				<fieldset class="campoOrcamento">
-				
-				
-				
-				
-				
-				
-	<div>
-		
-		<label for="valor">Valor: </label>
-		<input id="valor" name="totalOrcamento" type="text" value="${total}"> <br />
-		
-		<label for="parcela">Forma de Pagamento: </label>
-		<select id="parcela" name="parcela">
-			<option value="0">--------</option>
-			<option value="1">À vista</option>
-			<option value="2">2x</option>
-			<option value="3">3x</option>
-			<option value="4">4x</option>
-			<option value="5">5x</option>
-			<option value="6">6x</option>
-			<option value="7">7x</option>
-			<option value="8">8x</option>
-			<option value="9">9x</option>
-			<option value="10">10x</option>
-			<option value="11">11x</option>
-			<option value="12">12x</option>
-
-		</select>
-	</div>
-	
-	<br /><br />
-		
-	<div id="divParcelas">
-	
-	
-			
-
-
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
 				<div class="esquerda">
-
-					//<label for="total">esquerda</label>
-	
+					<label for="total">Total:</label>
+					
+					<input id ="fieldsMedio" type="text" name="totalOrcamento" value="${total}" size="10" class="form-control" title="Calculo Automático" contenteditable="false"/>
+					
+					<label for="qtdParcelas">Parcelas:</label>
+					<input type="number" id="qtdParcelas"  class="form-control" value="1" onmouseup="calcularParcela()" min="1" max="12" title="Digite o total de parcelas"/>
+					
 				</div>
 				
 				<div class="direita">
-					//<label for="valorParcela">direita</label>
+					<label for="valorParcela">Valor da Parcela:</label>
+					<input id ="fieldsMedio" type="text" name="valorParcela" value="${total}" class="form-control"  title="Não é possível editar." disabled="disabled" />
+					<label for="vencParcela">Data Vencimento:</label>  
+		
+					<input id ="fieldsMedio" type="date" name="vencParcela" value="${vencParcela}" class="form-control" required="required">
 				</div>
 				</fieldset>
 			</c:when>
 		</c:choose>
-		
-		
-		
-			
-		
-		
-		
-		
-		
-		
 		
 		<c:choose>
 		<c:when test="${not empty carroCompras}">
@@ -218,7 +152,6 @@
 <footer class="site-footer push">
     <c:import url="rodape.jsp"/>
 </footer>
-	</div> 
-
+	
 </body>
 </html>

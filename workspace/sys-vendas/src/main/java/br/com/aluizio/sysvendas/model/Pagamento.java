@@ -1,15 +1,18 @@
 package br.com.aluizio.sysvendas.model;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 /**
  * @author Aluizio Monteiro
  */
 public class Pagamento {
 	private Integer id;
-	private Integer valorTotal;
-	private Integer qtdParcelas;
-	private Integer valorParcela;
-	private Integer diaVencimento;
-	private Integer parcelasPagas;
+	private Integer numParcela;
+	private BigDecimal valorParcela;
+	private LocalDate parcelaData;
+	private Integer fkOrcamento;
+
 	private EnumStatus status;
 
 	public Integer getId() {
@@ -20,44 +23,28 @@ public class Pagamento {
 		this.id = id;
 	}
 
-	public Integer getValorTotal() {
-		return valorTotal;
+	public Integer getNumParcela() {
+		return numParcela;
 	}
 
-	public void setValorTotal(Integer valorTotal) {
-		this.valorTotal = valorTotal;
+	public void setNumParcela(Integer numParcela) {
+		this.numParcela = numParcela;
 	}
 
-	public Integer getQtdParcelas() {
-		return qtdParcelas;
-	}
-
-	public void setQtdParcelas(Integer qtdParcelas) {
-		this.qtdParcelas = qtdParcelas;
-	}
-
-	public Integer getValorParcela() {
+	public BigDecimal getValorParcela() {
 		return valorParcela;
 	}
 
-	public void setValorParcela(Integer valorParcela) {
+	public void setValorParcela(BigDecimal valorParcela) {
 		this.valorParcela = valorParcela;
 	}
 
-	public Integer getDiaVencimento() {
-		return diaVencimento;
+	public LocalDate getParcelaData() {
+		return parcelaData;
 	}
 
-	public void setDiaVencimento(Integer diaVencimento) {
-		this.diaVencimento = diaVencimento;
-	}
-
-	public Integer getParcelasPagas() {
-		return parcelasPagas;
-	}
-
-	public void setParcelasPagas(Integer parcelasPagas) {
-		this.parcelasPagas = parcelasPagas;
+	public void setParcelaData(LocalDate parcelaData) {
+		this.parcelaData = parcelaData;
 	}
 
 	public EnumStatus getStatus() {
@@ -68,11 +55,19 @@ public class Pagamento {
 		this.status = status;
 	}
 
+	public Integer getFkOrcamento() {
+		return fkOrcamento;
+	}
+
+	public void setFkOrcamento(Integer fkOrcamento) {
+		this.fkOrcamento = fkOrcamento;
+	}
+
 	@Override
 	public String toString() {
-		return "Pagamento [id=" + id + ", valorTotal=" + valorTotal + ", qtdParcelas=" + qtdParcelas + ", valorParcela="
-				+ valorParcela + ", diaVencimento=" + diaVencimento + ", parcelasPagas=" + parcelasPagas + ", status="
-				+ status + "]";
+		return "Pagamento [numParcela=" + numParcela + ", valorParcela=" + valorParcela
+				+ ", parcelaData=" + parcelaData + ", fkOrcamento=" + fkOrcamento + ", status=" + status + "]";
 	}
+
 
 }

@@ -29,7 +29,7 @@ public class OrcamentoDao {
 	}
 
 	// Adicionar um Orcamento
-	public void salvarOrcamento(Orcamento orcamento) {
+	public void salvaOrcamento(Orcamento orcamento) {
 		String sql = "Insert into Orcamentos (descontos,"
 				+ " total, dataLancamento, confirmado, fk_cliente, fk_usuario)"
 				+ " values (?,?,?,?,?,?)";
@@ -90,7 +90,7 @@ public class OrcamentoDao {
 	/**
 	 *
 	 */
-	public void salvarCarrinho(List<Carrinho> list) {
+	public void salvaCarrinho(List<Carrinho> list) {
 		int maiorId = buscaMaiorId(); // orçamento
 		String sql = "Insert into carrinho ("
 				+ "fk_orcamento, produtoNome, qtd, valorUnid, subTotal)"

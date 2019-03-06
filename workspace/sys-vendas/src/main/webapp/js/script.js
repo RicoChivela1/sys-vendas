@@ -99,13 +99,6 @@ function MascaraMoeda(objTextBox, SeparadorMilesimo, SeparadorDecimal, e) {
 }
 
 
-/* Calcula o parcelas */
-function calcularParcela() {
-	var n1 = parseFloat(document.getElementsByName('totalOrcamento')[0].value, 10);
-	var n2 = parseFloat(document.getElementById('qtdParcelas').value, 10);
-	document.querySelector("[name='valorParcela']").value = (n1 / n2).toFixed(2);
-}
-
 
 
 

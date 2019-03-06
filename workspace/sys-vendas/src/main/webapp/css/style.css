@@ -390,25 +390,3 @@ a#linkOrcamento {
 	margin-bottom: 25px;
 }
 
-/*Truque para centralizar div*/
-div.box {
-    position: relative;
-    left: 50%;
-    top: 400%;
-    margin-left: -643px;
-    margin-top: 159px;
-    width: 100%;
-    height: 110px;
-    background: #fff0f0;
-    text-align: center;
-    white-space: initial;
-    border-radius: 19px;
-    
-}
-
-label.listaNula {
-	color: #d11212;
-    font-size: 21px;
-    margin-bottom: 19px;
-}
-

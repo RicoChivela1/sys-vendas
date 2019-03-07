@@ -18,7 +18,6 @@ import br.com.aluizio.sysvendas.dao.OrcamentoDao;
 import br.com.aluizio.sysvendas.dao.PagamentoDao;
 import br.com.aluizio.sysvendas.model.Carrinho;
 import br.com.aluizio.sysvendas.model.Cliente;
-import br.com.aluizio.sysvendas.model.EnumSituacao;
 import br.com.aluizio.sysvendas.model.EnumStatus;
 import br.com.aluizio.sysvendas.model.Orcamento;
 import br.com.aluizio.sysvendas.model.Pagamento;
@@ -57,7 +56,17 @@ public class SalvaOrcamento extends HttpServlet {
 		orcamento.setTotal(totalOrcamento);
 		
 		BigDecimal desconto = new BigDecimal("00.00");
-		orcamento.setTotal(desconto);
+		orcamento.setDescontos(desconto);
+		
+		
+		////////////////////////////////////////////////
+		int totalParcelas = Integer.parseInt(request.getParameter("parcela"));
+		int parcelasPagas = 1;
+		///////////////////////////////////////////////
+		
+		
+		orcamento.setTotalParcelas(totalParcelas);
+		orcamento.setParcelasPagas(parcelasPagas);
 		
 		//Pega os produtos do carrinho
 		sessionProdutos = request.getSession(false);

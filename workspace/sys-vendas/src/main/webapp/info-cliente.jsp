@@ -62,10 +62,67 @@
 		</div>
 		
 		<div class="direita">
-			
-			
+	
 		</div>
 	</fieldset>
+	
+	<fieldset class="campo">
+	<legend>Movimentações:</legend>
+	
+		<div class="esquerda">
+			<br />
+			<label>Total de Compras Realizadas:</label> ${list.size()}<br />
+			----------------------------------------------<br />
+			<c:forEach var="list" items="${list}">
+			
+			    <tr>
+			      
+			      <td>
+			      <label>Data da Compra:</label> 
+					<fmt:parseDate value="${list.dataLancamento}" pattern="yyyy-MM-dd" var="dataLancamento" type="both" />
+					<fmt:formatDate pattern="dd-MM-yyyy" value="${dataLancamento}" /> <br />
+			      </td>
+			      
+			      
+			      <td>
+			      	<label>Valor da Compra:</label> 
+			      	${list.total}
+			      </td><br />
+			      <td>
+			      	
+			      	<c:choose>
+					<c:when test="${list.parcelasAPagar > 0}">
+						<label>Não quitado: </label>
+			
+					</c:when>
+					<c:when test="${list.parcelasAPagar == 0}">
+						<label>Quitado</label>
+					</c:when>
+					</c:choose>
+			      </td>
+			      
+			      <td> 
+			    	<div class="btnAcoes">
+			      		<button type="submit" name="info" value="${produto.id}"  class="btn btn-outline-info" title="Veja maiores informações sobre um produto e realize uma venda."> <i class="fa fa-info-circle" ></i> Info</button>
+			      		
+					</div>
+			      </td>
+			      
+			    </tr>
+			    ----------------------------------------------<br />
+		   </c:forEach>
+		</div>
+		
+		<div class="direita">
+	
+		</div>
+	</fieldset>
+	
+	
+	
+	
+	
+	
 	
 	</form>
 </div>

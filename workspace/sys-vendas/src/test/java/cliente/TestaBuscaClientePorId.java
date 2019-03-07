@@ -14,7 +14,7 @@ public class TestaBuscaClientePorId {
 	public static void main(String[] args) {
 		//id buscado
 		Cliente clienteBuscado = new Cliente();
-		clienteBuscado.setId(24);
+		clienteBuscado.setId(1);
 		
 		//cria o dao
 		ClienteDao dao = new ClienteDao();

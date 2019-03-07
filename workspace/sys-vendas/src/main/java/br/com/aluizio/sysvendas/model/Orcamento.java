@@ -12,20 +12,19 @@ import java.util.List;
 
 public class Orcamento {
 	private Integer id;
+	private Integer totalParcelas;
+	private Integer parcelasPagas;
+	private Integer parcelasAPagar;
 	private Cliente cliente;
 	private Usuario usuario;
-
 	private BigDecimal subTotal;
-
 	private BigDecimal descontos;
 	private BigDecimal total;
-
 	private LocalDate dataLancamento = LocalDate.now();
-
 	private boolean confirmado;
-
 	private List<Carrinho> list;
 
+	
 	
 	public List<Carrinho> getList() {
 		return list;
@@ -43,6 +42,30 @@ public class Orcamento {
 		this.id = id;
 	}
 
+	public Integer getTotalParcelas() {
+		return totalParcelas;
+	}
+
+	public void setTotalParcelas(Integer totalParcelas) {
+		this.totalParcelas = totalParcelas;
+	}
+
+	public Integer getParcelasPagas() {
+		return parcelasPagas;
+	}
+
+	public void setParcelasPagas(Integer parcelasPagas) {
+		this.parcelasPagas = parcelasPagas;
+	}
+
+	public Integer getParcelasAPagar() {
+		return parcelasAPagar;
+	}
+
+	public void setParcelasAPagar(Integer parcelasAPagar) {
+		this.parcelasAPagar = parcelasAPagar;
+	}
+	
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -101,9 +124,27 @@ public class Orcamento {
 
 	@Override
 	public String toString() {
-		return "Orcamento [id=" + id + ", cliente=" + cliente + ", usuario=" + usuario + ", subTotal=" + subTotal
-				+ ", descontos=" + descontos + ", total=" + total + ", dataLancamento=" + dataLancamento
+		return "Orcamento [id=" + id + ", totalParcelas=" + totalParcelas + ", parcelasPagas=" + parcelasPagas
+				+ ", parcelasAPagar=" + parcelasAPagar + ", cliente=" + cliente + ", usuario=" + usuario + ", subTotal="
+				+ subTotal + ", descontos=" + descontos + ", total=" + total + ", dataLancamento=" + dataLancamento
 				+ ", confirmado=" + confirmado + ", list=" + list + "]";
+	}
+
+	public String getOrcamento() {
+		return "Orcamento [id=" + id + ", "
+				+ "cliente=" + cliente.getNome() + ", "
+				+ "usuario=" + usuario.getNome() + ", "
+				+ "subTotal=" + subTotal + ", "
+				+ "descontos=" + descontos + ", "
+				+ "total=" + total + ", "
+				
+				+ "totalParcelas=" + totalParcelas + ", "
+				+ "parcelasPagas=" + parcelasPagas + ", "
+				
+				+ "dataLancamento=" + dataLancamento + ", "
+				+ "confirmado=" + confirmado + ", "
+				+ "parcelasAPagar=" + parcelasAPagar + ", "
+				+ "list=" + list + "]";
 	}
 
 }

@@ -1,6 +1,7 @@
 package br.com.aluizio.sysvendas.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.aluizio.sysvendas.dao.ClienteDao;
+import br.com.aluizio.sysvendas.dao.OrcamentoDao;
 import br.com.aluizio.sysvendas.model.Cliente;
+import br.com.aluizio.sysvendas.model.Orcamento;
 
 /**
  * Servlet responsável pelas funcionalidades dos botões
@@ -51,6 +54,10 @@ public class GerenciaCliente extends HttpServlet {
 			Cliente cliente = (Cliente) new ClienteDao()
 					.buscaPorId(clienteBuscado);
     		
+			List<Orcamento> list = (List<Orcamento>) 
+					new OrcamentoDao().getList(cliente);
+			
+			request.setAttribute("list", list);
 			request.setAttribute("cliente", cliente);
     		pagina = "/info-cliente.jsp";
     	}

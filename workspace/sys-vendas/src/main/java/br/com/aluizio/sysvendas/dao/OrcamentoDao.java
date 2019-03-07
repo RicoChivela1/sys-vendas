@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.aluizio.sysvendas.jdbc.ConnectionFactory;
@@ -31,8 +32,9 @@ public class OrcamentoDao {
 	// Adicionar um Orcamento
 	public void salvaOrcamento(Orcamento orcamento) {
 		String sql = "Insert into Orcamentos (descontos,"
-				+ " total, dataLancamento, confirmado, fk_cliente, fk_usuario)"
-				+ " values (?,?,?,?,?,?)";
+				+ " total, dataLancamento, confirmado, fk_cliente, fk_usuario,"
+				+ " totalParcelas, parcelasPagas)"
+				+ " values (?,?,?,?,?,?,?,?)";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setBigDecimal(1, orcamento.getDescontos());
@@ -42,6 +44,10 @@ public class OrcamentoDao {
 			stmt.setBoolean(4, orcamento.isConfirmado());
 			stmt.setInt(5, orcamento.getCliente().getId());
 			stmt.setInt(6, orcamento.getUsuario().getId());
+			
+			stmt.setInt(7, orcamento.getTotalParcelas());
+			stmt.setInt(8, orcamento.getParcelasPagas());
+			
 			stmt.execute();
 
 		} catch (SQLException e) {
@@ -53,7 +59,7 @@ public class OrcamentoDao {
 	// Alterar
 	public void alterar(Orcamento orcamento) {
 		String sql = "Update Orcamentos set descontos=?," + " total=?, dataLancamento=?, confirmado=?,"
-				+ " fk_cliente=?, fk_usuario=? where id=?";
+				+ " fk_cliente=?, fk_usuario=?, totalParcelas=?, parcelasPagas=? where id=?";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setBigDecimal(1, orcamento.getDescontos());
@@ -63,7 +69,11 @@ public class OrcamentoDao {
 
 			stmt.setInt(5, orcamento.getCliente().getId());
 			stmt.setInt(6, orcamento.getUsuario().getId());
-			stmt.setInt(7, orcamento.getId());
+			
+			stmt.setInt(7, orcamento.getTotalParcelas());
+			stmt.setInt(8, orcamento.getParcelasPagas());
+			
+			stmt.setInt(9, orcamento.getId());
 
 			stmt.execute();
 
@@ -140,8 +150,9 @@ public class OrcamentoDao {
 				orcamento.setDescontos(rs.getBigDecimal("descontos"));
 				orcamento.setTotal(rs.getBigDecimal("total"));
 				
-				//orcamento.setDataLancamento(dataLancamento);
-				
+				orcamento.setTotalParcelas(rs.getInt("totalParcelas"));
+				orcamento.setParcelasPagas(rs.getInt("parcelasPagas"));
+				orcamento.setParcelasAPagar(rs.getInt("parcelasAPagar"));
 				orcamento.setConfirmado(true);
 				
 				//Carrega Cliente
@@ -173,28 +184,49 @@ public class OrcamentoDao {
 		}	
 	}
 
-	/*private List<listOrcamentoProduto> listOrcamentoProduto(Orcamento orcBuscado) {
-		String sql = "Select * from orcamentos_produtos where fk_orcamento ="+orcBuscado.getId();
-		List<OrcamentoProduto> list = new ArrayList<>();
+	
+///////////////////////////////////////////////////////////////////	
+	
+	
+	public List<Orcamento> getList(Cliente clienteBuscado) {
+		String sql = "select * from orcamentos as o "
+				+ "right join clientes as c on o.fk_cliente = c.id "
+				+ "right join usuarios as u on o.fk_usuario = u.id "
+				+ "where o.fk_cliente = " + clienteBuscado.getId();
+		List<Orcamento> list = new ArrayList<>();
 		
 		try (PreparedStatement stmt = connection.prepareStatement(sql)){
 			ResultSet rs = stmt.executeQuery();
 			
 			while(rs.next()) {
-				OrcamentoProduto orcProduto = new OrcamentoProduto();
-				orcProduto.setOrcamentoId(rs.getInt("fk_orcamento"));
-				orcProduto.setProdutoNome(rs.getString("produtoNome"));
-				orcProduto.setQtd(rs.getInt("qtd"));
-				orcProduto.setValorUnid(rs.getBigDecimal("valorUnid"));
-				orcProduto.setSubTotal(rs.getBigDecimal("subTotal"));
+		
+				Cliente cliente = new Cliente();
+				cliente.setId(rs.getInt("fk_cliente"));
+				cliente.setNome(rs.getString("c.nome"));
 				
-				list.add(orcProduto);
+				Usuario usuario = new Usuario();
+				usuario.setId(rs.getInt("fk_usuario"));
+				usuario.setNome(rs.getString("u.nome"));
+				
+				Orcamento orcamento = new Orcamento();
+				orcamento.setCliente(cliente);
+				orcamento.setUsuario(usuario);
+				orcamento.setId(rs.getInt("o.id"));
+				orcamento.setDescontos(rs.getBigDecimal("o.descontos"));
+				orcamento.setTotal(rs.getBigDecimal("o.total"));
+				orcamento.setDataLancamento(rs.getDate("o.dataLancamento").toLocalDate());
+				orcamento.setConfirmado(rs.getBoolean("o.confirmado"));
+				orcamento.setSubTotal(rs.getBigDecimal("o.subTotal"));
+				orcamento.setTotalParcelas(rs.getInt("totalParcelas"));
+				orcamento.setParcelasPagas(rs.getInt("parcelasPagas"));
+				orcamento.setParcelasAPagar(rs.getInt("parcelasAPagar"));
+				list.add(orcamento);
 			}
 			return list;
 			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-	}*/
+	}
 
 }

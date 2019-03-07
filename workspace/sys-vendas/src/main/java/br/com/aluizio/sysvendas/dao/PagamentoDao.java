@@ -29,6 +29,7 @@ public class PagamentoDao {
 		String sql = "Insert into Pagamentos (fk_orcamento,  numParcela," + 
 		" valorParcela, parcelaData,  status) values (?,?,?,?,?) ";
 
+		
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			for(Pagamento pagamento : list) {
 				stmt.setInt(1, pagamento.getFkOrcamento());
@@ -40,7 +41,7 @@ public class PagamentoDao {
 	
 				stmt.execute();
 			}
-
+			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

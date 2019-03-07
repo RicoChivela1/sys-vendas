@@ -91,7 +91,10 @@ public class ClienteDao implements IDAO {
 	public Object buscaPorId(Object object) {
 		Cliente clienteBuscado = (Cliente) object;
 		String sql = "Select * from Clientes as c where c.id=?";
-
+		/*String sql = "Select * from Clientes as c join orcamentos as o "
+			+ "on c.id = o.fk_cliente "
+			+ "where c.id=?";*/
+		
 		Cliente cliente = new Cliente();
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {

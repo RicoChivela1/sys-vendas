@@ -172,6 +172,7 @@ public class Cliente {
 	public void setFone(String fone) {
 		this.fone = fone;
 	}
+	
 
 	@Override
 	public String toString() {
@@ -181,4 +182,6 @@ public class Cliente {
 				+ ", cidade=" + cidade + ", complemento=" + complemento + ", numero=" + numero + ", uf=" + uf + ", cep="
 				+ cep + ", fone=" + fone + "]";
 	}
+
+	
 }

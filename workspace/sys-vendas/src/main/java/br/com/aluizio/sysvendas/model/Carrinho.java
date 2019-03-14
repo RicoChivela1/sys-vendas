@@ -9,8 +9,8 @@ import java.math.BigDecimal;
  */
 
 public class Carrinho {
-	private Integer idCliente; // não armazenar
-	private String nomeCliente; // não armazenar
+	//private Integer idCliente; // não armazenar
+	//private String nomeCliente; // não armazenar
 
 	private Integer produtoId;
 	private Integer orcamentoId;
@@ -19,7 +19,8 @@ public class Carrinho {
 	private BigDecimal valorUnid;
 	private BigDecimal subTotal;
 
-	public Integer getIdCliente() {
+	/*public Integer getIdCliente() {
+		
 		return idCliente;
 	}
 
@@ -33,7 +34,7 @@ public class Carrinho {
 
 	public void setNomeCliente(String nomeCliente) {
 		this.nomeCliente = nomeCliente;
-	}
+	}*/
 
 	public Integer getProdutoId() {
 		return produtoId;
@@ -85,8 +86,7 @@ public class Carrinho {
 
 	@Override
 	public String toString() {
-		return "Carrinho [idCliente=" + idCliente + ", nomeCliente=" + nomeCliente + ", produtoId=" + produtoId
-				+ ", orcamentoId=" + orcamentoId + ", produtoNome=" + produtoNome + ", qtd=" + qtd + ", valorUnid="
+		return "Carrinho [orcamentoId=" + orcamentoId + ", produtoNome=" + produtoNome + ", qtd=" + qtd + ", valorUnid="
 				+ valorUnid + ", subTotal=" + subTotal + "]";
 	}
 

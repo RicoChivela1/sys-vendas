@@ -17,15 +17,23 @@ public class Orcamento {
 	private Integer parcelasAPagar;
 	private Cliente cliente;
 	private Usuario usuario;
-	private BigDecimal subTotal;
+	private BigDecimal subTotalOrcamento;
 	private BigDecimal descontos;
-	private BigDecimal total;
+	private BigDecimal totalOrcamento;
 	private LocalDate dataLancamento = LocalDate.now();
 	private boolean confirmado;
 	private List<Carrinho> list;
+	private List<Pagamento> pagamentos;
+	
+	
+	public List<Pagamento> getPagamentos() {
+		return pagamentos;
+	}
 
-	
-	
+	public void setPagamentos(List<Pagamento> pagamentos) {
+		this.pagamentos = pagamentos;
+	}
+
 	public List<Carrinho> getList() {
 		return list;
 	}
@@ -86,16 +94,16 @@ public class Orcamento {
 		return descontos;
 	}
 
-	public void setDescontos(BigDecimal descontos) {
-		this.descontos = descontos;
+	public void setDescontos(BigDecimal d) {
+		this.descontos = d;
 	}
 
-	public BigDecimal getTotal() {
-		return total;
+	public BigDecimal getTotalOrcamento() {
+		return totalOrcamento;
 	}
 
-	public void setTotal(BigDecimal total) {
-		this.total = total;
+	public void setTotalOrcamento(BigDecimal totalOrcamento) {
+		this.totalOrcamento = totalOrcamento;
 	}
 
 	public LocalDate getDataLancamento() {
@@ -114,37 +122,25 @@ public class Orcamento {
 		this.confirmado = confirmado;
 	}
 
-	public BigDecimal getSubTotal() {
-		return subTotal;
+	public BigDecimal getSubTotalOrcamento() {
+		return subTotalOrcamento;
 	}
 
-	public void setSubTotal(BigDecimal subTotal) {
-		this.subTotal = subTotal;
+	public void setSubTotalOrcamento(BigDecimal subTotalOrcamento) {
+		this.subTotalOrcamento = subTotalOrcamento;
 	}
 
 	@Override
 	public String toString() {
 		return "Orcamento [id=" + id + ", totalParcelas=" + totalParcelas + ", parcelasPagas=" + parcelasPagas
-				+ ", parcelasAPagar=" + parcelasAPagar + ", cliente=" + cliente + ", usuario=" + usuario + ", subTotal="
-				+ subTotal + ", descontos=" + descontos + ", total=" + total + ", dataLancamento=" + dataLancamento
-				+ ", confirmado=" + confirmado + ", list=" + list + "]";
+				+ ", parcelasAPagar=" + parcelasAPagar + ", cliente=" + cliente + ", usuario=" + usuario
+				+ ", subTotalOrcamento=" + subTotalOrcamento + ", descontos=" + descontos + ", totalOrcamento="
+				+ totalOrcamento + ", dataLancamento=" + dataLancamento + ", confirmado=" + confirmado + ", list="
+				+ list + ", pagamentos=" + pagamentos + "]";
 	}
 
-	public String getOrcamento() {
-		return "Orcamento [id=" + id + ", "
-				+ "cliente=" + cliente.getNome() + ", "
-				+ "usuario=" + usuario.getNome() + ", "
-				+ "subTotal=" + subTotal + ", "
-				+ "descontos=" + descontos + ", "
-				+ "total=" + total + ", "
-				
-				+ "totalParcelas=" + totalParcelas + ", "
-				+ "parcelasPagas=" + parcelasPagas + ", "
-				
-				+ "dataLancamento=" + dataLancamento + ", "
-				+ "confirmado=" + confirmado + ", "
-				+ "parcelasAPagar=" + parcelasAPagar + ", "
-				+ "list=" + list + "]";
-	}
+	
+	
 
+	
 }

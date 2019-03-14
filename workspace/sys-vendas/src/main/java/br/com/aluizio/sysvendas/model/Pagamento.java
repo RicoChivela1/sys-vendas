@@ -12,19 +12,7 @@ public class Pagamento {
 	private BigDecimal valorParcela;
 	private LocalDate parcelaData;
 	private Integer fkOrcamento;
-	private Integer parcelasPagas;
 	private EnumStatus status;
-	
-	
-	
-	public Integer getParcelasPagas() {
-		return parcelasPagas;
-	}
-
-	public void setParcelasPagas(Integer parcelasPagas) {
-		this.parcelasPagas = parcelasPagas;
-	}
-
 	
 
 	public Integer getId() {
@@ -78,9 +66,10 @@ public class Pagamento {
 	@Override
 	public String toString() {
 		return "Pagamento [id=" + id + ", numParcela=" + numParcela + ", valorParcela=" + valorParcela
-				+ ", parcelaData=" + parcelaData + ", fkOrcamento=" + fkOrcamento + ", parcelasPagas=" + parcelasPagas
-				+ ", status=" + status + "]";
+				+ ", parcelaData=" + parcelaData + ", fkOrcamento=" + fkOrcamento + ", status=" + status + "]";
 	}
+
+	
 
 	
 

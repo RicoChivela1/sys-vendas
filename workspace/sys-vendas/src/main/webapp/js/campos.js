@@ -1,20 +1,21 @@
 
 $(document).ready(function(){
 
-	$("#parcela").change(function () {
+
+	$('select[name=parcelas]').change(function () {
 		
-		var valor = $("#valor").val();
-	
+		var valor = $('input[name="totalOrcamento"]').val();
+		
 		// Obtém a data/hora atual
 		var data = new Date();
 		
-		var qtdParcela = $("#parcela").val();
+		var qtdParcela = $('select[name=parcelas]').val();
 		var valParcela = (valor / qtdParcela).toFixed(2);;
 		
 		//Calcula o resto com retorno decimal
 		var resto = (valor - (valParcela * qtdParcela)).toFixed(2);
 
-		alert( "Resto da divisão: " + resto );
+		//alert( "Resto da divisão: " + resto );
 		
 		// limpa inputs
 		$("#divParcelas").empty();
@@ -40,16 +41,17 @@ $(document).ready(function(){
 			// concatena
 			var stringData =  fullAno + '-' + fullMes + '-' + fullDia;
 			
-			$("#divParcelas").append("<label> - "+i+"&deg; parcela: <label/>", "<input name='parcelaValor["+i+"]' id='parcelaValor["+i+"]' value="+valParcela+">");
-			$("#divParcelas").append("<label> &nbsp; - Data: <label/>","<input type='date' name='parcelaData["+i+"]' id='parcelaData["+i+"]' value="+stringData+">");
+			$("#divParcelas").append("<label> - "+i+"&deg; parcela: <label/>","<input id='fieldsMedio'  name='parcelaValor["+i+"]' id='parcelaValor["+i+"]' value="+valParcela+">");
+			$("#divParcelas").append("<label> &nbsp;- Data: <label/>","<input type='date' id='fieldsMedio'  name='parcelaData["+i+"]' id='parcelaData["+i+"]' value="+stringData+">");
 			$("#divParcelas").append("<br /><br />");
-			
 			data.setDate(data.getDate() + 30);
-			
 			
 			var saida = $('#parcelaValor').index(i);
 			console.log(saida);
 	
+		}
+		if (qtdParcela > 0){
+			$("#divParcelas").append("<button type='submit' name='idProduto' class='btn btn-success'> <i class='fa fa-money' style='font-size:24px'> </i> Efetivar Venda</button>");
 		}
     });
 });

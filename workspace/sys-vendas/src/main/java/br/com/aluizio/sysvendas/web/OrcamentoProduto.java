@@ -24,7 +24,8 @@ public class OrcamentoProduto extends HttpServlet {
 	private HttpSession sessionProdutos;
 	private ArrayList<Carrinho> list;
 	private Carrinho carrinho;
-	private BigDecimal total = new BigDecimal(0);
+	private BigDecimal subTotalOrcamento = new BigDecimal(0);
+	private BigDecimal totalOrcamento = new BigDecimal(0);
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -108,11 +109,14 @@ public class OrcamentoProduto extends HttpServlet {
 
 	public void atualizaTotal() {
 		//Calcula total
-		total = new BigDecimal(0);
+		subTotalOrcamento = new BigDecimal(0);
+		
 		for (int i = 0; i < list.size(); i++) {
-			total = total.add(list.get(i).getSubTotal());
+			subTotalOrcamento = subTotalOrcamento.add(list.get(i).getSubTotal());
+			totalOrcamento = subTotalOrcamento;
 		}
-		System.out.println("Somatório do total: "+total);
-		sessionProdutos.setAttribute("total", total);
+		System.out.println("Somatório dos produtos: "+subTotalOrcamento);
+		sessionProdutos.setAttribute("subTotalOrcamento", subTotalOrcamento);
+		sessionProdutos.setAttribute("totalOrcamento", totalOrcamento);
 	}
 }

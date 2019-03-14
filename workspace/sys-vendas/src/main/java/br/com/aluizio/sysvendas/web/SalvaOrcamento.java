@@ -53,14 +53,17 @@ public class SalvaOrcamento extends HttpServlet {
 		orcamento.setCliente(cliente);
 		
 		BigDecimal totalOrcamento = new BigDecimal(request.getParameter("totalOrcamento"));
-		orcamento.setTotal(totalOrcamento);
+		orcamento.setTotalOrcamento(totalOrcamento);
 		
-		BigDecimal desconto = new BigDecimal("00.00");
-		orcamento.setDescontos(desconto);
+		BigDecimal subTotalOrcamento = new BigDecimal(request.getParameter("subTotalOrcamento"));
+		orcamento.setSubTotalOrcamento(subTotalOrcamento);
+		
+		BigDecimal descontos = new BigDecimal(request.getParameter("descontos"));
+		orcamento.setDescontos(descontos);
 		
 		
 		////////////////////////////////////////////////
-		int totalParcelas = Integer.parseInt(request.getParameter("parcela"));
+		int totalParcelas = Integer.parseInt(request.getParameter("parcelas"));
 		int parcelasPagas = 1;
 		///////////////////////////////////////////////
 		
@@ -78,16 +81,15 @@ public class SalvaOrcamento extends HttpServlet {
 		dao.salvaCarrinho(list);
 		
 		int fkOrcamento = dao.buscaMaiorId();
-		int parcelas = Integer.parseInt(request.getParameter("parcela"));
 		
 		//Parte do pagamento
-		System.out.println("- Parcelas: "+parcelas);
+		System.out.println("- Parcelas: "+totalParcelas);
 		
 		
 		System.out.println("- FK Orcamento: "+ fkOrcamento);
 		List<Pagamento> pagamentoList = new ArrayList<>();
 		
-		for(int i=1;i<=parcelas;i++) {
+		for(int i=1;i<=totalParcelas;i++) {
 			
 			BigDecimal parcelaValor = new BigDecimal(request.getParameter("parcelaValor["+i+"]"));
 			

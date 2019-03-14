@@ -65,66 +65,94 @@
 	
 		</div>
 	</fieldset>
+	</form>
 	
+	<form action="gerenciar-orcamento.jsp" method="post">
 	<fieldset class="campo">
 	<legend>Movimentações:</legend>
 	
-		<div class="esquerda">
-			<br />
-			<label>Total de Compras Realizadas:</label> ${list.size()}<br />
-			----------------------------------------------<br />
-			<c:forEach var="list" items="${list}">
+	
+	
+	
+	
+	
+	<div class="table-responsive">
+				<table class="table table-striped">
+				<caption>Info Clientes</caption>
+					   <thead>
+					    <tr>
+					      <th>Data da Compra</th>
+					      <th>Valor da Compra</th>
+					      <th>Situação</th>
+					      <th>Parcelas Pagas</th>
+					      <th>Ações</th>
 			
-			    <tr>
-			      
-			      <td>
-			      <label>Data da Compra:</label> 
-					<fmt:parseDate value="${list.dataLancamento}" pattern="yyyy-MM-dd" var="dataLancamento" type="both" />
-					<fmt:formatDate pattern="dd-MM-yyyy" value="${dataLancamento}" /> <br />
-			      </td>
-			      
-			      
-			      <td>
-			      	<label>Valor da Compra:</label> 
-			      	${list.total}
-			      </td><br />
-			      <td>
+					    </tr>
+					  </thead>
+				  <tbody>
+				
+				   <c:forEach var="orcamento" items="${list}">
+				   <tr>
+					<td>
+						<fmt:parseDate value="${orcamento.dataLancamento}" pattern="yyyy-MM-dd" var="dataLancamento" type="both" />
+						<fmt:formatDate pattern="dd-MM-yyyy" value="${dataLancamento}" /> <br />
+			            
+					</td>
+					<td> 
+			      		${orcamento.totalOrcamento}
+			      	</td>
+					<td>
 			      	
-			      	<c:choose>
-					<c:when test="${list.parcelasAPagar > 0}">
-						<label>Não quitado: </label>
-			
-					</c:when>
-					<c:when test="${list.parcelasAPagar == 0}">
-						<label>Quitado</label>
-					</c:when>
-					</c:choose>
-			      </td>
-			      
-			      <td> 
-			    	<div class="btnAcoes">
-			      		<button type="submit" name="info" value="${produto.id}"  class="btn btn-outline-info" title="Veja maiores informações sobre um produto e realize uma venda."> <i class="fa fa-info-circle" ></i> Info</button>
-			      		
-					</div>
-			      </td>
-			      
-			    </tr>
-			    ----------------------------------------------<br />
-		   </c:forEach>
-		</div>
-		
-		<div class="direita">
-	
-		</div>
-	</fieldset>
-	
-	
+			      		<c:choose>
+							<c:when test="${orcamento.parcelasAPagar > 0}">
+								<p>Não quitado: </p>
+							</c:when>
+							<c:when test="${orcamento.parcelasAPagar == 0}">
+									<p>Quitado</p>
+							</c:when>
+						</c:choose>
+			      	</td>
+
+					    <td> 
+			      			${orcamento.parcelasPagas}
+			      		de 
+			      			${orcamento.totalParcelas}
+			      		</td>
+			      		<td> 
+					    	<div class="btnAcoes">
+					      		<button type="submit" name="detalhes" value="${orcamento.id}"  class="btn btn-outline-info" title="Veja maiores informações sobre um produto e realize uma venda."> <i class="fa fa-info-circle" ></i> Detalhes</button>
+							</div>
+					  	</td>	
+					  </tr>
+				   </c:forEach>
+				  </tbody>
+				</table>
+			</div>
+			</fieldset>
+		</form>
 	
 	
 	
 	
 	
-	</form>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </div>
 
 <footer class="site-footer push">

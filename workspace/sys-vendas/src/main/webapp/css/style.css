@@ -123,12 +123,32 @@ div.btnCarrinho {
 	width: 33%;
 	float: left;
 }
+
+.esqValorOrc {
+	width: 18%;
+	float: left;
+}
+
+.esqSelectOrc {
+	width: 18%;
+
+}
+
 /*Div carrinho*/
 .centroValor {
 	width: 33%;
 	float: left;
 	margin-top: 41px;
 }
+
+
+/*Div carrinho*/
+.divParcelas {
+	width: 33%;
+	float: left;
+	margin-top: 41px;
+}
+
 /*Div carrinho*/
 .esquerdaValor {
 	width: 140px;
@@ -190,6 +210,12 @@ img#imgPreview{
 img.miniaturaProduto{
 	width: 100px;
 }
+
+/*miniatura da imagem do produto para info-orçamento*/
+img.miniaturaProdutoPeq{
+	width: 65px;
+}
+
 
 /*miniatura da imagem do produto para a info*/
 img.miniaturaProdutoInf{
@@ -390,3 +416,9 @@ a#linkOrcamento {
 	margin-bottom: 25px;
 }
 
+
+div#divParcelas {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    background-color: #f2f2f2;
+}

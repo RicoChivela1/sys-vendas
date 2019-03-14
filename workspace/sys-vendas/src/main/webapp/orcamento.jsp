@@ -115,37 +115,51 @@
 		
 		</fieldset>
 
-
-
-
-
-
-
-
-
-
-
-
 		<c:choose>
 			<c:when test="${not empty carroCompras}">
 
 				<div class="titOrcamento"> Pagamento</div>
 		
-				<fieldset class="campoOrcamento">
-				
-				
-				
-				
-				
-				
-	<div>
+					<fieldset class="campoOrcamento">
 		
-		<label for="valor">Valor: </label>
-		<input id="valor" name="totalOrcamento" type="text" value="${total}"> <br />
+				
 		
-		<label for="parcela">Forma de Pagamento: </label>
-		<select id="parcela" name="parcela">
-			<option value="0">--------</option>
+		
+		
+		
+		<div class="esqValorOrc">
+			<label for="valor">Subtotal: </label>
+			<input id="fieldsValorSmall" name="subTotalOrcamento" disabled="disabled" type="text" value="${subTotalOrcamento}" class="form-control"> <br />
+		</div>
+		<div class="esqValorOrc">
+			
+			<label  for="descontos"> Desconto em %: </label> <br>
+			
+		<label unit="%">
+			<input type="number" name="descontos" id="percentual" 
+				
+			step='0.01' value='0.00'
+			min="0.01" max="70.00" placeholder='0.00' size="30"
+			class="form-control" required="required" onmouseup="calcularDescontos()" onkeyup="calcularDescontos()" /><br />			
+		</label>
+			
+			
+		</div>
+		
+		<div class="esqValorOrc">
+			<label for="valorDesconto">Desconto em R$: </label>
+			<input id="fieldsValorSmall" placeholder="0.00" onkeyup="calcularDescontosRs()" name="valorDesconto" type="text" class="form-control"> <br />
+		</div>
+		<div class="esqValorOrc">		
+			<label for="valor">Total: </label>
+			<input id="fieldsValorSmall" disabled="disabled" name="totalOrcamento" type="text" value="${totalOrcamento}" class="form-control"> <br />
+		</div>
+		
+		<div>
+		<div class="esqSelectOrc">
+		<label for="parcelas">Forma de Pagamento: </label>
+		<select  name="parcelas"  id="selectDeProdutos" class="form-control" >
+			<option value="0">SELECIONE</option>
 			<option value="1">À vista</option>
 			<option value="2">2x</option>
 			<option value="3">3x</option>
@@ -160,55 +174,17 @@
 			<option value="12">12x</option>
 
 		</select>
-	</div>
-	
-	<br /><br />
-		
-	<div id="divParcelas">
-	
-	
+		</div>
+		</div>
 			
-
-
-	</div>
+			<div id="divParcelas">
 	
-	
-	
-	
-	
-	
-	
-	
-				<div class="esquerda">
-
-					//<label for="total">esquerda</label>
-	
-				</div>
 				
-				<div class="direita">
-					//<label for="valorParcela">direita</label>
-				</div>
-				</fieldset>
-			</c:when>
-		</c:choose>
-		
-		
-		
-			
-		
-		
-		
-		
-		
-		
-		
-		<c:choose>
-		<c:when test="${not empty carroCompras}">
-			<div id="btnForm"> 	
-				<button type="submit" name="idProduto" class="btn btn-success"> <i class="fa fa-money" style="font-size:24px"> </i> Efetivar Venda</button>
 			</div>
-		</c:when>
-	</c:choose>
+			
+	</fieldset>
+</c:when>
+</c:choose>
 	
 	</form>		
 </fieldset>	
@@ -218,7 +194,7 @@
 <footer class="site-footer push">
     <c:import url="rodape.jsp"/>
 </footer>
-	</div> 
+ 
 
 </body>
 </html>

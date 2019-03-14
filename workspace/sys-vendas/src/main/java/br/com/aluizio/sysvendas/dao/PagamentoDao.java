@@ -2,10 +2,14 @@ package br.com.aluizio.sysvendas.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.aluizio.sysvendas.jdbc.ConnectionFactory;
+import br.com.aluizio.sysvendas.model.EnumStatus;
+import br.com.aluizio.sysvendas.model.Orcamento;
 import br.com.aluizio.sysvendas.model.Pagamento;
 
 /**
@@ -71,5 +75,38 @@ public class PagamentoDao {
 			throw new RuntimeException(e);
 		}
 	}
+
+	
+	
+	// Busca pagamento por Orcamento
+		public List<Pagamento> buscaPgPorOrcamento(Orcamento orcamento) {
+			List<Pagamento> lista = new ArrayList<>();
+				String sql = "select * from Pagamentos where fk_orcamento = ?";
+
+				try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+					Integer termo = orcamento.getId();
+					stmt.setInt(1, termo);
+
+					ResultSet rs = stmt.executeQuery();
+
+					while (rs.next()) {
+						Pagamento pagamento = new Pagamento();
+						pagamento.setId(rs.getInt("id"));
+						pagamento.setNumParcela(rs.getInt("numParcela"));
+						pagamento.setValorParcela(rs.getBigDecimal("valorParcela"));
+						pagamento.setParcelaData(rs.getDate("parcelaData").toLocalDate());
+						pagamento.setFkOrcamento(rs.getInt("fk_orcamento"));
+
+						pagamento.setStatus(EnumStatus.valueOf(rs.getString("status")));
+
+						lista.add(pagamento);
+					}
+
+				} catch (SQLException e) {
+					throw new RuntimeException(e);
+				}
+			return lista;
+		}
+
 
 }

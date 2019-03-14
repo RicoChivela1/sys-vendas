@@ -99,6 +99,43 @@ function MascaraMoeda(objTextBox, SeparadorMilesimo, SeparadorDecimal, e) {
 }
 
 
+/*Calcula o desconto no Carrinho - orcamento.jsp */
+
+	function calcularDescontos() {
+		var n1 = parseFloat(document.querySelector("[name='subTotalOrcamento']").value.replace(",",
+				"."));
+		var n2 = parseFloat(document.querySelector("[name='descontos']").value.replace(
+				",", "."));
+
+		var desconto = n1 * n2 / 100;
+		var total = n1 - desconto;
+		var parcelas = 0;
+		
+		document.querySelector("[name='totalOrcamento']").value = (total).toFixed(2);
+		document.querySelector("[name='valorDesconto']").value = (desconto).toFixed(2);
+	
+		//zera o select
+		document.querySelector("[name='parcelas']").value = (parcelas);
+		$("#divParcelas").empty();
+	}
 
 
+	/*Calcula o percentual de variação entre subtotal e o desconto  - orcamento.jsp */
 
+	function calcularDescontosRs() {
+		var v1 = parseFloat(document.querySelector("[name='subTotalOrcamento']").value.replace(",",
+				"."));
+		var v2 = parseFloat(document.querySelector("[name='valorDesconto']").value.replace(
+				",", "."));
+
+		var descontos = 100 + ((v2 -  v1)/v1 * 100);
+		var total = (v1 -  v2);
+		var parcelas = 0;
+		
+		document.querySelector("[name='descontos']").value = (descontos).toFixed(2);
+		document.querySelector("[name='totalOrcamento']").value = (total).toFixed(2);
+		
+		//zera o select
+		document.querySelector("[name='parcelas']").value = (parcelas);
+		$("#divParcelas").empty();
+	}

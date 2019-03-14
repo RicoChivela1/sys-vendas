@@ -12,18 +12,16 @@ import br.com.aluizio.sysvendas.model.Orcamento;
 public class TesteBuscaOrcamentoPorId {
 
 	public static void main(String[] args) {
-		//id buscado
 		Orcamento orcBuscado = new Orcamento();
 		orcBuscado.setId(18);
-		
-		//cria o dao
+
 		OrcamentoDao dao = new OrcamentoDao();
 		
 		//retorna cliente e respectívos endereços
-		Orcamento orcResposta = dao.buscaPorId(orcBuscado);
+		Orcamento orcamento = dao.buscaOrcamentoPorId(orcBuscado);
 		
 		//Imprime tudo
-		System.out.println(orcResposta);
-		
+		System.out.println(orcamento);
+		// O produto é o carrinho
 	}
 }

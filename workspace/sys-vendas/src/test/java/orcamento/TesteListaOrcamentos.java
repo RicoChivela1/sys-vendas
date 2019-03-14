@@ -17,12 +17,12 @@ public class TesteListaOrcamentos {
 	public static void main(String[] args) {
 		//id buscado
 		Cliente cliente = new Cliente();
-		cliente.setId(8); //1, 2 e 8.
+		cliente.setId(1); //1, 2 e 8.
 		
 		List<Orcamento> list = (List<Orcamento>) new OrcamentoDao().getList(cliente);
 		
 		for (Orcamento orcamento : list) {
-			System.out.println(orcamento.getOrcamento());
+			System.out.println(orcamento);
 		}
 		
 	}

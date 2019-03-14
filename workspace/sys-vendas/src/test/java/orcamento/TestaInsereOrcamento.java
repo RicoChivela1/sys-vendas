@@ -29,7 +29,7 @@ public class TestaInsereOrcamento {
 		
 		Orcamento orcamento = new Orcamento();
 
-		orcamento.setTotal(new BigDecimal("10.00"));
+		orcamento.setSubTotalOrcamento(new BigDecimal("10.00"));
 		orcamento.setDescontos(new BigDecimal("0.50"));
 		
 		LocalDate dataLancamento = LocalDate.now();

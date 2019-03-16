@@ -1,4 +1,4 @@
 
 
-	&#169; - 2018 - SysVendas
+	&#169; - 2019 - Sisvendas
 

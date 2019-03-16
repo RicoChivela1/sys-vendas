@@ -129,7 +129,7 @@
 		
 		<div class="esqValorOrc">
 			<label for="valor">Subtotal: </label>
-			<input id="fieldsValorSmall" name="subTotalOrcamento" disabled="disabled" type="text" value="${subTotalOrcamento}" class="form-control"> <br />
+			<input id="fieldsValorSmall" name="subTotalOrcamento" readonly="readonly" type="text" value="${subTotalOrcamento}" class="form-control"> <br />
 		</div>
 		<div class="esqValorOrc">
 			
@@ -139,7 +139,7 @@
 			<input type="number" name="descontos" id="percentual" 
 				
 			step='0.01' value='0.00'
-			min="0.01" max="70.00" placeholder='0.00' size="30"
+			min="0.00" max="70.00" placeholder='0.00' size="30"
 			class="form-control" required="required" onmouseup="calcularDescontos()" onkeyup="calcularDescontos()" /><br />			
 		</label>
 			
@@ -152,7 +152,7 @@
 		</div>
 		<div class="esqValorOrc">		
 			<label for="valor">Total: </label>
-			<input id="fieldsValorSmall" disabled="disabled" name="totalOrcamento" type="text" value="${totalOrcamento}" class="form-control"> <br />
+			<input id="fieldsValorSmall" readonly="readonly" name="totalOrcamento" type="text" value="${totalOrcamento}" class="form-control"> <br />
 		</div>
 		
 		<div>

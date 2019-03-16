@@ -35,8 +35,6 @@ public class TestaInsereOrcamento {
 		LocalDate dataLancamento = LocalDate.now();
 		orcamento.setDataLancamento(dataLancamento);
 		
-		orcamento.setConfirmado(true);
-		
 		orcamento.setCliente(cliente);
 		orcamento.setUsuario(usuario);
 		

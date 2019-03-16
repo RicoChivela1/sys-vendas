@@ -32,16 +32,19 @@ public class OrcamentoDao {
 
 	// Adicionar um Orcamento
 	public void salvaOrcamento(Orcamento orcamento) {
-		String sql = "Insert into Orcamentos (descontos,"
-				+ " total, dataLancamento, confirmado, fk_cliente, fk_usuario," + " totalParcelas, parcelasPagas)"
+		String sql = "Insert into Orcamentos ("
+				+ "subTotalOrcamento, descontos, totalOrcamento,"
+				+ " dataLancamento, fk_cliente, fk_usuario," 
+				+ " totalParcelas, parcelasPagas)"
 				+ " values (?,?,?,?,?,?,?,?)";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-			stmt.setBigDecimal(1, orcamento.getDescontos());
-			stmt.setBigDecimal(2, orcamento.getTotalOrcamento());
+			stmt.setBigDecimal(1, orcamento.getSubTotalOrcamento());
+			
+			stmt.setBigDecimal(2, orcamento.getDescontos());
+			stmt.setBigDecimal(3, orcamento.getTotalOrcamento());
 
-			stmt.setDate(3, java.sql.Date.valueOf(orcamento.getDataLancamento()));
-			stmt.setBoolean(4, orcamento.isConfirmado());
+			stmt.setDate(4, java.sql.Date.valueOf(orcamento.getDataLancamento()));
 			stmt.setInt(5, orcamento.getCliente().getId());
 			stmt.setInt(6, orcamento.getUsuario().getId());
 
@@ -58,22 +61,21 @@ public class OrcamentoDao {
 
 	// Alterar
 	public void alterar(Orcamento orcamento) {
-		String sql = "Update Orcamentos set descontos=?," + " total=?, dataLancamento=?, confirmado=?,"
+		String sql = "Update Orcamentos set descontos=?," + " total=?, dataLancamento=?,"
 				+ " fk_cliente=?, fk_usuario=?, totalParcelas=?, parcelasPagas=? where id=?";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setBigDecimal(1, orcamento.getDescontos());
 			stmt.setBigDecimal(2, orcamento.getTotalOrcamento());
 			stmt.setDate(3, java.sql.Date.valueOf(orcamento.getDataLancamento()));
-			stmt.setBoolean(4, orcamento.isConfirmado());
 
-			stmt.setInt(5, orcamento.getCliente().getId());
-			stmt.setInt(6, orcamento.getUsuario().getId());
+			stmt.setInt(4, orcamento.getCliente().getId());
+			stmt.setInt(5, orcamento.getUsuario().getId());
 
-			stmt.setInt(7, orcamento.getTotalParcelas());
-			stmt.setInt(8, orcamento.getParcelasPagas());
+			stmt.setInt(6, orcamento.getTotalParcelas());
+			stmt.setInt(7, orcamento.getParcelasPagas());
 
-			stmt.setInt(9, orcamento.getId());
+			stmt.setInt(8, orcamento.getId());
 
 			stmt.execute();
 
@@ -152,7 +154,6 @@ public class OrcamentoDao {
 				orcamento.setTotalParcelas(rs.getInt("totalParcelas"));
 				orcamento.setParcelasPagas(rs.getInt("parcelasPagas"));
 				orcamento.setParcelasAPagar(rs.getInt("parcelasAPagar"));
-				orcamento.setConfirmado(true);
 				
 				//Carrega Cliente
 				cliente.setId(rs.getInt("c.id"));
@@ -218,10 +219,11 @@ public class OrcamentoDao {
 				orcamento.setUsuario(usuario);
 				orcamento.setId(rs.getInt("o.id"));
 				orcamento.setDescontos(rs.getBigDecimal("o.descontos"));
-				orcamento.setTotalOrcamento(rs.getBigDecimal("o.total"));
+				orcamento.setTotalOrcamento(rs.getBigDecimal("o.totalOrcamento"));
+				// Calculado no banco 
+				// (`subTotalOrcamento` - ((`subTotalOrcamento` * `descontos`) / 100))
 				orcamento.setDataLancamento(rs.getDate("o.dataLancamento").toLocalDate());
-				orcamento.setConfirmado(rs.getBoolean("o.confirmado"));
-				orcamento.setSubTotalOrcamento(rs.getBigDecimal("o.subTotal"));
+				orcamento.setSubTotalOrcamento(rs.getBigDecimal("o.subTotalOrcamento"));
 				orcamento.setTotalParcelas(rs.getInt("totalParcelas"));
 				orcamento.setParcelasPagas(rs.getInt("parcelasPagas"));
 				orcamento.setParcelasAPagar(rs.getInt("parcelasAPagar"));

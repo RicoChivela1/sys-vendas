@@ -20,8 +20,7 @@ public class Orcamento {
 	private BigDecimal subTotalOrcamento;
 	private BigDecimal descontos;
 	private BigDecimal totalOrcamento;
-	private LocalDate dataLancamento = LocalDate.now();
-	private boolean confirmado;
+	private LocalDate dataLancamento;
 	private List<Carrinho> list;
 	private List<Pagamento> pagamentos;
 	
@@ -114,14 +113,6 @@ public class Orcamento {
 		this.dataLancamento = dataLancamento;
 	}
 
-	public boolean isConfirmado() {
-		return confirmado;
-	}
-
-	public void setConfirmado(boolean confirmado) {
-		this.confirmado = confirmado;
-	}
-
 	public BigDecimal getSubTotalOrcamento() {
 		return subTotalOrcamento;
 	}
@@ -135,7 +126,7 @@ public class Orcamento {
 		return "Orcamento [id=" + id + ", totalParcelas=" + totalParcelas + ", parcelasPagas=" + parcelasPagas
 				+ ", parcelasAPagar=" + parcelasAPagar + ", cliente=" + cliente + ", usuario=" + usuario
 				+ ", subTotalOrcamento=" + subTotalOrcamento + ", descontos=" + descontos + ", totalOrcamento="
-				+ totalOrcamento + ", dataLancamento=" + dataLancamento + ", confirmado=" + confirmado + ", list="
+				+ totalOrcamento + ", dataLancamento=" + dataLancamento + ", list="
 				+ list + ", pagamentos=" + pagamentos + "]";
 	}
 

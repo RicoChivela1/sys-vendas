@@ -14,8 +14,6 @@ $(document).ready(function(){
 		
 		//Calcula o resto com retorno decimal
 		var resto = (valor - (valParcela * qtdParcela)).toFixed(2);
-
-		//alert( "Resto da divisão: " + resto );
 		
 		// limpa inputs
 		$("#divParcelas").empty();

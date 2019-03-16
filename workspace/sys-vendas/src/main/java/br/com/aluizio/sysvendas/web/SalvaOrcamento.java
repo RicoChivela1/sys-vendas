@@ -52,24 +52,40 @@ public class SalvaOrcamento extends HttpServlet {
 		orcamento.setUsuario(usuario);
 		orcamento.setCliente(cliente);
 		
-		BigDecimal totalOrcamento = new BigDecimal(request.getParameter("totalOrcamento"));
+		//String sParcelasAPagar = request.getParameter("parcelasAPagar");
+		String sTotalOrcamento = request.getParameter("totalOrcamento");
+		String sSubTotalOrcamento = request.getParameter("subTotalOrcamento");
+		String sDescontos = request.getParameter("descontos");
+		
+		
+		//orcamento.setParcelasAPagar(Integer.parseInt(sParcelasAPagar));
+		
+		
+		
+		
+		BigDecimal totalOrcamento = new BigDecimal(sTotalOrcamento);
+		
 		orcamento.setTotalOrcamento(totalOrcamento);
 		
-		BigDecimal subTotalOrcamento = new BigDecimal(request.getParameter("subTotalOrcamento"));
+		BigDecimal subTotalOrcamento = new BigDecimal(sSubTotalOrcamento);
 		orcamento.setSubTotalOrcamento(subTotalOrcamento);
 		
-		BigDecimal descontos = new BigDecimal(request.getParameter("descontos"));
+		BigDecimal descontos = new BigDecimal(sDescontos);
 		orcamento.setDescontos(descontos);
 		
 		
 		////////////////////////////////////////////////
 		int totalParcelas = Integer.parseInt(request.getParameter("parcelas"));
+		System.out.println("Total de parcelas: "+totalParcelas);
 		int parcelasPagas = 1;
 		///////////////////////////////////////////////
 		
-		
 		orcamento.setTotalParcelas(totalParcelas);
 		orcamento.setParcelasPagas(parcelasPagas);
+		
+		//Seta a dataLancamento de agora
+		LocalDate dataLancamento = LocalDate.now();
+		orcamento.setDataLancamento(dataLancamento);
 		
 		//Pega os produtos do carrinho
 		sessionProdutos = request.getSession(false);
@@ -84,7 +100,6 @@ public class SalvaOrcamento extends HttpServlet {
 		
 		//Parte do pagamento
 		System.out.println("- Parcelas: "+totalParcelas);
-		
 		
 		System.out.println("- FK Orcamento: "+ fkOrcamento);
 		List<Pagamento> pagamentoList = new ArrayList<>();

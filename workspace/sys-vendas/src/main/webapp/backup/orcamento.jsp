@@ -145,11 +145,6 @@
 		</label>
 			
 			
-			
-
-		
-		
-		
 		</div>
 		
 		<div class="esqValorOrc">
@@ -182,22 +177,12 @@
 		</select>
 		</div>
 		</div>
-		<div class="table-responsive">
-			<table id="tabParcelas" class="table table-hover">
-				<thead id="theadParcelas">
-				
-				</thead>
-				
-				<tbody id="tbodyParcelas">
-				
-				</tbody>
-			</table>
-			</div>	
-		<div id="divEfetivarVenda">
+			
+			<div id="divParcelas">
 	
 				
-		</div>
-	
+			</div>
+			
 	</fieldset>
 </c:when>
 </c:choose>

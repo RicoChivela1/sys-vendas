@@ -17,6 +17,7 @@ public class TestaListaCarrinhoPorOrcamento {
 	public static void main(String[] args) {
 		CarrinhoDao dao = new CarrinhoDao();
 		Orcamento orcamento = new Orcamento();
+		
 		orcamento.setId(19);
 		
 		List<Carrinho> list = dao.getCarrinhos(orcamento);

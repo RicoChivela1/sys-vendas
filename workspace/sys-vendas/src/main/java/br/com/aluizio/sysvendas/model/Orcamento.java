@@ -14,7 +14,7 @@ public class Orcamento {
 	private Integer id;
 	private Integer totalParcelas;
 	private Integer parcelasPagas;
-	private Integer parcelasAPagar;
+	private Integer parcelasAPagar; // Generated
 	private Cliente cliente;
 	private Usuario usuario;
 	private BigDecimal subTotalOrcamento;
@@ -23,23 +23,6 @@ public class Orcamento {
 	private LocalDate dataLancamento;
 	private List<Carrinho> list;
 	private List<Pagamento> pagamentos;
-	
-	
-	public List<Pagamento> getPagamentos() {
-		return pagamentos;
-	}
-
-	public void setPagamentos(List<Pagamento> pagamentos) {
-		this.pagamentos = pagamentos;
-	}
-
-	public List<Carrinho> getList() {
-		return list;
-	}
-
-	public void setList(List<Carrinho> list) {
-		this.list = list;
-	}
 
 	public Integer getId() {
 		return id;
@@ -72,7 +55,7 @@ public class Orcamento {
 	public void setParcelasAPagar(Integer parcelasAPagar) {
 		this.parcelasAPagar = parcelasAPagar;
 	}
-	
+
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -93,8 +76,8 @@ public class Orcamento {
 		return descontos;
 	}
 
-	public void setDescontos(BigDecimal d) {
-		this.descontos = d;
+	public void setDescontos(BigDecimal descontos) {
+		this.descontos = descontos;
 	}
 
 	public BigDecimal getTotalOrcamento() {
@@ -113,6 +96,22 @@ public class Orcamento {
 		this.dataLancamento = dataLancamento;
 	}
 
+	public List<Carrinho> getList() {
+		return list;
+	}
+
+	public void setList(List<Carrinho> list) {
+		this.list = list;
+	}
+
+	public List<Pagamento> getPagamentos() {
+		return pagamentos;
+	}
+
+	public void setPagamentos(List<Pagamento> pagamentos) {
+		this.pagamentos = pagamentos;
+	}
+
 	public BigDecimal getSubTotalOrcamento() {
 		return subTotalOrcamento;
 	}
@@ -126,12 +125,9 @@ public class Orcamento {
 		return "Orcamento [id=" + id + ", totalParcelas=" + totalParcelas + ", parcelasPagas=" + parcelasPagas
 				+ ", parcelasAPagar=" + parcelasAPagar + ", cliente=" + cliente + ", usuario=" + usuario
 				+ ", subTotalOrcamento=" + subTotalOrcamento + ", descontos=" + descontos + ", totalOrcamento="
-				+ totalOrcamento + ", dataLancamento=" + dataLancamento + ", list="
-				+ list + ", pagamentos=" + pagamentos + "]";
+				+ totalOrcamento + ", dataLancamento=" + dataLancamento + ", list=" + list + ", pagamentos="
+				+ pagamentos + "]";
 	}
-
-	
-	
 
 	
 }

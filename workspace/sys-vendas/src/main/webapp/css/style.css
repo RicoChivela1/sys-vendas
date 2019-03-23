@@ -112,7 +112,7 @@ label::after {
 	width: 33%;
 }
 
-/* Botão de adicionar ao carrinh na págia Info */
+/* Botão de adicionar ao carrinho na página Info */
 div.btnCarrinho {
 	float: left;
 	width: 33%;
@@ -267,6 +267,7 @@ input#fieldsValorSmall {
 	border-color: maroon;
 	color: maroon;
 	margin-left: 15px;
+	
 }
 
 /*inputs vermelhos pequenos*/
@@ -316,6 +317,16 @@ input#sugestaoVenda {
 input#fieldsMedio{
 	width: 180px; 
 	margin-left: 15px;
+}
+
+/*inputs valor parcela do Orçamento*/
+input#inputValorParcela{
+    width: 100px;
+    margin-left: 30px;
+    margin-top: 12;
+    height: 37;
+    border-color: maroon;
+    color: maroon;
 }
 
 /*input qtd parcela do Orçamento*/
@@ -416,9 +427,38 @@ a#linkOrcamento {
 	margin-bottom: 25px;
 }
 
-
+/*onde são geradas as parcelas*/
 div#divParcelas {
     margin-bottom: 15px;
     padding-left: 20px;
     background-color: #f2f2f2;
 }
+
+/*checkbox checked que efetua pagamento no "orcamento.jsp"*/
+input#checkBoxPagar {
+    all: unset;
+    border: 1px solid black;
+    width: 28px;
+    height: 28px;
+    display: grid;
+    border-radius: 15px;
+    
+    /*vermelho*/
+    background-color: #ff2300;
+}
+
+/*checkbox unchecked que efetua pagamento no "orcamento.jsp"*/
+input#checkBoxPagar:checked {
+    border: 1px solid black;
+
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+    //margin-left: 28px;
+        
+   /*verde*/
+   background-color: #35f305;
+}
+
+
+

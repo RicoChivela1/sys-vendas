@@ -51,15 +51,21 @@ public class SalvaOrcamento extends HttpServlet {
 		Orcamento orcamento = new Orcamento();
 		orcamento.setUsuario(usuario);
 		orcamento.setCliente(cliente);
+
+		///////////////////////////////////////
 		
-		//String sParcelasAPagar = request.getParameter("parcelasAPagar");
+		int parcelasPagas = 0; //////////////					
+		int totalParcelas = 0; //////////////
+									
+		///////////////////////////////////////
+		
 		String sTotalOrcamento = request.getParameter("totalOrcamento");
 		String sSubTotalOrcamento = request.getParameter("subTotalOrcamento");
 		String sDescontos = request.getParameter("descontos");
 		
 		
-		//orcamento.setParcelasAPagar(Integer.parseInt(sParcelasAPagar));
-		
+		orcamento.setParcelasPagas(parcelasPagas);
+		orcamento.setTotalParcelas(totalParcelas);
 		
 		
 		
@@ -72,16 +78,6 @@ public class SalvaOrcamento extends HttpServlet {
 		
 		BigDecimal descontos = new BigDecimal(sDescontos);
 		orcamento.setDescontos(descontos);
-		
-		
-		////////////////////////////////////////////////
-		int totalParcelas = Integer.parseInt(request.getParameter("parcelas"));
-		System.out.println("Total de parcelas: "+totalParcelas);
-		int parcelasPagas = 1;
-		///////////////////////////////////////////////
-		
-		orcamento.setTotalParcelas(totalParcelas);
-		orcamento.setParcelasPagas(parcelasPagas);
 		
 		//Seta a dataLancamento de agora
 		LocalDate dataLancamento = LocalDate.now();

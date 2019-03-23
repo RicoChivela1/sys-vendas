@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="js/script.js"></script>
-<title>Orçamento</title>
+<title>Info Orçamento</title>
 </head>
 <body>
 
@@ -20,14 +20,15 @@
 	</div>
 	
 <div id="container">
-  <form action=" " method="post">	
+  <form action="" method="post">	
 	
 	<fieldset class="campo">
-	<legend>Orcamento</legend>
+	<legend>Info Orçamento</legend>
 		<div class="table-responsive">
 		<table class="table table-hover">
 			  <thead>
 			    <tr>
+			    	<th > Nº</th>
 			    	<th > Data Lancamento</th>
 			    	<th > Vendedor </th> 
 			      	<th > Subtotal</th>
@@ -39,6 +40,9 @@
 		  <tbody>
 		
 		  <tr>
+		  	<td>
+				${orcamento.id}
+			</td>
 		  	<td>
 				${orcamento.dataLancamento}
 			</td>

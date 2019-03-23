@@ -116,7 +116,9 @@ function MascaraMoeda(objTextBox, SeparadorMilesimo, SeparadorDecimal, e) {
 	
 		//zera o select
 		document.querySelector("[name='parcelas']").value = (parcelas);
-		$("#divParcelas").empty();
+		$("#tbodyParcelas").empty();
+		$("#divEfetivarVenda").empty();
+		$("#theadParcelas").empty();
 	}
 
 
@@ -137,5 +139,14 @@ function MascaraMoeda(objTextBox, SeparadorMilesimo, SeparadorDecimal, e) {
 		
 		//zera o select
 		document.querySelector("[name='parcelas']").value = (parcelas);
-		$("#divParcelas").empty();
+		$("#tbodyParcelas").empty();
+		$("#divEfetivarVenda").empty();
+		$("#theadParcelas").empty();
+	}
+	
+	/*Ocultar "btnEfetivarVenda" contra double click - orcamento.jsp */
+	function ocultarBtnEfetivarVenda() {
+		//$("#btnEfetivarVenda").empty();
+		$("#btnEfetivarVenda").append("Processando...");
+		$('#btnEfetivarVenda').fadeTo(1000,0.3);  
 	}

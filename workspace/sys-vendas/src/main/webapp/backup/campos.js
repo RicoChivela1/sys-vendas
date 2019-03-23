@@ -15,11 +15,8 @@ $(document).ready(function(){
 		//Calcula o resto com retorno decimal
 		var resto = (valor - (valParcela * qtdParcela)).toFixed(2);
 		
-		// clean inputs
-		$("#tbodyParcelas").empty();
-		$("#divEfetivarVenda").empty();
-		$("#theadParcelas").empty();
-		
+		// limpa inputs
+		$("#divParcelas").empty();
 		
 		//gera inputs
 		for(var i = 1; i <= qtdParcela; i++){
@@ -42,36 +39,17 @@ $(document).ready(function(){
 			// concatena
 			var stringData =  fullAno + '-' + fullMes + '-' + fullDia;
 			
-			
-			$("#tbodyParcelas").append("<tr>");
-			
-			$("#tbodyParcelas").append("<td> <b>"+i+"&deg; parcela:  </b>"," <input id='inputValorParcela' class='form-control' name='parcelaValor["+i+"]' value="+valParcela+" readonly='readonly'> </td>");
-			$("#tbodyParcelas").append("<td> <input type='date' id='fieldsMedio' class='form-control' name='parcelaData["+i+"]' value="+stringData+"> </td> ");
-			//$("#tbodyParcelas").append("<td> <button type='submit' name='' class='btn btn-success'> <i class='fa fa-money' style='font-size:24px'> </i> Pagar</button> </td>");
-			
-			//Checkbox de pagamento
-			$("#tbodyParcelas").append("<td> <input type='checkbox' id='checkBoxPagar' name='checkBoxPagar'> </td>");
-			$("#tbodyParcelas").append("</tr>");
-			
-			$("#parcelaValor").prepend("<br /><br />");
+			$("#divParcelas").append("<label> - "+i+"&deg; parcela: <label/>","<input id='fieldsMedio'  name='parcelaValor["+i+"]' id='parcelaValor["+i+"]' value="+valParcela+">");
+			$("#divParcelas").append("<label> &nbsp;- Data: <label/>","<input type='date' id='fieldsMedio'  name='parcelaData["+i+"]' id='parcelaData["+i+"]' value="+stringData+">");
+			$("#divParcelas").append("<br /><br />");
 			data.setDate(data.getDate() + 30);
 			
 			var saida = $('#parcelaValor').index(i);
 			console.log(saida);
 	
 		}
-		
 		if (qtdParcela > 0){
-			$("#divEfetivarVenda").append(" <button type='submit' id='btnEfetivarVenda' name='idProduto' onClick='ocultarBtnEfetivarVenda()' class='btn btn-success btn-lg'> <i class='fa fa-money' style='font-size:24px'> </i> Efetivar Venda</button> ");
-			
-			
-			$("#theadParcelas").append(
-					"<tr>",
-						"<th scope='row'>  </th>",
-						"<th>Valor</th>",
-						"<th>Vencimento</th>",
-						"<th>Pagar Agora</th>",
-					"</tr>");
+			$("#divParcelas").append("<button type='submit' name='idProduto' class='btn btn-success'> <i class='fa fa-money' style='font-size:24px'> </i> Efetivar Venda</button>");
 		}
     });
 });

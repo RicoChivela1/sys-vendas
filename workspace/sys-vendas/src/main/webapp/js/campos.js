@@ -49,7 +49,10 @@ $(document).ready(function(){
 			$("#tbodyParcelas").append("<td> <input type='date' id='fieldsMedio' class='form-control' name='parcelaData["+i+"]' value="+stringData+"> </td> ");
 			
 			//Checkbox de pagamento
-			$("#tbodyParcelas").append("<td id='tdPagar'> <input type='checkbox'  name='checkBoxPagar["+i+"]' data-toggle='toggle' data-onstyle='success' data-offstyle='danger' data-on='Recebido' data-off='A receber' id='ckbx'> </td>");
+			$("#tbodyParcelas").append("<td id='tdPagar'> <input type='checkbox'  name='checkBoxPagar["+i+"]' data-toggle='toggle' data-onstyle='success'  data-on='Recebido' data-off='A receber' data-width='150' id='ckbx' data-style='ios'> </td>")
+
+			
+			$('#ckbx').append("<style>.toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }.toggle.ios .toggle-handle { border-radius: 20px; }</style>");
 			
 			
 			//Marca a primeira parcela como paga
@@ -68,7 +71,7 @@ $(document).ready(function(){
 		}
 		
 		if (qtdParcela > 0){
-			$("#divEfetivarVenda").append(" <button type='submit' id='btnEfetivarVenda' name='idProduto' onClick='ocultarBtnEfetivarVenda()' class='btn btn-success btn-lg'> <i class='fa fa-money' style='font-size:24px'> </i> Efetivar Venda</button> ");
+			$("#divEfetivarVenda").append(" <button type='submit' id='btnEfetivarVenda' name='idProduto' onClick='ocultarBtnEfetivarVenda()' class='btn btn-success btn-lg'> <i class='fa fa-money' style='font-size:24px'> </i> &nbsp;Efetivar Venda&nbsp; </button> ");
 			
 			$("#theadParcelas").append(
 					"<tr>",

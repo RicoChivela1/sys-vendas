@@ -35,7 +35,6 @@
 <legend>Orçamento:</legend>
 
 	<form action="salvaOrcamento" method="post">
-		
 		<div class="titOrcamento">Cliente</div>
 		
 		<fieldset class="campoOrcamento" title="Adicionar um cliente é opcional.">

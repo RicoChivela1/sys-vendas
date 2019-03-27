@@ -146,6 +146,6 @@ function MascaraMoeda(objTextBox, SeparadorMilesimo, SeparadorDecimal, e) {
 	
 	/*Ocultar "btnEfetivarVenda" contra double click - orcamento.jsp */
 	function ocultarBtnEfetivarVenda() {
-		$("#btnEfetivarVenda").append("Processando...");
-		$('#btnEfetivarVenda').fadeTo(1000,0.3);  
+		$("#btnEfetivarVenda").attr('disabled','disabled');
+		//$("#divEfetivarVenda").append("<label>Processando...</label>");
 	}

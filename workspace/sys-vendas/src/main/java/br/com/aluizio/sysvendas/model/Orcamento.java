@@ -14,7 +14,7 @@ public class Orcamento {
 	private Integer id;
 	private Integer totalParcelas;
 	private Integer parcelasPagas;
-	private Integer parcelasAPagar; // Generated
+	private Integer parcelasAPagar; 
 	private Cliente cliente;
 	private Usuario usuario;
 	private BigDecimal subTotalOrcamento;

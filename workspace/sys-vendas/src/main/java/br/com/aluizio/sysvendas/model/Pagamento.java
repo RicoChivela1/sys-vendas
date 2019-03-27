@@ -10,7 +10,7 @@ public class Pagamento {
 	private Integer id;
 	private Integer numParcela;
 	private BigDecimal valorParcela;
-	private LocalDate parcelaData;
+	private LocalDate parcelaData; //vencimento
 	private Integer fkOrcamento;
 	private EnumStatus status;
 	

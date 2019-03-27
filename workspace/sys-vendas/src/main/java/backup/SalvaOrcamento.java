@@ -1,4 +1,4 @@
-package br.com.aluizio.sysvendas.web;
+package backup;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,7 +29,7 @@ import br.com.aluizio.sysvendas.model.Usuario;
  * @author Aluizio Monteiro 30 de nov de 2018
  */
 
-@WebServlet("/salvaOrcamento")
+//@WebServlet("/salvaOrcamento")
 public class SalvaOrcamento extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -55,8 +54,8 @@ public class SalvaOrcamento extends HttpServlet {
 		///////////////////////////////////////
 		
 		
-		int totalParcelas = Integer.parseInt(request.getParameter("totalParcelas")); 					
-		
+		int parcelasPagas = 0; //////////////					
+		int totalParcelas = 0; //////////////
 									
 		///////////////////////////////////////
 		
@@ -65,7 +64,8 @@ public class SalvaOrcamento extends HttpServlet {
 		String sDescontos = request.getParameter("descontos");
 		
 		
-		
+		orcamento.setParcelasPagas(parcelasPagas);
+		orcamento.setTotalParcelas(totalParcelas);
 		
 		
 		
@@ -83,13 +83,21 @@ public class SalvaOrcamento extends HttpServlet {
 		LocalDate dataLancamento = LocalDate.now();
 		orcamento.setDataLancamento(dataLancamento);
 		
-		OrcamentoDao dao = new OrcamentoDao();
-		int fkOrcamento = (dao.buscaMaiorId()+1);
-		
 		//Pega os produtos do carrinho
 		sessionProdutos = request.getSession(false);
 		ArrayList<Carrinho> list = (ArrayList<Carrinho>) sessionProdutos.getAttribute("carroCompras");
-	
+		
+		//Manda Orçamento para o banco
+		OrcamentoDao dao = new OrcamentoDao();
+		dao.salvaOrcamento(orcamento);
+		dao.salvaCarrinho(list);
+		
+		int fkOrcamento = dao.buscaMaiorId();
+		
+		//Parte do pagamento
+		System.out.println("- Parcelas: "+totalParcelas);
+		
+		System.out.println("- FK Orcamento: "+ fkOrcamento);
 		List<Pagamento> pagamentoList = new ArrayList<>();
 
 		
@@ -102,7 +110,7 @@ public class SalvaOrcamento extends HttpServlet {
 			
 			LocalDate parcelaData = LocalDate.parse(request.getParameter("parcelaData["+i+"]"));
 	
-			EnumStatus status = EnumStatus.valueOf(request.getParameter("checkBoxPagar["+i+"]"));
+			EnumStatus status = EnumStatus.valueOf(request.getParameter("checkBoxPagar"));
 
 			Pagamento pagamento = new Pagamento();
 			pagamento.setValorParcela(parcelaValor);
@@ -114,33 +122,14 @@ public class SalvaOrcamento extends HttpServlet {
 			
 			pagamentoList.add(pagamento);
 		
-			System.out.println("A parcela foi paga? " +status);
-			
-			
+			totalParcelas = i;
 		}
 		
-		//orcamento.setParcelasPagas(parcelasPagas);
-		int parcelasPagas = 0; 
-		orcamento.setParcelasPagas(parcelasPagas);
-		orcamento.setTotalParcelas(totalParcelas);
 		
-		//Manda Orçamento para o banco
-				
-				dao.salvaOrcamento(orcamento);
-				dao.salvaCarrinho(list);
-								
-				//Parte do pagamento
-				System.out.println("- Parcelas: "+totalParcelas);
 		
-				
-				
-				
-				
-				
-				
-				
-				
-				
+		
+		
+		
 		//////////////////////////////////
 		new PagamentoDao().inserir(pagamentoList);
 		

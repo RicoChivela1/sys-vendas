@@ -434,31 +434,7 @@ div#divParcelas {
     background-color: #f2f2f2;
 }
 
-/*checkbox checked que efetua pagamento no "orcamento.jsp"*/
-input#checkBoxPagar {
-    all: unset;
-    border: 1px solid black;
-    width: 28px;
-    height: 28px;
-    display: grid;
-    border-radius: 15px;
-    
-    /*vermelho*/
-    background-color: #ff2300;
+/*toggle de pagar parcelas*/
+td#tdPagar {
+    padding-left: 30px;
 }
-
-/*checkbox unchecked que efetua pagamento no "orcamento.jsp"*/
-input#checkBoxPagar:checked {
-    border: 1px solid black;
-
-    border-radius: 15px;
-    width: 30px;
-    height: 30px;
-    //margin-left: 28px;
-        
-   /*verde*/
-   background-color: #35f305;
-}
-
-
-

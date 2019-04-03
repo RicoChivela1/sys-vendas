@@ -10,10 +10,9 @@ public class Pagamento {
 	private Integer id;
 	private Integer numParcela;
 	private BigDecimal valorParcela;
-	private LocalDate parcelaData; //vencimento
+	private LocalDate parcelaData; // vencimento
 	private Integer fkOrcamento;
 	private EnumStatus status;
-	
 
 	public Integer getId() {
 		return id;
@@ -68,10 +67,5 @@ public class Pagamento {
 		return "Pagamento [id=" + id + ", numParcela=" + numParcela + ", valorParcela=" + valorParcela
 				+ ", parcelaData=" + parcelaData + ", fkOrcamento=" + fkOrcamento + ", status=" + status + "]";
 	}
-
-	
-
-	
-
 
 }

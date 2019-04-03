@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +25,8 @@ import br.com.aluizio.sysvendas.model.Pagamento;
 import br.com.aluizio.sysvendas.model.Usuario;
 
 /**
- * Salva um orcamento relacionado com um cliente. 
- * Isto não efetiva uma venda.
+ * Salva um orcamento relacionado com um cliente. Isto não efetiva uma venda.
+ * 
  * @date 30/11/2018
  * @author Aluizio Monteiro 30 de nov de 2018
  */
@@ -36,9 +37,8 @@ public class SalvaOrcamento extends HttpServlet {
 
 	HttpSession sessaoCliente, usuarioLogado, sessionProdutos;
 
-	protected void service(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
 		// Pega Usuário
 		usuarioLogado = request.getSession(false);
 		Usuario usuario = (Usuario) usuarioLogado.getAttribute("usuarioLogado");
@@ -52,99 +52,83 @@ public class SalvaOrcamento extends HttpServlet {
 		orcamento.setUsuario(usuario);
 		orcamento.setCliente(cliente);
 
-		///////////////////////////////////////
-		
-		
-		int totalParcelas = Integer.parseInt(request.getParameter("totalParcelas")); 					
-		
-									
-		///////////////////////////////////////
+		int totalParcelas = Integer.parseInt(request.getParameter("parcelas"));
+		int parcelasPagas = 0;
 		
 		String sTotalOrcamento = request.getParameter("totalOrcamento");
 		String sSubTotalOrcamento = request.getParameter("subTotalOrcamento");
 		String sDescontos = request.getParameter("descontos");
-		
-		
-		
-		
-		
-		
+
 		BigDecimal totalOrcamento = new BigDecimal(sTotalOrcamento);
-		
+
 		orcamento.setTotalOrcamento(totalOrcamento);
-		
+
 		BigDecimal subTotalOrcamento = new BigDecimal(sSubTotalOrcamento);
 		orcamento.setSubTotalOrcamento(subTotalOrcamento);
-		
+
 		BigDecimal descontos = new BigDecimal(sDescontos);
 		orcamento.setDescontos(descontos);
-		
-		//Seta a dataLancamento de agora
+
+		// Seta a dataLancamento de agora
 		LocalDate dataLancamento = LocalDate.now();
 		orcamento.setDataLancamento(dataLancamento);
-		
+
 		OrcamentoDao dao = new OrcamentoDao();
-		int fkOrcamento = (dao.buscaMaiorId()+1);
-		
-		//Pega os produtos do carrinho
+		int fkOrcamento = (dao.buscaMaiorId() + 1);
+
+		// Pega os produtos do carrinho
 		sessionProdutos = request.getSession(false);
 		ArrayList<Carrinho> list = (ArrayList<Carrinho>) sessionProdutos.getAttribute("carroCompras");
-	
+
 		List<Pagamento> pagamentoList = new ArrayList<>();
 
-		
-		
-		
-		
-		for(int i=1;i<=totalParcelas;i++) {
-			
-			BigDecimal parcelaValor = new BigDecimal(request.getParameter("parcelaValor["+i+"]"));
-			
-			LocalDate parcelaData = LocalDate.parse(request.getParameter("parcelaData["+i+"]"));
-	
-			EnumStatus status = EnumStatus.valueOf(request.getParameter("checkBoxPagar["+i+"]"));
+		for (int i = 1; i <= totalParcelas; i++) {
 
+			BigDecimal parcelaValor = new BigDecimal(request.getParameter("parcelaValor[" + i + "]"));
+
+			LocalDate parcelaData = LocalDate.parse(request.getParameter("parcelaData[" + i + "]"));
+
+			String statusText = String.valueOf(request.getParameter("checkBoxPagar["+i+"]"));
+			System.out.println("conteúdo do checkbox: "+statusText);
+			
+			EnumStatus status = null;
+			
+			if (statusText.equals("on")) {
+				status = EnumStatus.valueOf("QUITADO");
+				parcelasPagas++;
+			} else {
+				status = EnumStatus.valueOf("A_PAGAR");
+			}
+			
 			Pagamento pagamento = new Pagamento();
 			pagamento.setValorParcela(parcelaValor);
 			pagamento.setNumParcela(i);
 			pagamento.setFkOrcamento(fkOrcamento);
 			pagamento.setParcelaData(parcelaData);
 			pagamento.setStatus(status);
-			System.out.println(pagamento);
 			
 			pagamentoList.add(pagamento);
-		
-			System.out.println("A parcela foi paga? " +status);
-			
-			
+
+			System.out.println(pagamento);
+			System.out.println(" - Número da parcela: " + i);
+			System.out.println("A parcela foi paga? " + status);
+
 		}
-		
-		//orcamento.setParcelasPagas(parcelasPagas);
-		int parcelasPagas = 0; 
+
 		orcamento.setParcelasPagas(parcelasPagas);
 		orcamento.setTotalParcelas(totalParcelas);
-		
-		//Manda Orçamento para o banco
-				
-				dao.salvaOrcamento(orcamento);
-				dao.salvaCarrinho(list);
-								
-				//Parte do pagamento
-				System.out.println("- Parcelas: "+totalParcelas);
-		
-				
-				
-				
-				
-				
-				
-				
-				
-				
-		//////////////////////////////////
+
+		// Manda Orçamento para o banco
+		dao.salvaOrcamento(orcamento);
+		dao.salvaCarrinho(list);
+
+		System.out.println("- Parcelas: " + totalParcelas);
+
 		new PagamentoDao().inserir(pagamentoList);
-		
+
 		JOptionPane.showMessageDialog(null, "Registrado com Sucesso!");
 
+		RequestDispatcher rd = request.getRequestDispatcher("buscaFornecedor?filtro=");
+		rd.forward(request, response);
 	}
 }

@@ -170,7 +170,9 @@
 		</select>
 		</div>
 		</div>
-		<div class="table-responsive">
+		
+		
+		
 			<table id="tabParcelas" class="table table-hover">
 				<thead id="theadParcelas">
 				
@@ -180,7 +182,7 @@
 				
 				</tbody>
 			</table>
-			</div>	
+			
 		<div id="divEfetivarVenda">
 	
 	

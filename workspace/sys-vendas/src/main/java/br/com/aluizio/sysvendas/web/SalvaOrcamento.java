@@ -128,7 +128,7 @@ public class SalvaOrcamento extends HttpServlet {
 
 		JOptionPane.showMessageDialog(null, "Registrado com Sucesso!");
 
-		RequestDispatcher rd = request.getRequestDispatcher("buscaFornecedor?filtro=");
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
 	}
 }

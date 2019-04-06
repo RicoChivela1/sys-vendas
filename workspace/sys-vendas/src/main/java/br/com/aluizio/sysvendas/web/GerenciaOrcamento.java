@@ -37,8 +37,7 @@ public class GerenciaOrcamento extends HttpServlet {
     		
     		//objeto contendo o id do cliente
     		Cliente clienteBuscado = new Cliente();
-    		clienteBuscado.setId(id);
-    		
+    		clienteBuscado.setId(id);	
     		
     		Orcamento orcBuscado = new Orcamento();
     		orcBuscado.setId(id);
@@ -61,7 +60,7 @@ public class GerenciaOrcamento extends HttpServlet {
     	
     	
     	//Exibe informações completas sobre o cliente
-    	String info = request.getParameter("info");
+    	String info = request.getParameter("infoCliente");
     	if(info != null) {
     		int id = Integer.parseInt(info);
     		System.out.println("Id da info do cliente é: "+ id);

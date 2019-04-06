@@ -6,21 +6,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
+<link rel="stylesheet" href="css/bootstrap.css"  >
 <link rel="stylesheet" href="css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="js/script.js"></script>
-
-<link href="bootstrap-4.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
-		<script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
-		<script src="jquery/js/jquery-1.8.3.js"></script>
-		<link href="bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">	
-		<script src="bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js"></script>
-		<script src="js/trava.js"></script>
-
 <title>Info Orçamento</title>
-
 </head>
 <body>
 
@@ -71,8 +62,6 @@
 				${orcamento.parcelasPagas}
 			 				de
 				${orcamento.totalParcelas}
-			<input type="hidden" name="hiddenTotalParcelas" value="${orcamento.totalParcelas}">
-			
 			</td>	
 	      <td> 
 	      
@@ -84,7 +73,6 @@
 		</table>
 	</div>
 	</fieldset>
-	
 	<form action="gerenciaCliente?filtro=" method="post">
 	<fieldset class="campo">
 	<legend>Cliente</legend>
@@ -145,10 +133,10 @@
 		  <tr>
 	
 		     <td>
-		      	<img class="miniaturaProdutoPeq" src="./carregadorImagem?id=${produto.produtoId}" />
+		      	<img class="miniaturaProdutoPeq" src="./carregadorImagem?id=${produto.orcamentoId}" />
 		     </td>
 		     <td>
-				${produto.produtoId}
+				${produto.orcamentoId}
 			 </td>
 			<td>
 				${produto.produtoNome}
@@ -178,17 +166,7 @@
 	<fieldset class="campo">
 	<legend>Pagamentos</legend>
 	<div class="direitaLink">	
-	    
-		<input id="chkToggle" name="trava" type="checkbox" data-style="ios"> 
-		<div id="saida"></div>   		
-		
-		
-		
-		
-		
-		
-		
-		
+	    <a href="cadastrar-usuario.jsp">Editar</a><br />		
 	</div>
 	<div class="table-responsive">
 		<table class="table table-hover">
@@ -198,7 +176,7 @@
 			      <th > Valor da Parcela</th>
 			      <th > Vencimento </th>
 			      <th > Situação </th>
-			 
+			      <th > Ações</th>
 			    </tr>
 			  </thead>
 		  <tbody>
@@ -214,23 +192,13 @@
 			<td>
 				${pagamento.parcelaData}
 			</td>
-			<td id="tdStatus">
-			<c:set var="quitado" value="QUITADO" />
-			<c:set var="apagar" value="A_PAGAR" />
-			<c:set var="status" value="${pagamento.status}" />
-				<c:choose>
-					<c:when test="${pagamento.status == quitado}">
-						<input class="camposQuitados" name="inputStatus[${pagamento.numParcela}]" type="text" value="${pagamento.status}">
-					</c:when>
-					
-					<c:when test="${pagamento.status == apagar}">
-						<input class="camposAPagar" name="inputStatus[${pagamento.numParcela}]" type="text" value="${pagamento.status}">
-					</c:when>
-				</c:choose>
-				
+			<td>
+				${pagamento.status}
 			</td> 
 	      <td> 
-	
+		    <div class="btnAcoes">			      		
+		    	<button type="submit" name="pagarParcela" value=""  class="btn btn-outline-info" title="Pagar esta parcela"> <i class="fa fa-info-circle" ></i> Pagar</button>	    
+			</div>
 	      </td>
 	    </tr>
 		   </c:forEach>

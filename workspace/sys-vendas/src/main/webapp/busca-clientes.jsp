@@ -30,7 +30,7 @@
 	</div>	
 	<c:choose>	
 		<c:when test="${empty clientes}">
-			<button  id="btnBuscaTodos" value="buscaClientes?filtro=" type="submit" name="btnBuscaTodos" class="btn btn-outline-secondary" title="Listar todos" style="float: right;"> <i class="fa fa-search" aria-hidden="true" > Qualé todos</i></button>
+			<button  id="btnBuscaTodos" value="buscaClientes?filtro=" type="submit" name="btnBuscaTodos" class="btn btn-outline-secondary" title="Listar todos" style="float: right;"> <i class="fa fa-search" aria-hidden="true" > Listar Todos</i></button>
 		</c:when>
 	</c:choose>
 	

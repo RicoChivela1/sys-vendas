@@ -99,8 +99,8 @@ public class OrcamentoDao {
 	 */
 	public void salvaCarrinho(List<Carrinho> list) {
 		int maiorId = buscaMaiorId(); // orçamento
-		String sql = "Insert into carrinho (" + "fk_orcamento, produtoNome, qtd, valorUnid, subTotal)"
-				+ "values (?,?,?,?,?)";
+		String sql = "Insert into carrinho (" + "fk_orcamento, produtoNome, qtd, valorUnid, subTotal, produtoId)"
+				+ "values (?,?,?,?,?,?)";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			for (Carrinho carrinho : list) {
@@ -109,6 +109,7 @@ public class OrcamentoDao {
 				stmt.setInt(3, carrinho.getQtd());
 				stmt.setBigDecimal(4, carrinho.getValorUnid());
 				stmt.setBigDecimal(5, carrinho.getSubTotal());
+				stmt.setInt(6, carrinho.getProdutoId());
 				stmt.execute();
 			}
 		} catch (SQLException e) {
@@ -125,7 +126,9 @@ public class OrcamentoDao {
 		String sql = "select * from orcamentos as o " + "inner join carrinho as k on k.fk_orcamento = o.id "
 				+ "inner join clientes as c on o.fk_cliente = c.id "
 				+ "inner join usuarios as u on o.fk_usuario = u.id "
-				+ "left join pagamentos as p on p.fk_orcamento = o.id " + "where o.id = " + orcamentoBuscado.getId();
+				//+ "left join produtos as p on p.fk_orcamento = o.id " 
+				
+				+ "where o.id = " + orcamentoBuscado.getId();
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();

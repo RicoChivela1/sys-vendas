@@ -439,3 +439,32 @@ td#tdPagar {
     padding-left: 30px;
 }
 
+/*Link de efetuar pagamento*/
+.direitaLink {
+    float: right;
+    width: 4%;
+}
+
+/*Estilos do toggle arredondado  */
+.toggle.ios, .toggle-on.ios, .toggle-off.ios {
+	border-radius: 20px;
+}
+
+.toggle.ios .toggle-handle {
+	border-radius: 20px;
+}
+
+/*Estilo do status*/
+.camposQuitados{
+	border:0px;
+	color: #00ca00;	
+	font-weight: bolder;
+	width: 100px;
+}
+
+.camposAPagar{
+	border:0px;
+	color: red;	
+	font-weight: bolder;
+	width: 100px;
+}

@@ -146,7 +146,8 @@ public class OrcamentoDao {
 				orcamento.setSubTotalOrcamento(rs.getBigDecimal("subTotal"));
 				orcamento.setDescontos(rs.getBigDecimal("descontos"));
 				orcamento.setTotalOrcamento(rs.getBigDecimal("totalOrcamento"));
-
+				orcamento.setDataLancamento(rs.getDate("dataLancamento").toLocalDate());
+				
 				orcamento.setTotalParcelas(rs.getInt("totalParcelas"));
 				orcamento.setParcelasPagas(rs.getInt("parcelasPagas"));
 				orcamento.setParcelasAPagar(rs.getInt("parcelasAPagar"));

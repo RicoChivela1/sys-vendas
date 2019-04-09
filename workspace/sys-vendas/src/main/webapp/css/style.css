@@ -442,7 +442,7 @@ td#tdPagar {
 /*Link de efetuar pagamento*/
 .direitaLink {
     float: right;
-    width: 4%;
+    width: 17%;
 }
 
 /*Estilos do toggle arredondado  */
@@ -468,3 +468,10 @@ td#tdPagar {
 	font-weight: bolder;
 	width: 100px;
 }
+div#divSalvaPagamentos{
+    margin-bottom: 30px;
+    background-color: #f7f6f6;
+    text-align: center;
+}
+
+

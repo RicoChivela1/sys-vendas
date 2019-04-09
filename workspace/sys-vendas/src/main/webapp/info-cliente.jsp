@@ -53,7 +53,7 @@
 		
 			<label>Nascimento:</label> 
 			<fmt:parseDate value="${cliente.nascimento}" pattern="yyyy-MM-dd" var="data" type="both" />
-			<fmt:formatDate pattern="dd-MM-yyyy" value="${data}" /> <br />
+			<fmt:formatDate pattern="dd/MM/yyyy" value="${data}" /> <br />
 			
 			<label>E-mail:</label> ${cliente.email}<br />
 			<label>Fone Residencial:</label> ${cliente.fone}<br />

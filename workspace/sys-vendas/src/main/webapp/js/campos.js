@@ -45,8 +45,8 @@ $(document).ready(function(){
 			$("#tbodyParcelas").append("<td> <input type='date' id='fieldsMedio' class='form-control' name='parcelaData["+i+"]' value="+stringData+"> </td> ");
 			
 			//Checkbox de pagamento
-			$("#tbodyParcelas").append("<td id='tdPagar'> <input type='checkbox'  name='checkBoxPagar["+i+"]' data-toggle='toggle' data-onstyle='success' data-offstyle='danger'  data-on='Recebido' data-off='A receber' data-width='130' id='ckbx' data-style='ios'> </td>")			
-			$('#ckbx').append("<style>.toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }.toggle.ios .toggle-handle { border-radius: 20px; }</style>");
+			$("#tbodyParcelas").append("<td id='tdPagar'> <input type='checkbox'  name='checkBoxPagar["+i+"]' data-toggle='toggle' data-onstyle='success' data-offstyle='outline-danger'  data-on='Recebido' data-off='A receber' data-width='130' id='ckbx' data-size='small'> </td>")			
+			//$('#ckbx').append("<style>.toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }.toggle.ios .toggle-handle { border-radius: 20px; }</style>");
 			$('#ckbx').append("<script>","$(function(){$(name='checkBoxPagar["+i+"]').change(function(){	$(this).prop('checked');alert('- CheckBox: "+i+" - Valor: '+$('name='checkBoxPagar["+i+"]').prop('checked'));});});","</script>");
 			
 			//Marca a primeira parcela como paga

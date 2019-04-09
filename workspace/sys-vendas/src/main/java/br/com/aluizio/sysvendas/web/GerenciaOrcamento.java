@@ -44,7 +44,7 @@ public class GerenciaOrcamento extends HttpServlet {
 
     		OrcamentoDao dao = new OrcamentoDao();
     		
-    		//retorna cliente e respectívos endereços
+    		//retorna orçamento
     		Orcamento orcamento = dao.buscaOrcamentoPorId(orcBuscado);
     		request.setAttribute("orcamento", orcamento);
     		

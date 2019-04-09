@@ -1,100 +1,64 @@
 
 $(document).ready(function(){
-
-
-	//
 	$(function(){
-		$('#chkToggle').bootstrapToggle();
-	});
-	
-	var checado;
-	var elemento;
-	var t;
+		$('#chkToggle').bootstrapToggle({
+			on: 'Cancelar',
+			off: 'Editar',
+			onstyle:'outline-dark',
+			offstyle:'outline-danger',
+			size:'medium',
+			width:'100',
+			height: '49'
+	});});
+
+	var t = document.querySelector("input[name=hiddenTotalParcelas]").value;
 	
 	//Detecta mudanças no toggle
 	$('input[name=trava]').change(function () {
-		$('#saida').html('Toggle: ' + $(this).prop('checked')) // ou this.checked
-		checado = $(this).prop('checked');
-		alert("checado"+checado)
-		
+		var checado = $(this).prop('checked');	
 		console.log("Total de parcelas: "+t);
 		
 		//checa o estado
-		if(checado == true){
-			t = document.querySelector("input[name=hiddenTotalParcelas]").value;
+		if($('input[name=trava]').is(":checked") == true){
 			
 			//troca inputs por checkbox
 			for(var i = 1; i <= t; i++){
 				
-				//pega o valor
+				//pega o valor do input
 				var valorStatus = $("input[name='inputStatus["+i+"]']").val();
 				console.log("Valor da parcelas"+i+":"+valorStatus);
 				
-				//pega o pai
-				elemento = $("input[name='inputStatus["+i+"]']").parents("td");
-				$("input[name='inputStatus["+i+"]']").hide();
+				//descobre o pai do input
+				var elemento = $("input[name='inputStatus["+i+"]']").parents("td");
+				elemento.empty();
+						
 				//adiciona o checkbox no pai
-				elemento.append("<input type='checkbox'  name='checkBoxPagar["+i+"]' data-toggle='toggle' data-onstyle='success' data-offstyle='danger'  data-on='Recebido' data-off='A receber'> ");
+				elemento.append("<input type='checkbox' data-toggle='toggle' name='checkBoxPagar["+i+"]' data-on='Quitado' data-off='A Pagar' data-onstyle='success' data-offstyle='outline-danger'  data-width='120' data-size='mini'> ");
 				
-				//ajusta o status checked
+				//ajusta o status do checkbox
 				if(valorStatus == "QUITADO"){
 					$("input[name='checkBoxPagar["+i+"]']").attr('checked','checked');
-					return false;
+					
+				} else if(valorStatus != "QUITADO"){
+					$("input[name='checkBoxPagar["+i+"]']").removeAttr('checked');	
+					
 				}
-			
 				
-	
 			}
+			
 			elemento.append("<link href='bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.min.css' rel='stylesheet'>");	
+			elemento.append("<script src='bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js'></script>");	
 			elemento.append("<script src='bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js'></script>");
-
-			elemento.append("<script type='text/javascript' src='js/script.js'></script>");
-			elemento.append("<link href='bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.min.css' rel='stylesheet'>");	
-			elemento.append("<script src='bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js'></script>");
-	   
 		}
 		
-		//troca checkbox por inputs
-		if (checado != true){
-			alert("Está fechado");
-			t = document.querySelector("input[name=hiddenTotalParcelas]").value;
-			//percorre os checkboxs
-			for(var i = 1; i <= t; i++){
-				
-				//pega o valor do checkbox
-				var valorStatus2 = $("input[name='checkBoxPagar["+i+"]']").is(":checked");//
-				console.log("Valor do checkbox"+i+":"+valorStatus);
-				
-				
-				
-				//pega o pai do checkbox
-				var elemento2 = $("input[name='checkBoxPagar["+i+"]']").parents("td");
-				//Limpar checkbox não está funcionando
-				$("input[name='checkBoxPagar["+i+"]']").hide();
-				
-				
-				//adiciona o input no pai
-				elemento2.append("<input name='inputStatus["+i+"]' type='text' value='${pagamento.status}'>");
-				
-				
-				
-				
-				//ajusta o status do input conforme o checked
-				if( valorStatus2 == true ){
-					$("input[name='inputStatus["+i+"]']").attr('value','QUITADO');
-					return false;
-				}else {
-					$("input[name='inputStatus["+i+"]']").attr('value','A_PAGAR');
-					return false;
-				}
-				
-				$("input[name='inputStatus["+i+"]']").hide();
-			}
+		//Adiciona botão submit
+		$("#divSalvaPagamentos").prepend(" <button type='submit' id='asd' name='asd' onClick='ocultarBtnEfetivarPagamento()' class='btn btn-success btn-lg'> <i class='fa fa-money' > </i> Registrar Pagamento </button> ");
+		
+		//cancela a edição
+		if ($('input[name=trava]').is(":checked") == false){
+			location.reload();
+			$("#divSalvaPagamentos").empty();
+			$("#divSalvaPagamentos").text("aguarde...");
 		}	
-			
-	});
-	$('#saida').html('Toggle: ', this.checked); // ou $(this).prop('checked')
-	checado = $(this).prop('checked');
-	
-	
+	});	
 });

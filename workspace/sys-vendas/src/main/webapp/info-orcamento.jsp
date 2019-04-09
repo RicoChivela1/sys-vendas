@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/script.js"></script>
 
 <link href="bootstrap-4.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
-		<script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+		
 		<script src="jquery/js/jquery-1.8.3.js"></script>
 		<link href="bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">	
 		<script src="bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js"></script>
@@ -49,23 +49,24 @@
 		  <tbody>
 		
 		  <tr>
-		  	<td>
+		  	<td id="orcamentoId">
 				${orcamento.id}
 			</td>
 		  	<td>
-				${orcamento.dataLancamento}
+				<fmt:parseDate value="${orcamento.dataLancamento}" pattern="yyyy-MM-dd" var="dataLancamento" type="both" />
+				<fmt:formatDate pattern="dd/MM/yyyy" value="${dataLancamento}" />
 			</td>
 			<td>
 			    ${orcamento.usuario.nome}
 			</td>
 		    <td>
-				${orcamento.subTotalOrcamento}
+				R$ ${orcamento.subTotalOrcamento}
 			</td>
 			<td>
-				${orcamento.descontos}
+				R$ ${orcamento.descontos}
 			</td>
 			<td>
-				${orcamento.totalOrcamento}
+				R$ ${orcamento.totalOrcamento}
 			</td>
 			 <td>
 				${orcamento.parcelasPagas}
@@ -154,13 +155,13 @@
 				${produto.produtoNome}
 			</td>
 			<td>
-				${produto.valorUnid}
+				R$ ${produto.valorUnid}
 			</td>
 			<td>
 				${produto.qtd}
 			</td>
 			<td>
-				${produto.subTotal}
+				R$ ${produto.subTotal}
 			</td>
 			
 	    </tr>
@@ -170,25 +171,11 @@
 	</div>		
 	</fieldset>
 	
-	
-	
-	
-	
-	
 	<fieldset class="campo">
+
 	<legend>Pagamentos</legend>
 	<div class="direitaLink">	
 	    
-		<input id="chkToggle" name="trava" type="checkbox" data-style="ios"> 
-		<div id="saida"></div>   		
-		
-		
-		
-		
-		
-		
-		
-		
 	</div>
 	<div class="table-responsive">
 		<table class="table table-hover">
@@ -209,10 +196,12 @@
 				${pagamento.numParcela}
 			</td>
 			<td>
-				${pagamento.valorParcela}
+				R$ ${pagamento.valorParcela}
 			</td>
 			<td>
-				${pagamento.parcelaData}
+				
+				<fmt:parseDate value="${pagamento.parcelaData}" pattern="yyyy-MM-dd" var="parcelaData" type="both" />
+				<fmt:formatDate pattern="dd/MM/yyyy" value="${parcelaData}" />
 			</td>
 			<td id="tdStatus">
 			<c:set var="quitado" value="QUITADO" />
@@ -220,11 +209,11 @@
 			<c:set var="status" value="${pagamento.status}" />
 				<c:choose>
 					<c:when test="${pagamento.status == quitado}">
-						<input class="camposQuitados" name="inputStatus[${pagamento.numParcela}]" type="text" value="${pagamento.status}">
+						<input class="camposQuitados" name="inputStatus[${pagamento.numParcela}]" type="text" value="${pagamento.status}" readonly="readonly">
 					</c:when>
 					
 					<c:when test="${pagamento.status == apagar}">
-						<input class="camposAPagar" name="inputStatus[${pagamento.numParcela}]" type="text" value="${pagamento.status}">
+						<input class="camposAPagar" name="inputStatus[${pagamento.numParcela}]" type="text" value="${pagamento.status}" readonly="readonly">
 					</c:when>
 				</c:choose>
 				
@@ -238,7 +227,10 @@
 		</table>
 	</div>		
 	</fieldset>
-
+	
+	<div id="divSalvaPagamentos">
+		<input id="chkToggle" name="trava" type="checkbox" data-style="slow"> 
+	</div>
 </div>
 
 <footer class="site-footer push">

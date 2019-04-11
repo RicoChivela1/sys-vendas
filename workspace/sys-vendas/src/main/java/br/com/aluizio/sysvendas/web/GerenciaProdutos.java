@@ -16,7 +16,7 @@ import br.com.aluizio.sysvendas.model.Produto;
  * Servlet responsável pelas funcionalidades dos botões da página
  * busca-produtos.jsp. Recebe os ids dos produtos
  */
-@WebServlet("/gerenciaProdutos")
+@WebServlet("/gerencia-produto.jsp")
 public class GerenciaProdutos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -73,8 +73,8 @@ public class GerenciaProdutos extends HttpServlet {
 			// Remove
 			new ProdutoDao().remover(produto);
 
-			// Vai para lista de clientes
-			pagina = "/buscaProdutos?filtro=";
+			// Vai para lista de produtos
+			pagina = "/busca-produto?filtro=";
 
 		}
 

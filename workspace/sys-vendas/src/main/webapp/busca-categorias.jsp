@@ -18,7 +18,7 @@
 </div>
 <div id="container">
 	
-<form action="buscaCategoria" method="post">
+<form action="busca-categoria.jsp" method="post">
 	<div>
 	<div class="campoBusca">		
 		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva um nome para pesquisar"/> 
@@ -30,13 +30,13 @@
 	
 	<c:choose>	
 		<c:when test="${empty categorias}">
-			<button  id="btnBuscaTodos" value="buscaCategoria?filtro=" type="submit" name="btnBuscaTodos" class="btn btn-outline-secondary" title="Listar todos" style="float: right;"> <i class="fa fa-search" aria-hidden="true" > Qualé todos</i></button>
+			<button  id="btnBuscaTodos" value="busca-categoria.jsp?filtro=" type="submit" name="btnBuscaTodos" class="btn btn-outline-secondary" title="Listar todos" style="float: right;"> <i class="fa fa-search" aria-hidden="true" > Qualé todos</i></button>
 		</c:when>
 	</c:choose>
 		
 </form>	
 		
-<form action="gerenciaCategoria" method="post">
+<form action="gerencia-categoria.jsp" method="post">
 
 
 <c:choose>	
@@ -46,7 +46,7 @@
 			<label class="listaNula">Não encontramos registros.</label>	
 		</div>
 		<div>
-			<a href="buscaCategoria?filtro=" title="Listar todas as categorias."> Ver todas.</a> |
+			<a href="busca-categoria.jsp?filtro=" title="Listar todas as categorias."> Ver todas.</a> |
 			<a href="cadastrar-categoria.jsp" title="Cadastrar uma nova categoria."> Adicionar </a> |
 			<a href="orcamento.jsp" title="Página de orçamento."> Orçamento </a>
 		</div>

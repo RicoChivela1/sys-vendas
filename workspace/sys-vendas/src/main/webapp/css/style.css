@@ -168,11 +168,16 @@ div.btnCarrinho {
 	color: red;
 }
 
-/*valor de venda para a list*/
-td.sugestaoVenda{
+/*valores vermelhos*/
+.valores{
 	color: red; 
-	font-size: 22px; 
-	font-style: oblique;
+	font-size: 18px; 
+}
+
+/*nome negrito*/
+.nome{  
+	font-weight: bold;
+	font-size: 18px;
 }
 
 /*botão de busca para a list*/
@@ -310,9 +315,6 @@ input#sugestaoVenda {
 	margin-top: 0px;	
 }
 
-/* fim dos inputs específicos do cadastro de produtos*/
-
-
 /*inputs médios normais*/
 input#fieldsMedio{
 	width: 180px; 
@@ -362,7 +364,7 @@ input#fieldsPequeno{
 	width: 60px;
 }
 
-/*Conjuto de imputs para data*/
+/*Conjuto de inputs para data*/
 div.fieldsData{
 	width: 92%;
 	height: 39px;
@@ -392,8 +394,7 @@ div#btnFormOrca {
 span {
 	font-size: 18px;
 	color: #222a2e;
-    font-style: italic;
-	
+    /*font-style: italic;*/	
 }
 
 /*inputs vermelhos para valores*/

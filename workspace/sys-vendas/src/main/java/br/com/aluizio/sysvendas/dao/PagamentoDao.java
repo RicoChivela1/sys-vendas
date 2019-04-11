@@ -108,5 +108,32 @@ public class PagamentoDao {
 			return lista;
 		}
 
+		// Muda status da Parcela
+		public Orcamento pagarParcela(Pagamento pagamento) {
+
+			String sql = "Update Pagamentos set status=?"
+					+ " where (fk_orcamento=? && numParcela=?)";
+		
+			
+			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+				
+				stmt.setString(1, pagamento.getStatus().name());
+				stmt.setInt(2, pagamento.getFkOrcamento());
+				stmt.setInt(3, pagamento.getNumParcela());
+				
+				stmt.execute();
+				
+				Orcamento orc = new Orcamento();
+				orc.setId(pagamento.getFkOrcamento());
+				OrcamentoDao dao = new OrcamentoDao();
+				Orcamento orcamento = dao.buscaOrcamentoPorId(orc);
+				
+				return orcamento;
+				
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
 
 }

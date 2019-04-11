@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 import br.com.aluizio.sysvendas.dao.FornecedorDao;
 import br.com.aluizio.sysvendas.model.Fornecedor;
@@ -16,7 +17,7 @@ import br.com.aluizio.sysvendas.model.Fornecedor;
  * Servlet responsável pelas funcionalidades dos botões da página
  * busca-fornecedor.jsp. Recebe os ids dos fornecedores
  */
-@WebServlet("/gerenciaFornecedor")
+@WebServlet("/gerencia-fornecedor.jsp")
 public class GerenciaFornecedor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -45,10 +46,25 @@ public class GerenciaFornecedor extends HttpServlet {
 		if (request.getParameter("remover") != null) {
 			fornecedor.setId(Integer.parseInt(request.getParameter("remover")));
 			new FornecedorDao().remover(fornecedor);
-
+			JOptionPane.showMessageDialog(null,"Fornecedor removido com sucesso!");
 			pagina = "/index.jsp";
 		}
+		
+		//Info Fornecedor
+		if (request.getParameter("info") != null) {
+			int id = Integer.parseInt(request.getParameter("info"));
+			fornecedor.setId(id);
+			
 
+			System.out.println("Id da info do usuario é: " + id);
+
+			// to do
+			///////////////////////////////
+			///////////////////////////////////
+			////////////////////////////////
+			pagina = "/info-fornecedor.jsp";
+		}
+		
 		RequestDispatcher rd = request.getRequestDispatcher(pagina);
 		rd.forward(request, response);
 	}

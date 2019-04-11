@@ -95,27 +95,26 @@
 				   <tr>
 					<td>
 						<fmt:parseDate value="${orcamento.dataLancamento}" pattern="yyyy-MM-dd" var="dataLancamento" type="both" />
-						<fmt:formatDate pattern="dd-MM-yyyy" value="${dataLancamento}" /> <br />
+						<fmt:formatDate pattern="dd/MM/yyyy" value="${dataLancamento}" /> <br />
 			            
 					</td>
 					<td> 
-			      		${orcamento.totalOrcamento}
+			      		<span class="valores">R$ ${orcamento.totalOrcamento}</span>
 			      	</td>
 					<td>
-			      	
 			      		<c:choose>
 							<c:when test="${orcamento.parcelasAPagar > 0}">
-								<p>Não quitado: </p>
+								<input class="camposAPagar" type="text" value=A_PAGAR readonly="readonly">
 							</c:when>
 							<c:when test="${orcamento.parcelasAPagar == 0}">
-									<p>Quitado</p>
+								<input class="camposQuitados" type="text" value="QUITADO" readonly="readonly">
 							</c:when>
 						</c:choose>
 			      	</td>
 
 					    <td> 
 			      			${orcamento.parcelasPagas}
-			      		de 
+			      		- 
 			      			${orcamento.totalParcelas}
 			      		</td>
 			      		<td> 

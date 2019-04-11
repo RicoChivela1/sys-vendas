@@ -74,11 +74,11 @@
                     <li class="pushy-submenu">
                         <button>Pesquisar</button>
                         <ul>
-                            <li class="pushy-link"><a href="buscaCategoria?filtro=">Categoria</a></li>
-                            <li class="pushy-link"><a href="buscaClientes?filtro=">Cliente</a></li>
-                            <li class="pushy-link"><a href="buscaFornecedor?filtro=">Fornecedor</a></li>
-                            <li class="pushy-link"><a href="buscaProdutos?filtro=">Produto</a></li>
-                            <li class="pushy-link"><a href="buscaUsuario?filtro=">Usuário</a></li>
+                            <li class="pushy-link"><a href="busca-categoria.jsp?filtro=">Categoria</a></li>
+                            <li class="pushy-link"><a href="busca-cliente.jsp?filtro=">Cliente</a></li>
+                            <li class="pushy-link"><a href="busca-fornecedor.jsp?filtro=">Fornecedor</a></li>
+                            <li class="pushy-link"><a href="busca-produto.jsp?filtro=">Produto</a></li>
+                            <li class="pushy-link"><a href="busca-usuario.jsp?filtro=">Usuário</a></li>
                         </ul>
                     </li>
                 

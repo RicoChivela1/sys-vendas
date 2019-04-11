@@ -67,13 +67,13 @@
 	<legend>Detalhes:</legend>
 	
 		<div class="esquerda">
-			<br />
-			<label>Nome:</label> ${produto.nome}<br />
+			<br />  nome
+			<label>Nome:</label> <span class="nome">${produto.nome} </span><br />
 			<label>Descrição:</label> ${produto.descricao}<br />
 			<label>Indicação:</label> ${produto.indicacao}<br />
-			<label>Custo:</label> ${produto.custoUnid}<br />
-			<label>Lucro:</label> ${produto.lucro}<br />
-			<label>Percentual:</label> ${produto.percentual}<br />
+			<label>Custo: R$</label> <span class="valores">${produto.custoUnid}</span><br />
+			<label>Lucro: R$</label> <span class="valores">${produto.lucro}</span><br />
+			<label>Percentual de lucro:</label> ${produto.percentual}%<br />
 			
 		</div>
 		

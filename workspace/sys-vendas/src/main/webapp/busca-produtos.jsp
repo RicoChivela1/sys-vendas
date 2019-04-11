@@ -19,7 +19,7 @@
 </div>
 
 <div id="container">
-<form action="buscaProdutos" method="post">
+<form action="busca-produto.jsp" method="post">
 	<div>
 	<div class="campoBusca">		
 		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva um nome para pesquisar"/> 
@@ -30,12 +30,12 @@
 	</div>
 	<c:choose>	
 		<c:when test="${empty produtos}">
-			<button  id="btnBuscaTodos" value="buscaProdutos?filtro=" type="submit" name="btnBuscaTodos" class="btn btn-outline-secondary" title="Listar todos" style="float: right;"> <i class="fa fa-search" aria-hidden="true" > Qualé todos</i></button>
+			<button  id="btnBuscaTodos" value="busca-produto.jsp?filtro=" type="submit" name="btnBuscaTodos" class="btn btn-outline-secondary" title="Listar todos" style="float: right;"> <i class="fa fa-search" aria-hidden="true" > Qualé todos</i></button>
 		</c:when>
 	</c:choose>		
 </form>	
 		
-<form action="gerenciaProdutos" method="post">
+<form action="gerencia-produto.jsp" method="post">
 
 	<c:choose>	
 		<c:when test="${empty produtos}">
@@ -44,7 +44,7 @@
 				<label class="listaNula">Não encontramos registros.</label>	
 			</div>
 			<div>
-				<a href="buscaProdutos?filtro=" title="Listar todos os produtos.">Ver todos </a> |
+				<a href="gerencia-produto.jsp?filtro=" title="Listar todos os produtos.">Ver todos </a> |
 				<a href="cadastrar-produto.jsp" title="Cadastrar um novo produto."> Adicionar </a> |
 				<a href="orcamento.jsp" title="Página de orçamento."> Orçamento </a>
 			</div>
@@ -75,15 +75,15 @@
 					    <tr>
 					      <td>${produto.id}</td>
 					      <td><img class="miniaturaProduto" src="./carregadorImagem?id=${produto.id}" /></td>
-							<td>-${produto.nome}<br />
-								-${produto.volume}
+							<td><span class="nome">-${produto.nome}</span><br />
+								${produto.volume}
 							</td>
 							<td>-${produto.descricao}<br />
 								-${produto.indicacao}
 							</td>
 							
-						    <td>R$ ${produto.custoUnid}</td>
-							<td class="sugestaoVenda">R$ ${produto.sugestaoVenda}</td>
+						    <td class="valores">R$ ${produto.custoUnid}</td>
+							<td class="valores">R$ ${produto.sugestaoVenda}</td>
 							<td>${produto.estoque.qtdDisponivel}</td>
 					
 					      <td> 

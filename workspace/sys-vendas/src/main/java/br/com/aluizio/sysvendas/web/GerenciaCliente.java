@@ -20,7 +20,7 @@ import br.com.aluizio.sysvendas.model.Orcamento;
  * da página busca-clientes.jsp.
  * Recebe os ids dos clientes
  */
-@WebServlet("/gerenciaCliente")
+@WebServlet("/gerencia-cliente.jsp")
 public class GerenciaCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -50,7 +50,6 @@ public class GerenciaCliente extends HttpServlet {
     		clienteBuscado.setId(id);
     		
     		//busca cliente pelo id e o coloca na requisição
-    		
 			Cliente cliente = (Cliente) new ClienteDao()
 					.buscaPorId(clienteBuscado);
     		

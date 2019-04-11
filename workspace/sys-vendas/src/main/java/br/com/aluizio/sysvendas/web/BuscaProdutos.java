@@ -19,7 +19,7 @@ import br.com.aluizio.sysvendas.model.Produto;
  * @author Aluizio Monteiro
  * 19 de set de 2018
  */
-@WebServlet("/buscaProdutos")
+@WebServlet("/busca-produto.jsp")
 public class BuscaProdutos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

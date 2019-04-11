@@ -53,24 +53,26 @@
 				${orcamento.id}
 			</td>
 		  	<td>
+		  	<span class="valores">
 				<fmt:parseDate value="${orcamento.dataLancamento}" pattern="yyyy-MM-dd" var="dataLancamento" type="both" />
 				<fmt:formatDate pattern="dd/MM/yyyy" value="${dataLancamento}" />
+			</span>
 			</td>
 			<td>
-			    ${orcamento.usuario.nome}
+			    <span class="nome">${orcamento.usuario.nome}</span>
 			</td>
-		    <td>
+		    <td title="Valor total sem descontos">
 				R$ ${orcamento.subTotalOrcamento}
 			</td>
 			<td>
 				R$ ${orcamento.descontos}
 			</td>
-			<td>
-				R$ ${orcamento.totalOrcamento}
+			<td title="Valor total com descontos">
+				<span class="valores">R$ ${orcamento.totalOrcamento}</span>
 			</td>
-			 <td>
+			 <td title="Foram pagas ${orcamento.parcelasPagas} de ${orcamento.totalParcelas} parcelas">
 				${orcamento.parcelasPagas}
-			 				de
+			 				-
 				${orcamento.totalParcelas}
 			<input type="hidden" name="hiddenTotalParcelas" value="${orcamento.totalParcelas}">
 			
@@ -86,7 +88,7 @@
 	</div>
 	</fieldset>
 	
-	<form action="gerenciaCliente?filtro=" method="post">
+	<form action="gerencia-cliente.jsp?filtro=" method="post">
 	<fieldset class="campo">
 	<legend>Cliente</legend>
 	
@@ -96,7 +98,7 @@
 			  <caption></caption>
 			    <tr>
 			      <th> Cliente </th>
-			      <th> Cel </th>
+			      <th> Celular </th>
 			      <th> Observação </th>
 			      <th> Ações </th>
 			    </tr>
@@ -105,7 +107,7 @@
 		
 		  <tr>
 			<td>
-				${orcamento.cliente.nome} ${orcamento.cliente.sobreNome}
+				<span class="nome">${orcamento.cliente.nome} ${orcamento.cliente.sobreNome}</span>
 			</td>
 			<td>
 				${orcamento.cliente.celular}
@@ -152,16 +154,16 @@
 				${produto.produtoId}
 			 </td>
 			<td>
-				${produto.produtoNome}
+				<span class="nome">${produto.produtoNome}</span>
 			</td>
 			<td>
-				R$ ${produto.valorUnid}
+				<span class="valores">R$ ${produto.valorUnid}</span>
 			</td>
 			<td>
 				${produto.qtd}
 			</td>
 			<td>
-				R$ ${produto.subTotal}
+				<span class="valores">R$ ${produto.subTotal}</span>
 			</td>
 			
 	    </tr>
@@ -196,7 +198,7 @@
 				${pagamento.numParcela}
 			</td>
 			<td>
-				R$ ${pagamento.valorParcela}
+				<span class="valores">R$ ${pagamento.valorParcela}</span>
 			</td>
 			<td>
 				
@@ -209,11 +211,11 @@
 			<c:set var="status" value="${pagamento.status}" />
 				<c:choose>
 					<c:when test="${pagamento.status == quitado}">
-						<input class="camposQuitados" name="inputStatus[${pagamento.numParcela}]" type="text" value="${pagamento.status}" readonly="readonly">
+						<input class="camposQuitados" name="inputStatus[${pagamento.numParcela}]" type="text" value="${pagamento.status}" readonly="readonly" title="Esta parcela já foi paga!">
 					</c:when>
 					
 					<c:when test="${pagamento.status == apagar}">
-						<input class="camposAPagar" name="inputStatus[${pagamento.numParcela}]" type="text" value="${pagamento.status}" readonly="readonly">
+						<input class="camposAPagar" name="inputStatus[${pagamento.numParcela}]" type="text" value="${pagamento.status}" readonly="readonly" title="Esta parcela ainda não foi paga!">
 					</c:when>
 				</c:choose>
 				

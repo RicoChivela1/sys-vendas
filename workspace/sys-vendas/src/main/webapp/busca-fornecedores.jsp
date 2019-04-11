@@ -20,7 +20,7 @@
 
 <div id="container">
 	
-<form action="buscaFornecedor" method="post">
+<form action="busca-fornecedor.jsp" method="post">
 	<div>
 	<div class="campoBusca" >		
 		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva um nome para pesquisar." /> 
@@ -32,12 +32,12 @@
 	
 	<c:choose>	
 		<c:when test="${empty fornecedor}">
-			<button id="btnBuscaTodos" value="buscaFornecedor?filtro=" type="submit" name="btnBuscaTodos" class="btn btn-outline-secondary" title="Listar todos" style="float: right;"> <i class="fa fa-search" aria-hidden="true" > Qualé todos</i></button>
+			<button id="btnBuscaTodos" value="busca-fornecedor.jsp?filtro=" type="submit" name="btnBuscaTodos" class="btn btn-outline-secondary" title="Listar todos" style="float: right;"> <i class="fa fa-search" aria-hidden="true" > Qualé todos</i></button>
 		</c:when>
 	</c:choose>	
 </form>	
 		
-<form action="gerenciaFornecedor" method="post">
+<form action="gerencia-fornecedor.jsp" method="post">
 	<c:choose>	
 		<c:when test="${empty fornecedor}">
 			<div class="box">
@@ -45,7 +45,7 @@
 				<label class="listaNula">Não encontramos registros.</label>	
 			</div>
 			<div>
-				<a href="buscaFornecedor?filtro=" title="Listar todos os fornecedores."> Ver todos.</a> |
+				<a href="busca-fornecedor.jsp?filtro=" title="Listar todos os fornecedores."> Ver todos.</a> |
 				<a href="cadastrar-fornecedor.jsp" title="Cadastrar um novo fornecedor."> Adicionar </a> |
 				<a href="orcamento.jsp" title="Página de orçamento."> Orçamento </a>
 			</div>

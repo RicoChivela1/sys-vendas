@@ -43,7 +43,7 @@
 			<c:when test="${empty sessaoCliente.nome}">
 				<div id="btnFormOrca">
 					<label id="labelAlerta">Adicione um Cliente aqui </label>
-					<a href="buscaClientes?filtro=" title="Adiciona um Cliente"><i class="fa fa-plus-circle" style="font-size:24px"></i></a>
+					<a href="busca-cliente.jsp?filtro=" title="Adiciona um Cliente"><i class="fa fa-plus-circle" style="font-size:24px"></i></a>
 				</div>
 				
 			</c:when>
@@ -58,7 +58,7 @@
 					<input id ="fieldsMedio" type="text" name="celularCliente" value="${sessaoCliente.celular}" class="form-control"/>
 				</div>
 				<div id="btnFormOrca">
-					<a href="buscaClientes?filtro=" title="Escolha outro Cliente"><i class="fa fa-refresh" style="font-size:24px;"></i></a>
+					<a href="busca-cliente.jsp?filtro=" title="Escolha outro Cliente"><i class="fa fa-refresh" style="font-size:24px;"></i></a>
 					<a href="eliminar-cliente.jsp" title="Apagar este Cliente"><i class="fa fa-trash-o" style="font-size:24px; color: red;"></i></a>
 				</div>
 			</c:when>
@@ -73,7 +73,7 @@
 			<c:when test="${empty carroCompras}">
 				<div id="btnFormOrca">
 					<label id="labelAlerta">Adicione produtos aqui </label>
-					<a href="buscaProdutos?filtro=" title="Adicionar Produto"><i class="fa fa-plus-circle" style="font-size:24px;"></i></a>
+					<a href="busca-produto.jsp?filtro=" title="Adicionar Produto"><i class="fa fa-plus-circle" style="font-size:24px;"></i></a>
 				</div>
 			</c:when>
 	
@@ -108,7 +108,7 @@
 				</c:forEach>
 				</table>
 		
-					<a href="buscaProdutos?filtro=" title="Adicione um produto aqui "><i class="fa fa-plus-circle" style="font-size:24px;"></i></a>
+					<a href="busca-produto.jsp?filtro=" title="Adicione um produto aqui "><i class="fa fa-plus-circle" style="font-size:24px;"></i></a>
 				
 			</c:when>
 		</c:choose>

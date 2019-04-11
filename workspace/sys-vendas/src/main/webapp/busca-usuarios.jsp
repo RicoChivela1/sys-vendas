@@ -19,7 +19,7 @@
 </div>
 <div id="container">
 	
-<form action="buscaUsuario" method="post">
+<form action="busca-usuario.jsp" method="post">
 	<div>
 	<div class="campoBusca">		
 		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva algo para pesquisar."/> 
@@ -30,12 +30,12 @@
 	</div>	
 	<c:choose>	
 		<c:when test="${empty usuarios}">
-				<button  id="btnBuscaTodos" value="buscaUsuario?filtro=" type="submit" name="btnBuscaTodos" class="btn btn-outline-secondary" title="Listar todos." style="float: right;"> <i class="fa fa-search" aria-hidden="true" > Qualé todos</i></button>
+				<button  id="btnBuscaTodos" value="busca-usuario.jsp?filtro=" type="submit" name="btnBuscaTodos" class="btn btn-outline-secondary" title="Listar todos." style="float: right;"> <i class="fa fa-search" aria-hidden="true" > Qualé todos</i></button>
 		</c:when>
 	</c:choose>	
 </form>	
 		
-<form action="gerenciaUsuario" method="post">
+<form action="gerencia-usuario.jsp" method="post">
 	<c:choose>	
 		<c:when test="${empty usuarios}">
 		<div class="box">
@@ -43,7 +43,7 @@
 			<label class="listaNula">Não encontramos registros.</label>	
 		</div>
 		<div>
-			<a href="buscaUsuario?filtro=" title="Listar todos os usuários."> Ver todos.</a> | 
+			<a href="busca-usuario.jsp?filtro=" title="Listar todos os usuários."> Ver todos.</a> | 
 			<a href="cadastrar-usuario.jsp" title="Cadastrar um novo usuário."> Adicionar </a> |
 			<a href="orcamento.jsp" title="Página de orçamento."> Orçamento </a>
 		</div>

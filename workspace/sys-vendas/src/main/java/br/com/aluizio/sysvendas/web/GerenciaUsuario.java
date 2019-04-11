@@ -16,7 +16,7 @@ import br.com.aluizio.sysvendas.model.Usuario;
  * Servlet responsável pelas funcionalidades dos botões da página
  * busca-usuarios.jsp. Recebe os ids dos usuários
  */
-@WebServlet("/gerenciaUsuario")
+@WebServlet("/gerencia-usuario.jsp")
 public class GerenciaUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,7 +32,10 @@ public class GerenciaUsuario extends HttpServlet {
 			int id = Integer.parseInt(request.getParameter("info"));
 			System.out.println("Id da info do usuario é: " + id);
 
-			//
+			// to do
+			///////////////////////////////
+			///////////////////////////////////
+			////////////////////////////////
 			pagina = "/info-usuario.jsp";
 		}
 

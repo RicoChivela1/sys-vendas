@@ -30,13 +30,13 @@
 	</div>	
 	<c:choose>	
 		<c:when test="${empty clientes}">
-			<button  id="btnBuscaTodos" value="buscaClientes?filtro=" type="submit" name="btnBuscaTodos" class="btn btn-outline-secondary" title="Listar todos" style="float: right;"> <i class="fa fa-search" aria-hidden="true" > Listar Todos</i></button>
+			<button  id="btnBuscaTodos" value="busca-cliente.jsp?filtro=" type="submit" name="btnBuscaTodos" class="btn btn-outline-secondary" title="Listar todos" style="float: right;"> <i class="fa fa-search" aria-hidden="true" > Listar Todos</i></button>
 		</c:when>
 	</c:choose>
 	
 </form>	
 		
-<form action="gerenciaCliente" method="post">
+<form action="gerencia-cliente.jsp" method="post">
 
 
 	<c:choose>	

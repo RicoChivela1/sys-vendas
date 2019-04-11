@@ -10,7 +10,8 @@
 
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/styleIndex.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.min.css"  >
+
 
 </head>
 <body>
@@ -33,24 +34,24 @@
 		 
 		 </div>
 	    <div>
-	    <form action="buscaClientes" method="post">
-	    	<a href="buscaClientes?filtro=" > Pesquisar Clientes</a><br />
+	    <form action="busca-cliente.jsp" method="post">
+	    	<a href="busca-cliente.jsp?filtro=" > Pesquisar Clientes</a><br />
 	    </form>
 	    
-	    <form action="buscaProdutos" method="post">
-	    	<a href="buscaProdutos?filtro="> Pesquisar Produtos</a><br />
+	    <form action="busca-produto.jsp" method="post">
+	    	<a href="busca-produto.jsp?filtro="> Pesquisar Produtos</a><br />
 	    </form>	
 	    
-	    <form action="buscaUsuarios" method="post">
-	    	<a href="buscaUsuario?filtro="> Pesquisar Usuários</a><br />
+	    <form action="busca-usuario.jsp" method="post">
+	    	<a href="busca-usuario.jsp?filtro="> Pesquisar Usuários</a><br />
 	    </form>	
 	    
-	    <form action="buscaCategorias" method="post">
-	    	<a href="buscaCategoria?filtro="> Pesquisar Categorias</a><br />
+	    <form action="busca-categoria.jsp" method="post">
+	    	<a href="busca-categoria.jsp?filtro="> Pesquisar Categorias</a><br />
 	    </form>
 	    
-	    <form action="buscaFornecedor" method="post">
-	    	<a href="buscaFornecedor?filtro="> Pesquisar Fornecedor</a><br />
+	    <form action="busca-fornecedor.jsp" method="post">
+	    	<a href="busca-fornecedor.jsp?filtro="> Pesquisar Fornecedor</a><br />
 	    </form>
 	    
 		 </div>

@@ -19,7 +19,7 @@ import br.com.aluizio.sysvendas.model.Categoria;
  * @author Aluizio Monteiro
  * 26 de set de 2018
  */
-@WebServlet("/buscaCategoria")
+@WebServlet("/busca-categoria.jsp")
 public class BuscaCategoria extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

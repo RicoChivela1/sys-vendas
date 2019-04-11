@@ -19,7 +19,7 @@ import br.com.aluizio.sysvendas.model.Cliente;
  * @author Aluizio Monteiro
  * 31 de ago de 2018
  */
-@WebServlet("/buscaClientes")
+@WebServlet("/busca-cliente.jsp")
 public class BuscaCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

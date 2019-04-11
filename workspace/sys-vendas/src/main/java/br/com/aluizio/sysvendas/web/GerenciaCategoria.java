@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 import br.com.aluizio.sysvendas.dao.CategoriaDao;
 import br.com.aluizio.sysvendas.model.Categoria;
@@ -17,7 +18,7 @@ import br.com.aluizio.sysvendas.model.Categoria;
  * da página busca-categoria.jsp.
  * Recebe os ids dos clientes
  */
-@WebServlet("/gerenciaCategoria")
+@WebServlet("/gerencia-categoria.jsp")
 public class GerenciaCategoria extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -41,6 +42,7 @@ public class GerenciaCategoria extends HttpServlet {
     	if(request.getParameter("remover") != null) {
     		categoriaid.setId(Integer.parseInt(request.getParameter("remover")));
 			new CategoriaDao().remover(categoriaid);
+			JOptionPane.showMessageDialog(null, "Registro removido com sucesso!");
     		pagina = "/index.jsp";
     	} 
     	

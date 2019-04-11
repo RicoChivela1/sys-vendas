@@ -19,7 +19,7 @@ import br.com.aluizio.sysvendas.model.Fornecedor;
  * @author Aluizio Monteiro
  * 31 de ago de 2018
  */
-@WebServlet("/buscaFornecedor")
+@WebServlet("/busca-fornecedor.jsp")
 public class BuscaFornecedor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,7 +37,7 @@ public class BuscaFornecedor extends HttpServlet {
 		
 		req.setAttribute("fornecedor", fornecedor);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("/busca-fornecedor.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/busca-fornecedores.jsp");
 		rd.forward(req, resp);
 	}
 }

@@ -455,20 +455,26 @@ td#tdPagar {
 	border-radius: 20px;
 }
 
-/*Estilo do status*/
-.camposQuitados{
-	border:0px;
-	color: #00ca00;	
-	font-weight: bolder;
-	width: 100px;
-}
 
+/*Campos A_PAGAR da info-cliente.jsp*/
 .camposAPagar{
 	border:0px;
 	color: red;	
 	font-weight: bolder;
-	width: 100px;
+	width: 120px;
+	background: transparent;
 }
+
+/*Campo QUITADO da info-cliente.jsp*/
+.camposQuitados{
+	border:0px;
+	color: #00ca00;	
+	font-weight: bolder;
+	width: 120px;
+	background: transparent;
+}
+
+
 div#divSalvaPagamentos{
     margin-bottom: 30px;
     background-color: #f7f6f6;

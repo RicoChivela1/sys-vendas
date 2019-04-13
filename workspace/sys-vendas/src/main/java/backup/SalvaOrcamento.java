@@ -19,7 +19,7 @@ import br.com.aluizio.sysvendas.model.Carrinho;
 import br.com.aluizio.sysvendas.model.Cliente;
 import br.com.aluizio.sysvendas.model.EnumStatus;
 import br.com.aluizio.sysvendas.model.Orcamento;
-import br.com.aluizio.sysvendas.model.Pagamento;
+import br.com.aluizio.sysvendas.model.Pagamentos;
 import br.com.aluizio.sysvendas.model.Usuario;
 
 /**
@@ -98,7 +98,7 @@ public class SalvaOrcamento extends HttpServlet {
 		System.out.println("- Parcelas: "+totalParcelas);
 		
 		System.out.println("- FK Orcamento: "+ fkOrcamento);
-		List<Pagamento> pagamentoList = new ArrayList<>();
+		List<Pagamentos> pagamentoList = new ArrayList<>();
 
 		
 		
@@ -112,7 +112,7 @@ public class SalvaOrcamento extends HttpServlet {
 	
 			EnumStatus status = EnumStatus.valueOf(request.getParameter("checkBoxPagar"));
 
-			Pagamento pagamento = new Pagamento();
+			Pagamentos pagamento = new Pagamentos();
 			pagamento.setValorParcela(parcelaValor);
 			pagamento.setNumParcela(i);
 			pagamento.setFkOrcamento(fkOrcamento);

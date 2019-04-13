@@ -6,7 +6,7 @@ import java.time.LocalDate;
 /**
  * @author Aluizio Monteiro
  */
-public class Pagamento {
+public class Pagamentos {
 	private Integer id;
 	private Integer numParcela;
 	private BigDecimal valorParcela;

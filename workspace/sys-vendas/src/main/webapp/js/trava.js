@@ -12,7 +12,7 @@ $(document).ready(function(){
 	});});
 
 	var t = document.querySelector("input[name=hiddenTotalParcelas]").value;
-	
+	var elemento;
 	//Detecta mudanças no toggle
 	$('input[name=trava]').change(function () {
 		var checado = $(this).prop('checked');	
@@ -29,7 +29,7 @@ $(document).ready(function(){
 				console.log("Valor da parcelas"+i+":"+valorStatus);
 				
 				//descobre o pai do input
-				var elemento = $("input[name='inputStatus["+i+"]']").parents("td");
+				elemento = $("input[name='inputStatus["+i+"]']").parents("td");
 				elemento.empty();
 						
 				//adiciona o checkbox no pai
@@ -48,17 +48,19 @@ $(document).ready(function(){
 			
 			elemento.append("<link href='bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.min.css' rel='stylesheet'>");	
 			elemento.append("<script src='bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js'></script>");	
-			elemento.append("<script src='bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js'></script>");
+			
 		}
 		
 		//Adiciona botão submit
-		$("#divSalvaPagamentos").prepend(" <button type='submit' id='asd' name='asd' onClick='ocultarBtnEfetivarPagamento()' class='btn btn-success btn-lg'> <i class='fa fa-money' > </i> Registrar Pagamento </button> ");
-		
+		$("#divSalvaPagamentos").prepend("<button type='submit' id='asd' name='asd' onClick='ocultarBtnEfetivarPagamento()' class='btn btn-success btn-lg'> <i class='fa fa-money' > </i> Registrar Pagamento </button> ");
+		$("#divSalvaPagamentos").append("<link href='bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.min.css' rel='stylesheet'>");	
+		$("#divSalvaPagamentos").append("<script src='bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js'></script>");	
 		//cancela a edição
 		if ($('input[name=trava]').is(":checked") == false){
 			location.reload();
 			$("#divSalvaPagamentos").empty();
 			$("#divSalvaPagamentos").text("aguarde...");
 		}	
+		
 	});	
 });

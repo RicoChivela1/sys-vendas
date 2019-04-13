@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 import br.com.aluizio.sysvendas.dao.PagamentoDao;
 import br.com.aluizio.sysvendas.model.EnumStatus;
-import br.com.aluizio.sysvendas.model.Pagamento;
+import br.com.aluizio.sysvendas.model.Pagamentos;
 
 /**
  * TestaAlteraPagamento.java
@@ -16,7 +16,7 @@ import br.com.aluizio.sysvendas.model.Pagamento;
 public class TestaAlteraPagamento {
 	public static void main(String[] args) {
 
-		Pagamento pagamento = new Pagamento();
+		Pagamentos pagamento = new Pagamentos();
 		pagamento.setNumParcela(11);
 		pagamento.setValorParcela(new BigDecimal("200.0"));
 		pagamento.setParcelaData(LocalDate.now());

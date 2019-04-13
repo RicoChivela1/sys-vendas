@@ -14,7 +14,7 @@ import br.com.aluizio.sysvendas.model.EnumPessoa;
 import br.com.aluizio.sysvendas.model.EnumSexo;
 import br.com.aluizio.sysvendas.model.EnumSituacao;
 import br.com.aluizio.sysvendas.model.Orcamento;
-import br.com.aluizio.sysvendas.model.Pagamento;
+import br.com.aluizio.sysvendas.model.Pagamentos;
 import br.com.aluizio.sysvendas.model.Usuario;
 
 /**
@@ -178,7 +178,7 @@ public class OrcamentoDao {
 				orcamento.setList(carrinhos);
 
 				// carregar pagamento
-				List<Pagamento> pagamentos = new PagamentoDao().buscaPgPorOrcamento(orcamento);
+				List<Pagamentos> pagamentos = new PagamentoDao().buscaPgPorOrcamento(orcamento);
 				orcamento.setPagamentos(pagamentos);
 			}
 
@@ -231,4 +231,19 @@ public class OrcamentoDao {
 		}
 	}
 
+	// Atualiza 
+	public void atualizaParcelas(Orcamento orcamento) {
+		String sql = "Update Orcamentos set parcelasPagas=? where id=?";
+
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			stmt.setInt(1, orcamento.getParcelasPagas());
+			stmt.setInt(2, orcamento.getId());
+
+			stmt.execute();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 import br.com.aluizio.sysvendas.dao.PagamentoDao;
 import br.com.aluizio.sysvendas.model.Orcamento;
-import br.com.aluizio.sysvendas.model.Pagamento;
+import br.com.aluizio.sysvendas.model.Pagamentos;
 
 /**
  * TestaListaPagamentos.java
@@ -21,8 +21,8 @@ public class TestaListaPagamentos {
 		PagamentoDao dao = new PagamentoDao();
 		
 		
-		List<Pagamento> list = dao.buscaPgPorOrcamento(orcamento);
-		for (Pagamento pagamento : list) {
+		List<Pagamentos> list = dao.buscaPgPorOrcamento(orcamento);
+		for (Pagamentos pagamento : list) {
 			System.out.println(pagamento);
 		}
 

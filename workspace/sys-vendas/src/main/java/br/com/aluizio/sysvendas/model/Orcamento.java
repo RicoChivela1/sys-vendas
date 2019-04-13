@@ -22,7 +22,7 @@ public class Orcamento {
 	private BigDecimal totalOrcamento;
 	private LocalDate dataLancamento;
 	private List<Carrinho> list;
-	private List<Pagamento> pagamentos;
+	private List<Pagamentos> pagamentos;
 
 	public Integer getId() {
 		return id;
@@ -104,11 +104,11 @@ public class Orcamento {
 		this.list = list;
 	}
 
-	public List<Pagamento> getPagamentos() {
+	public List<Pagamentos> getPagamentos() {
 		return pagamentos;
 	}
 
-	public void setPagamentos(List<Pagamento> pagamentos) {
+	public void setPagamentos(List<Pagamentos> pagamentos) {
 		this.pagamentos = pagamentos;
 	}
 

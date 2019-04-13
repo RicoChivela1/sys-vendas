@@ -21,7 +21,7 @@ import br.com.aluizio.sysvendas.model.Carrinho;
 import br.com.aluizio.sysvendas.model.Cliente;
 import br.com.aluizio.sysvendas.model.EnumStatus;
 import br.com.aluizio.sysvendas.model.Orcamento;
-import br.com.aluizio.sysvendas.model.Pagamento;
+import br.com.aluizio.sysvendas.model.Pagamentos;
 import br.com.aluizio.sysvendas.model.Usuario;
 
 /**
@@ -47,7 +47,7 @@ public class SalvaOrcamento extends HttpServlet {
 		sessaoCliente = request.getSession(false);
 		Cliente cliente = (Cliente) sessaoCliente.getAttribute("sessaoCliente");
 
-		// Popula Orçamento
+		// Popula Orçamento e Cliente
 		Orcamento orcamento = new Orcamento();
 		orcamento.setUsuario(usuario);
 		orcamento.setCliente(cliente);
@@ -80,7 +80,7 @@ public class SalvaOrcamento extends HttpServlet {
 		sessionProdutos = request.getSession(false);
 		ArrayList<Carrinho> list = (ArrayList<Carrinho>) sessionProdutos.getAttribute("carroCompras");
 
-		List<Pagamento> pagamentoList = new ArrayList<>();
+		List<Pagamentos> pagamentoList = new ArrayList<>();
 
 		for (int i = 1; i <= totalParcelas; i++) {
 
@@ -95,12 +95,12 @@ public class SalvaOrcamento extends HttpServlet {
 			
 			if (statusText.equals("on")) {
 				status = EnumStatus.valueOf("QUITADO");
-				parcelasPagas++;
+				parcelasPagas++; // COnta as parcelas que já foram pagas
 			} else {
 				status = EnumStatus.valueOf("A_PAGAR");
 			}
 			
-			Pagamento pagamento = new Pagamento();
+			Pagamentos pagamento = new Pagamentos();
 			pagamento.setValorParcela(parcelaValor);
 			pagamento.setNumParcela(i);
 			pagamento.setFkOrcamento(fkOrcamento);
@@ -114,7 +114,8 @@ public class SalvaOrcamento extends HttpServlet {
 			System.out.println("A parcela foi paga? " + status);
 
 		}
-
+		
+		//seta parcelas pagas
 		orcamento.setParcelasPagas(parcelasPagas);
 		orcamento.setTotalParcelas(totalParcelas);
 

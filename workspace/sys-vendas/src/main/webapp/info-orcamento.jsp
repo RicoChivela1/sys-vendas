@@ -173,6 +173,7 @@
 	</div>		
 	</fieldset>
 	
+	<form action="pagamento.jsp" method="post">
 	<fieldset class="campo">
 
 	<legend>Pagamentos</legend>
@@ -183,6 +184,7 @@
 		<table class="table table-hover">
 			  <thead>
 			    <tr>
+			    <th > Pagamento id </th>
 			      <th > Nº. Parcela </th>
 			      <th > Valor da Parcela</th>
 			      <th > Vencimento </th>
@@ -194,6 +196,13 @@
 		
 		  <c:forEach var="pagamento" items="${orcamento.pagamentos}"> 
 		  <tr>
+		  
+		  	<td>
+				${pagamento.id}
+				<input type="hidden" name="idPagamento[${pagamento.numParcela}]" value="${pagamento.id}">
+			</td>
+			
+			
 			<td>
 				${pagamento.numParcela}
 			</td>
@@ -225,14 +234,21 @@
 	      </td>
 	    </tr>
 		   </c:forEach>
+		  
 		  </tbody>
 		</table>
 	</div>		
 	</fieldset>
-	
+	<input type="hidden" name="totalParcelas" value="${orcamento.totalParcelas}">
+	<input type="hidden" name="fkOrcamento" value="${orcamento.id}">
 	<div id="divSalvaPagamentos">
 		<input id="chkToggle" name="trava" type="checkbox" data-style="slow"> 
 	</div>
+	 
+	 
+	 
+	</form>
+	
 </div>
 
 <footer class="site-footer push">

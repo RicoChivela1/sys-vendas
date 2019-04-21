@@ -31,6 +31,7 @@ public class Pagamento extends HttpServlet {
 		int fkOrcamento = Integer.parseInt(request.getParameter("fkOrcamento"));
 		int totalParcelas = Integer.parseInt(request.getParameter("totalParcelas"));
 		int parcelasPagas = 0;
+
 		// criar list de pagamentos
 		List<Pagamentos> list = new ArrayList<>();
 

@@ -86,8 +86,7 @@ public class ProdutoDao implements IDAO {
 
 		if (produto.getId() == null) {
 			sql = "insert into Produtos (nome, descricao, indicacao, volume, "
-					+ " custoUnid, sugestaoVenda, fk_categoria, fk_estoque, "
-					+ " lucro, percentual, imagem)"
+					+ " custoUnid, sugestaoVenda, fk_categoria, fk_estoque, " + " lucro, percentual, imagem)"
 					+ " values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		} else {
 			sql = "update Produtos set nome=?, descricao=?, indicacao=?, "
@@ -253,6 +252,126 @@ public class ProdutoDao implements IDAO {
 				id = rs.getInt(1);
 			}
 			return id;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	// Busca os 5 produtos mais vendidos
+	public List<Produto> topList() {
+		String sql = "select produtos.*, estoques.* from produtos inner join estoques order by qtdSaida desc limit 5";
+		List<Produto> list = new ArrayList<>();
+
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+
+				Estoque estoque = new Estoque();
+				Produto produto = new Produto();
+
+				produto.setId(rs.getInt("id"));
+				produto.setNome(rs.getString("nome"));
+				produto.setDescricao(rs.getString("descricao"));
+				produto.setIndicacao(rs.getString("indicacao"));
+				produto.setVolume(rs.getString("volume"));
+				produto.setCustoUnid(rs.getBigDecimal("custoUnid"));
+				produto.setSugestaoVenda(rs.getBigDecimal("sugestaoVenda"));
+				produto.setPercentual(rs.getDouble("percentual"));
+				produto.setLucro(rs.getBigDecimal("lucro"));
+				produto.setImagem(rs.getString("imagem"));
+
+				estoque.setId(rs.getInt("fk_estoque"));
+				estoque.setQtdEntrada(rs.getInt("qtdEntrada"));
+				estoque.setQtdSaida(rs.getInt("qtdSaida"));
+				estoque.setQtdMinima(rs.getInt("qtdMinima"));
+				estoque.setQtdDisponivel(rs.getInt("qtdDisponivel"));
+
+				produto.setEstoque(estoque);
+
+				list.add(produto);
+			}
+			return list;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	//Produtos Na reserva
+	public List<Produto> reservaList() {
+		String sql = "select produtos.*, estoques.* from produtos inner join estoques on produtos.fk_estoque = estoques.id where (qtdDisponivel<qtdMinima) limit 5";
+		List<Produto> list = new ArrayList<>();
+
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+
+				Estoque estoque = new Estoque();
+				Produto produto = new Produto();
+
+				produto.setId(rs.getInt("id"));
+				produto.setNome(rs.getString("nome"));
+				produto.setDescricao(rs.getString("descricao"));
+				produto.setIndicacao(rs.getString("indicacao"));
+				produto.setVolume(rs.getString("volume"));
+				produto.setCustoUnid(rs.getBigDecimal("custoUnid"));
+				produto.setSugestaoVenda(rs.getBigDecimal("sugestaoVenda"));
+				produto.setPercentual(rs.getDouble("percentual"));
+				produto.setLucro(rs.getBigDecimal("lucro"));
+				produto.setImagem(rs.getString("imagem"));
+
+				estoque.setId(rs.getInt("fk_estoque"));
+				estoque.setQtdEntrada(rs.getInt("qtdEntrada"));
+				estoque.setQtdSaida(rs.getInt("qtdSaida"));
+				estoque.setQtdMinima(rs.getInt("qtdMinima"));
+				estoque.setQtdDisponivel(rs.getInt("qtdDisponivel"));
+
+				produto.setEstoque(estoque);
+
+				list.add(produto);
+			}
+			return list;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	//produtos esgotados
+	public List<Produto> esgotadoList() {
+		String sql = "select produtos.*, estoques.* from produtos inner join estoques on produtos.fk_estoque = estoques.id where (qtdDisponivel<=0) limit 5";
+		List<Produto> list = new ArrayList<>();
+
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+
+				Estoque estoque = new Estoque();
+				Produto produto = new Produto();
+
+				produto.setId(rs.getInt("id"));
+				produto.setNome(rs.getString("nome"));
+				produto.setDescricao(rs.getString("descricao"));
+				produto.setIndicacao(rs.getString("indicacao"));
+				produto.setVolume(rs.getString("volume"));
+				produto.setCustoUnid(rs.getBigDecimal("custoUnid"));
+				produto.setSugestaoVenda(rs.getBigDecimal("sugestaoVenda"));
+				produto.setPercentual(rs.getDouble("percentual"));
+				produto.setLucro(rs.getBigDecimal("lucro"));
+				produto.setImagem(rs.getString("imagem"));
+
+				estoque.setId(rs.getInt("fk_estoque"));
+				estoque.setQtdEntrada(rs.getInt("qtdEntrada"));
+				estoque.setQtdSaida(rs.getInt("qtdSaida"));
+				estoque.setQtdMinima(rs.getInt("qtdMinima"));
+				estoque.setQtdDisponivel(rs.getInt("qtdDisponivel"));
+
+				produto.setEstoque(estoque);
+
+				list.add(produto);
+			}
+			return list;
+
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

@@ -66,7 +66,7 @@ public class EstoqueDao {
 		int id = 0;
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
+			while (rs.next()) {	
 				id = rs.getInt(1);
 			}
 			return id;

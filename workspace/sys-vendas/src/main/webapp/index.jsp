@@ -23,6 +23,33 @@
 </div>
 
 <div id="container"> 
+
+<div class="caixa">
+
+
+<h3><label>Visão Geral</label></h3>
+	<ul>
+		<li>Total Investido</li>
+		<li>Total Lucro</li>
+		<li>Lucro extimado</li>
+	</ul>
+<br />
+<h3><label>Dívidas</label></h3>
+	<ul>
+		<li>Total Dívidas</li> <label>${}</label>
+		<li>Total em atrazo</li> <label>${}</label>
+		<li>Total à receber</li> <label>${}</label>
+		<li>Total a receber hoje/ mês/ semana</li> <label>${}</label>
+	</ul>
+<br />
+<h3><label>Produtos</label></h3>
+	<ul>
+		<li>Mais vendidos</li>
+		<li>Estão na reserva</li>
+		<li>Esgotados</li>
+	</ul>
+<br />
+</div>
 <div class="caixaIndex">
 	<div class="menutemp">
 	    <div>	

@@ -130,4 +130,33 @@ public class PagamentoDao {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	// Dividas
+	public List<Pagamentos> buscaDividas() {
+		List<Pagamentos> lista = new ArrayList<>();
+		String sql = "select * from pagamentos inner join orcamentos on pagamentos.fk_orcamento = orcamentos.id where (status='ATRASADO' || status='A_PAGAR')";
+
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Pagamentos pagamento = new Pagamentos();
+				pagamento.setId(rs.getInt("id"));
+				pagamento.setNumParcela(rs.getInt("numParcela"));
+				pagamento.setValorParcela(rs.getBigDecimal("valorParcela"));
+				pagamento.setParcelaData(rs.getDate("parcelaData").toLocalDate());
+				pagamento.setFkOrcamento(rs.getInt("fk_orcamento"));
+
+				pagamento.setStatus(EnumStatus.valueOf(rs.getString("status")));
+
+				lista.add(pagamento);
+			}
+			return lista;
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
+
 }

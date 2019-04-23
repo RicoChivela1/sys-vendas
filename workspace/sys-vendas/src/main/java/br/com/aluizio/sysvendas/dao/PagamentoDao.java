@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -134,7 +135,7 @@ public class PagamentoDao {
 	// Dividas
 	public List<Pagamentos> buscaDividas() {
 		List<Pagamentos> lista = new ArrayList<>();
-		String sql = "select * from pagamentos inner join orcamentos on pagamentos.fk_orcamento = orcamentos.id where (status='ATRASADO' || status='A_PAGAR')";
+		String sql = "select * from pagamentos inner join orcamentos on pagamentos.fk_orcamento = orcamentos.id where (status='EM_ATRASO' || status='A_PAGAR')";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
@@ -158,5 +159,45 @@ public class PagamentoDao {
 		}
 		
 	}
+	
+	// Dividas por semana
+		public List<Pagamentos> buscaDividasSemana() {
+			List<Pagamentos> lista = new ArrayList<>();
+			LocalDate agora = LocalDate.now();
+			String sql = "select * from pagamentos inner join orcamentos "
+					+ "on pagamentos.fk_orcamento = orcamentos.id "
+					+ "where (status='EM_ATRASO' || status='A_PAGAR') "  
+					+ "&& (parcelaData >= ? && parcelaData <= ?)";
+
+			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+				stmt.setString(1, agora.toString());
+				System.out.println("Agora dao: "+agora);
+				//LocalDate maisSeteDias = agora.plusDays(7);
+				stmt.setString(2, agora.plusDays(7).toString());
+				System.out.println("Agora mais 7 dao: "+agora.plusDays(7));
+				
+				ResultSet rs = stmt.executeQuery();
+
+				while (rs.next()) {
+					Pagamentos pagamento = new Pagamentos();
+					pagamento.setId(rs.getInt("id"));
+					pagamento.setNumParcela(rs.getInt("numParcela"));
+					pagamento.setValorParcela(rs.getBigDecimal("valorParcela"));
+					pagamento.setParcelaData(rs.getDate("parcelaData").toLocalDate());
+					pagamento.setFkOrcamento(rs.getInt("fk_orcamento"));
+
+					pagamento.setStatus(EnumStatus.valueOf(rs.getString("status")));
+
+					lista.add(pagamento);
+				}
+				return lista;
+				
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+			
+		}
+		
+		
 
 }

@@ -36,10 +36,10 @@
 <br />
 <h3><label>Dívidas</label></h3>
 	<ul>
-		<li>Total Dívidas</li> <label>${}</label>
-		<li>Total em atrazo</li> <label>${}</label>
-		<li>Total à receber</li> <label>${}</label>
-		<li>Total a receber hoje/ mês/ semana</li> <label>${}</label>
+		<li>Total Dívidas</li> <label></label>
+		<li>Total em atrazo</li> <label></label>
+		<li>Total à receber</li> <label></label>
+		<li>Total a receber hoje-mês-semana</li> <label></label><br />
 	</ul>
 <br />
 <h3><label>Produtos</label></h3>

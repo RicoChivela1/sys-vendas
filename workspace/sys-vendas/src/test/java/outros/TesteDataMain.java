@@ -47,7 +47,7 @@ public class TesteDataMain {
 		System.out.println("diferença formatar em String : "+s);
 		
 		//Somando dias, meses e anos
-		System.out.println("Agora + 30 dias: "+agora.plusDays(2));
+		System.out.println("Agora + 2 dias: "+agora.plusDays(2));
 		System.out.println("Agora + 3 meses: "+agora.plusMonths(3));
 		System.out.println("Agora + 5 anos: "+agora.plusYears(5));
 		

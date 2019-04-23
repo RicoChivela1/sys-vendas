@@ -6,7 +6,7 @@ import java.time.LocalDate;
 /**
  * @author Aluizio Monteiro
  */
-public class Pagamentos {
+public class Pagamentos implements Comparable<LocalDate> {
 	private Integer id;
 	private Integer numParcela;
 	private BigDecimal valorParcela;
@@ -14,6 +14,7 @@ public class Pagamentos {
 	private Integer fkOrcamento;
 	private EnumStatus status;
 
+	
 	public Integer getId() {
 		return id;
 	}
@@ -67,5 +68,15 @@ public class Pagamentos {
 		return "Pagamento [id=" + id + ", numParcela=" + numParcela + ", valorParcela=" + valorParcela
 				+ ", parcelaData=" + parcelaData + ", fkOrcamento=" + fkOrcamento + ", status=" + status + "]";
 	}
+
+	@Override
+	public int compareTo(LocalDate data) {
+		if(this.parcelaData.equals(data)) {
+			return 1;
+		}
+		return 0;
+	}
+	
+	
 
 }

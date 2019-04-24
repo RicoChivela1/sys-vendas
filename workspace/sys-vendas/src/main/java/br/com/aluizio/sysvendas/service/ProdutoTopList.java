@@ -1,4 +1,4 @@
-package dashboard;
+package br.com.aluizio.sysvendas.service;
 
 import java.util.List;
 
@@ -11,16 +11,17 @@ import br.com.aluizio.sysvendas.model.Produto;
  * @author Aluizio Monteiro 24 de abr de 2019
  */
 
-public class TestaProdutoTopList {
+public class ProdutoTopList {
 
-	public static void main(String[] args) {
-		// Produtos Top List
-		System.out.println("Produtos");
+	/**
+	 * Produtos Top List
+	 * 
+	 * @return List<Produto> topList
+	 */
+	public static List<Produto> getProdutoTopList() {
 		ProdutoDao produtoDao = new ProdutoDao();
-
-		System.out.println("* Os cinco mais vendidos");
 		List<Produto> topList = produtoDao.topList();
-		topList.forEach(p -> System.out.println(p));
+		return topList;
 	}
 
 }

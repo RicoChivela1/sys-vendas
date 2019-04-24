@@ -14,11 +14,13 @@ import javax.swing.JOptionPane;
 
 import br.com.aluizio.sysvendas.dao.UsuarioDao;
 import br.com.aluizio.sysvendas.model.Pagamentos;
+import br.com.aluizio.sysvendas.model.Produto;
 import br.com.aluizio.sysvendas.model.Usuario;
 import br.com.aluizio.sysvendas.service.AReceber;
 import br.com.aluizio.sysvendas.service.AReceberHoje;
 import br.com.aluizio.sysvendas.service.AReceberMes;
 import br.com.aluizio.sysvendas.service.AReceberSemana;
+import br.com.aluizio.sysvendas.service.ProdutosEsgotados;
 
 /**
  * Servlet implementation class Login
@@ -93,7 +95,10 @@ public class Login extends HttpServlet {
 			BigDecimal valorAReceberSemana = AReceberSemana.getValorAReceberSemana(listaAReceberSemana);
 			request.setAttribute("valorAReceberSemana", valorAReceberSemana);
 			
-			//ProdutosEsgotados
+			//Produtos Esgotado
+			List<Produto> produtosEsgotados = ProdutosEsgotados.getProdutosEsgotados();
+			request.setAttribute("produtosEsgotados", produtosEsgotados);
+			
 			//ProdutosReserva
 			//ProdutosTopList
 			//TotalAtraso

@@ -51,8 +51,82 @@
 	<ul>
 		<li> - Mais vendidos</li>
 		<li> - Estão na reserva</li>
-		<li> - Esgotados</li>
-	</ul>
+		
+		
+		
+		
+		
+		
+		
+		<li>Esgotados</li>
+		</ul>
+		<form action="gerencia-produto.jsp" method="post">
+
+	<c:choose>	
+		<c:when test="${empty produtosEsgotados}">
+			<div class="box">
+			<div>
+				<label class="listaNula">Não encontramos registros.</label>	
+			</div>
+			<div>
+				<a href="gerencia-produto.jsp?filtro=" title="Listar todos os produtos.">Ver todos </a> |
+				<a href="cadastrar-produto.jsp" title="Cadastrar um novo produto."> Adicionar </a> |
+				<a href="orcamento.jsp" title="Página de orçamento."> Orçamento </a>
+			</div>
+		
+			</div>
+				
+		</c:when>
+		
+		<c:when test="${not empty produtosEsgotados}">
+			<div class="table-responsive">
+				<table class="table table-hover">
+				<caption>Produtos Esgotados</caption>
+					  <thead>
+					    <tr>
+					      <th > # </th>
+					      <th > Imagem </th>
+					      <th > Nome </th>
+					      <th > Descricao/Indicação </th>
+					      <th > Custo Unid </th>
+					      <th > Sugestão Venda </th>
+					      <th > Estoque </th>
+					      <th > Ações</th>
+					    </tr>
+					  </thead>
+				  <tbody>
+				
+				   <c:forEach var="produto" items="${produtosEsgotados}">
+					    <tr>
+					      <td>${produto.id}</td>
+					      <td><img class="miniaturaProduto" src="./carregadorImagem?id=${produto.id}" /></td>
+							<td><span class="nome">-${produto.nome}</span><br />
+								${produto.volume}
+							</td>
+							<td>-${produto.descricao}<br />
+								-${produto.indicacao}
+							</td>
+							
+						    <td class="valores">R$ ${produto.custoUnid}</td>
+							<td class="valores">R$ ${produto.sugestaoVenda}</td>
+							<td>${produto.estoque.qtdDisponivel}</td>
+					
+					      <td> 
+					    	<div class="btnAcoes">
+					      		<button type="submit" name="info" value="${produto.id}"  class="btn btn-outline-info" title="Veja maiores informações sobre um produto e realize uma venda."> <i class="fa fa-info-circle" ></i> Info</button>
+					      		<button type="submit" name="alterar" value="${produto.id}" class="btn btn-outline-warning" title="Permite alterar os dados do produto."> <i class="fa fa-pencil-square-o" ></i> Atualizar</button>	
+						  		<button type="submit" name="remover" value="${produto.id}" class="btn btn-outline-danger" title="Apaga este produto do sistema.">  <i class="fa fa-trash-o" ></i> Remover</button>
+							</div>
+					      </td>
+					    </tr>
+				   </c:forEach>
+				  </tbody>
+				</table>
+			</div>
+		</c:when>
+	</c:choose>
+
+</form>
 <br />
 </div>
 <div class="caixaIndex">

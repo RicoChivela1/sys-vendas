@@ -19,28 +19,11 @@ public class TestaPainelAdmin {
 
 	public static void main(String[] args) {
 
-	
+		
+
+
+
 		/*
-		 * // Valor a receber System.out.println("- Lista à receber"); PagamentoDao
-		 * pagamentoDao = new PagamentoDao(); List<Pagamentos> listaAReceber =
-		 * pagamentoDao.buscaDividas().stream() .filter(pagamento ->
-		 * pagamento.getStatus() .equals(EnumStatus.A_PAGAR))
-		 * .collect(Collectors.toList()); listaAReceber.forEach(e ->
-		 * System.out.println(e.getStatus()));
-		 * 
-		 * // Valor total Atraso BigDecimal totalAReceber = listaAReceber.stream()
-		 * .map(Pagamentos::getValorParcela) .reduce(BigDecimal.ZERO, BigDecimal::add);
-		 * System.out.println("- Total atrasados"); System.out.println(totalAReceber);
-		 * 
-		 * 
-		 * // Lista á receber System.out.println("- Lista à receber"); PagamentoDao
-		 * pagamentoDao = new PagamentoDao(); List<Pagamentos> listaAReceber =
-		 * pagamentoDao.buscaDividas().stream() .filter(pagamento ->
-		 * pagamento.getStatus() .equals(EnumStatus.A_PAGAR))
-		 * .collect(Collectors.toList()); listaAReceber.forEach(e ->
-		 * System.out.println(e.getStatus()));
-		 * 
-		 * 
 		 * // Lista á receber hoje System.out.println("- Total a receber hoje");
 		 * LocalDate hoje = LocalDate.now(); PagamentoDao pagamentoDao = new
 		 * PagamentoDao(); List<Pagamentos> listaAReceberHoje =

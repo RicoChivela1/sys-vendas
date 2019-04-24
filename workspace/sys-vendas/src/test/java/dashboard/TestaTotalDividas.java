@@ -26,9 +26,9 @@ public class TestaTotalDividas {
 				BigDecimal::add);
 		System.out.println(valorTotal);
 
-		// Listar todas as dívidas System.out.println("* Lista de dividas");
+		// Listar todas as dívidas 
+		System.out.println("* Lista de dividas");
 		buscaDividas.forEach(System.out::println);
-
 	}
 
 }

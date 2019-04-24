@@ -29,18 +29,18 @@
 
 <h3><label>Visão Geral</label></h3>
 	<ul>
-		<li>Total Investido</li>
-		<li>Lucro Bruto</li>
-		<li>Lucro Líquido</li>
+		<li> - Total Investido</li>
+		<li> - Lucro Bruto</li>
+		<li> - Lucro Líquido</li>
 	
-		<li>Lucro extimado Bruto</li>
-		<li>Lucro extimado Líquido</li>
+		<li> - Lucro extimado Bruto</li>
+		<li> - Lucro extimado Líquido</li>
 	</ul>
 <br />
 <h3><label>Dívidas</label></h3>
 	<ul>
-		<li>Total Dívidas</li> 
-		<li>Total em atrazo</li> 
+		<li> - Total Dívidas</li> 
+		<li> - Total em atrazo</li> 
 		<li>Total à receber</li> 
 		<li>Total a receber hoje</li> 
 		<li>Total a receber mês</li>

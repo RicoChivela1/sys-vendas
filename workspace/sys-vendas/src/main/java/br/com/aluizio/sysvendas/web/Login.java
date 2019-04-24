@@ -17,6 +17,7 @@ import br.com.aluizio.sysvendas.model.Pagamentos;
 import br.com.aluizio.sysvendas.model.Usuario;
 import br.com.aluizio.sysvendas.service.AReceber;
 import br.com.aluizio.sysvendas.service.AReceberHoje;
+import br.com.aluizio.sysvendas.service.AReceberMes;
 
 /**
  * Servlet implementation class Login
@@ -75,6 +76,13 @@ public class Login extends HttpServlet {
 			System.out.println("- Valor a receber hoje: "+valorAReceberHoje);
 			request.setAttribute("valorAReceberHoje", valorAReceberHoje);
 			
+			//Lista á receber mês
+			List<Pagamentos> listaAReceberMes = AReceberMes.getListAReceberMes();
+			request.setAttribute("listaAReceberMes", listaAReceberMes);//
+			
+			//Valor total a receber mês
+			BigDecimal valorAReceberMes = AReceberMes.getValorAReceberMes(listaAReceberMes);
+			request.setAttribute("valorAReceberMes", valorAReceberMes);
 			
 			//AReceberMes
 			//AReceberSemana

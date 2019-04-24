@@ -173,7 +173,7 @@ public class PagamentoDao {
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setString(1, agora.toString());
 			stmt.setString(2, agora.plusDays(7).toString());
-			System.out.println("Agora mais 7 dao: " + agora.plusDays(7));
+			System.out.println("Agora mais 7 dias dao: " + agora.plusDays(7));
 
 			ResultSet rs = stmt.executeQuery();
 

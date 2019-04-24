@@ -32,7 +32,7 @@
 		<li> - Total Investido</li>
 		<li> - Lucro Bruto</li>
 		<li> - Lucro Líquido</li>
-	
+		
 		<li> - Lucro extimado Bruto</li>
 		<li> - Lucro extimado Líquido</li>
 	</ul>
@@ -41,17 +41,17 @@
 	<ul>
 		<li> - Total Dívidas</li> 
 		<li> - Total em atrazo</li> 
-		<li> - Total à receber</li> 
-		<li> - Total a receber hoje</li> 
+		<li>Total à receber: R$ ${valorTotalAtraso}</li> 
+		<li>Total a receber hoje: R$ ${valorAReceberHoje}</li> 
 		<li> - Total a receber mês</li>
 		<li> - Total a receber semana</li>
 	</ul>
 <br />
 <h3><label>Produtos</label></h3>
 	<ul>
-		<li>Mais vendidos</li>
-		<li>Estão na reserva</li>
-		<li>Esgotados</li>
+		<li> - Mais vendidos</li>
+		<li> - Estão na reserva</li>
+		<li> - Esgotados</li>
 	</ul>
 <br />
 </div>

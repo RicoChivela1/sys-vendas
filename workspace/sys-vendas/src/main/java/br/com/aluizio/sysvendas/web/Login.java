@@ -1,6 +1,8 @@
 package br.com.aluizio.sysvendas.web;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +13,10 @@ import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
 import br.com.aluizio.sysvendas.dao.UsuarioDao;
+import br.com.aluizio.sysvendas.model.Pagamentos;
 import br.com.aluizio.sysvendas.model.Usuario;
+import br.com.aluizio.sysvendas.service.AReceber;
+import br.com.aluizio.sysvendas.service.AReceberHoje;
 
 /**
  * Servlet implementation class Login
@@ -48,6 +53,36 @@ public class Login extends HttpServlet {
 			//Coloca a sessão na memória do servidor e retorna um cookie.
 			HttpSession session = request.getSession();
 			session.setAttribute("usuarioLogado", usuario);
+			
+			//Carrega dashboard
+			
+			//Lista a receber
+			List<Pagamentos> listaAReceber = AReceber.getListaValoresAReceber();
+			request.setAttribute("listaAReceber", listaAReceber);//
+			
+			//Total a receber
+			System.out.println("- Total atrasados");
+			BigDecimal valorTotalAtraso = AReceber.getValorTotalAtraso(listaAReceber);
+			request.setAttribute("valorTotalAtraso", valorTotalAtraso);
+			
+			//Lista A Receber Hoje
+			List<Pagamentos> listaAReceberHoje = AReceberHoje.getListAReceberHoje();
+			listaAReceberHoje.forEach(e->System.out.println(e));
+			request.setAttribute("listaAReceberHoje", listaAReceberHoje);//
+			
+			//Valor A Receber Hoje
+			BigDecimal valorAReceberHoje = AReceberHoje.getValorAReceberHoje(listaAReceberHoje);
+			System.out.println("- Valor a receber hoje: "+valorAReceberHoje);
+			request.setAttribute("valorAReceberHoje", valorAReceberHoje);
+			
+			
+			//AReceberMes
+			//AReceberSemana
+			//ProdutosEsgotados
+			//ProdutosReserva
+			//ProdutosTopList
+			//TotalAtraso
+			//VisaoGeral
 			
 			request.setAttribute("usuario", usuario.getNome());
 			request.getRequestDispatcher("/index.jsp")

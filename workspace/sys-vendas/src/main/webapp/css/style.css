@@ -213,7 +213,8 @@ img#imgPreview{
 
 /*miniatura da imagem do produto para a list*/
 img.miniaturaProduto{
-	width: 100px;
+	/*width: 100px;*/
+	width: 39px;
 }
 
 /*miniatura da imagem do produto para info-orçamento*/

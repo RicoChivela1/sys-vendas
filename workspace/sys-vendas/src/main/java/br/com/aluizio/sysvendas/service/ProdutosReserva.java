@@ -1,4 +1,4 @@
-package dashboard;
+package br.com.aluizio.sysvendas.service;
 
 import java.util.List;
 
@@ -6,21 +6,22 @@ import br.com.aluizio.sysvendas.dao.ProdutoDao;
 import br.com.aluizio.sysvendas.model.Produto;
 
 /**
- * TestaProdutosReserva.java
+ * ProdutosReserva.java
  * 
  * @author Aluizio Monteiro 24 de abr de 2019
  */
 
-public class TestaProdutosReserva {
+public class ProdutosReserva {
 
-	public static void main(String[] args) {
-		// Produtos Na Reserva
-		System.out.println("Produtos");
+	/**
+	 * Lista de produtos na reserva
+	 * 
+	 * @return List<Produto> reservaList
+	 */
+	public static List<Produto> getProdutosReserva() {
 		ProdutoDao produtoDao = new ProdutoDao();
-
-		System.out.println("* Estão na reserva");
 		List<Produto> reservaList = produtoDao.reservaList();
-		reservaList.forEach(p -> System.out.println(p));
-
+		return reservaList;
 	}
+
 }

@@ -21,6 +21,7 @@ import br.com.aluizio.sysvendas.service.AReceberHoje;
 import br.com.aluizio.sysvendas.service.AReceberMes;
 import br.com.aluizio.sysvendas.service.AReceberSemana;
 import br.com.aluizio.sysvendas.service.ProdutosEsgotados;
+import br.com.aluizio.sysvendas.service.ProdutosReserva;
 
 /**
  * Servlet implementation class Login
@@ -99,7 +100,10 @@ public class Login extends HttpServlet {
 			List<Produto> produtosEsgotados = ProdutosEsgotados.getProdutosEsgotados();
 			request.setAttribute("produtosEsgotados", produtosEsgotados);
 			
-			//ProdutosReserva
+			// Lista de produtos na reserva
+			List<Produto> produtosReserva = ProdutosReserva.getProdutosReserva();
+			request.setAttribute("produtosReserva", produtosReserva);
+			
 			//ProdutosTopList
 			//TotalAtraso
 			//VisaoGeral

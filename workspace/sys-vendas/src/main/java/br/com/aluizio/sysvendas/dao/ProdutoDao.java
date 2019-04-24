@@ -339,10 +339,11 @@ public class ProdutoDao implements IDAO {
 
 	//produtos esgotados
 	public List<Produto> esgotadoList() {
-		String sql = "select produtos.*, estoques.* from produtos inner join estoques on produtos.fk_estoque = estoques.id where (qtdDisponivel<=0) limit 5";
+		String sql = "select produtos.*, estoques.* from produtos right join estoques on produtos.fk_estoque = estoques.id where (estoques.qtdDisponivel<=?) limit ?";
 		List<Produto> list = new ArrayList<>();
-
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			stmt.setInt(1, 0);
+			stmt.setInt(2, 5);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 

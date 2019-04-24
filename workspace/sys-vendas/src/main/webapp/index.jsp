@@ -41,8 +41,8 @@
 	<ul>
 		<li> - Total Dívidas</li> 
 		<li> - Total em atrazo</li> 
-		<li>Total à receber</li> 
-		<li>Total a receber hoje</li> 
+		<li> - Total à receber</li> 
+		<li> - Total a receber hoje</li> 
 		<li>Total a receber mês</li>
 		<li>Total a receber semana</li>
 	</ul>

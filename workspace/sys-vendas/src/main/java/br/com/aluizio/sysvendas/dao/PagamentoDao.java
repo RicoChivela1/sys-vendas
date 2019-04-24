@@ -136,9 +136,11 @@ public class PagamentoDao {
 	// Dividas
 	public List<Pagamentos> buscaDividas() {
 		List<Pagamentos> lista = new ArrayList<>();
-		String sql = "select * from pagamentos inner join orcamentos on pagamentos.fk_orcamento = orcamentos.id where (status='EM_ATRASO' || status='A_PAGAR')";
+		String sql = "select * from pagamentos inner join orcamentos on pagamentos.fk_orcamento = orcamentos.id where (status=? || status=?)";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			stmt.setString(1, "EM_ATRASO");
+			stmt.setString(2, "A_PAGAR");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {

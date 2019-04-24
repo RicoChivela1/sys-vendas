@@ -1,5 +1,6 @@
 package br.com.aluizio.sysvendas.dao;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -131,7 +132,7 @@ public class PagamentoDao {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	// Dividas
 	public List<Pagamentos> buscaDividas() {
 		List<Pagamentos> lista = new ArrayList<>();
@@ -153,51 +154,82 @@ public class PagamentoDao {
 				lista.add(pagamento);
 			}
 			return lista;
-			
+
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-		
+
 	}
-	
+
 	// Dividas por semana
-		public List<Pagamentos> buscaDividasSemana() {
-			List<Pagamentos> lista = new ArrayList<>();
-			LocalDate agora = LocalDate.now();
-			String sql = "select * from pagamentos inner join orcamentos "
-					+ "on pagamentos.fk_orcamento = orcamentos.id "
-					+ "where (status='EM_ATRASO' || status='A_PAGAR') "  
-					+ "&& (parcelaData >= ? && parcelaData <= ?)";
+	public List<Pagamentos> buscaDividasSemana() {
+		List<Pagamentos> lista = new ArrayList<>();
+		LocalDate agora = LocalDate.now();
+		String sql = "select * from pagamentos inner join orcamentos " + "on pagamentos.fk_orcamento = orcamentos.id "
+				+ "where (status='EM_ATRASO' || status='A_PAGAR') " + "&& (parcelaData >= ? && parcelaData <= ?)";
 
-			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-				stmt.setString(1, agora.toString());
-				System.out.println("Agora dao: "+agora);
-				//LocalDate maisSeteDias = agora.plusDays(7);
-				stmt.setString(2, agora.plusDays(7).toString());
-				System.out.println("Agora mais 7 dao: "+agora.plusDays(7));
-				
-				ResultSet rs = stmt.executeQuery();
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			stmt.setString(1, agora.toString());
+			stmt.setString(2, agora.plusDays(7).toString());
+			System.out.println("Agora mais 7 dao: " + agora.plusDays(7));
 
-				while (rs.next()) {
-					Pagamentos pagamento = new Pagamentos();
-					pagamento.setId(rs.getInt("id"));
-					pagamento.setNumParcela(rs.getInt("numParcela"));
-					pagamento.setValorParcela(rs.getBigDecimal("valorParcela"));
-					pagamento.setParcelaData(rs.getDate("parcelaData").toLocalDate());
-					pagamento.setFkOrcamento(rs.getInt("fk_orcamento"));
+			ResultSet rs = stmt.executeQuery();
 
-					pagamento.setStatus(EnumStatus.valueOf(rs.getString("status")));
+			while (rs.next()) {
+				Pagamentos pagamento = new Pagamentos();
+				pagamento.setId(rs.getInt("id"));
+				pagamento.setNumParcela(rs.getInt("numParcela"));
+				pagamento.setValorParcela(rs.getBigDecimal("valorParcela"));
+				pagamento.setParcelaData(rs.getDate("parcelaData").toLocalDate());
+				pagamento.setFkOrcamento(rs.getInt("fk_orcamento"));
 
-					lista.add(pagamento);
-				}
-				return lista;
-				
-			} catch (SQLException e) {
-				throw new RuntimeException(e);
+				pagamento.setStatus(EnumStatus.valueOf(rs.getString("status")));
+
+				lista.add(pagamento);
 			}
-			
+			return lista;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
-		
-		
+	}
+
+	// Total Lucro
+	public BigDecimal buscaLucro() {
+		String sql = "select sum(valorParcela) as totalLucro from pagamentos where status = ?";
+		BigDecimal total = null;
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			stmt.setString(1, "QUITADO");
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				total = rs.getBigDecimal("totalLucro");
+
+			}
+			return total;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	// Extimativa de Lucro
+	public BigDecimal buscaExtimativas() {
+		String sql = "select sum(valorParcela) as totalLucro from pagamentos";
+		BigDecimal total = null;
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				total = rs.getBigDecimal("totalLucro");
+			}
+
+			return total;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 }

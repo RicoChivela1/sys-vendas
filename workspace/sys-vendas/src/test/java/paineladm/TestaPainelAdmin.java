@@ -1,5 +1,12 @@
 package paineladm;
 
+import java.math.BigDecimal;
+import java.util.List;
+
+import br.com.aluizio.sysvendas.dao.PagamentoDao;
+import br.com.aluizio.sysvendas.dao.ProdutoDao;
+import br.com.aluizio.sysvendas.model.Produto;
+
 /**
  * TestaPainelAdmin.java
  * 
@@ -7,10 +14,56 @@ package paineladm;
  */
 
 public class TestaPainelAdmin {
+	static BigDecimal totalInvestido = new BigDecimal("00.00");
+
 	public static void main(String[] args) {
+		System.out.println("Visão Geral");
+
+		// Total Investido
+		System.out.println("Total Investido");
+		ProdutoDao produtoDao = new ProdutoDao();
+		List<Object> list = produtoDao.getList();
+		for (Object object : list) {
+			Produto produto = (Produto) object;
+			totalInvestido = totalInvestido.add(produto.getCustoUnid());
+
+		}
+
+		System.out.println(" - Total: " + totalInvestido);
+
+		// Total Lucro ( vendasBrutas - totalInvestido)
+		System.out.println("Total Lucro");
+
+		PagamentoDao pagamentoDao = new PagamentoDao();
+		BigDecimal totalVendas = pagamentoDao.buscaLucro();
+		System.out.println(" - Bruto: " + totalVendas);
+		System.out.println(" - Líquido: " + totalVendas.subtract(totalInvestido));
+
+		// Extimativa de Lucro
+		// Total Lucro ( soma QUITADO, ATRASADO E A_PAGAR e subtrai pelo totalInvestido)
+		System.out.println("Extimativa de Lucro");
+		BigDecimal extimativaLucro = pagamentoDao.buscaExtimativas();
+		System.out.println(" - Bruto: " + (extimativaLucro));
+		System.out.println(" - Líquido: " + (extimativaLucro.subtract(totalInvestido)));
+
+		// BigDecimal totalInvestido =
+		// list.stream().map(Produto::getCustoUnid).reduce(BigDecimal.ZERO,
+		// BigDecimal::add);
+		// System.out.println(totalInvestido);
+
+		// list.forEach(e -> System.out.println(e));
 		/*
-		 * System.out.println("Visão Geral"); System.out.println("Total Investido");
+		 * BigDecimal totalInvestido = list.stream(). .map(Object::getCustoUnid)
+		 * .reduce(BigDecimal.ZERO, BigDecimal::add);
+		 * System.out.println(totalInvestido);
+		 */
+		/*
+		 * BigDecimal valorTotal =
+		 * buscaDividas.stream().map(Pagamentos::getValorParcela).reduce(BigDecimal.
+		 * ZERO, BigDecimal::add); System.out.println(valorTotal);
 		 * System.out.println("Total Lucro "); System.out.println("Lucro extimado");
+		 */
+		/*
 		 * 
 		 * //Dividas System.out.println("* Dívidas"); PagamentoDao pagamentoDao = new
 		 * PagamentoDao();

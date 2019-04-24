@@ -2,8 +2,10 @@ package paineladm;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import br.com.aluizio.sysvendas.dao.PagamentoDao;
+import br.com.aluizio.sysvendas.model.EnumStatus;
 import br.com.aluizio.sysvendas.model.Pagamentos;
 
 /**
@@ -16,20 +18,9 @@ public class TestaPainelAdmin {
 	static BigDecimal totalInvestido = new BigDecimal("00.00");
 
 	public static void main(String[] args) {
+
 	
 		/*
-		 * //Lista de pagamentos em Atraso PagamentoDao pagamentoDao = new
-		 * PagamentoDao(); System.out.println("- Pagamentos atrasados");
-		 * 
-		 * List<Pagamentos> listaAtrasos = pagamentoDao.buscaDividas().stream()
-		 * .filter(pagamento -> pagamento.getStatus() .equals(EnumStatus.EM_ATRASO))
-		 * .collect(Collectors.toList()); listaAtrasos.forEach(e ->
-		 * System.out.println(e.getStatus()));
-		 * 
-		 * // Valor total Atraso BigDecimal valorAtraso = listaAtrasos.stream()
-		 * .map(Pagamentos::getValorParcela) .reduce(BigDecimal.ZERO, BigDecimal::add);
-		 * System.out.println("- Total atrasados"); System.out.println(valorAtraso);
-		 * 
 		 * // Valor a receber System.out.println("- Lista à receber"); PagamentoDao
 		 * pagamentoDao = new PagamentoDao(); List<Pagamentos> listaAReceber =
 		 * pagamentoDao.buscaDividas().stream() .filter(pagamento ->

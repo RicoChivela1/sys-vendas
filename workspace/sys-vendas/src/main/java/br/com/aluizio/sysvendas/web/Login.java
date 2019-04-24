@@ -18,6 +18,7 @@ import br.com.aluizio.sysvendas.model.Usuario;
 import br.com.aluizio.sysvendas.service.AReceber;
 import br.com.aluizio.sysvendas.service.AReceberHoje;
 import br.com.aluizio.sysvendas.service.AReceberMes;
+import br.com.aluizio.sysvendas.service.AReceberSemana;
 
 /**
  * Servlet implementation class Login
@@ -84,8 +85,14 @@ public class Login extends HttpServlet {
 			BigDecimal valorAReceberMes = AReceberMes.getValorAReceberMes(listaAReceberMes);
 			request.setAttribute("valorAReceberMes", valorAReceberMes);
 			
-			//AReceberMes
-			//AReceberSemana
+			// Lista á receber Semana
+			List<Pagamentos> listaAReceberSemana = AReceberSemana.getListaAReceberSemana();//
+			request.setAttribute("listaAReceberSemana", listaAReceberSemana);
+			
+			// Valor á receber Semana
+			BigDecimal valorAReceberSemana = AReceberSemana.getValorAReceberSemana(listaAReceberSemana);
+			request.setAttribute("valorAReceberSemana", valorAReceberSemana);
+			
 			//ProdutosEsgotados
 			//ProdutosReserva
 			//ProdutosTopList

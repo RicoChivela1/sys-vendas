@@ -44,7 +44,7 @@
 		<li>Total à receber: R$ ${valorTotalAtraso}</li> 
 		<li>Total a receber hoje: R$ ${valorAReceberHoje}</li> 
 		<li>Total a receber mês: R$ ${valorAReceberMes} </li>
-		<li> - Total a receber semana</li>
+		<li>Total a receber semana: R$ ${valorAReceberSemana}</li> 
 	</ul>
 <br />
 <h3><label>Produtos</label></h3>

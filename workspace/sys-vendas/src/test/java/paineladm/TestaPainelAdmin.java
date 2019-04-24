@@ -21,15 +21,11 @@ public class TestaPainelAdmin {
 		System.out.println("Produtos");
 		ProdutoDao produtoDao = new ProdutoDao();
 
-		// Top List 
-		System.out.println("* Os cinco mais vendidos"); 
-		List<Produto> topList = produtoDao.topList();
-		topList.forEach(p -> System.out.println(p));
+		// Na Reserva
+		System.out.println("* Estão na reserva");
+		List<Produto> reservaList = produtoDao.reservaList();
+		reservaList.forEach(p -> System.out.println(p));
 		/*
-		 * // Na Reserva System.out.println("* Estão na reserva"); List<Produto>
-		 * reservaList = produtoDao.reservaList(); reservaList.forEach(p ->
-		 * System.out.println(p));
-		 * 
 		 * // Esgotado System.out.println("* Esgotados"); List<Produto> esgotadoList =
 		 * produtoDao.esgotadoList(); esgotadoList.forEach(p -> System.out.println(p));
 		 */

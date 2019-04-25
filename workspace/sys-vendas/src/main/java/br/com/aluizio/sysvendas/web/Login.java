@@ -25,6 +25,7 @@ import br.com.aluizio.sysvendas.service.ProdutosEsgotados;
 import br.com.aluizio.sysvendas.service.ProdutosReserva;
 import br.com.aluizio.sysvendas.service.TotalAtraso;
 import br.com.aluizio.sysvendas.service.TotalDividas;
+import br.com.aluizio.sysvendas.service.VisaoGeral;
 
 /**
  * Servlet implementation class Login
@@ -128,8 +129,28 @@ public class Login extends HttpServlet {
 			
 			
 			
-			// VisaoGeral
+			//Total Investido
+			BigDecimal totalInvestido = VisaoGeral.getTotalInvestido();
+			request.setAttribute("totalInvestido", totalInvestido);
+			
+			//LucroLiquido
+			BigDecimal lucroLiquido = VisaoGeral.getLucroLiquido();
+			request.setAttribute("lucroLiquido", lucroLiquido);
+			
+			//LucroBruto
+			BigDecimal lucroBruto = VisaoGeral.getLucroBruto();
+			request.setAttribute("lucroBruto", lucroBruto);
+			
+			// Extimativa Bruta
+			BigDecimal extimativaBruta = VisaoGeral.getExtimativaBruta();
+			request.setAttribute("extimativaBruta", extimativaBruta);
+			
+			// Extimativa Liquida
+			BigDecimal extimativaLiquida = VisaoGeral.getExtimativaLiquida();
+			request.setAttribute("extimativaLiquida", extimativaLiquida);
 
+			
+			
 			request.setAttribute("usuario", usuario.getNome());
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}

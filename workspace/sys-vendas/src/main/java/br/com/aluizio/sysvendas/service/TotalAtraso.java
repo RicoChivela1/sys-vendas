@@ -11,7 +11,7 @@ import br.com.aluizio.sysvendas.model.Pagamentos;
 /**
  * TotalAtraso.java
  * 
- * @author Aluizio Monteiro 24 de abr de 2019
+ * @author Aluizio Monteiro 25 de abr de 2019
  */
 
 public class TotalAtraso {

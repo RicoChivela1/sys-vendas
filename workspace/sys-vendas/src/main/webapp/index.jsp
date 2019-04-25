@@ -29,18 +29,18 @@
 
 <h3><label>Visão Geral</label></h3>
 	<ul>
-		<li> - Total Investido</li>
-		<li> - Lucro Bruto</li>
-		<li> - Lucro Líquido</li>
+		<li> - Total Investido: R$ ${totalInvestido}</li>
+		<li> - Lucro Bruto: R$ ${lucroLiquido}</li>
+		<li> - Lucro Líquido: R$ ${lucroBruto}</li>
 		
-		<li> - Lucro extimado Bruto</li>
-		<li> - Lucro extimado Líquido</li>
+		<li> - Lucro extimado Bruto: R$ ${extimativaBruta}</li>
+		<li> - Lucro extimado Líquido: R$ ${extimativaLiquida}</li>
 	</ul>
 <br />
 <h3><label>Dívidas</label></h3>
 	<ul>
-		<li>Total Dívidas: R$ ${listaDividas}</li> 
-		<li>Total em atrazo: R$ ${totalAtraso}</li> 
+		<li>Total Dívidas: R$ ${totalDividas}</li> 
+		<li>Total em atraso: R$ ${totalAtraso}</li> 
 		<li>Total à receber: R$ ${valorTotalAtraso}</li> 
 		<li>Total a receber hoje: R$ ${valorAReceberHoje}</li> 
 		<li>Total a receber mês: R$ ${valorAReceberMes} </li>

@@ -40,7 +40,7 @@
 <h3><label>Dívidas</label></h3>
 	<ul>
 		<li> - Total Dívidas</li> 
-		<li> - Total em atrazo</li> 
+		<li>Total em atrazo: R$ ${totalAtraso}</li> 
 		<li>Total à receber: R$ ${valorTotalAtraso}</li> 
 		<li>Total a receber hoje: R$ ${valorAReceberHoje}</li> 
 		<li>Total a receber mês: R$ ${valorAReceberMes} </li>
@@ -53,7 +53,7 @@
 	
 	
 	
-		<li> - Mais vendidos</li>produtoTopList
+		<li> -Os Mais vendidos</li>
 		
 		<form action="gerencia-produto.jsp" method="post">
 

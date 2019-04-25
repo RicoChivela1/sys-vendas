@@ -23,6 +23,7 @@ import br.com.aluizio.sysvendas.service.AReceberSemana;
 import br.com.aluizio.sysvendas.service.ProdutoTopList;
 import br.com.aluizio.sysvendas.service.ProdutosEsgotados;
 import br.com.aluizio.sysvendas.service.ProdutosReserva;
+import br.com.aluizio.sysvendas.service.TotalAtraso;
 
 /**
  * Servlet implementation class Login
@@ -107,7 +108,18 @@ public class Login extends HttpServlet {
 			List<Produto> produtoTopList = ProdutoTopList.getProdutoTopList();
 			request.setAttribute("produtoTopList", produtoTopList);
 
-			// TotalAtraso
+			// Lista de pagamentos em Atraso
+			List<Pagamentos> listaAtrasos = TotalAtraso.getListaAtraso();
+			request.setAttribute("listaAtrasos", listaAtrasos);
+			
+			// Valor total Atraso
+			BigDecimal totalAtraso = TotalAtraso.getTotalAtraso(listaAtrasos);
+			request.setAttribute("totalAtraso", totalAtraso);
+			
+			
+			
+			
+			
 			// VisaoGeral
 
 			request.setAttribute("usuario", usuario.getNome());

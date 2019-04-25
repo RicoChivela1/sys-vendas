@@ -39,7 +39,7 @@
 <br />
 <h3><label>Dívidas</label></h3>
 	<ul>
-		<li> - Total Dívidas</li> 
+		<li>Total Dívidas: R$ ${listaDividas}</li> 
 		<li>Total em atrazo: R$ ${totalAtraso}</li> 
 		<li>Total à receber: R$ ${valorTotalAtraso}</li> 
 		<li>Total a receber hoje: R$ ${valorAReceberHoje}</li> 

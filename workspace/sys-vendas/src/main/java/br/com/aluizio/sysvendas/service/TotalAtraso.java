@@ -9,7 +9,7 @@ import br.com.aluizio.sysvendas.model.EnumStatus;
 import br.com.aluizio.sysvendas.model.Pagamentos;
 
 /**
- * TestaTotalAtraso.java
+ * TotalAtraso.java
  * 
  * @author Aluizio Monteiro 24 de abr de 2019
  */

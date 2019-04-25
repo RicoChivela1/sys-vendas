@@ -24,6 +24,7 @@ import br.com.aluizio.sysvendas.service.ProdutoTopList;
 import br.com.aluizio.sysvendas.service.ProdutosEsgotados;
 import br.com.aluizio.sysvendas.service.ProdutosReserva;
 import br.com.aluizio.sysvendas.service.TotalAtraso;
+import br.com.aluizio.sysvendas.service.TotalDividas;
 
 /**
  * Servlet implementation class Login
@@ -116,6 +117,13 @@ public class Login extends HttpServlet {
 			BigDecimal totalAtraso = TotalAtraso.getTotalAtraso(listaAtrasos);
 			request.setAttribute("totalAtraso", totalAtraso);
 			
+			// Listar todas as dívidas
+			List<Pagamentos> listaDividas = TotalDividas.getTotalDividas();
+			request.setAttribute("listaDividas", listaDividas);
+			
+			// Valor total dívidas
+			BigDecimal totalDividas = TotalDividas.getListDividas(listaDividas);
+			request.setAttribute("totalDividas", totalDividas);
 			
 			
 			

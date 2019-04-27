@@ -29,13 +29,20 @@
 
 <h3><label>Visão Geral</label></h3>
 	<ul>
-		<li> - Total Investido: R$ ${totalInvestido}</li>
-		<li> - Lucro Bruto: R$ ${lucroLiquido}</li>
-		<li> - Lucro Líquido: R$ ${lucroBruto}</li>
+		<li>Total Investido: R$ ${totalInvestido}</li>
+		<li>Lucro Bruto: R$ ${lucroBruto}</li>
+		<li>Lucro Líquido: R$ ${lucroLiquido}</li>
+		<li>Lucro extimado Bruto: R$ ${extimativaBruta}</li>
+		<li>Lucro extimado Líquido: R$ ${extimativaLiquida}</li>
 		
-		<li> - Lucro extimado Bruto: R$ ${extimativaBruta}</li>
-		<li> - Lucro extimado Líquido: R$ ${extimativaLiquida}</li>
 	</ul>
+	<br />
+	<label> vendas Mes</label>
+	${vendasMes}
+	
+	<br />
+	<label> vendas Ano</label>
+	${vendasAno}
 <br />
 <h3><label>Dívidas</label></h3>
 	<ul>

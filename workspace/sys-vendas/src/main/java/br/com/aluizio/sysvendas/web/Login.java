@@ -16,6 +16,7 @@ import br.com.aluizio.sysvendas.dao.UsuarioDao;
 import br.com.aluizio.sysvendas.model.Pagamentos;
 import br.com.aluizio.sysvendas.model.Produto;
 import br.com.aluizio.sysvendas.model.Usuario;
+import br.com.aluizio.sysvendas.model.Vendas;
 import br.com.aluizio.sysvendas.service.AReceber;
 import br.com.aluizio.sysvendas.service.AReceberHoje;
 import br.com.aluizio.sysvendas.service.AReceberMes;
@@ -25,6 +26,8 @@ import br.com.aluizio.sysvendas.service.ProdutosEsgotados;
 import br.com.aluizio.sysvendas.service.ProdutosReserva;
 import br.com.aluizio.sysvendas.service.TotalAtraso;
 import br.com.aluizio.sysvendas.service.TotalDividas;
+import br.com.aluizio.sysvendas.service.VendasAno;
+import br.com.aluizio.sysvendas.service.VendasMes;
 import br.com.aluizio.sysvendas.service.VisaoGeral;
 
 /**
@@ -113,44 +116,47 @@ public class Login extends HttpServlet {
 			// Lista de pagamentos em Atraso
 			List<Pagamentos> listaAtrasos = TotalAtraso.getListaAtraso();
 			request.setAttribute("listaAtrasos", listaAtrasos);
-			
+
 			// Valor total Atraso
 			BigDecimal totalAtraso = TotalAtraso.getTotalAtraso(listaAtrasos);
 			request.setAttribute("totalAtraso", totalAtraso);
-			
+
 			// Listar todas as dívidas
 			List<Pagamentos> listaDividas = TotalDividas.getTotalDividas();
 			request.setAttribute("listaDividas", listaDividas);
-			
+
 			// Valor total dívidas
 			BigDecimal totalDividas = TotalDividas.getListDividas(listaDividas);
 			request.setAttribute("totalDividas", totalDividas);
-			
-			
-			
-			
-			//Total Investido
+
+			// Total Investido
 			BigDecimal totalInvestido = VisaoGeral.getTotalInvestido();
 			request.setAttribute("totalInvestido", totalInvestido);
-			
-			//LucroLiquido
+
+			// LucroLiquido
 			BigDecimal lucroLiquido = VisaoGeral.getLucroLiquido();
 			request.setAttribute("lucroLiquido", lucroLiquido);
-			
-			//LucroBruto
+
+			// LucroBruto
 			BigDecimal lucroBruto = VisaoGeral.getLucroBruto();
 			request.setAttribute("lucroBruto", lucroBruto);
-			
+
 			// Extimativa Bruta
 			BigDecimal extimativaBruta = VisaoGeral.getExtimativaBruta();
 			request.setAttribute("extimativaBruta", extimativaBruta);
-			
+
 			// Extimativa Liquida
 			BigDecimal extimativaLiquida = VisaoGeral.getExtimativaLiquida();
 			request.setAttribute("extimativaLiquida", extimativaLiquida);
 
-			
-			
+			// Vendas Ordenadas por Mes
+			List<Vendas> vendasMes = VendasMes.buscaVendasMes();
+			request.setAttribute("vendasMes", vendasMes);
+
+			// Vendas Ordenadas por Ano
+			List<Vendas> vendasAno = VendasAno.buscaVendasAno();
+			request.setAttribute("vendasAno", vendasAno);
+
 			request.setAttribute("usuario", usuario.getNome());
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}

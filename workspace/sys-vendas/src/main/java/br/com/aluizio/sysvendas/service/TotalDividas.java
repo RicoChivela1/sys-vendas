@@ -9,7 +9,8 @@ import br.com.aluizio.sysvendas.model.Pagamentos;
 /**
  * TotalDividas.java
  * 
- * @author Aluizio Monteiro 25 de abr de 2019
+ * @author Aluizio Monteiro 
+ * @date 25 de abr de 2019
  */
 
 public class TotalDividas {

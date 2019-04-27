@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,11 +18,13 @@ import br.com.aluizio.sysvendas.model.EnumSituacao;
 import br.com.aluizio.sysvendas.model.Orcamento;
 import br.com.aluizio.sysvendas.model.Pagamentos;
 import br.com.aluizio.sysvendas.model.Usuario;
+import br.com.aluizio.sysvendas.model.Vendas;
 
 /**
  * OrcamentoDao.java
  * 
- * @author Aluizio Monteiro 24 de nov de 2018
+ * @author Aluizio Monteiro
+ * @date 24 de nov de 2018
  */
 
 public class OrcamentoDao {
@@ -94,9 +98,7 @@ public class OrcamentoDao {
 		}
 	}
 
-	/**
-	 *
-	 */
+	// Salva carrinho de compras
 	public void salvaCarrinho(List<Carrinho> list) {
 		int maiorId = buscaMaiorId(); // orçamento
 		String sql = "Insert into carrinho (" + "fk_orcamento, produtoNome, qtd, valorUnid, subTotal, produtoId)"
@@ -125,10 +127,7 @@ public class OrcamentoDao {
 
 		String sql = "select * from orcamentos as o " + "inner join carrinho as k on k.fk_orcamento = o.id "
 				+ "inner join clientes as c on o.fk_cliente = c.id "
-				+ "inner join usuarios as u on o.fk_usuario = u.id "
-				//+ "left join produtos as p on p.fk_orcamento = o.id " 
-				
-				+ "where o.id = " + orcamentoBuscado.getId();
+				+ "inner join usuarios as u on o.fk_usuario = u.id " + "where o.id = " + orcamentoBuscado.getId();
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
@@ -147,7 +146,7 @@ public class OrcamentoDao {
 				orcamento.setDescontos(rs.getBigDecimal("descontos"));
 				orcamento.setTotalOrcamento(rs.getBigDecimal("totalOrcamento"));
 				orcamento.setDataLancamento(rs.getDate("dataLancamento").toLocalDate());
-				
+
 				orcamento.setTotalParcelas(rs.getInt("totalParcelas"));
 				orcamento.setParcelasPagas(rs.getInt("parcelasPagas"));
 				orcamento.setParcelasAPagar(rs.getInt("parcelasAPagar"));
@@ -187,16 +186,16 @@ public class OrcamentoDao {
 			throw new RuntimeException(e);
 		}
 	}
-	///////////////////////////////////////////////////////////////////
 
+	// Lista Orcamento pelo cliente
 	public List<Orcamento> getList(Cliente clienteBuscado) {
 		String sql = "select * from orcamentos as o " + "right join clientes as c on o.fk_cliente = c.id "
-				+ "right join usuarios as u on o.fk_usuario = u.id "
-				// + "left join carrinho as k on k.fk_orcamento = o.id "
-				+ "where o.fk_cliente = " + clienteBuscado.getId();
+				+ "right join usuarios as u on o.fk_usuario = u.id " + "where o.fk_cliente = ?";
 		List<Orcamento> list = new ArrayList<>();
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+
+			stmt.setInt(1, clienteBuscado.getId());
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -231,7 +230,7 @@ public class OrcamentoDao {
 		}
 	}
 
-	// Atualiza 
+	// Atualiza
 	public void atualizaParcelas(Orcamento orcamento) {
 		String sql = "Update Orcamentos set parcelasPagas=? where id=?";
 
@@ -245,5 +244,60 @@ public class OrcamentoDao {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
+	// Lista com Somatório de vendas por mês
+	public List<Vendas> getVendasMes() {
+		String sql = "select sum(totalOrcamento) as total, dataLancamento as data, year(dataLancamento) as ano from orcamentos group by month(dataLancamento) limit 12";
+
+		List<Vendas> list = new ArrayList<>();
+
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Vendas vendasMes = new Vendas();
+
+				LocalDate data = rs.getDate("data").toLocalDate();
+
+				vendasMes.setMes(data.getMonth());
+				vendasMes.setAno(data.getYear());
+				vendasMes.setValorTotal(rs.getBigDecimal("total"));
+
+				list.add(vendasMes);
+			}
+			return list;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	// Lista com Somatório de vendas por ano
+	public List<Vendas> getVendasAno() {
+		String sql = "select sum(totalOrcamento) as total, dataLancamento as data from orcamentos group by year(dataLancamento)";
+
+		List<Vendas> list = new ArrayList<>();
+
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Vendas vendasMes = new Vendas();
+
+				LocalDate data = rs.getDate("data").toLocalDate();
+
+				vendasMes.setMes(Month.JANUARY);
+				vendasMes.setAno(data.getYear());
+				vendasMes.setValorTotal(rs.getBigDecimal("total"));
+
+				list.add(vendasMes);
+			}
+			return list;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

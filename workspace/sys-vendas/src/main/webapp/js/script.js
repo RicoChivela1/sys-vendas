@@ -37,7 +37,6 @@ function calcularEstoque() {
 	  document.querySelector("[name='result']").value = ((n1 - n2));
 }
 
-// Pego na Internet-----------------------------------------------------
 // Funcao: MascaraMoeda
 // Sinopse: Mascara de preenchimento de moeda
 // Parametro:

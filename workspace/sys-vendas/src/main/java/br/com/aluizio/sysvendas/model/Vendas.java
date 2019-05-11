@@ -1,7 +1,6 @@
 package br.com.aluizio.sysvendas.model;
 
 import java.math.BigDecimal;
-import java.time.Month;
 
 /**
  * GraficoVendas.java
@@ -11,8 +10,8 @@ import java.time.Month;
 
 public class Vendas {
 
-	private BigDecimal valorTotal;
-	private Month mes;
+	private BigDecimal valorTotal = new BigDecimal("00.00");
+	private int mes;
 	private int ano;
 
 	public BigDecimal getValorTotal() {
@@ -23,11 +22,11 @@ public class Vendas {
 		this.valorTotal = valorTotal;
 	}
 
-	public Month getMes() {
+	public int getMes() {
 		return mes;
 	}
 
-	public void setMes(Month mes) {
+	public void setMes(int mes) {
 		this.mes = mes;
 	}
 
@@ -41,7 +40,7 @@ public class Vendas {
 
 	@Override
 	public String toString() {
-		return "VendasMes [valorTotal=" + valorTotal + ", mes=" + mes + ", ano=" + ano + "]";
+		return "Vendas [valorTotal=" + valorTotal + ", mes=" + mes + ", ano=" + ano + "]";
 	}
 
 }

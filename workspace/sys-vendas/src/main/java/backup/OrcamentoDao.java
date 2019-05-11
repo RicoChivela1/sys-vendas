@@ -1,10 +1,11 @@
-package br.com.aluizio.sysvendas.dao;
+package backup;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,20 +36,19 @@ public class OrcamentoDao {
 
 	// Adicionar um Orcamento
 	public void salvaOrcamento(Orcamento orcamento) {
-		String sql = "Insert into Orcamentos (subTotalOrcamento, descontos, totalOrcamento, Custo, dataLancamento, fk_cliente, fk_usuario, totalParcelas, parcelasPagas) values (?,?,?,?,?,?,?,?,?)";
+		String sql = "Insert into Orcamentos (subTotalOrcamento, descontos, totalOrcamento, dataLancamento, fk_cliente, fk_usuario, totalParcelas, parcelasPagas) values (?,?,?,?,?,?,?,?)";
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setBigDecimal(1, orcamento.getSubTotalOrcamento());
 
 			stmt.setBigDecimal(2, orcamento.getDescontos());
 			stmt.setBigDecimal(3, orcamento.getTotalOrcamento());
-			stmt.setBigDecimal(4, orcamento.getCusto());
-			
-			stmt.setDate(5, java.sql.Date.valueOf(orcamento.getDataLancamento()));
-			stmt.setInt(6, orcamento.getCliente().getId());
-			stmt.setInt(7, orcamento.getUsuario().getId());
 
-			stmt.setInt(8, orcamento.getTotalParcelas());
-			stmt.setInt(9, orcamento.getParcelasPagas());
+			stmt.setDate(4, java.sql.Date.valueOf(orcamento.getDataLancamento()));
+			stmt.setInt(5, orcamento.getCliente().getId());
+			stmt.setInt(6, orcamento.getUsuario().getId());
+
+			stmt.setInt(7, orcamento.getTotalParcelas());
+			stmt.setInt(8, orcamento.getParcelasPagas());
 
 			stmt.execute();
 
@@ -101,8 +101,8 @@ public class OrcamentoDao {
 	// Salva carrinho de compras
 	public void salvaCarrinho(List<Carrinho> list) {
 		int maiorId = buscaMaiorId(); // orçamento
-		String sql = "Insert into carrinho (" + "fk_orcamento, produtoNome, qtd, valorUnid, subTotal, produtoId, data, custo)"
-				+ "values (?,?,?,?,?,?,?,?)";
+		String sql = "Insert into carrinho (" + "fk_orcamento, produtoNome, qtd, valorUnid, subTotal, produtoId)"
+				+ "values (?,?,?,?,?,?)";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			for (Carrinho carrinho : list) {
@@ -112,11 +112,8 @@ public class OrcamentoDao {
 				stmt.setBigDecimal(4, carrinho.getValorUnid());
 				stmt.setBigDecimal(5, carrinho.getSubTotal());
 				stmt.setInt(6, carrinho.getProdutoId());
-				stmt.setDate(7, java.sql.Date.valueOf(carrinho.getData()));
-				stmt.setBigDecimal(8, carrinho.getCusto());
 				stmt.execute();
 			}
-			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -250,7 +247,7 @@ public class OrcamentoDao {
 
 	// Lista com Somatório de vendas por mês
 	public List<Vendas> getVendasMes() {
-		String sql = "select sum(totalOrcamento) as total, dataLancamento as data, year(dataLancamento) as ano from orcamentos group by month(dataLancamento) asc limit 12";
+		String sql = "select sum(totalOrcamento) as total, dataLancamento as data, year(dataLancamento) as ano from orcamentos group by month(dataLancamento) limit 12";
 
 		List<Vendas> list = new ArrayList<>();
 
@@ -263,7 +260,7 @@ public class OrcamentoDao {
 
 				LocalDate data = rs.getDate("data").toLocalDate();
 
-				vendasMes.setMes(data.getMonth().getValue());
+				vendasMes.setMes(data.getMonth());
 				vendasMes.setAno(data.getYear());
 				vendasMes.setValorTotal(rs.getBigDecimal("total"));
 
@@ -291,7 +288,7 @@ public class OrcamentoDao {
 
 				LocalDate data = rs.getDate("data").toLocalDate();
 
-				vendasMes.setMes(1);
+				vendasMes.setMes(Month.JANUARY);
 				vendasMes.setAno(data.getYear());
 				vendasMes.setValorTotal(rs.getBigDecimal("total"));
 

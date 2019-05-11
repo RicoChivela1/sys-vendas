@@ -1,4 +1,4 @@
-package br.com.aluizio.sysvendas.web;
+package backup;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -35,7 +35,7 @@ import br.com.aluizio.sysvendas.service.VisaoGeral;
  * 
  * @author Aluizio Monteiro 29 de ago de 2018
  */
-@WebServlet("/login")
+//@WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -153,9 +153,6 @@ public class Login extends HttpServlet {
 			List<Vendas> vendasMes = VendasMes.buscaVendasMes();
 			request.setAttribute("vendasMes", vendasMes);
 
-			//investimento das vendas por mês
-			
-			
 			// Vendas Ordenadas por Ano
 			List<Vendas> vendasAno = VendasAno.buscaVendasAno();
 			request.setAttribute("vendasAno", vendasAno);

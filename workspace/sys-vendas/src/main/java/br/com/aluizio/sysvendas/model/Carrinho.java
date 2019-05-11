@@ -1,6 +1,7 @@
 package br.com.aluizio.sysvendas.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 /**
  * @author Aluizio Monteiro Esta classe formará uma lista de produtos do
@@ -9,32 +10,15 @@ import java.math.BigDecimal;
  */
 
 public class Carrinho {
-	//private Integer idCliente; // não armazenar
-	//private String nomeCliente; // não armazenar
-
 	private Integer produtoId;
 	private Integer orcamentoId;
 	private String produtoNome;
 	private Integer qtd;
 	private BigDecimal valorUnid;
 	private BigDecimal subTotal;
-
-	/*public Integer getIdCliente() {
-		
-		return idCliente;
-	}
-
-	public void setIdCliente(Integer idCliente) {
-		this.idCliente = idCliente;
-	}
-
-	public String getNomeCliente() {
-		return nomeCliente;
-	}
-
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
-	}*/
+	private BigDecimal custo;
+	
+	private LocalDate data;
 
 	public Integer getProdutoId() {
 		return produtoId;
@@ -84,12 +68,28 @@ public class Carrinho {
 		this.subTotal = subTotal;
 	}
 
+	public BigDecimal getCusto() {
+		return custo;
+	}
+
+	public void setCusto(BigDecimal custo) {
+		this.custo = custo;
+	}
+
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
+	
 	@Override
 	public String toString() {
 		return "Carrinho [produtoId=" + produtoId + ", orcamentoId=" + orcamentoId + ", produtoNome=" + produtoNome
-				+ ", qtd=" + qtd + ", valorUnid=" + valorUnid + ", subTotal=" + subTotal + "]";
+				+ ", qtd=" + qtd + ", valorUnid=" + valorUnid + ", subTotal=" + subTotal + ", custo=" + custo
+				+ ", data=" + data + "]";
 	}
-
 	
-
+	
 }

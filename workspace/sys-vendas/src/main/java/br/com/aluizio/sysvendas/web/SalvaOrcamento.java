@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 
 import br.com.aluizio.sysvendas.dao.OrcamentoDao;
 import br.com.aluizio.sysvendas.dao.PagamentoDao;
+import br.com.aluizio.sysvendas.dao.ProdutoDao;
 import br.com.aluizio.sysvendas.model.Carrinho;
 import br.com.aluizio.sysvendas.model.Cliente;
 import br.com.aluizio.sysvendas.model.EnumStatus;
@@ -58,9 +59,14 @@ public class SalvaOrcamento extends HttpServlet {
 		String sTotalOrcamento = request.getParameter("totalOrcamento");
 		String sSubTotalOrcamento = request.getParameter("subTotalOrcamento");
 		String sDescontos = request.getParameter("descontos");
-
+		//String sCusto= request.getParameter("custo");
+		
+		
+		
+		
+		
+		
 		BigDecimal totalOrcamento = new BigDecimal(sTotalOrcamento);
-
 		orcamento.setTotalOrcamento(totalOrcamento);
 
 		BigDecimal subTotalOrcamento = new BigDecimal(sSubTotalOrcamento);
@@ -69,6 +75,11 @@ public class SalvaOrcamento extends HttpServlet {
 		BigDecimal descontos = new BigDecimal(sDescontos);
 		orcamento.setDescontos(descontos);
 
+		//BigDecimal custo = new BigDecimal(sCusto);
+		//orcamento.setCusto(custo);
+		
+		
+		
 		// Seta a dataLancamento de agora
 		LocalDate dataLancamento = LocalDate.now();
 		orcamento.setDataLancamento(dataLancamento);
@@ -80,6 +91,15 @@ public class SalvaOrcamento extends HttpServlet {
 		sessionProdutos = request.getSession(false);
 		ArrayList<Carrinho> list = (ArrayList<Carrinho>) sessionProdutos.getAttribute("carroCompras");
 
+		
+		
+		
+		
+		
+		//Calculainvestimento
+		//setar custo unidade no banco e setar a data atual ao cadastrar um orçamento
+			//select (carrinho.qtd * produtos.custoUnid), month(carrinho.data) from carrinho inner join produtos on carrinho.produtoId = produtos.id ;
+		
 		List<Pagamentos> pagamentoList = new ArrayList<>();
 
 		for (int i = 1; i <= totalParcelas; i++) {
@@ -123,8 +143,9 @@ public class SalvaOrcamento extends HttpServlet {
 		dao.salvaOrcamento(orcamento);
 		dao.salvaCarrinho(list);
 
-		System.out.println("- Parcelas: " + totalParcelas);
-
+		//System.out.println("- Parcelas: " + totalParcelas);
+		
+		
 		new PagamentoDao().inserir(pagamentoList);
 
 		JOptionPane.showMessageDialog(null, "Registrado com Sucesso!");

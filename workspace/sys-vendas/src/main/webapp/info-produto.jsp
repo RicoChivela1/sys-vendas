@@ -74,7 +74,7 @@
 			<label>Custo: R$</label> <span class="valores">${produto.custoUnid}</span><br />
 			<label>Lucro: R$</label> <span class="valores">${produto.lucro}</span><br />
 			<label>Percentual de lucro:</label> ${produto.percentual}%<br />
-			
+			<input type="hidden" value="${produto.custoUnid}" name="custo">
 		</div>
 		
 		<div class="direita">

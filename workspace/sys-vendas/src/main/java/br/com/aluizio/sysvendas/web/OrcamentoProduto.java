@@ -66,14 +66,15 @@ public class OrcamentoProduto extends HttpServlet {
 		carrinho.setProdutoId(Integer.parseInt(request.getParameter("idProduto")));
 		carrinho.setProdutoNome(request.getParameter("nomeProduto"));
 		carrinho.setQtd(Integer.parseInt(request.getParameter("qtdProduto")));
-		
 		//Calcula subtotal
 		BigDecimal sugestaoVenda = new BigDecimal(request.getParameter("sugestaoVenda"));
 		BigDecimal qtdProduto = new BigDecimal(request.getParameter("qtdProduto"));
-		
+		BigDecimal custo = new BigDecimal(request.getParameter("custo"));
+				
+		carrinho.setCusto(custo.multiply(qtdProduto));
 		carrinho.setValorUnid(sugestaoVenda);
 		carrinho.setSubTotal(sugestaoVenda.multiply(qtdProduto));
-		
+		carrinho.setData(LocalDate.now());
 		
 		
 		// Data que vem do input
@@ -115,7 +116,6 @@ public class OrcamentoProduto extends HttpServlet {
 			subTotalOrcamento = subTotalOrcamento.add(list.get(i).getSubTotal());
 			totalOrcamento = subTotalOrcamento;
 		}
-		System.out.println("Somatório dos produtos: "+subTotalOrcamento);
 		sessionProdutos.setAttribute("subTotalOrcamento", subTotalOrcamento);
 		sessionProdutos.setAttribute("totalOrcamento", totalOrcamento);
 	}

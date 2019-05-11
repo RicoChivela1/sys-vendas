@@ -20,9 +20,12 @@ public class Orcamento {
 	private BigDecimal subTotalOrcamento;
 	private BigDecimal descontos;
 	private BigDecimal totalOrcamento;
+
 	private LocalDate dataLancamento;
+	
 	private List<Carrinho> list;
 	private List<Pagamentos> pagamentos;
+	private BigDecimal custo;
 
 	public Integer getId() {
 		return id;
@@ -119,6 +122,15 @@ public class Orcamento {
 	public void setSubTotalOrcamento(BigDecimal subTotalOrcamento) {
 		this.subTotalOrcamento = subTotalOrcamento;
 	}
+	
+
+	public void setCusto(BigDecimal custo) {
+		this.custo = custo;
+	}
+	
+	public BigDecimal getCusto() {
+		return this.custo;
+	}
 
 	@Override
 	public String toString() {
@@ -126,8 +138,11 @@ public class Orcamento {
 				+ ", parcelasAPagar=" + parcelasAPagar + ", cliente=" + cliente + ", usuario=" + usuario
 				+ ", subTotalOrcamento=" + subTotalOrcamento + ", descontos=" + descontos + ", totalOrcamento="
 				+ totalOrcamento + ", dataLancamento=" + dataLancamento + ", list=" + list + ", pagamentos="
-				+ pagamentos + "]";
+				+ pagamentos + ", custo="+ custo +"]";
 	}
+
+
+
 
 	
 }

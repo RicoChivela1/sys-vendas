@@ -87,6 +87,13 @@
 					<th scope="col">Quantidade</th>
 					<th scope="col">Valor unitário</th>
 					<th scope="col">Sub total</th>
+					
+					
+					
+					<th scope="col">Custo sai</th>
+					
+					
+					
 					<th scope="col">Remover</th>
 				</tr>
 				</thead>
@@ -100,6 +107,12 @@
 					<td>${produtoCarrinho.qtd}</td>
 					<td>R$ ${produtoCarrinho.valorUnid}</td>
 					<td>R$ ${produtoCarrinho.subTotal}</td>
+					
+					
+					
+					<td>
+					<input type="text" id="custo" value="${produtoCarrinho.custo}" >
+					</td>
 					<td> 
 						<a href="remover-carrinho.jsp?id=${counter.index}" title="Remover este produto do carrinho"><i class="fa fa-trash-o" style="font-size:24px; color: red;"></i></a>	
 					</td>

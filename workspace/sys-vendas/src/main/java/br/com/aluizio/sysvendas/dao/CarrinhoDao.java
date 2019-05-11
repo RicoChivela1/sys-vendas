@@ -40,6 +40,8 @@ public class CarrinhoDao {
 				carrinho.setQtd(rs.getInt("qtd"));
 				carrinho.setSubTotal(rs.getBigDecimal("subTotal"));
 				carrinho.setValorUnid(rs.getBigDecimal("valorUnid"));
+				carrinho.setCusto(rs.getBigDecimal("custo"));
+				carrinho.setData(rs.getDate("data").toLocalDate());
 				list.add(carrinho);
 			}
 

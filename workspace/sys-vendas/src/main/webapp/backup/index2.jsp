@@ -55,69 +55,77 @@
 	<div style="width:100%;">
 		<canvas id="canvas"></canvas>
 	</div>
-
+	${vendasMes}
 	<label> vendas Mes</label>
 	
-	<div id="divValor"><c:forEach var="arrayValor" items="${vendasMes}"><input type="hidden" value="${arrayValor.valorTotal}"></c:forEach></div>
+	<div id="divValor"><c:forEach var="arrayValor" items="${vendasMes}"><input type="hidden" value="${arrayValor.valorTotal}"></c:forEach>
+	</div>
 	
-	<div id="divMes"><c:forEach var="arrayMes" items="${vendasMes}"><input type="hidden" value="${arrayMes.mes}"></c:forEach></div>
-	
-	<div id="divAno"><c:forEach var="arrayAno" items="${vendasMes}"><input type="hidden" value="${arrayAno.ano}"></c:forEach></div>
+	<div id="divMes"><c:forEach var="arrayMes" items="${vendasMes}"><input type="text" value="${arrayMes.mes}"></c:forEach>
+	</div>
 
+	<div id="divAno"><c:forEach var="arrayAno" items="${vendasMes}"><input type="text" value="${arrayAno.ano}"></c:forEach>
+	</div>
 <script>
-	var campoData = new Array();
-	var campoAno = new Array(); 
-	var campoMes = new Array();
-	var campoValor = new Array();
-	var ano; 
-	var mes;
-	var valor = 0;
+	// Obtém a data atual
+	var data = new Date();
+	var mes = data.getMonth()+1;         
+	var ano = data.getFullYear();
+	var fullMes = ("00" + mes).slice(-2);
+	var stringData =  ano + '/' + fullMes;
 	
 	// pega valor R$
+	var campoValor = [0,0,0,0,0,0,0,0,0,0,0,0];
 	for(var i=0; i < divValor.childNodes.length; i++){
-		valor = parseFloat(divValor.childNodes[i].value);
-		campoValor[i] = valor;
+		campoValor[i] = parseFloat(divValor.childNodes[i].value);
 	}
 	
 	// pega mês
+	var campoMes = new Array();
 	for(var i=0; i<divMes.childNodes.length; i++){
 		campoMes[i] = divMes.childNodes[i].value;
-	}
-	
+	} 
+
 	// pega ano
-	for(var i=0; i < divAno.childNodes.length; i++){
+	var campoAno = new Array();
+	for(var i=0; i<divAno.childNodes.length; i++){
 		campoAno[i] = divAno.childNodes[i].value;
 	} 
 	
-	//Monta a Data
-	for(var i=0; i < 12; i++){
-		ano = campoAno[i];
-		mes = campoMes[i];
-		var fulldata;
+	var chartMes = new Array();
+	var campoData = new Array();
+	for (var i = 0; i < 12; i++){
+		chartMes[i] = i+1;
 		
-		//testa se data é null
-		if(ano == null){
-			fulldata = "..."
-		} else {
-			fulldata = mes+"/"+ano;
+		//Ajusta ano conforme o mês
+		if(campoMes[i] < 1){
+			campoAno[i] = (campoAno[i]-1);
 		}
+		
+		// 
+		if(campoMes[i] == chartMes[i]){
+			campoValor[i] = parseFloat(divValor.childNodes[i].value);
+		}
+	
 
-		//popula array com data montada
+		var fulldata = chartMes[i]+"/"+campoAno[i];
 		campoData[i] = fulldata;
+		console.log("campo data: "+campoData[i]);
+		console.log("Chart mes: "+chartMes[i]);
 	}
-	 
-	// chart
+	
 		var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June' ];
 		var config = {
-			type: 'line',
+			type: 'bar',
 			data: {
-				labels: campoData,
+				//labels: [mes+'/'+ano, mes+'/'+ano, mes+'/'+ano, mes+'/'+ano, mes+'/'+ano, mes+'/'+ano, mes+'/'+ano, mes+'/'+ano, mes+'/'+ano, mes+'/'+ano, mes+'/'+ano, mes+'/'+ano],
+				labels:campoData,
 				datasets: [{
-					label: 'Vendas Brutas',
+					label: 'Valor total de vendas',
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
 					data: campoValor,
-					fill: true,
+					fill: false,
 				}, 
 				 {
 					label: 'My Second dataset',
@@ -133,7 +141,7 @@
 				responsive: true,
 				title: {
 					display: true,
-					text: 'SOMATÓRIO DE VENDAS'
+					text: 'SOMATÓRIO DE VENDAS POR MÊS'
 				},
 				tooltips: {
 					mode: 'index',
@@ -167,17 +175,6 @@
 			window.myLine = new Chart(ctx, config);
 		};
 
-		document.getElementById('randomizeData').addEventListener('click', function() {
-			config.data.datasets.forEach(function(dataset) {
-				dataset.data = dataset.data.map(function() {
-					return randomScalingFactor();
-				});
-
-			});
-
-			window.myLine.update();
-		});
-
 		var colorNames = Object.keys(window.chartColors);
 		document.getElementById('addDataset').addEventListener('click', function() {
 			var colorName = colorNames[config.data.datasets.length % colorNames.length];
@@ -198,35 +195,6 @@
 			window.myLine.update();
 		});
 
-		
-		//botoes
-		document.getElementById('addData').addEventListener('click', function() {
-			if (config.data.datasets.length > 0) {
-				var month = MONTHS[config.data.labels.length % MONTHS.length];
-				config.data.labels.push(month);
-
-				config.data.datasets.forEach(function(dataset) {
-					dataset.data.push(randomScalingFactor());
-				});
-
-				window.myLine.update();
-			}
-		});
-
-		document.getElementById('removeDataset').addEventListener('click', function() {
-			config.data.datasets.splice(0, 1);
-			window.myLine.update();
-		});
-
-		document.getElementById('removeData').addEventListener('click', function() {
-			config.data.labels.splice(-1, 1); // remove the label first
-
-			config.data.datasets.forEach(function(dataset) {
-				dataset.data.pop();
-			});
-
-			window.myLine.update();
-		});
 	</script>
 	
 	

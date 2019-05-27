@@ -3,6 +3,7 @@ package br.com.aluizio.sysvendas.service;
 import java.math.BigDecimal;
 import java.util.List;
 
+import br.com.aluizio.sysvendas.dao.CarrinhoDao;
 import br.com.aluizio.sysvendas.dao.PagamentoDao;
 import br.com.aluizio.sysvendas.dao.ProdutoDao;
 import br.com.aluizio.sysvendas.model.Produto;
@@ -18,7 +19,7 @@ public class VisaoGeral {
 	/**
 	 * Extimativa de Lucro Bruto
 	 * 
-	 * @return BigDecimal totalVendas
+	 * @return BigDecimal extimativaBruta
 	 */
 	public static BigDecimal getExtimativaBruta() {
 		System.out.println("Extimativa de Lucro");
@@ -30,7 +31,7 @@ public class VisaoGeral {
 	/**
 	 * Extimativa de Lucro Liquida
 	 * 
-	 * @return BigDecimal totalVendas - totalInvestido
+	 * @return BigDecimal extimativaLiquida
 	 */
 	public static BigDecimal getExtimativaLiquida() {
 		BigDecimal extimativaLiquida = new PagamentoDao().buscaExtimativas();
@@ -43,9 +44,9 @@ public class VisaoGeral {
 	 * @return BigDecimal totalVendas
 	 */
 	public static BigDecimal getLucroBruto() {
-		// Total Vendas ( vendasBrutas - totalInvestido)
-		BigDecimal totalVendas = new PagamentoDao().buscaLucro();
-		return totalVendas;
+		// Total Vendas 
+		BigDecimal lucroBruto = new CarrinhoDao().getLucroBruto();
+		return lucroBruto;
 	}
 
 	/**
@@ -54,9 +55,8 @@ public class VisaoGeral {
 	 * @return BigDecimal totalVendas - totalInvestido
 	 */
 	public static BigDecimal getLucroLiquido() {
-		// Total Lucro ( vendasBrutas - totalInvestido)
-		BigDecimal totalVendas = new PagamentoDao().buscaLucro();
-		return totalVendas.subtract(getTotalInvestido());
+		BigDecimal lucroLiquido = new CarrinhoDao().getLucroLiquido();
+		return lucroLiquido;
 	}
 
 	/**

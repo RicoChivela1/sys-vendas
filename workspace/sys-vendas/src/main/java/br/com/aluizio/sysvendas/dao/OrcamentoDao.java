@@ -42,7 +42,7 @@ public class OrcamentoDao {
 			stmt.setBigDecimal(2, orcamento.getDescontos());
 			stmt.setBigDecimal(3, orcamento.getTotalOrcamento());
 			stmt.setBigDecimal(4, orcamento.getCusto());
-			
+
 			stmt.setDate(5, java.sql.Date.valueOf(orcamento.getDataLancamento()));
 			stmt.setInt(6, orcamento.getCliente().getId());
 			stmt.setInt(7, orcamento.getUsuario().getId());
@@ -101,7 +101,8 @@ public class OrcamentoDao {
 	// Salva carrinho de compras
 	public void salvaCarrinho(List<Carrinho> list) {
 		int maiorId = buscaMaiorId(); // orçamento
-		String sql = "Insert into carrinho (" + "fk_orcamento, produtoNome, qtd, valorUnid, subTotal, produtoId, data, custo)"
+		String sql = "Insert into carrinho ("
+				+ "fk_orcamento, produtoNome, qtd, valorUnid, subTotal, produtoId, data, custo)"
 				+ "values (?,?,?,?,?,?,?,?)";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -116,7 +117,7 @@ public class OrcamentoDao {
 				stmt.setBigDecimal(8, carrinho.getCusto());
 				stmt.execute();
 			}
-			
+
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -130,7 +131,8 @@ public class OrcamentoDao {
 
 		String sql = "select * from orcamentos as o " + "inner join carrinho as k on k.fk_orcamento = o.id "
 				+ "inner join clientes as c on o.fk_cliente = c.id "
-				+ "inner join usuarios as u on o.fk_usuario = u.id " + "where o.id = " + orcamentoBuscado.getId();
+				+ "inner join usuarios as u on o.fk_usuario = u.id " + "where o.id = " + orcamentoBuscado.getId()
+				+ " order by dataLancamento desc ";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
@@ -299,6 +301,73 @@ public class OrcamentoDao {
 			}
 			return list;
 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	// busca ultimos lancamentos
+	public List<Orcamento> ultimosLancamentos() {
+		List<Orcamento> list = new ArrayList<>();
+
+		String sql = "select * from orcamentos as o inner join carrinho as k on k.fk_orcamento = o.id  inner join clientes as c on o.fk_cliente = c.id inner join usuarios as u on o.fk_usuario = u.id group by o.id order by dataLancamento desc";
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Orcamento orcamento = new Orcamento();
+				orcamento.setId(rs.getInt("o.id"));
+
+				// Carrega usuario
+				Usuario usuario = new Usuario();
+				usuario.setId(rs.getInt("u.id"));
+				usuario.setNome(rs.getString("u.nome"));
+
+				orcamento.setUsuario(usuario);
+
+				// Dados do orcamento
+				orcamento.setSubTotalOrcamento(rs.getBigDecimal("subTotal"));
+				orcamento.setDescontos(rs.getBigDecimal("descontos"));
+				orcamento.setTotalOrcamento(rs.getBigDecimal("totalOrcamento"));
+				orcamento.setDataLancamento(rs.getDate("dataLancamento").toLocalDate());
+
+				orcamento.setTotalParcelas(rs.getInt("totalParcelas"));
+				orcamento.setParcelasPagas(rs.getInt("parcelasPagas"));
+				orcamento.setParcelasAPagar(rs.getInt("parcelasAPagar"));
+
+				// Carregar Cliente
+				Cliente cliente = new Cliente();
+				cliente.setId(rs.getInt("c.id"));
+				cliente.setPessoa(EnumPessoa.valueOf(rs.getString("c.pessoa")));
+				cliente.setSituacao(EnumSituacao.valueOf(rs.getString("c.situacao")));
+				cliente.setSexo(EnumSexo.valueOf(rs.getString("c.sexo")));
+				cliente.setNome(rs.getString("c.nome"));
+				cliente.setSobreNome(rs.getString("c.sobreNome"));
+				cliente.setNascimento(rs.getDate("nascimento").toLocalDate());
+				cliente.setEmail(rs.getString("c.email"));
+				cliente.setCelular(rs.getString("c.celular"));
+				cliente.setEndereco(rs.getString("c.endereco"));
+				cliente.setBairro(rs.getString("c.bairro"));
+				cliente.setCidade(rs.getString("c.cidade"));
+				cliente.setComplemento(rs.getString("c.complemento"));
+				cliente.setNumero(rs.getString("c.numero"));
+				cliente.setUf(rs.getString("c.uf"));
+				cliente.setCep(rs.getString("c.cep"));
+				cliente.setFone(rs.getString("c.fone"));
+				cliente.setObservacao(rs.getString("c.observacao"));
+				orcamento.setCliente(cliente);
+
+				// carregar carrinho
+				List<Carrinho> carrinhos = new CarrinhoDao().getCarrinhos(orcamento);
+				orcamento.setList(carrinhos);
+
+				// carregar pagamento
+				List<Pagamentos> pagamentos = new PagamentoDao().buscaPgPorOrcamento(orcamento);
+				orcamento.setPagamentos(pagamentos);
+				list.add(orcamento);
+			}
+
+			return list;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

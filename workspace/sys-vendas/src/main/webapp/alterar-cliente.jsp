@@ -34,28 +34,27 @@
 		</div>
 		
 		<label>Nascimento: </label>
-		<div class="fieldsData">
+		<div class="caixa">
 
-			<input id="fieldsPequenoData" type="text" name="dia" size="2" maxlength="2" placeholder="dd" class="form-control" aria-describedby="sizing-addon3" required="required"> 
-			<input id="fieldsPequenoData" type="text" name="mes" size="2" maxlength="2" placeholder="mm" class="form-control" aria-describedby="sizing-addon3"required="required"> 
-			<input id="fieldsPequenoData" type="text" name="ano" size="4" maxlength="4" placeholder="aaaa" class="form-control" aria-describedby="sizing-addon3" required="required"><br />
-		
+			<input type="date" name="nascimento" value="${cliente.nascimento}"  id="fieldsMedio" class="form-control">
 		</div>
 		
 		<label>Pessoa:</label>
 		<div class="radio">
-				
+
 				<input type="radio" id="pessoa1" name="pessoa" value="FISICA"
-					checked> <label for="situacao1">Física</label> &nbsp; <input
-					type="radio" id="pessoa2" name="pessoa" value="JURIDICA"> <label
-					for="situacao2">Jurídica</label>
+                > <label for="situacao1">Física</label>
+					 &nbsp; 
+				<input type="radio" id="pessoa2" name="pessoa"  value="JURIDICA" > 
+					<label for="situacao2">Jurídica</label>
 			</div>
-			
+	
 		<label>Sexo:</label>
 			<div class="radio">
-				<input type="radio" id="sexo1" name="sexo" value="M"> <label
-					for="situacao1">Masculino</label> &nbsp; <input type="radio" id="sexo2"
-					name="sexo" value="F" checked> <label for="situacao2">Feminino</label>
+				<input type="radio" id="sexo1" name="sexo" value="M" > <label
+					for="situacao1">Masculino</label> &nbsp; 
+					<input type="radio" id="sexo2"
+					name="sexo" value="F" > <label for="situacao2">Feminino</label>
 			</div>
 
 		</div>

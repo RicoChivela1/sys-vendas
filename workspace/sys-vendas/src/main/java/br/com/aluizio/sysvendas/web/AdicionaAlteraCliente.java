@@ -15,6 +15,7 @@ import br.com.aluizio.sysvendas.model.Cliente;
 import br.com.aluizio.sysvendas.model.EnumPessoa;
 import br.com.aluizio.sysvendas.model.EnumSexo;
 import br.com.aluizio.sysvendas.model.EnumSituacao;
+import br.com.aluizio.sysvendas.service.CarregarDashboard;
 
 /**
  * Servlet implementation class NovoCliente
@@ -58,7 +59,7 @@ public class AdicionaAlteraCliente extends HttpServlet {
 		// Data
 		LocalDate nascimento = LocalDate.parse(req.getParameter("nascimento"));
 		cliente.setNascimento(nascimento);
-		
+
 		cliente.setEmail(req.getParameter("email"));
 		cliente.setCelular(req.getParameter("celular"));
 
@@ -77,7 +78,8 @@ public class AdicionaAlteraCliente extends HttpServlet {
 
 		JOptionPane.showMessageDialog(null, message);
 		System.out.println(message);
-		
-		req.getRequestDispatcher("/index.jsp").forward(req, resp);
+
+		// Carrega a index.jsp
+		CarregarDashboard.carregarDashboard(req, resp);
 	}
 }

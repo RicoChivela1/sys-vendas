@@ -17,13 +17,13 @@ import javax.swing.JOptionPane;
 
 import br.com.aluizio.sysvendas.dao.OrcamentoDao;
 import br.com.aluizio.sysvendas.dao.PagamentoDao;
-import br.com.aluizio.sysvendas.dao.ProdutoDao;
 import br.com.aluizio.sysvendas.model.Carrinho;
 import br.com.aluizio.sysvendas.model.Cliente;
 import br.com.aluizio.sysvendas.model.EnumStatus;
 import br.com.aluizio.sysvendas.model.Orcamento;
 import br.com.aluizio.sysvendas.model.Pagamentos;
 import br.com.aluizio.sysvendas.model.Usuario;
+import br.com.aluizio.sysvendas.service.CarregarDashboard;
 
 /**
  * Salva um orcamento relacionado com um cliente. Isto não efetiva uma venda.
@@ -150,7 +150,8 @@ public class SalvaOrcamento extends HttpServlet {
 
 		JOptionPane.showMessageDialog(null, "Registrado com Sucesso!");
 
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-		rd.forward(request, response);
+		//Carrega a index.jsp
+		CarregarDashboard.carregarDashboard(request, response);
+		
 	}
 }

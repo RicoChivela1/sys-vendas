@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.aluizio.sysvendas.jdbc.ConnectionFactory;
+import br.com.aluizio.sysvendas.model.Dividas;
 import br.com.aluizio.sysvendas.model.EnumStatus;
 import br.com.aluizio.sysvendas.model.Orcamento;
 import br.com.aluizio.sysvendas.model.Pagamentos;
@@ -162,6 +163,62 @@ public class PagamentoDao {
 		}
 
 	}
+
+	// Busca proximas dívidas a receber
+	public List<Dividas> buscaDividasAReceber() {
+		List<Dividas> lista = new ArrayList<>();
+
+		String sql = "select clientes.nome, pagamentos.valorParcela, pagamentos.parcelaData, orcamentos.id from pagamentos join orcamentos  join clientes on (pagamentos.fk_orcamento=orcamentos.id && orcamentos.fk_cliente=clientes.id) where pagamentos.status='A_PAGAR' && pagamentos.parcelaData >= now() order by parcelaData limit 5";
+
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Dividas aReceber = new Dividas();
+				aReceber.setNomeCliente(rs.getString("clientes.nome"));
+				aReceber.setValorParcela(rs.getBigDecimal("pagamentos.valorParcela"));
+				aReceber.setDataVencimento(rs.getDate("pagamentos.parcelaData").toLocalDate());
+				aReceber.setIdOrcamento(rs.getInt("orcamentos.id"));
+
+				lista.add(aReceber);
+
+			}
+			return lista;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+
+	// Busca dívidas atrasadas
+	public List<Dividas> buscaDividasAtrasadas() {
+		List<Dividas> lista = new ArrayList<>();
+
+		String sql = "select clientes.nome, pagamentos.valorParcela, pagamentos.parcelaData, orcamentos.id from pagamentos join orcamentos  join clientes on (pagamentos.fk_orcamento=orcamentos.id && orcamentos.fk_cliente=clientes.id) where pagamentos.status='EM_ATRASO' order by parcelaData limit 5";
+
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Dividas aReceber = new Dividas();
+				aReceber.setNomeCliente(rs.getString("clientes.nome"));
+				aReceber.setValorParcela(rs.getBigDecimal("pagamentos.valorParcela"));
+				aReceber.setDataVencimento(rs.getDate("pagamentos.parcelaData").toLocalDate());
+				aReceber.setIdOrcamento(rs.getInt("orcamentos.id"));
+
+				lista.add(aReceber);
+
+			}
+			return lista;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	} ///////////////////////////////////////
 
 	// Dividas por semana
 	public List<Pagamentos> buscaDividasSemana() {

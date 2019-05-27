@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import br.com.aluizio.sysvendas.dao.PagamentoDao;
+import br.com.aluizio.sysvendas.model.Dividas;
 import br.com.aluizio.sysvendas.model.Pagamentos;
 
 /**
@@ -28,12 +29,33 @@ public class TotalDividas {
 	/**
 	 * Listar todas as dívidas
 	 * 
-	 * @return BigDecimal valorAtraso
+	 * @return Lista de Dívidas
 	 */
-	public static List<Pagamentos> getTotalDividas() {
+	public static List<Pagamentos> getDividas() {
 		PagamentoDao pagamentoDao = new PagamentoDao();
 		List<Pagamentos> buscaDividas = pagamentoDao.buscaDividas();
 		return buscaDividas;
 	}
 
+	/**
+	 * Listar todas as dívidas atrasadas
+	 * 
+	 * @return BigDecimal dividasAtrasadas
+	 */
+	public static List<Dividas> getDividasAtrasadas() {
+		PagamentoDao pagamentoDao = new PagamentoDao();
+		List<Dividas> dividasAtrasadas = pagamentoDao.buscaDividasAtrasadas();
+		return dividasAtrasadas;
+	}
+	
+	/**
+	 * Listar todas as dívidas à receber
+	 * 
+	 * @return BigDecimal dividasAReceber
+	 */
+	public static List<Dividas> getDividasAReceber() {
+		List<Dividas> dividasAReceber = new PagamentoDao()
+				.buscaDividasAReceber();
+		return dividasAReceber;
+	}
 }

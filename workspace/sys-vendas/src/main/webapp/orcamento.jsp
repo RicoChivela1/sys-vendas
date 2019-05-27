@@ -90,7 +90,7 @@
 					
 					
 					
-					<th scope="col">Custo sai</th>
+					
 					
 					
 					
@@ -111,7 +111,7 @@
 					
 					
 					<td>
-					<input type="text" id="custo" value="${produtoCarrinho.custo}" >
+					<input type="hidden" id="custo" value="${produtoCarrinho.custo}" >
 					</td>
 					<td> 
 						<a href="remover-carrinho.jsp?id=${counter.index}" title="Remover este produto do carrinho"><i class="fa fa-trash-o" style="font-size:24px; color: red;"></i></a>	

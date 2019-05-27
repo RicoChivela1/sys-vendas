@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import br.com.aluizio.sysvendas.dao.CategoriaDao;
 import br.com.aluizio.sysvendas.model.Categoria;
+import br.com.aluizio.sysvendas.service.CarregarDashboard;
 
 /**
  * Servlet invocada por alterar-categoria.jsp
@@ -22,23 +23,24 @@ import br.com.aluizio.sysvendas.model.Categoria;
 public class AdicionaAlteraCategoria extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String message = "";
 		Categoria categoria = new Categoria();
-		
-		if(req.getParameter("categoriaId") != null) {
+
+		if (req.getParameter("categoriaId") != null) {
 			categoria.setId(Integer.parseInt(req.getParameter("categoriaId")));
 			message = "Categoria adicionada com sucesso.";
-		}else {
+		} else {
 			message = "Categoria alterada com sucesso.";
 		}
-		
+
 		categoria.setNome(req.getParameter("nome"));
 		new CategoriaDao().adicionaAltera(categoria);
-		
+
 		JOptionPane.showMessageDialog(null, message);
+
+		// Carrega a index.jsp
+		CarregarDashboard.carregarDashboard(req, resp);
 		
-		req.getRequestDispatcher("/index.jsp").forward(req, resp);
 	}
 }

@@ -171,13 +171,19 @@ div.btnCarrinho {
 /*valores vermelhos*/
 .valores{
 	color: red; 
-	font-size: 18px; 
+	 
 }
 
 /*nome negrito*/
 .nome{  
 	font-weight: bold;
 	font-size: 18px;
+}
+
+/*nome negrito menor*/
+.nome2{  
+	font-weight: bold;
+	font-size: 16px;
 }
 
 /*botão de busca para a list*/
@@ -368,7 +374,7 @@ input#fieldsPequeno{
 /*Conjuto de inputs para data*/
 div.fieldsData{
 	width: 92%;
-	height: 39px;
+	height: 50px;
 }
 
 /*Links do select*/
@@ -461,7 +467,7 @@ td#tdPagar {
 .camposAPagar{
 	border:0px;
 	color: red;	
-	font-weight: bolder;
+	font-size: 12px;
 	width: 120px;
 	background: transparent;
 }
@@ -470,7 +476,7 @@ td#tdPagar {
 .camposQuitados{
 	border:0px;
 	color: #00ca00;	
-	font-weight: bolder;
+	font-size: 12px;
 	width: 120px;
 	background: transparent;
 }

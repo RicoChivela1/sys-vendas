@@ -10,6 +10,10 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/bootstrap.min.css" >
 
+<script type="text/javascript" src="jquery/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/radioCliente.js"></script>
+					
+
 </head>
 <body>
 	<div class="page-header">
@@ -42,19 +46,23 @@
 		<label>Pessoa:</label>
 		<div class="radio">
 
-				<input type="radio" id="pessoa1" name="pessoa" value="FISICA"
+
+				<input type="radio"  id="pessoa1" name="pessoa" value="${cliente.pessoa}"
                 > <label for="situacao1">Física</label>
 					 &nbsp; 
-				<input type="radio" id="pessoa2" name="pessoa"  value="JURIDICA" > 
+				<input type="radio" id="pessoa2" name="pessoa"  value="${cliente.pessoa}" > 
 					<label for="situacao2">Jurídica</label>
+					
+					
+					
 			</div>
 	
 		<label>Sexo:</label>
 			<div class="radio">
-				<input type="radio" id="sexo1" name="sexo" value="M" > <label
+				<input type="radio" id="sexo1" name="sexo" value="${cliente.sexo}" > <label
 					for="situacao1">Masculino</label> &nbsp; 
 					<input type="radio" id="sexo2"
-					name="sexo" value="F" > <label for="situacao2">Feminino</label>
+					name="sexo" value="${cliente.sexo}" > <label for="situacao2">Feminino</label>
 			</div>
 
 		</div>

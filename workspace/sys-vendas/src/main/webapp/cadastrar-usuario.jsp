@@ -10,7 +10,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Cadastrar Usuário</title>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="css/bootstrap.min.css"  >
+
+<script type="text/javascript" src="jquery/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/senhaUsuario.js"></script>
 
 </head>
 <body>
@@ -21,35 +24,42 @@
 
 	<div id="container">
 
-	<form action="adicionaAlteraUsuario" method="post">
-
+	<form action="registro-usuarios.jsp" method="post">
 	<fieldset class="campo">
 		<legend>Dados do Usuário</legend>
-    
 		<div class="esquerda">
 			<div class="esquerda">
 				<div class="caixa">
 					<label for="nome">Nome:</label> 
-					<input id="fieldComum" required="required" name="nome"size="40" class="form-control" >
+					<input id="fieldComum" name="nome" value="${usuario.nome}" class="form-control" >
 				</div>
 				<div class="caixa">
 					<label for="login">Login:</label> 
-					<input id="fieldComum" required="required" name="login"size="40" class="form-control" >
+					<input id="fieldComum" required="required" name="login" value="${usuario.login}" class="form-control" >
 				</div>
-				<div class="caixa">
-					<label for="senha">Senha:</label> 
-					<input id="fieldComum" required="required" name="senha"size="40" class="form-control" >
+				<div class="caixa" id="divSenha">
+					<label for="senha">Senha:</label> <img id="imgSenha" src="" />
+					<input type="password" id="fieldComum" required="required" title="Insira uma senha de no mínimo cinco dígitos" name="senha" value="" size="40" class="form-control" >
+					
 				</div>
-				<div class="caixa">
-					<label for="senha2">Repita a senha:</label> 
-					<input id="fieldComum" required="required" name="senha2"size="40" class="form-control" >
+				<div class="caixa" id="divRepeteSenha">
+					<label for="repeteSenha">Repita a senha:</label> <img id="imgRepeteSenha" src="" />
+					
+					<input type="password" id="fieldComum" required="required" title="Repita a senha digitada anteriormente" name="repeteSenha" value="" size="40" class="form-control" >  
+					
 				</div>
+				
+				<div id="btnForm">
+					<button type='submit' id="submit" disabled="disabled" class='btn btn-success btn-lg'> Enviar </button>
+					<input type="hidden" name="usuarioId" value="${usuario.id}">
+				
+				</div>
+	
 			</div>
 		</div>
+
 	</fieldset>
-	<div id="btnForm">
-		<input type="submit" class="btn btn-primary" name="Enviar" value="Enviar"> 	
-	</div>	
+		
 	</form>
 </div>
 

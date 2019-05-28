@@ -109,6 +109,7 @@ public class SalvaOrcamento extends HttpServlet {
 			LocalDate parcelaData = LocalDate.parse(request.getParameter("parcelaData[" + i + "]"));
 
 			String statusText = String.valueOf(request.getParameter("checkBoxPagar["+i+"]"));
+			
 			System.out.println("conteúdo do checkbox: "+statusText);
 			
 			EnumStatus status = null;
@@ -143,9 +144,7 @@ public class SalvaOrcamento extends HttpServlet {
 		dao.salvaOrcamento(orcamento);
 		dao.salvaCarrinho(list);
 
-		//System.out.println("- Parcelas: " + totalParcelas);
-		
-		
+				
 		new PagamentoDao().inserir(pagamentoList);
 
 		JOptionPane.showMessageDialog(null, "Registrado com Sucesso!");

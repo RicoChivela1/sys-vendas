@@ -11,6 +11,11 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/bootstrap.min.css"  >
 
+
+<script type="text/javascript" src="jquery/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/senhaUsuario.js"></script>
+	
+	
 </head>
 <body>
 <div class="page-header">
@@ -20,31 +25,33 @@
 <div id="container">
 	
 
-	<form action="adicionaAlteraUsuario" method="post">
+	<form action="registro-usuarios.jsp" method="post">
 	<fieldset class="campo">
 		<legend>Dados do Usuário</legend>
 		<div class="esquerda">
 			<div class="esquerda">
 				<div class="caixa">
 					<label for="nome">Nome:</label> 
-					<input id="fieldComum" required="required" name="nome" value="${usuario.nome}" class="form-control" >
+					<input id="fieldComum" name="nome" value="${usuario.nome}" class="form-control" readonly="readonly">
 				</div>
 				<div class="caixa">
 					<label for="login">Login:</label> 
 					<input id="fieldComum" required="required" name="login" value="${usuario.login}" class="form-control" >
 				</div>
-				<div class="caixa">
-					<label for="senha">Senha:</label> 
-					<input id="fieldComum" required="required" name="senha" value="${usuario.senha}" size="40" class="form-control" >
+				<div class="caixa" id="divSenha">
+					<label for="senha">Senha:</label> <img id="imgSenha" src="" />
+					<input type="password" id="fieldComum" required="required" title="Insira uma senha de no mínimo cinco dígitos" name="senha" value="" pattern="5" size="40" class="form-control" >
+					
 				</div>
-				<div class="caixa">
-					<label for="senha2">Repita a senha:</label> 
-					<input id="fieldComum" required="required" name="senha2" value="${usuario.nome}" size="40" class="form-control" >
+				<div class="caixa" id="divRepeteSenha">
+					<label for="repeteSenha">Repita a senha:</label> <img id="imgRepeteSenha" src="" />
+					<input type="password" id="fieldComum" required="required" title="Repita a senha digitada anteriormente" name="repeteSenha" value="" pattern="5" size="40" class="form-control" >  
 				</div>
 				
 				<div id="btnForm">
-					<input type="submit" class="btn btn-primary" name="Enviar"> 	
+					<button type='submit' id="submit" disabled="disabled" class='btn btn-success btn-lg'> Enviar </button>
 					<input type="hidden" name="usuarioId" value="${usuario.id}">
+				
 				</div>
 	
 			</div>

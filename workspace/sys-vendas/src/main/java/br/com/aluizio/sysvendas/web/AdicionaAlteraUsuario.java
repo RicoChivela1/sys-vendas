@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import br.com.aluizio.sysvendas.dao.UsuarioDao;
 import br.com.aluizio.sysvendas.model.Usuario;
+import br.com.aluizio.sysvendas.service.CarregarDashboard;
 
 /**
  * Servlet implementation class NovoUsuario
@@ -18,7 +19,7 @@ import br.com.aluizio.sysvendas.model.Usuario;
  * 29 de ago de 2018
  */
 
-@WebServlet("/adicionaAlteraUsuario")
+@WebServlet("/registro-usuarios.jsp")
 public class AdicionaAlteraUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
      
@@ -47,8 +48,8 @@ public class AdicionaAlteraUsuario extends HttpServlet {
 		
 		JOptionPane.showMessageDialog(null,  message);
 		
-		req.getRequestDispatcher("/index.jsp")
-		.forward(req, resp);
+		//Carrega a index.jsp
+		CarregarDashboard.carregarDashboard(req, resp);
 		
 	}
 }

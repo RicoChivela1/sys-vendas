@@ -10,6 +10,7 @@ import java.util.List;
 import br.com.aluizio.sysvendas.jdbc.ConnectionFactory;
 import br.com.aluizio.sysvendas.model.Categoria;
 import br.com.aluizio.sysvendas.model.Estoque;
+import br.com.aluizio.sysvendas.model.Fornecedor;
 import br.com.aluizio.sysvendas.model.Produto;
 
 public class ProdutoDao implements IDAO {
@@ -22,7 +23,7 @@ public class ProdutoDao implements IDAO {
 	// Listar Todos Produto
 	@Override
 	public List<Object> getList() {
-		String sql = "select * from Produtos";
+		String sql = "select * from produtos join fornecedores on produtos.fk_fornecedor = fornecedores.id";
 		List<Object> produtos = new ArrayList<>();
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -31,7 +32,8 @@ public class ProdutoDao implements IDAO {
 				Produto produto = new Produto();
 				Estoque estoque = new Estoque();
 				Categoria categoria = new Categoria();
-
+				Fornecedor fornecedor = new Fornecedor();
+				
 				produto.setId(rs.getInt("id"));
 				produto.setNome(rs.getString("nome"));
 				produto.setDescricao(rs.getString("descricao"));
@@ -44,7 +46,11 @@ public class ProdutoDao implements IDAO {
 				produto.setImagem(rs.getString("imagem"));
 				estoque.setId(rs.getInt("fk_estoque"));
 				categoria.setId(rs.getInt("fk_categoria"));
-
+				fornecedor.setId(rs.getInt("fk_fornecedor"));
+				fornecedor.setNome(rs.getString("fornecedores.nome"));
+				produto.setCategoria(categoria);
+				produto.setEstoque(estoque);
+				produto.setFornecedor(fornecedor);
 				produtos.add(produto);
 			}
 			return produtos;
@@ -136,7 +142,7 @@ public class ProdutoDao implements IDAO {
 		Produto produtoBuscado = (Produto) object;
 		Produto produto = new Produto();
 		String sql = "select * from Produtos join Estoques "
-				+ " on Estoques.id = Produtos.fk_estoque where Produtos.id=?";
+				+ " on Estoques.id = Produtos.fk_estoque left join Fornecedores on Fornecedores.id = Produtos.fk_fornecedor where Produtos.id=?";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setInt(1, produtoBuscado.getId());
@@ -145,7 +151,7 @@ public class ProdutoDao implements IDAO {
 
 				Estoque estoque = new Estoque();
 				Categoria categoria = new Categoria();
-
+				Fornecedor fornecedor = new Fornecedor();
 				produto.setId(rs.getInt("id"));
 				produto.setNome(rs.getString("nome"));
 				produto.setDescricao(rs.getString("descricao"));
@@ -166,8 +172,11 @@ public class ProdutoDao implements IDAO {
 				categoria.setId(rs.getInt("fk_categoria"));
 				categoria.setNome(rs.getString("nome"));
 
+				fornecedor.setId(rs.getInt("fk_fornecedor"));
+				fornecedor.setNome(rs.getString("fornecedores.nome"));
 				produto.setEstoque(estoque);
 				produto.setCategoria(categoria);
+				produto.setFornecedor(fornecedor);
 			}
 
 		} catch (SQLException e) {

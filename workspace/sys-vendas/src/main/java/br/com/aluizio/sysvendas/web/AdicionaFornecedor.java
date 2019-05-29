@@ -18,7 +18,7 @@ import br.com.aluizio.sysvendas.model.Fornecedor;
  * @author Aluizio Monteiro
  * 28 de ago de 2018
  */
-@WebServlet("/adicionaFornecedor")
+@WebServlet("/adiciona-fornecedor.jsp")
 public class AdicionaFornecedor extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 

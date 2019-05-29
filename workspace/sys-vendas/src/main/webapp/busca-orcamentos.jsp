@@ -20,7 +20,7 @@
 <div id="container">
 	
 <form action="buscaOrcamento" method="post">
-	<div>
+	<div id="divBusca">
 	<div class="campoBusca">		
 		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por Cliente" title="Escreva um nome para pesquisar"/> 
 	</div>

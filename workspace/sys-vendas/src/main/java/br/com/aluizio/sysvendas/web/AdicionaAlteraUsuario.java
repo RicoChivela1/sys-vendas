@@ -14,7 +14,7 @@ import br.com.aluizio.sysvendas.model.Usuario;
 import br.com.aluizio.sysvendas.service.CarregarDashboard;
 
 /**
- * Servlet implementation class NovoUsuario
+ * Servlet implementation class AdicionaAlteraUsuario
  * @author Aluizio Monteiro
  * 29 de ago de 2018
  */

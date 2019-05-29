@@ -20,7 +20,7 @@
 <div id="container">
 	
 <form action="busca-usuario.jsp" method="post">
-	<div>
+	<div id="divBusca">
 	<div class="campoBusca">		
 		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva algo para pesquisar."/> 
 	</div>

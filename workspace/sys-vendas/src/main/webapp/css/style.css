@@ -198,6 +198,10 @@ div.btnCarrinho {
 	padding-bottom: 5px;
 }
 
+#divBusca{
+	margin-top: 50px;
+}
+
 /*div contendo botões de ações da list*/
 .btnAcoes{
 	width: max-content;

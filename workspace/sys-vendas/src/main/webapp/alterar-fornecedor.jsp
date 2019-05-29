@@ -9,6 +9,10 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/bootstrap.css" >
 
+
+<script type="text/javascript" src="jquery/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/radioFornecedor.js"></script>
+	
 </head>
 <body>
 
@@ -41,8 +45,8 @@
 		<div class="radio">
 				
 				<input type="radio" id="pessoa1" name="pessoa" value="${fornecedor.pessoa}"
-					checked> <label for="situacao1">Física</label>&nbsp; <input
-					type="radio" id="pessoa2" name="pessoa" value="JURIDICA"> <label
+					> <label for="situacao1">Física</label>&nbsp; <input
+					type="radio" id="pessoa2" name="pessoa" value="${fornecedor.pessoa}"> <label
 					for="situacao2">Jurídica</label>
 		</div>
 	</div>

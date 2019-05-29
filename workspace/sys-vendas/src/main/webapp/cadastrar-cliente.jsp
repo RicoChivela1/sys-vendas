@@ -19,7 +19,7 @@
 </div>
 
 <div id="container">
-	<form action="adicionaAlteraCliente" method="post">
+	<form action="registro-clientes.jsp" method="post">
 	<fieldset class="campo">
 	<legend>Informações pessoais</legend>
 

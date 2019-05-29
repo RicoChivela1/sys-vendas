@@ -20,6 +20,7 @@ public class Produto extends Categoria {
 
 	private Estoque estoque;
 	private Categoria categoria;
+	private Fornecedor fornecedor;
 
 	public Estoque getEstoque() {
 		return estoque;
@@ -118,11 +119,22 @@ public class Produto extends Categoria {
 		this.percentual = percentual;
 	}
 
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+
 	@Override
 	public String toString() {
 		return "Produto [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", indicacao=" + indicacao
 				+ ", volume=" + volume + ", custoUnid=" + custoUnid + ", sugestaoVenda=" + sugestaoVenda + ", lucro="
 				+ lucro + ", percentual=" + percentual + ", imagem=" + imagem + ", estoque=" + estoque + ", categoria="
-				+ categoria + "]";
-	}	
+				+ categoria + ", fornecedor=" + fornecedor + "]";
+	}
+	
+
+	
 }

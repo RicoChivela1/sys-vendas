@@ -44,26 +44,31 @@
 				
 				<select name="fornecedorId" id="selectDeProdutos" class="form-control" >
 					<option value="0">SELECIONE</option>
+					<option selected value="${produto.fornecedor.id}">${produto.fornecedor.nome}</option>
+					
 					<c:forEach var="fornecedor" items="${fornecedorDao.list}">
 						<option value="${fornecedor.id}">${fornecedor.nome}</option>
 					<input type="hidden" value="${fornecedor.nome}" name="fornecedor" >
 					</c:forEach>
+					
 				</select>
-   						
+   			
    				<span class="input-group-btn">
 					<a id="linkSelect" href="cadastrar-fornecedor.jsp">&#10010; Novo Fornecedor</a>
 				</span>
 			</div>
 		</div>
-	
+
 			<div class="direita">
+			
 				<div class="caixa">
-					<label for="categoria" >Categoria:</label> 
-					<select name="categoria" id="selectDeProdutos" class="form-control" >
+					<label for="cat" >Categoria:</label> 
+					<select name="cat" id="selectDeProdutos" class="form-control" >
 						<option value="0">SELECIONE</option>
 						<c:forEach var="lista" items="${categoriaDao.list}">
 							<option value="${lista.nome}">${lista.nome}</option>
 						</c:forEach>
+						<option selected>${produto.categoria.nome}</option>
 					</select>
 			
 					<span class="input-group-btn">

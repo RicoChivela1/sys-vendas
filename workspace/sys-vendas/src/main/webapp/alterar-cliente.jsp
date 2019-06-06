@@ -22,7 +22,7 @@
 	
 	<div id="container">
 
-	<form action="registro-clientes.jsp" method="post">
+	<form action="alterar-clientes.jsp" method="post">
 	
 	<fieldset class="campo">
 	<legend>Informações pessoais</legend>

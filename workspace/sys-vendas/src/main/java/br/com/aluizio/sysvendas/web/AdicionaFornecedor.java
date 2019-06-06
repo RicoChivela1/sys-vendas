@@ -12,13 +12,14 @@ import javax.swing.JOptionPane;
 import br.com.aluizio.sysvendas.dao.FornecedorDao;
 import br.com.aluizio.sysvendas.model.EnumPessoa;
 import br.com.aluizio.sysvendas.model.Fornecedor;
+import br.com.aluizio.sysvendas.service.CarregarDashboard;
 
 /**
  * Servlet implementation class NovoFornecedor
  * @author Aluizio Monteiro
  * 28 de ago de 2018
  */
-@WebServlet("/adiciona-fornecedor.jsp")
+@WebServlet("/adicionar-fornecedor.jsp")
 public class AdicionaFornecedor extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
@@ -49,21 +50,12 @@ public class AdicionaFornecedor extends HttpServlet{
 		//Salva Fornecedor
 		new FornecedorDao().adicionaAltera(fornecedor);
 		System.out.println("Fornecedor salvo");
-	
-
-		/*
-		//Recupera MaxId
-		int id = new FornecedorDao().buscaMaiorId();
-		Fornecedor fId = new Fornecedor();
-		
-		//Seta o lado do fornecedor
-		fId.setId(id);
-		new ProdutoFornecedorDao().relacionarFornecedor(fId);
-		System.out.println("Fornecedor salvo no relacionamento");*/
 		
 		JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso");
 		
-		req.getRequestDispatcher("/index.jsp").forward(req, resp);
+		//Carrega a index.jsp
+		CarregarDashboard.carregarDashboard(req, resp);
+		
 	
 	}
 }

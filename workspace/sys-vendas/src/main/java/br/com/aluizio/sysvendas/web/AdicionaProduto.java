@@ -21,6 +21,7 @@ import br.com.aluizio.sysvendas.model.Categoria;
 import br.com.aluizio.sysvendas.model.Estoque;
 import br.com.aluizio.sysvendas.model.Produto;
 import br.com.aluizio.sysvendas.model.ProdutoFornecedor;
+import br.com.aluizio.sysvendas.service.CarregarDashboard;
 
 /**
  * Servlet implementation class NovoCliente
@@ -34,7 +35,7 @@ import br.com.aluizio.sysvendas.model.ProdutoFornecedor;
 		maxRequestSize = 1024 * 1024 * 4 // limite da requisição 4MB
 )
 
-@WebServlet("/adicionaProduto")
+@WebServlet("/adicionar-produto.jsp")
 public class AdicionaProduto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -142,8 +143,8 @@ public class AdicionaProduto extends HttpServlet {
 
 		JOptionPane.showMessageDialog(null, message);
 
-		RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
-		rd.forward(req, resp);
+		//Carrega a index.jsp
+		CarregarDashboard.carregarDashboard(req, resp);
 	}
 	
 	// Método que pega o nome do arquivo

@@ -2,7 +2,6 @@ package br.com.aluizio.sysvendas.web;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +12,7 @@ import javax.swing.JOptionPane;
 import br.com.aluizio.sysvendas.dao.FornecedorDao;
 import br.com.aluizio.sysvendas.model.EnumPessoa;
 import br.com.aluizio.sysvendas.model.Fornecedor;
+import br.com.aluizio.sysvendas.service.CarregarDashboard;
 
 /**
  * Servlet implementation class AlterarFornecedor
@@ -20,7 +20,7 @@ import br.com.aluizio.sysvendas.model.Fornecedor;
  * @author Aluizio Monteiro 30 de set de 2018
  */
 
-@WebServlet("/alteraFornecedor")
+@WebServlet("/alterar-fornecedor.jsp")
 public class AlteraFornecedor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -51,11 +51,10 @@ public class AlteraFornecedor extends HttpServlet {
 
 		// Salva Fornecedor
 		new FornecedorDao().adicionaAltera(fornecedor);
-		System.out.println("Fornecedor atualizado");
 
 		JOptionPane.showMessageDialog(null, message);
 
-		RequestDispatcher rd = req.getRequestDispatcher("buscaFornecedor?filtro=");
-		rd.forward(req, resp);
+		//Carrega a index.jsp
+		CarregarDashboard.carregarDashboard(req, resp);
 	}
 }

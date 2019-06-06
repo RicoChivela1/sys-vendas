@@ -20,7 +20,7 @@ import br.com.aluizio.sysvendas.model.Orcamento;
  * da página busca-clientes.jsp.
  * Recebe os ids dos clientes
  */
-@WebServlet("/gerencia-cliente.jsp")
+@WebServlet("/gerenciar-cliente.jsp")
 public class GerenciaCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -92,7 +92,7 @@ public class GerenciaCliente extends HttpServlet {
 			new ClienteDao().remover(clienteARemover);
     	
 			//Vai para lista de clientes
-    		pagina = "/index.jsp";
+    		pagina = "/busca-clientes.jsp";
     		
     	} 
     	

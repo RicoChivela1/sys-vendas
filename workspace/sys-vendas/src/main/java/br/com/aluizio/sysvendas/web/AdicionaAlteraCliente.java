@@ -23,7 +23,7 @@ import br.com.aluizio.sysvendas.service.CarregarDashboard;
  * @author Aluizio Monteiro 21 de set de 2018
  */
 
-@WebServlet("/registro-clientes.jsp")
+@WebServlet({"/adicionar-clientes.jsp", "/alterar-clientes.jsp"})
 public class AdicionaAlteraCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

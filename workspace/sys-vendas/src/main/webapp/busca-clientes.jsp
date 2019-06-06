@@ -19,7 +19,7 @@
 </div>
 <div id="container">
 	
-<form action="buscaClientes" method="post">
+<form action="busca-cliente.jsp" method="post">
 	<div id="divBusca">
 	<div class="campoBusca">		
 		<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva um nome para pesquisar"/> 
@@ -36,7 +36,7 @@
 	
 </form>	
 		
-<form action="gerencia-cliente.jsp" method="post">
+<form action="gerenciar-cliente.jsp" method="post">
 
 
 	<c:choose>	
@@ -46,7 +46,7 @@
 			<label class="listaNula">Não encontramos registros.</label>	
 		</div>
 		<div>
-			<a href="buscaClientes?filtro=" title="Listar todos os clientes."> Ver todos </a> |
+			<a href="busca-cliente.jsp?filtro=" title="Listar todos os clientes."> Ver todos </a> |
 			<a href="cadastrar-cliente.jsp" title="Cadastrar um novo cliente."> Adicionar </a> |
 			<a href="orcamento.jsp" title="Página de orçamento."> Orçamento </a>
 		</div>
@@ -98,12 +98,6 @@
 
 		</c:when>
 	</c:choose>
-
-
-
-
-
-
 
 </form>
 </div>

@@ -25,7 +25,7 @@
 			<h1>Alterar Produto</h1>
 		</div>
 
-<form action="alteraProduto" method="post" class="md-form" enctype="multipart/form-data">
+<form action="alterar-produto.jsp" method="post" class="md-form" enctype="multipart/form-data">
 
     
 <fieldset class="campo">

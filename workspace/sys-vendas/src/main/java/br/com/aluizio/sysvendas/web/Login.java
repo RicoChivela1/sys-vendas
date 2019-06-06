@@ -47,15 +47,9 @@ public class Login extends CarregarDashboard {
 			HttpSession session = request.getSession();
 			session.setAttribute("usuarioLogado", usuario);
 			request.setAttribute("usuario", usuario.getNome());
-			
+
 			CarregarDashboard.carregarDashboard(request, response);
-						
-						
-			
-			/*request.getRequestDispatcher("/index.jsp").forward(request, response);*/
+
 		}
-
 	}
-
-
 }

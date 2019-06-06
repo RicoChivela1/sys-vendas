@@ -19,7 +19,7 @@
 </div>
 
 <div id="container">
-	<form action="adiciona-fornecedor.jsp" method="post">
+	<form action="adicionar-fornecedor.jsp" method="post">
 	
 	<fieldset class="campo">
 	<legend>Identificação</legend>

@@ -33,7 +33,7 @@
 
 	<div id="container">
 
-	<form action="adicionaProduto" method="post" class="md-form" enctype="multipart/form-data">
+	<form action="adicionar-produto.jsp" method="post" class="md-form" enctype="multipart/form-data">
 
 	<fieldset class="campo">
 		<legend>Dados do Produto</legend>

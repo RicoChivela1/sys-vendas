@@ -22,7 +22,7 @@
 
 <div id="container">
 
-	<form action="alteraFornecedor" method="post">
+	<form action="alterar-fornecedor.jsp" method="post">
 	<fieldset class="campo">
 	<legend>Identificação</legend>
 

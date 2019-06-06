@@ -25,7 +25,7 @@
 <div id="container">
 	
 
-	<form action="registro-usuarios.jsp" method="post">
+	<form action="alterar-usuarios.jsp" method="post">
 	<fieldset class="campo">
 		<legend>Dados do Usuário</legend>
 		<div class="esquerda">

@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +21,7 @@ import br.com.aluizio.sysvendas.model.Categoria;
 import br.com.aluizio.sysvendas.model.Estoque;
 import br.com.aluizio.sysvendas.model.Produto;
 import br.com.aluizio.sysvendas.model.ProdutoFornecedor;
+import br.com.aluizio.sysvendas.service.CarregarDashboard;
 
 /**
  * Servlet implementation class NovoCliente
@@ -35,7 +35,7 @@ import br.com.aluizio.sysvendas.model.ProdutoFornecedor;
 		maxRequestSize = 1024 * 1024 * 4 // limite da requisição 4MB
 )
 
-@WebServlet("/alteraProduto")
+@WebServlet("/alterar-produto.jsp")
 public class AlteraProduto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -118,16 +118,6 @@ public class AlteraProduto extends HttpServlet {
 
 		ProdutoDao produtoDao = new ProdutoDao();
 		produtoDao.adicionaAltera(produto);
-
-		/*// Recebe o listBox fornecedor
-		Fornecedor fornecedor = new Fornecedor();
-		fornecedor.setId(fornecedorId);
-		fornecedor.setNome(req.getParameter("fornecedor"));
-		new FornecedorDao().alterar(fornecedor);*/
-
-
-		System.out.println("Nome do Id: "+fornecedorId);
-		System.out.println("Id do Produto: "+produtoId);
 		
 	//Atualizar relacionamento
 		ProdutoFornecedor produtoFornecedor = new ProdutoFornecedor();
@@ -137,8 +127,8 @@ public class AlteraProduto extends HttpServlet {
 		new ProdutoFornecedorDao().alterar(produtoFornecedor);
 		JOptionPane.showMessageDialog(null, message);
 
-		RequestDispatcher rd = req.getRequestDispatcher("buscaProdutos?filtro=");
-		rd.forward(req, resp);
+		//Carrega a index.jsp
+		CarregarDashboard.carregarDashboard(req, resp);
 	}
 
 	// Método que pega o nome do arquivo

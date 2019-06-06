@@ -19,7 +19,7 @@ import br.com.aluizio.sysvendas.service.CarregarDashboard;
  * @author Aluizio Monteiro 28 de sep de 2018
  */
 
-@WebServlet("/adicionaAlteraCategoria")
+@WebServlet({"/adicionar-categoria.jsp", "/alterar-categoria.jsp"})
 public class AdicionaAlteraCategoria extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

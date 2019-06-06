@@ -18,7 +18,7 @@
 
 <div id="container">
 
-	<form action="adicionaAlteraCategoria" method="post">
+	<form action="alterar-categoria.jsp" method="post">
 
 	<fieldset class="campo">
 		<legend>Dados da Categoria</legend>

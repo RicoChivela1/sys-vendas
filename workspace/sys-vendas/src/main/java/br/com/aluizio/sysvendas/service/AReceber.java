@@ -23,6 +23,9 @@ public class AReceber {
 	public static BigDecimal getValorTotalAtraso(List<Pagamentos> listaAReceber) {
 		BigDecimal totalAReceber = listaAReceber.stream().map(Pagamentos::getValorParcela).reduce(BigDecimal.ZERO,
 		BigDecimal::add);
+		if (totalAReceber == null || totalAReceber == BigDecimal.ZERO) {
+			totalAReceber = new BigDecimal("0.00");
+		}
 		return totalAReceber;
 	}
 

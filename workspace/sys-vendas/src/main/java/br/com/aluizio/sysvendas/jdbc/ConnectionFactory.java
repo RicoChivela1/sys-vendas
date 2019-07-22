@@ -14,8 +14,9 @@ public class ConnectionFactory {
     private String server = "localhost";
     private String database = "db_sys_vendas";
     private String driver = "jdbc:mysql:";
-    private String certificate = "?useSSL=false";
-    private String url = driver + "//" + server + "/" + database + certificate;
+    //private String certificate = "?useSSL=false";
+    private String timezone = "?useTimezone=true&serverTimezone=UTC";
+    private String url = driver + "//" + server + "/" + database + timezone;
 
     public Connection getConnection() {
         try {

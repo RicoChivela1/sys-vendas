@@ -58,7 +58,7 @@ public class CarrinhoDao {
 	public BigDecimal getLucroLiquido() {
 		String sql = "select (sum(subTotal) - sum(custo)) as lucros from carrinho";
 
-		BigDecimal valor = new BigDecimal("00.00");
+		BigDecimal valor = new BigDecimal("0.00");
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 
@@ -66,6 +66,10 @@ public class CarrinhoDao {
 
 			while (rs.next()) {
 				valor = rs.getBigDecimal("lucros");
+			}
+			
+			if (valor == null) {
+				valor = new BigDecimal("0.00");
 			}
 			return valor;
 
@@ -78,7 +82,7 @@ public class CarrinhoDao {
 		public BigDecimal getLucroBruto() {
 			String sql = "select sum(subTotal) as lucros from carrinho";
 
-			BigDecimal valor = new BigDecimal("00.00");
+			BigDecimal valor = new BigDecimal("0.00");
 
 			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 
@@ -87,6 +91,12 @@ public class CarrinhoDao {
 				while (rs.next()) {
 					valor = rs.getBigDecimal("lucros"); 
 				}
+				
+				if (valor == null) {
+					System.out.println("Valor carrinhodao "+valor);
+					valor = new BigDecimal("0.00");
+				}
+				
 				return valor;
 
 			} catch (SQLException e) {
@@ -96,7 +106,7 @@ public class CarrinhoDao {
 		
 	//Custo de produtos vendidos em um determinado mês
 		public List<Investimentos> getInvestimentosMes() {
-			String sql = "select sum(custo) as custos, data from carrinho group by month(data) asc order by data limit 12";
+			String sql = "select sum(custo) as custos, data from carrinho group by month(data) order by data limit 12";
 
 			List<Investimentos> list = new ArrayList<>();
 

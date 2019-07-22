@@ -5,10 +5,10 @@ package br.com.aluizio.sysvendas.model;
  */
 public class Estoque {
 	private Integer id;
-	private Integer qtdEntrada;
-	private Integer qtdSaida;
-	private Integer qtdMinima;
-	private Integer qtdDisponivel;
+	private Integer qtdEntrada = 0;
+	private Integer qtdSaida = 0;
+	private Integer qtdMinima = 0;
+	private Integer qtdDisponivel = 0;
 
 	public Integer getId() {
 		return id;

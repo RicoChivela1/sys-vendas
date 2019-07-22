@@ -1,4 +1,4 @@
-/*Gráfico de Vendas vs Investiento*/
+/*Gráfico de Vendas vs Investimento*/
 
 	var campoData = new Array();
 	var campoAno = new Array(); 
@@ -95,16 +95,16 @@
 				fill: true,
 				label: 'Vendas',
 				backgroundColor: window.chartColors.green,
-				/*data: campoValor*/
-				data: geraValor(),
+				data: campoValor,
+				/*data: geraValor(),*/
 				borderColor: 'white',
 				borderWidth: 2
 			}, {
 				type: 'bar',
 				label: 'Investimentos',
 				backgroundColor: window.chartColors.red,
-				/*data: campoInvestimentos,*/
-				data: geraIvestimento(),
+				data: campoInvestimentos,
+				/*data: geraIvestimento(),*/
 			}]
 
 		};

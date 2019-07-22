@@ -22,6 +22,9 @@ public class AReceberHoje {
 	public static BigDecimal getValorAReceberHoje(List<Pagamentos> listaAReceberHoje) {
 		BigDecimal totalAReceberHoje = listaAReceberHoje.stream().map(Pagamentos::getValorParcela)
 				.reduce(BigDecimal.ZERO, BigDecimal::add);
+		if (totalAReceberHoje == null || totalAReceberHoje == BigDecimal.ZERO) {
+			totalAReceberHoje = new BigDecimal("0.00");
+		}
 		return totalAReceberHoje;
 	}
 

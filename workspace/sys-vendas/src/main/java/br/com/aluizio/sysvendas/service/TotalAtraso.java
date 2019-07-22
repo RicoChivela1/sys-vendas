@@ -24,6 +24,9 @@ public class TotalAtraso {
 	public static BigDecimal getTotalAtraso(List<Pagamentos> listaAtrasos) {
 		BigDecimal valorAtraso = listaAtrasos.stream().map(Pagamentos::getValorParcela).reduce(BigDecimal.ZERO,
 				BigDecimal::add);
+		if (valorAtraso == null || valorAtraso == BigDecimal.ZERO) {
+			valorAtraso = new BigDecimal("0.00");
+		}
 		return valorAtraso;
 	}
 

@@ -252,7 +252,7 @@ public class OrcamentoDao {
 
 	// Lista com Somatório de vendas por mês
 	public List<Vendas> getVendasMes() {
-		String sql = "select sum(totalOrcamento) as total, dataLancamento as data, year(dataLancamento) as ano from orcamentos group by month(dataLancamento) asc limit 12";
+		String sql = "select sum(totalOrcamento) as total, dataLancamento as data, year(dataLancamento) as ano from orcamentos group by month(dataLancamento) limit 12";
 
 		List<Vendas> list = new ArrayList<>();
 

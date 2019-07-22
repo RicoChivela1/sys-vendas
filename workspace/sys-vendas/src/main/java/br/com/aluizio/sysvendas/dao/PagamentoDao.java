@@ -256,7 +256,7 @@ public class PagamentoDao {
 	// Total Lucro
 	public BigDecimal buscaLucro() {
 		String sql = "select sum(valorParcela) as totalLucro from pagamentos where status = ?";
-		BigDecimal total = null;
+		BigDecimal total = new BigDecimal("0.00");
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setString(1, "QUITADO");
 
@@ -276,7 +276,7 @@ public class PagamentoDao {
 	// Extimativa de Lucro
 	public BigDecimal buscaExtimativas() {
 		String sql = "select sum(valorParcela) as totalLucro from pagamentos";
-		BigDecimal total = null;
+		BigDecimal total = new BigDecimal("0.00");
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
 
@@ -284,6 +284,9 @@ public class PagamentoDao {
 				total = rs.getBigDecimal("totalLucro");
 			}
 
+			if(total == null) {
+				total = new BigDecimal("0.00");
+			}
 			return total;
 
 		} catch (SQLException e) {

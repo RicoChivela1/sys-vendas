@@ -21,8 +21,12 @@ public class TotalDividas {
 	 * @return BigDecimal valorTotal
 	 */
 	public static BigDecimal getListDividas(List<Pagamentos> buscaDividas) {
-		BigDecimal valorTotal = buscaDividas.stream().map(Pagamentos::getValorParcela).reduce(BigDecimal.ZERO,
+		BigDecimal valorTotal = new BigDecimal("0.00");
+		valorTotal = buscaDividas.stream().map(Pagamentos::getValorParcela).reduce(BigDecimal.ZERO,
 				BigDecimal::add);
+		if (valorTotal == null || valorTotal == BigDecimal.ZERO) {
+			valorTotal = new BigDecimal("0.00");
+		}
 		return valorTotal;
 	}
 

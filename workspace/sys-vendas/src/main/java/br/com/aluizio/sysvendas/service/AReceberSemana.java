@@ -22,6 +22,10 @@ public class AReceberSemana {
 	public static BigDecimal getValorAReceberSemana(List<Pagamentos> listaAReceberSemana) {
 		BigDecimal totalAReceberSemana = listaAReceberSemana.stream().map(Pagamentos::getValorParcela)
 				.reduce(BigDecimal.ZERO, BigDecimal::add);
+		if (totalAReceberSemana == null || totalAReceberSemana == BigDecimal.ZERO) {
+			totalAReceberSemana = new BigDecimal("0.00");
+		}
+		
 		return totalAReceberSemana;
 	}
 

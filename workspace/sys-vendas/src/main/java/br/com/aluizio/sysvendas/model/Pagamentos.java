@@ -8,8 +8,8 @@ import java.time.LocalDate;
  */
 public class Pagamentos implements Comparable<LocalDate> {
 	private Integer id;
-	private Integer numParcela;
-	private BigDecimal valorParcela;
+	private Integer numParcela = 0;
+	private BigDecimal valorParcela = new BigDecimal("0.00");
 	private LocalDate parcelaData; // vencimento
 	private Integer fkOrcamento;
 	private EnumStatus status;

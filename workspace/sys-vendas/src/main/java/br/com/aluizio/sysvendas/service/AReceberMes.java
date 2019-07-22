@@ -23,6 +23,10 @@ public class AReceberMes {
 		// 
 		BigDecimal totalAReceberMes = listaAReceberMes.stream().map(Pagamentos::getValorParcela).reduce(BigDecimal.ZERO,
 				BigDecimal::add);
+		
+		if (totalAReceberMes == null || totalAReceberMes == BigDecimal.ZERO) {
+			totalAReceberMes = new BigDecimal("0.00");
+		}
 		return totalAReceberMes;
 	}
 

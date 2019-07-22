@@ -12,20 +12,20 @@ import java.util.List;
 
 public class Orcamento {
 	private Integer id;
-	private Integer totalParcelas;
-	private Integer parcelasPagas;
-	private Integer parcelasAPagar; 
+	private Integer totalParcelas = 0;
+	private Integer parcelasPagas = 0;
+	private Integer parcelasAPagar = 0; 
 	private Cliente cliente;
 	private Usuario usuario;
-	private BigDecimal subTotalOrcamento;
-	private BigDecimal descontos;
-	private BigDecimal totalOrcamento;
+	private BigDecimal subTotalOrcamento = new BigDecimal("0.00");
+	private BigDecimal descontos = new BigDecimal("0.00");
+	private BigDecimal totalOrcamento = new BigDecimal("0.00");
 
 	private LocalDate dataLancamento;
 	
 	private List<Carrinho> list;
 	private List<Pagamentos> pagamentos;
-	private BigDecimal custo;
+	private BigDecimal custo = new BigDecimal("0.00");;
 
 	public Integer getId() {
 		return id;

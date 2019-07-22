@@ -268,8 +268,8 @@ public class ProdutoDao implements IDAO {
 
 	// Busca os 5 produtos mais vendidos
 	public List<Produto> topList() {
-		String sql = "select produtos.*, estoques.* from produtos inner join estoques  on  estoques.id = fk_estoque group by qtdSaida desc limit 5";
-		//String sql = "select produtos.*, estoques.* from produtos inner join estoques order by qtdSaida desc limit 5";
+		//String sql = "select produtos.*, estoques.* from produtos inner join estoques  on  estoques.id = fk_estoque group by qtdSaida desc limit 5";//
+		String sql = "select produtos.*, estoques.* from produtos inner join estoques order by qtdSaida desc limit 5";
 		List<Produto> list = new ArrayList<>();
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {

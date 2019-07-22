@@ -23,7 +23,8 @@ public class VisaoGeral {
 	 */
 	public static BigDecimal getExtimativaBruta() {
 		System.out.println("Extimativa de Lucro");
-		BigDecimal extimativaBruta = new PagamentoDao().buscaExtimativas();
+		BigDecimal extimativaBruta = new BigDecimal("0.00");
+		extimativaBruta = new PagamentoDao().buscaExtimativas();
 		return extimativaBruta;
 
 	}
@@ -34,8 +35,11 @@ public class VisaoGeral {
 	 * @return BigDecimal extimativaLiquida
 	 */
 	public static BigDecimal getExtimativaLiquida() {
-		BigDecimal extimativaLiquida = new PagamentoDao().buscaExtimativas();
+		BigDecimal extimativaLiquida = new BigDecimal("0.00");
+		extimativaLiquida = new PagamentoDao().buscaExtimativas();
+		System.out.println("Busca extimativas: "+extimativaLiquida);
 		return extimativaLiquida.subtract(getTotalInvestido());
+		
 	}
 
 	/**
@@ -45,7 +49,8 @@ public class VisaoGeral {
 	 */
 	public static BigDecimal getLucroBruto() {
 		// Total Vendas 
-		BigDecimal lucroBruto = new CarrinhoDao().getLucroBruto();
+		BigDecimal lucroBruto = new BigDecimal("0.00");
+		lucroBruto = new CarrinhoDao().getLucroBruto();
 		return lucroBruto;
 	}
 
@@ -55,7 +60,8 @@ public class VisaoGeral {
 	 * @return BigDecimal totalVendas - totalInvestido
 	 */
 	public static BigDecimal getLucroLiquido() {
-		BigDecimal lucroLiquido = new CarrinhoDao().getLucroLiquido();
+		BigDecimal lucroLiquido = new BigDecimal("0.00"); 
+		lucroLiquido = new CarrinhoDao().getLucroLiquido();
 		return lucroLiquido;
 	}
 
@@ -65,14 +71,14 @@ public class VisaoGeral {
 	 * @return BigDecimal totalInvestido
 	 */
 	public static BigDecimal getTotalInvestido() {
-		BigDecimal totalInvestido = new BigDecimal("00.00");
+		BigDecimal totalInvestido = new BigDecimal("0.00");
 		ProdutoDao produtoDao = new ProdutoDao();
 		List<Object> list = produtoDao.getList();
 		for (Object object : list) {
 			Produto produto = (Produto) object;
 			totalInvestido = totalInvestido.add(produto.getCustoUnid());
-
 		}
+	
 		return totalInvestido;
 	}
 

@@ -11,10 +11,10 @@ public class Produto extends Categoria {
 	private String descricao;
 	private String indicacao;
 	private String volume;
-	private BigDecimal custoUnid;
-	private BigDecimal sugestaoVenda;
-	private BigDecimal lucro;
-	private double percentual;
+	private BigDecimal custoUnid = new BigDecimal("0.00");
+	private BigDecimal sugestaoVenda = new BigDecimal("0.00");
+	private BigDecimal lucro = new BigDecimal("0.00");
+	private double percentual = 0.0;
 	
 	private String imagem;
 

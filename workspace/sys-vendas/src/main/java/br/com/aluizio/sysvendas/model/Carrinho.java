@@ -13,10 +13,10 @@ public class Carrinho {
 	private Integer produtoId;
 	private Integer orcamentoId;
 	private String produtoNome;
-	private Integer qtd;
-	private BigDecimal valorUnid;
-	private BigDecimal subTotal;
-	private BigDecimal custo;
+	private Integer qtd = 0;
+	private BigDecimal valorUnid = new BigDecimal("0.00");
+	private BigDecimal subTotal = new BigDecimal("0.00");
+	private BigDecimal custo = new BigDecimal("0.00");
 	
 	private LocalDate data;
 

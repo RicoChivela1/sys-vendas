@@ -9,7 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Alterar Usuário</title>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/bootstrap.min.css"  >
+
+<link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.css"  >
+<script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
 
 
 <script type="text/javascript" src="jquery/js/jquery-1.8.3.js"></script>

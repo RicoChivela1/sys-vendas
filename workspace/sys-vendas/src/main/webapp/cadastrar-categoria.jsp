@@ -11,6 +11,10 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/bootstrap.min.css"  >
 
+<script src="jquery/js/jquery-1.8.3.js"></script>
+<link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.css"  >
+<script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <div class="page-header">

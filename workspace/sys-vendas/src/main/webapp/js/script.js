@@ -156,3 +156,14 @@ function MascaraMoeda(objTextBox, SeparadorMilesimo, SeparadorDecimal, e) {
 		$("#divSalvaPagamentos").empty();
 		$("#divSalvaPagamentos").append("<label>aguarde...</label>");
 	}
+	
+
+	/*Link de carregar o dashboard*/
+	$(document).ready(function(){
+		$("#btnIndex").click(function(){
+			$('#login_form').submit();
+		});
+	});
+
+
+

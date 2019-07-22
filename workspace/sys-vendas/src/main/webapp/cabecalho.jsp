@@ -22,6 +22,8 @@
     	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     	
+    	<script src="js/script.js"></script>
+    	
     </head>
     <body>
 
@@ -92,7 +94,16 @@
                     </li>
                     <li class="pushy-link"><a href="orcamento.jsp">Orçamento</a></li>
                     <li class="pushy-link"><a href="https://www.marykay.com.br">MK&#174; Brasil</a></li>
-                    <li class="pushy-link"><a href="index.jsp">x Início</a></li>
+                    <li class="pushy-link">
+                    
+                    <form action="login" method="post" id="login_form"> 
+							<input type="hidden"  name="login" value="${usuarioLogado.login}" >
+							<input type="hidden"  name="senha" value="${usuarioLogado.senha}" >
+							<a href="#" id="btnIndex">Dashboard</a> 	
+					</form>
+                    
+                    
+                    </li>
                 </ul>
             </div>
         </nav>

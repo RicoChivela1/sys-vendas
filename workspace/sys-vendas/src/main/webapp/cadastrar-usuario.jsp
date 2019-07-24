@@ -4,10 +4,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
    
 
-<html>
+<html lang="pt-BR">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- plugins:css -->
+<link rel="stylesheet" href="magestic/vendors/mdi/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="magestic/vendors/base/vendor.bundle.base.css">
+<!-- endinject -->
+<!-- plugin css for this page -->
+<link rel="stylesheet" href="magestic/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+<!-- End plugin css for this page -->
+<!-- inject:css -->
+<link rel="stylesheet" href="magestic/css/style.css">
+<!-- endinject -->
+<link rel="shortcut icon" href="magestic/images/favicon.png" />
+
 <title>Cadastrar Usuário</title>
 <link rel="stylesheet" href="css/style.css">
 
@@ -27,41 +42,71 @@
 	<div id="container">
 
 	<form action="adicionar-usuarios.jsp" method="post">
-	<fieldset class="campo">
-		<legend>Dados do Usuário</legend>
-		<div class="esquerda">
-			<div class="esquerda">
-				<div class="caixa">
-					<label for="nome">Nome:</label> 
-					<input id="fieldComum" name="nome" value="${usuario.nome}" class="form-control" >
-				</div>
-				<div class="caixa">
-					<label for="login">Login:</label> 
-					<input id="fieldComum" required="required" name="login" value="${usuario.login}" class="form-control" >
-				</div>
-				<div class="caixa" id="divSenha">
-					<label for="senha">Senha:</label> <img id="imgSenha" src="" />
-					<input type="password" id="fieldComum" required="required" title="Insira uma senha de no mínimo cinco dígitos" name="senha" value="" size="40" class="form-control" >
-					
-				</div>
-				<div class="caixa" id="divRepeteSenha">
-					<label for="repeteSenha">Repita a senha:</label> <img id="imgRepeteSenha" src="" />
-					
-					<input type="password" id="fieldComum" required="required" title="Repita a senha digitada anteriormente" name="repeteSenha" value="" size="40" class="form-control" >  
-					
-				</div>
-				
-				<div id="btnForm">
-					<button type='submit' id="submit" disabled="disabled" class='btn btn-success btn-lg'> Enviar </button>
-					<input type="hidden" name="usuarioId" value="${usuario.id}">
-				
-				</div>
 	
-			</div>
-		</div>
+	
+	<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+   
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      
+      <!-- partial -->
+        <div class="content-wrapper">
 
-	</fieldset>
+          <div class="row">
+          
+            <div class="col-md-12 stretch-card">
+              <div class="card">
+     
+                <div class="card-body">
+                  <p class="card-title">Adicionar Usuário</p>
 		
+					<div class="esquerda">
+						<div class="esquerda">
+							<div class="caixa">
+								<label for="nome">Nome:</label> 
+								<input id="fieldComum" name="nome" value="${usuario.nome}" class="form-control" >
+							</div>
+							<div class="caixa">
+								<label for="login">Login:</label> 
+								<input id="fieldComum" required="required" name="login" value="${usuario.login}" class="form-control" >
+							</div>
+							<div class="caixa" id="divSenha">
+								<label for="senha">Senha:</label> <img id="imgSenha" src="" />
+								<input type="password" id="fieldComum" required="required" title="Insira uma senha de no mínimo cinco dígitos" name="senha" value="" size="40" class="form-control" >
+								
+							</div>
+							<div class="caixa" id="divRepeteSenha">
+								<label for="repeteSenha">Repita a senha:</label> <img id="imgRepeteSenha" src="" />
+								
+								<input type="password" id="fieldComum" required="required" title="Repita a senha digitada anteriormente" name="repeteSenha" value="" size="40" class="form-control" >  
+								
+							</div>
+							
+							<div id="btnForm">
+								<button type='submit' id="submit" disabled="disabled" class='btn btn-success btn-lg'> Enviar </button>
+								<input type="hidden" name="usuarioId" value="${usuario.id}">
+							
+							</div>
+				
+						</div>
+					</div>
+                      
+                
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- content-wrapper ends -->
+
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+      
 	</form>
 </div>
 

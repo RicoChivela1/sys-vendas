@@ -6,7 +6,7 @@
 }
 
 div.caixaIndex {
-	    border: 2px solid #ffffff;
+	border: 2px solid #ffffff;
     width: 86%;
     display: -webkit-box;
 }
@@ -177,7 +177,7 @@ div.btnCarrinho {
 /*nome negrito*/
 .nome{  
 	font-weight: bold;
-	font-size: 18px;
+	/* font-size: 18px; */
 }
 
 /*nome negrito menor*/
@@ -248,14 +248,15 @@ select#selectDeProdutos {
 
 /*labels gerais*/
 label{
-	margin-top: 50px;
-	font-size: 18px;
+	margin-top: 15px;
+	/* font-size: 18px; */
 	color: navy;
 }
 
 /*labels vermelhos para produto*/
 label#labelsProdutosValor{
 	margin-top: 15px;
+	margin-bottom:0px;
 	color: maroon;
 }
 
@@ -351,6 +352,7 @@ input#qtdParcelas{
 /*inputs normais*/
 input#fieldComum{
 	margin-left: 15px;
+	margin-top: -7px;
 }
 
 /*inputs pequenos Deve ser 
@@ -384,6 +386,7 @@ div.fieldsData{
 /*Links do select*/
 a#linkSelect {
 	margin-left: 15px;
+	font-size: 16px;
 }
 
 /*Div dos botões*/

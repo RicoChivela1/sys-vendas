@@ -3,16 +3,33 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
 
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="ISO-8859-1">
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- plugins:css -->
+<link rel="stylesheet" href="magestic/vendors/mdi/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="magestic/vendors/base/vendor.bundle.base.css">
+<!-- endinject -->
+<!-- plugin css for this page -->
+<link rel="stylesheet" href="magestic/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+<!-- End plugin css for this page -->
+<!-- inject:css -->
+<link rel="stylesheet" href="magestic/css/style.css">
+<!-- endinject -->
+<link rel="shortcut icon" href="magestic/images/favicon.png" />
+
 <title>Cadastrar Fornecedor</title>
 <link rel="stylesheet" href="css/style.css">
 
 <script src="jquery/js/jquery-1.8.3.js"></script>
 <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.css"  >
 <script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
@@ -24,62 +41,103 @@
 <div id="container">
 	<form action="adicionar-fornecedor.jsp" method="post">
 	
-	<fieldset class="campo">
-	<legend>Identificação</legend>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+   
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <!-- partial -->
+        <div class="content-wrapper">
 
-	<div class="esquerda">
-		
-		<div class="caixa">
-			<label for="nome">Nome - RS:</label>
-			<input id="fieldComum" type="text" name="nome" size="40" class="form-control" aria-describedby="sizing-addon3">  
-		</div>
+          <div class="row">
+          
+            <div class="col-md-12 stretch-card">
+              <div class="card">
+     
+                <div class="card-body">
+                  <p class="card-title">Identificação</p>
+					<fieldset class="campo">
+	
 
-		<label>Pessoa:</label>
-		<div class="radio">
-			<input type="radio" id="pessoa1" name="pessoa" value="FISICA"
-				checked> <label for="situacao1">Física</label> &nbsp;<input
-				type="radio" id="pessoa2" name="pessoa" value="JURIDICA"> <label
-				for="situacao2">Jurídica</label>
-		</div>
+						<div class="esquerda">
 		
+							<div class="caixa">
+								<label for="nome">Nome - RS:</label>
+								<input id="fieldComum" type="text" name="nome" size="40" class="form-control" aria-describedby="sizing-addon3">  
+							</div>
+					
+							<label>Pessoa:</label>
+							<div class="radio">
+								<input type="radio" id="pessoa1" name="pessoa" value="FISICA"
+									checked> <label for="situacao1">Física</label> &nbsp;<input
+									type="radio" id="pessoa2" name="pessoa" value="JURIDICA"> <label
+									for="situacao2">Jurídica</label>
+							</div>
+							
+						</div>
+						<div class="direita">
+							<div class="caixa">
+								<label for="cnpjCpf">CNPJ - CPF:</label>
+								<input id="fieldComum" type="text" name="cnpjCpf" size="40" class="form-control" aria-describedby="sizing-addon3">  	
+							</div>
 	</div>
-	<div class="direita">
-		<div class="caixa">
-			<label for="cnpjCpf">CNPJ - CPF:</label>
-			<input id="fieldComum" type="text" name="cnpjCpf" size="40" class="form-control" aria-describedby="sizing-addon3">  	
-		</div>
-	</div>
-	</fieldset>
-
-	<fieldset>
-	<legend>Endereço</legend>
-	<div class="esquerda">
-		
-		<div class="caixa">
-			<label for="endereco">Endereço:</label>
-			<input id="fieldComum" type="text" name="endereco" size="40" class="form-control" aria-describedby="sizing-addon3">  
-			
-			<div class="esquerda">
-				<label for="cep">CEP:</label>
-				<input id="fieldsMedio"  type="text" name="cep" class="form-control"  >  
-			</div>
-			<div class="direita">
-				<label for="bairro">Bairro:</label>
-				<input id="fieldsMedio" type="text" name="bairro" class="form-control"  >  
-			</div>
-			
-			<div class="esquerda">
-				<label for="cidade">Cidade:</label>
-				<input id="fieldsMedio" type="text" name="cidade" class="form-control"  >  
-			</div>
-			
-			<div class="direita">
-				<label for="uf">UF:</label>
-				<input id="fieldsPequeno" type="text" name="uf" class="form-control">
-			</div>
-			
-		</div>
-	</div>
+					</fieldset>
+                      
+                
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br />
+            
+            <div class="row">
+            <div class="col-md-12 stretch-card">
+              <div class="card">
+     
+                <div class="card-body">
+                  <p class="card-title">Endereço</p>
+						
+					<fieldset>		
+					<div class="esquerda">
+					
+					<div class="caixa">
+						<label for="endereco">Endereço:</label>
+						<input id="fieldComum" type="text" name="endereco" size="40" class="form-control" aria-describedby="sizing-addon3">  
+						
+						<div class="esquerda">
+							<label for="cep">CEP:</label>
+							<input id="fieldsMedio"  type="text" name="cep" class="form-control"  >  
+						</div>
+						<div class="direita">
+							<label for="bairro">Bairro:</label>
+							<input id="fieldsMedio" type="text" name="bairro" class="form-control"  >  
+						</div>
+						
+						<div class="esquerda">
+							<label for="cidade">Cidade:</label>
+							<input id="fieldsMedio" type="text" name="cidade" class="form-control"  >  
+						</div>
+						
+						<div class="direita">
+							<label for="uf">UF:</label>
+							<input id="fieldsPequeno" type="text" name="uf" class="form-control">
+						</div>
+						
+					</div>
+				</div>
 	
 	
 		<div class="direita">
@@ -104,6 +162,43 @@
 			<input type="submit" class="btn btn-primary" name="Enviar" value="Enviar"> 
 			<input type="reset" class="btn btn-default" name="Limpar" value="Limpar">		
 		</div>	
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        
+        
+     
+        </div>
+        <!-- content-wrapper ends -->
+
+        <!-- partial -->
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+	<fieldset class="campo">
+	<legend></legend>
+
+	
+	</fieldset>
+
+	<fieldset>
+	<legend>Endereço</legend>
+	
 	</form>
 	</div>
 	

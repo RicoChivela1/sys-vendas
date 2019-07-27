@@ -119,16 +119,6 @@ div.btnCarrinho {
 	background-color: red;
 }
 
-/* busca de registros*/
-#btnBuscaTodos{
-	float: left;
-	font-size: 16px;
-}
-
-
-
-
-
 .esqValor {
 	width: 33%;
 	float: left;

@@ -83,7 +83,7 @@
                       <a class="nav-link" id="sales-tab" data-toggle="tab" href="#sales" role="tab" aria-controls="sales" aria-selected="false">Lucros</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" id="purchases-tab" data-toggle="tab" href="#purchases" role="tab" aria-controls="purchases" aria-selected="false">Á receber</a>
+                      <a class="nav-link" id="purchases-tab" data-toggle="tab" href="#purchases" role="tab" aria-controls="purchases" aria-selected="false">Á Receber</a>
                     </li>
                   </ul>
                   <div class="tab-content py-0 px-0">
@@ -161,21 +161,21 @@
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                           <i class="mdi mdi-flag mr-3 icon-lg text-danger"></i>
                           <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Total à receber:</small>
+                            <small class="mb-1 text-muted">Total à Receber</small>
                             <h5 class="mr-2 mb-0">R$ ${valorTotalAtraso}</h5>
                           </div>
                         </div>
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                           <i class="mdi mdi-flag mr-3 icon-lg text-danger"></i>
                           <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">À receber Hoje:</small>
+                            <small class="mb-1 text-muted">À Receber Hoje</small>
                             <h5 class="mr-2 mb-0">R$ ${valorAReceberHoje}</h5>
                           </div>
                         </div>
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                           <i class="mdi mdi-flag mr-3 icon-lg text-danger"></i>
                           <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">À receber Semana:</small>
+                            <small class="mb-1 text-muted">À Receber Semana</small>
                             <h5 class="mr-2 mb-0">R$ ${valorAReceberSemana}</h5>
                           </div>
                         </div>
@@ -201,8 +201,8 @@
               
         
                 <div class="card-body">
-                  <p class="card-title">Vendas vs Investimentos</p>
-                  
+                 
+                  <h4 class="card-description">VENDAS VS INVESTIMENTOS</h4>
                   
                   
                   
@@ -232,8 +232,8 @@
             
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title">Produtos mais vendidos</p>
-    
+                 
+    				<h4 class="card-description">PRODUTOS MAIS VENDIDOS</h4>
                   <!-- Gráfico Mais Vendidos -->
                   
         <div id="divTopListId"><c:forEach var="topListId" items="${produtoTopList}"><input type="hidden" value="${topListId.id}"></c:forEach></div>
@@ -262,8 +262,8 @@
               
         
                 <div class="card-body">
-                  <p class="card-title">Dívidas à receber</p>
-               
+                  
+               		<h4 class="card-description">DÍVIDAS À RECEBER</h4>
                   <form action="gerenciar-orcamento.jsp" method="post">
 
 	<c:choose>	
@@ -335,8 +335,8 @@
             
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title">Á receber em atraso</p>
                   
+                  <h4 class="card-description">Á RECEBER EM ATRASO</h4>
    
                   <form action="gerenciar-orcamento.jsp" method="post">
 
@@ -410,7 +410,8 @@
               
         
                 <div class="card-body">
-                  <p class="card-title">Produtos na reserva</p>
+                  
+                  <h4 class="card-description">PRODUTOS NA RESERVA</h4>
                   <form action="gerencia-produto.jsp" method="post">
 
 	<c:choose>	
@@ -486,7 +487,8 @@
             
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title">Produtos esgotados</p>
+                  
+                  <h4 class="card-description">PRODUTOS ESGOTADOS</h4>
                   <form action="gerencia-produto.jsp" method="post">
 
 	<c:choose>	
@@ -580,8 +582,8 @@
               
               
                 <div class="card-body">
-                  <p class="card-title">Últimos Lançamentos</p>
                   
+                  <h4 class="card-description">ÚLTIMOS LANÇAMENTOS</h4>
                       <form action="gerenciar-orcamento.jsp" method="post">
 	
 	

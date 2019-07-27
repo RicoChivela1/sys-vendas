@@ -4,30 +4,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!--Pegando os selects -->
-
 <jsp:useBean id="categoriaDao"
 	class="br.com.aluizio.sysvendas.dao.CategoriaDao" />
 <jsp:useBean id="fornecedorDao"
 	class="br.com.aluizio.sysvendas.dao.FornecedorDao" />
-
-
 <html lang="pt-BR">
 <head>
 
-<!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- plugins:css -->
 <link rel="stylesheet" href="magestic/vendors/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="magestic/vendors/base/vendor.bundle.base.css">
-<!-- endinject -->
-<!-- plugin css for this page -->
 <link rel="stylesheet" href="magestic/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-<!-- End plugin css for this page -->
-<!-- inject:css -->
 <link rel="stylesheet" href="magestic/css/style.css">
-<!-- endinject -->
 <link rel="shortcut icon" href="magestic/images/favicon.png" />
 
 <title>Adicionar Produto</title>
@@ -51,26 +41,14 @@
 	<div id="container">
 
 	<form action="adicionar-produto.jsp" method="post" class="md-form" enctype="multipart/form-data">
-
-
-<div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
-   
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_sidebar.html -->
-      
-      <!-- partial -->
+		<div class="container-scroller">
         <div class="content-wrapper">
-
           <div class="row">
-          
             <div class="col-md-12 stretch-card">
               <div class="card">
-     
                 <div class="card-body">
-                  <p class="card-title">Adicionar Produto</p>
-					
+					<h2 class="card-title">CADASTRO DE PRODUTOS</h2>
+                  	<h4 class="card-description">DADOS DO PRODUTO</h4>
 						<fieldset class="campo">
 								<div class="esquerda">
 									<div id="">
@@ -78,8 +56,7 @@
 											<input type="file" class=" btn btn-primary" name="imagem" id="imagem" onchange="previewImagem()" />
 										</div>
 										<img id=imgPreview />
-									</div>
-									 
+									</div>			 
 								<div class="esquerda">
 									<div class="caixa">
 										<label for="fornecedorId">Fornecedor:</label> 
@@ -89,7 +66,6 @@
 												<option value="${lista.id}">${lista.nome}</option>
 											</c:forEach>
 										</select> 
-										
 										<span class="input-group-btn">
 												<a id="linkSelect" href="cadastrar-fornecedor.jsp">&#10010; Novo Fornecedor</a>
 										</span>
@@ -121,12 +97,9 @@
 										<input id="fieldComum" type="text" name="descricao" size="40" class="form-control"> 
 										<label for="indicacao">Indicação:</label> 
 										<input id="fieldComum" type="text" name="indicacao" size="40" class="form-control">
-						
 										<label for="volume">Volume:</label> 
 										<input id="fieldComum" type="text" name="volume" size="30" class="form-control">
-										
 										<div class="esqValor">
-						
 											<label id="labelsProdutosValor" for="qtdEntrada">Quantidade:</label> 
 											<input id="fieldsValorSmall" type="text" name="qtdEntrada" size="10" class="form-control" required="required">
 											<label id="labelsProdutosValor" for="custoUnid"> Custo Unitário: </label> 
@@ -169,31 +142,16 @@
 								<input type="submit" class="btn btn-primary" name="Enviar" value="Enviar">
 								<input type="reset" class="btn btn-default" name="Limpar" value="Limpar">
 							</div>
-                      
-                
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        
-        
-        
-     
         </div>
-        <!-- content-wrapper ends -->
-
-        <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
- 
 </form>
-
 </div>
-
 <footer class="site-footer push">
     <c:import url="rodape.jsp"/>
 </footer>
-
 </body>
 </html>

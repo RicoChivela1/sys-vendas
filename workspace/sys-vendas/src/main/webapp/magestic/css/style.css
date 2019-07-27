@@ -19896,11 +19896,11 @@ code {
 }
 
 .card .card-title {
-  color: #4a4a4a;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  font-size: .875rem;
-  font-weight: bold;
+    color: #4a4a4ae3;
+    margin-bottom: 3.5rem;
+    text-transform: uppercase;
+    font-size: 19px;
+    font-weight: 600;
 }
 
 .card .card-subtitle {
@@ -19911,7 +19911,7 @@ code {
 
 .card .card-description {
   margin-bottom: .875rem;
-  font-weight: 400;
+  /*font-weight: 400;*/
   color: #76838f;
 }
 

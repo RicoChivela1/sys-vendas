@@ -5,26 +5,15 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-
-<!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<!-- plugins:css -->
 <link rel="stylesheet" href="magestic/vendors/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="magestic/vendors/base/vendor.bundle.base.css">
-<!-- endinject -->
-<!-- plugin css for this page -->
 <link rel="stylesheet" href="magestic/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-<!-- End plugin css for this page -->
-<!-- inject:css -->
 <link rel="stylesheet" href="magestic/css/style.css">
-<!-- endinject -->
 <link rel="shortcut icon" href="magestic/images/favicon.png" />
-
 <title>Cadastrar Fornecedor</title>
 <link rel="stylesheet" href="css/style.css">
-
 <script src="jquery/js/jquery-1.8.3.js"></script>
 <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.css"  >
 <script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
@@ -39,46 +28,21 @@
 </div>
 
 <div id="container">
-	<form action="adicionar-fornecedor.jsp" method="post">
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	<div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
-   
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_sidebar.html -->
-      <!-- partial -->
         <div class="content-wrapper">
-
+        <form action="adicionar-fornecedor.jsp" method="post">
           <div class="row">
-          
             <div class="col-md-12 stretch-card">
               <div class="card">
-     
                 <div class="card-body">
-                  <p class="card-title">Identificação</p>
-					<fieldset class="campo">
-	
-
+					<h2 class="card-title">CADASTRO DE FORNECEDOR</h2>
+                  	<h4 class="card-description">DADOS DO FORNECEDOR</h4>
 						<div class="esquerda">
-		
 							<div class="caixa">
 								<label for="nome">Nome - RS:</label>
 								<input id="fieldComum" type="text" name="nome" size="40" class="form-control" aria-describedby="sizing-addon3">  
 							</div>
-					
 							<label>Pessoa:</label>
 							<div class="radio">
 								<input type="radio" id="pessoa1" name="pessoa" value="FISICA"
@@ -93,24 +57,20 @@
 								<label for="cnpjCpf">CNPJ - CPF:</label>
 								<input id="fieldComum" type="text" name="cnpjCpf" size="40" class="form-control" aria-describedby="sizing-addon3">  	
 							</div>
-	</div>
-					</fieldset>
-                      
-                
-                  </div>
+						</div>
+                  	</div>
+                 
                 </div>
               </div>
             </div>
-            <br />
-            
+			 <br />
+			 
             <div class="row">
             <div class="col-md-12 stretch-card">
               <div class="card">
      
                 <div class="card-body">
-                  <p class="card-title">Endereço</p>
-						
-					<fieldset>		
+                  <h4 class="card-description">ENDEREÇO</h4>
 					<div class="esquerda">
 					
 					<div class="caixa">
@@ -139,7 +99,6 @@
 					</div>
 				</div>
 	
-	
 		<div class="direita">
 		<div class="caixa">
 			<label for="complemento">Complemento:</label>
@@ -157,51 +116,18 @@
 			<input type="text" name="observacao" id="fieldComum" class="form-control" >	
 		</div>
 	</div>
-	</fieldset>	
 		<div id="btnForm">
 			<input type="submit" class="btn btn-primary" name="Enviar" value="Enviar"> 
 			<input type="reset" class="btn btn-default" name="Limpar" value="Limpar">		
 		</div>	
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-        
-        
-        
-     
+            </div>
+            </div>
+            </div>
+            </form>
         </div>
-        <!-- content-wrapper ends -->
-
-        <!-- partial -->
       </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-	<fieldset class="campo">
-	<legend></legend>
-
-	
-	</fieldset>
-
-	<fieldset>
-	<legend>Endereço</legend>
-	
-	</form>
 	</div>
-	
 	<footer class="site-footer push">
     	<c:import url="rodape.jsp"/>
 	</footer>

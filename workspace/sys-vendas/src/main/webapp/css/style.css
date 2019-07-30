@@ -500,4 +500,10 @@ div#divSalvaPagamentos{
     text-align: center;
 }
 
-
+/*Contem o botão de logout e o nome do usuário*/
+div.divLogout{
+	float: left; 
+	width: 30%; 
+	text-align: right; 
+	padding-right: 3%;
+}

@@ -46,7 +46,7 @@
 							<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva algo para pesquisar."/> 
 						</div>
 						<div class="direita">		
-							<button type="submit" name="Enviar" class="btn btn-primary"> <i class="fa fa-search" aria-hidden="true"></i>Buscar</button>
+							<button type="submit" name="Enviar" class="btn btn-primary btn-sm" > <i class="mdi mdi-yeast" aria-hidden="true"></i>Buscar</button>
 						</div>
 						</div>	
 					</form>		
@@ -103,9 +103,9 @@
 								      <td>
 								      		<div class="btnAcoes">
 								  
-									      		<button type="submit" name="info" value="${usuario.id}"  class="btn btn-info" title="Mais informações."> <i class="fa fa-info-circle"></i> Info</button>
-									      		<button type="submit" name="alterar" value="${usuario.id}"  class="btn btn-warning" title="Alterar informações."> <i class="fa fa-pencil-square-o"></i> Alterar</button>
-										  		<button type="submit" name="remover" value="${usuario.id}" class="btn btn-danger" title="Excluir usuário do sistema."><i class="fa fa-trash-o"></i> Remover</button>
+									      		<button type="submit" name="info" value="${usuario.id}"  class="btn btn-info btn-sm""  title="Mais informações."> Info </button>
+									      		<button type="submit" name="alterar" value="${usuario.id}"  class="btn btn-warning btn-sm" title="Alterar informações.">Alterar</button>
+										  		<button type="submit" name="remover" value="${usuario.id}" class="btn btn-danger btn-sm" title="Excluir usuário do sistema.">Remover</button>
 											
 									  		</div>
 								      </td>

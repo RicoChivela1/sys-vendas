@@ -5,7 +5,7 @@
 /* Menu Appearance */
 .pushy {
   position: fixed;
-  width: 200px;
+  width: 400px;
   height: 100%;
   top: 0;
   z-index: 9999;

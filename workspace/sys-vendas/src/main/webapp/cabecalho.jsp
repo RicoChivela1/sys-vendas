@@ -50,10 +50,10 @@
 	        	 
 	        </div>
 	        
-	        <div style="float: left; width: 30%; text-align: right; padding-right: 3%;">
+	        <div class="divLogout">
 	        	<form action="logout" method="post">				
 					Olá, ${usuarioLogado.nome} &nbsp;
-					<a href="logout" title="Sair"> <i class="fa fa-sign-out" style="font-size:24px; color: black;"></i></a>
+					<a href="logout" title="Sair"> <i class="mdi mdi-power" style="font-size:25px; color: black;"></i></a>
 						
 				</form>
 	        </div>
@@ -64,23 +64,24 @@
             <div class="pushy-content">
                 <ul>
                     <li class="pushy-submenu">
-                        <button id="first-link">Cadastrar</button>
+                        <button id="first-link"><i class="mdi mdi mdi-note-plus-outline"> </i>Cadastrar</button>
                         <ul>
-                            <li class="pushy-link"><a href="cadastrar-categoria.jsp">Categoria</a></li>
-                            <li class="pushy-link"><a href="cadastrar-cliente.jsp">Cliente</a></li>
-                            <li class="pushy-link"><a href="cadastrar-fornecedor.jsp">Fornecedor</a></li>
-                            <li class="pushy-link"><a href="cadastrar-produto.jsp">Produto</a></li>
-                            <li class="pushy-link"><a href="cadastrar-usuario.jsp">Usuário</a></li>
+                            <li class="pushy-link"><a href="cadastrar-categoria.jsp"><i class="mdi mdi mdi-seal"> </i>Categoria</a></li>
+                            <li class="pushy-link"><a href="cadastrar-cliente.jsp"><i class="mdi mdi-worker"> </i>Cliente</a></li>
+                            <li class="pushy-link"><a href="cadastrar-fornecedor.jsp"><i class="mdi mdi-truck-delivery"> </i>Fornecedor</a></li>
+                            <li class="pushy-link"><a href="cadastrar-produto.jsp"><i class="mdi mdi-shopping"> </i>Produto</a></li> 
+                            <li class="pushy-link"><a href="cadastrar-usuario.jsp"><i class="mdi mdi-account-star"> </i> Usuário</a></li>
+                             
                         </ul>
                     </li>
                     <li class="pushy-submenu">
-                        <button>Pesquisar</button>
+                        <button><i class="mdi mdi mdi-yeast"> </i> Pesquisar</button>
                         <ul>
-                            <li class="pushy-link"><a href="busca-categoria.jsp?filtro=">Categoria</a></li>
-                            <li class="pushy-link"><a href="busca-cliente.jsp?filtro=">Cliente</a></li>
-                            <li class="pushy-link"><a href="busca-fornecedor.jsp?filtro=">Fornecedor</a></li>
-                            <li class="pushy-link"><a href="busca-produto.jsp?filtro=">Produto</a></li>
-                            <li class="pushy-link"><a href="busca-usuario.jsp?filtro=">Usuário</a></li>
+                            <li class="pushy-link"><a href="busca-categoria.jsp?filtro="><i class="mdi mdi mdi-seal"> </i> Categoria</a></li>
+                            <li class="pushy-link"><a href="busca-cliente.jsp?filtro="><i class="mdi mdi-worker"> </i> Cliente</a></li>
+                            <li class="pushy-link"><a href="busca-fornecedor.jsp?filtro="><i class="mdi mdi-truck-delivery"> </i> Fornecedor</a></li>
+                            <li class="pushy-link"><a href="busca-produto.jsp?filtro="><i class="mdi mdi-shopping"> </i> Produto</a></li>
+                            <li class="pushy-link"><a href="busca-usuario.jsp?filtro="><i class="mdi mdi-account-star"> </i> Usuário</a></li>
                         </ul>
                     </li>
                 
@@ -92,14 +93,14 @@
                             <li class="pushy-link"><a href="#">Outro 3</a></li>
                         </ul>
                     </li>
-                    <li class="pushy-link"><a href="orcamento.jsp">Orçamento</a></li>
-                    <li class="pushy-link"><a href="https://www.marykay.com.br">MK&#174; Brasil</a></li>
+                    <li class="pushy-link"><a href="orcamento.jsp"><i class="mdi mdi-square-inc-cash"> </i> Orçamento</a></li>
+                    <li class="pushy-link"><a href="https://www.marykay.com.br"><i class="mdi mdi-internet-explorer"> </i> MK&#174; Brasil</a></li>
                     <li class="pushy-link">
                     
                     <form action="login" method="post" id="login_form"> 
 							<input type="hidden"  name="login" value="${usuarioLogado.login}" >
 							<input type="hidden"  name="senha" value="${usuarioLogado.senha}" >
-							<a href="#" id="btnIndex">Dashboard</a> 	
+							<a href="#" id="btnIndex"><i class="mdi mdi-view-dashboard"> </i> Dashboard</a>
 					</form>
                     
                     

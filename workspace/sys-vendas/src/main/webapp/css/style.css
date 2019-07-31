@@ -507,3 +507,16 @@ div.divLogout{
 	text-align: right; 
 	padding-right: 3%;
 }
+
+/*Figura dos botões pretos*/
+i#iconBlack {
+	font-size:20px; 
+	color: black;
+	margin-right: 5px;
+}
+
+/*Figuras dos botões do Menu*/
+i#iconMenu {
+	font-size:20px; 
+	color: #cbc4fa;
+}

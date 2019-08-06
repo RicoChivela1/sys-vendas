@@ -19,15 +19,15 @@
 <!-- End plugin css for this page -->
 <!-- inject:css -->
 <link rel="stylesheet" href="magestic/css/style.css">
-<!-- endinject -->
-<link rel="shortcut icon" href="magestic/images/favicon.png" />
 
 
 
-<title>SysVendas</title>
+
+
+<title>Dashboard</title>
 
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/styleIndex.css">
+
 
 <script src="jquery/js/jquery-1.8.3.js"></script>
 <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.css"  >
@@ -65,8 +65,8 @@
     <!-- partial:partials/_navbar.html -->
    
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_sidebar.html -->
+    
+    
       
       <!-- partial -->
         <div class="content-wrapper">
@@ -656,8 +656,7 @@
         
         
      
-        </div>
-        <!-- content-wrapper ends -->
+      
 
         <!-- partial -->
       </div>
@@ -692,48 +691,7 @@
 <div class="caixa">
 
 </div>
-<div class="caixaIndex">
-	<div class="menutemp">
-	    <div>	
-	    	<a href="cadastrar-usuario.jsp">Cadastrar Usuário</a><br />		
-			<a href="cadastrar-cliente.jsp">Cadastrar Cliente</a><br /> 	
-			<a href="cadastrar-fornecedor.jsp">Cadastrar Fornecedor</a><br /> 
-		 	<a href="cadastrar-categoria.jsp">Cadastrar Categoria</a><br />
-		 	<a href="cadastrar-produto.jsp">Cadastrar Produto</a><br />
-		 
-		 </div>
-	    <div>
-	    <form action="busca-cliente.jsp" method="post">
-	    	<a href="busca-cliente.jsp?filtro=" > Pesquisar Clientes</a><br />
-	    </form>
-	    
-	    <form action="busca-produto.jsp" method="post">
-	    	<a href="busca-produto.jsp?filtro="> Pesquisar Produtos</a><br />
-	    </form>	
-	    
-	    <form action="busca-usuario.jsp" method="post">
-	    	<a href="busca-usuario.jsp?filtro="> Pesquisar Usuários</a><br />
-	    </form>	
-	    
-	    <form action="busca-categoria.jsp" method="post">
-	    	<a href="busca-categoria.jsp?filtro="> Pesquisar Categorias</a><br />
-	    </form>
-	    
-	    <form action="busca-fornecedor.jsp" method="post">
-	    	<a href="busca-fornecedor.jsp?filtro="> Pesquisar Fornecedor</a><br />
-	    </form>
-	    
-		 </div>
-	    <div>
-	    	<a href="orcamento.jsp">Orçamento</a><br />			
-			<a href="index.jsp">x Verificar Atividades</a><br /> 
-		 	<a href="index.jsp">x Relatórios</a><br />
-		 	<a href="index.jsp">x Estimativas</a><br />
-		 </div>
-	    </div>
-    
 
-</div>	
 <footer class="site-footer push">
     <c:import url="rodape.jsp"/>
 </footer>

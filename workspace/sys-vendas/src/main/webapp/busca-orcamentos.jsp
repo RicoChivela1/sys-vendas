@@ -48,7 +48,7 @@
 							<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Nome do cliente" title="Escreva um nome para pesquisar"/> 
 						</div>
 						<div class="direita">		
-							<button  type="submit" name="Enviar" class="btn btn-primary"> <i class="fa fa-search" aria-hidden="true"></i>Buscar</button>
+							<button  type="submit" name="Enviar" class="btn btn-sm btn-primary"> <i class="mdi mdi-yeast" aria-hidden="true"></i></button>
 						</div>
 						</div>	
 					</form>	

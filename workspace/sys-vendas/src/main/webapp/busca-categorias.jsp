@@ -45,7 +45,7 @@
 						<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva um nome para pesquisar"/> 
 					</div>
 					<div class="direita">		
-						<button  type="submit" name="Enviar" class="btn btn-primary" > <i class="fa fa-search" aria-hidden="true"></i>Buscar</button>
+						<button  type="submit" name="Enviar" class="btn btn-sm btn-primary" > <i class="mdi mdi-yeast" aria-hidden="true"></i></button>
 					</div>
 					</div>	
 	
@@ -94,8 +94,8 @@
 								      <td>${categorias.nome}</td>	       
 								      <td> 
 								      <div class="btnAcoes">
-								      	<button type="submit" name="alterar" value="${categorias.id}"  class="btn btn-outline-warning" title="Modificar categoria"> <i class="fa fa-pencil-square-o"></i> Alterar</button>
-									  	<button type="submit" name="remover" value="${categorias.id}" class="btn btn-outline-danger" title="Excluir categoria do sistema"> <i class="	fa fa-trash-o"></i> Remover</button>
+								      	<button type="submit" name="alterar" value="${categorias.id}"  class="btn btn-warning btn-sm" title="Modificar categoria"> <i class="fa fa-pencil-square-o"></i> Alterar</button>
+									  	<button type="submit" name="remover" value="${categorias.id}" class="btn btn-danger btn-sm" title="Excluir categoria do sistema"> <i class="	fa fa-trash-o"></i> Remover</button>
 									  </div>
 								      </td>			    	
 								    </tr>

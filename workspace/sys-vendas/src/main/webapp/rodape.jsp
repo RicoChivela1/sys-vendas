@@ -1,4 +1,4 @@
 
 
-	&#169;SpeedTech - Aluizio Júnior - +55 61 99332 1872 - 2019
+	&#169; - junior.speedtech@gmail.com - 2019
 

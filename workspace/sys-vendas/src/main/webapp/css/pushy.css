@@ -24,7 +24,7 @@
 .pushy a:hover {
   color: #FFF;
   font-size: 14px;
-  background: #333333;
+  background: #b3b3b1;
 }
 .pushy ul:first-child {
   margin-top: 10px;
@@ -49,9 +49,9 @@
 
 .pushy-open-left #container,
 .pushy-open-left .push {
-  -webkit-transform: translate3d(200px, 0, 0);
-  -ms-transform: translate3d(200px, 0, 0);
-  transform: translate3d(200px, 0, 0);
+  -webkit-transform: translate3d(400px, 0, 0);
+  -ms-transform: translate3d(400px, 0, 0);
+  transform: translate3d(400px, 0, 0);
 }
 
 .pushy-right {

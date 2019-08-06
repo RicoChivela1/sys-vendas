@@ -117,7 +117,7 @@
 		</div>
 	</div>
 		<div id="btnForm">
-			<input type="submit" class="btn btn-primary" name="Enviar" value="Enviar"> 
+			<input type="submit" class="btn btn-primary" name="Enviar" value="Registrar"> 
 			<input type="reset" class="btn btn-default" name="Limpar" value="Limpar">		
 		</div>	
             </div>

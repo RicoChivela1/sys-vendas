@@ -51,7 +51,7 @@
 								<input type="password" id="fieldComum" required="required" title="Repita a senha digitada anteriormente" name="repeteSenha" value="" size="40" class="form-control" >  
 							</div>
 							<div id="btnForm">
-								<button type='submit' id="submit" disabled="disabled" class='btn btn-primary'> Enviar </button>
+								<button type='submit' id="submit" disabled="disabled" class='btn btn-primary'> Registrar </button>
 								<input type="hidden" name="usuarioId" value="${usuario.id}">
 							</div>
 						</div>

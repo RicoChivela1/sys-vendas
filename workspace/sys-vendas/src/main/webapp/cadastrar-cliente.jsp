@@ -52,7 +52,7 @@
 						</div>
 						<label>Pessoa:</label>
 						<div class="radio">			
-							<input type="radio" id="pessoa1" name="pessoa" value="FISICA" checked> 
+							<input type="radio" class="" id="pessoa1" name="pessoa" value="FISICA" checked> 
 							<label for="situacao1">Física</label> &nbsp; 
 							<input type="radio" id="pessoa2" name="pessoa" value="JURIDICA"> 
 							<label for="situacao2">Jurídica</label>
@@ -120,7 +120,7 @@
 							</div>	
 						</div>
 							<div id="btnForm">
-								<input type="submit" class="btn btn-primary" name="Enviar" value="Enviar"> 
+								<input type="submit" class="btn btn-primary" name="Enviar" value="Registrar"> 
 								<input type="reset" class="btn btn-default" name="Limpar" value="Limpar">		
 							</div>
                   </div>

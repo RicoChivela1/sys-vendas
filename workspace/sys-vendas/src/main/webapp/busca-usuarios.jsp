@@ -46,7 +46,7 @@
 							<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva algo para pesquisar."/> 
 						</div>
 						<div class="direita">		
-							<button type="submit" name="Enviar" class="btn btn-primary btn-sm" > <i class="mdi mdi-yeast" aria-hidden="true"></i>Buscar</button>
+							<button type="submit" name="Enviar" class="btn btn-sm btn-primary" > <i class="mdi mdi-yeast" aria-hidden="true"></i></button>
 						</div>
 						</div>	
 					</form>		
@@ -103,7 +103,7 @@
 								      <td>
 								      		<div class="btnAcoes">
 								  
-									      		<button type="submit" name="info" value="${usuario.id}"  class="btn btn-info btn-sm""  title="Mais informações."> Info </button>
+									      		<button type="submit" name="info" value="${usuario.id}"  class="btn btn-info btn-sm"  title="Mais informações."> Info </button>
 									      		<button type="submit" name="alterar" value="${usuario.id}"  class="btn btn-warning btn-sm" title="Alterar informações.">Alterar</button>
 										  		<button type="submit" name="remover" value="${usuario.id}" class="btn btn-danger btn-sm" title="Excluir usuário do sistema.">Remover</button>
 											

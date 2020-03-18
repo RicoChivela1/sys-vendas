@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="magestic/vendors/base/vendor.bundle.base.css">
 <link rel="stylesheet" href="magestic/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
 <link rel="stylesheet" href="magestic/css/style.css">
-<link rel="shortcut icon" href="magestic/images/favicon.png" />
+
 <title>Cadastrar Fornecedor</title>
 <link rel="stylesheet" href="css/style.css">
 <script src="jquery/js/jquery-1.8.3.js"></script>

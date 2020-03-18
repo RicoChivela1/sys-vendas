@@ -27,8 +27,13 @@ public class TestaVisaoGeral {
 		for (Object object : list) {
 			Produto produto = (Produto) object;
 			totalInvestido = totalInvestido.add(produto.getCustoUnid());
-
 		}
+		
+		
+		
+//verificar erro no total investido
+
+
 
 		System.out.println(" - Total: " + totalInvestido);
 

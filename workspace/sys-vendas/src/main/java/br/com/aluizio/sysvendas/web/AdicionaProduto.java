@@ -49,7 +49,7 @@ public class AdicionaProduto extends HttpServlet {
 		//imagem separa em uma classe que recebe request e retorna string
 
 		// Path da pasta no computador
-		File dir = new File("C:\\Users\\Júnior\\Desktop\\uploads");
+		File dir = new File("C:\\Users\\junior\\Desktop\\uploads");
 		File arquivo = null;
 
 		// Se o diretório não existe ele cria

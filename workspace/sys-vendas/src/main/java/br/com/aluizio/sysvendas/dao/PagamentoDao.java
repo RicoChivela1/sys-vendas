@@ -276,6 +276,8 @@ public class PagamentoDao {
 	// Extimativa de Lucro
 	public BigDecimal buscaExtimativas() {
 		String sql = "select sum(valorParcela) as totalLucro from pagamentos";
+		//String sql = "select (qtdDisponivel) * (sum(lucro)) as totalLucro from Produtos join Estoques "
+		//	+ "on Estoques.id = Produtos.fk_estoque";
 		BigDecimal total = new BigDecimal("0.00");
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();

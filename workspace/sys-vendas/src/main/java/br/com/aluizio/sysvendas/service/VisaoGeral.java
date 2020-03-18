@@ -70,6 +70,7 @@ public class VisaoGeral {
 	 * 
 	 * @return BigDecimal totalInvestido
 	 */
+	//problemas com o total investido
 	public static BigDecimal getTotalInvestido() {
 		BigDecimal totalInvestido = new BigDecimal("0.00");
 		ProdutoDao produtoDao = new ProdutoDao();

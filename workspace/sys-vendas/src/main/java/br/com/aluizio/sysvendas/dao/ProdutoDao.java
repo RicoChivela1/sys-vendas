@@ -387,4 +387,22 @@ public class ProdutoDao implements IDAO {
 			throw new RuntimeException(e);
 		}
 	}
+
+	
+	//Retorna o valor Investido
+	public Object getTotalInvestido() {
+		String sql = "select (produtos.custoUnid * estoques.qtdEntrada) "
+				+ "from produtos join estoques on fk_estoque = estoques.id";
+		Object totalInvestido = null;
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				totalInvestido = rs.getBigDecimal(1);
+			}
+			return totalInvestido;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

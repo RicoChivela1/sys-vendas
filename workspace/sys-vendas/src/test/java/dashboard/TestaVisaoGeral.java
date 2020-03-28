@@ -14,34 +14,30 @@ import br.com.aluizio.sysvendas.model.Produto;
  */
 
 public class TestaVisaoGeral {
-	static BigDecimal totalInvestido = new BigDecimal("00.00");
+	
 	public static void main(String[] args) {
 
-		System.out.println("Visão Geral");
-
+		System.out.println("Classe TestaVisaoGeral");
+		
 		// Total Investido
-		System.out.println("Total Investido");
+		System.out.println("Total Investido:");
 		ProdutoDao produtoDao = new ProdutoDao();
-		List<Object> list = produtoDao.getList();
-		
-		for (Object object : list) {
-			Produto produto = (Produto) object;
-			totalInvestido = totalInvestido.add(produto.getCustoUnid());
-		}
-		
-		
-		
-//verificar erro no total investido
-
-
+		BigDecimal totalInvestido = (BigDecimal) produtoDao.getTotalInvestido();
 
 		System.out.println(" - Total: " + totalInvestido);
 
+		
+		
+		
+		
+		
+		
 		// Total Lucro ( vendasBrutas - totalInvestido)
 		System.out.println("Total Lucro");
 
 		PagamentoDao pagamentoDao = new PagamentoDao();
-		BigDecimal totalVendas = pagamentoDao.buscaLucro();
+		BigDecimal totalVendas = new BigDecimal("0.00");
+		totalVendas = pagamentoDao.buscaLucro();
 		System.out.println(" - Bruto: " + totalVendas);
 		System.out.println(" - Líquido: " + totalVendas.subtract(totalInvestido));
 

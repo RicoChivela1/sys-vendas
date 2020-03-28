@@ -70,16 +70,12 @@ public class VisaoGeral {
 	 * 
 	 * @return BigDecimal totalInvestido
 	 */
-	//problemas com o total investido
-	public static BigDecimal getTotalInvestido() {
-		BigDecimal totalInvestido = new BigDecimal("0.00");
-		ProdutoDao produtoDao = new ProdutoDao();
-		List<Object> list = produtoDao.getList();
-		for (Object object : list) {
-			Produto produto = (Produto) object;
-			totalInvestido = totalInvestido.add(produto.getCustoUnid());
-		}
 	
+	public static BigDecimal getTotalInvestido() {
+		ProdutoDao produtoDao = new ProdutoDao();
+		BigDecimal totalInvestido = (BigDecimal) produtoDao.getTotalInvestido();
+	
+		System.out.println("Visão Geral- Get Total Investido");
 		return totalInvestido;
 	}
 

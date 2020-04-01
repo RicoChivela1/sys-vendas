@@ -74,7 +74,7 @@ public class GerenciaProdutos extends HttpServlet {
 			new ProdutoDao().remover(produto);
 
 			// Vai para lista de produtos
-			pagina = "/busca-produto?filtro=";
+			pagina = "/busca-produto.jsp?filtro=";
 
 		}
 

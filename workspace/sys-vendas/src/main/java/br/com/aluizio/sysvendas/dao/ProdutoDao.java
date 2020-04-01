@@ -1,5 +1,6 @@
 package br.com.aluizio.sysvendas.dao;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -398,6 +399,10 @@ public class ProdutoDao implements IDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				totalInvestido = rs.getBigDecimal(1);
+			}
+			
+			if(totalInvestido == null) {
+				totalInvestido = new BigDecimal("0.00");
 			}
 			return totalInvestido;
 

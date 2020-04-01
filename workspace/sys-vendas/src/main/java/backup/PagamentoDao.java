@@ -1,4 +1,4 @@
-package br.com.aluizio.sysvendas.dao;
+package backup;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -19,7 +19,7 @@ import br.com.aluizio.sysvendas.model.Pagamentos;
  * PagamentoDao.java
  * 
  * @author Aluizio Monteiro
- * @Date 31 de mar 2020
+ * @Date 23 de ago de 2018
  */
 
 public class PagamentoDao {
@@ -273,71 +273,26 @@ public class PagamentoDao {
 		}
 	}
 
-	// Extimativa de LucroBruto
-	public BigDecimal buscaLucroBruto() {
-		String sql = "select sum(sugestaoVenda) as lucroBruto from produtos";
-		BigDecimal total = new BigDecimal("0.00");
-		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-			ResultSet rs = stmt.executeQuery();
-
-			while (rs.next()) {
-				total = rs.getBigDecimal("lucroBruto");
-			}
-
-			if(total == null) {
-				total = new BigDecimal("0.00");
-			}
-			return total;
-
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-
-//Extimativa de Lucro Liquido
-	public BigDecimal buscaLucroLiquido() {
-		String sql = "select (sum(sugestaoVenda) - sum(custoUnid)) as lucroLiquido from produtos";
-		BigDecimal total = new BigDecimal("0.00");
-		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-			ResultSet rs = stmt.executeQuery();
-
-			while (rs.next()) {
-				total = rs.getBigDecimal("lucroLiquido");
-			}
-
-			if(total == null) {
-				total = new BigDecimal("0.00");
-			}
-			return total;
-
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
-	
 	// Extimativa de Lucro
-		public BigDecimal buscaExtimativas() {
-			String sql = "select sum(valorParcela) as totalLucro from pagamentos";
-			//String sql = "select (qtdDisponivel) * (sum(lucro)) as totalLucro from Produtos join Estoques "
-			//	+ "on Estoques.id = Produtos.fk_estoque";
-			BigDecimal total = new BigDecimal("0.00");
-			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-				ResultSet rs = stmt.executeQuery();
+	public BigDecimal buscaExtimativas() {
+		String sql = "select sum(valorParcela) as totalLucro from pagamentos";
+		//String sql = "select (qtdDisponivel) * (sum(lucro)) as totalLucro from Produtos join Estoques "
+		//	+ "on Estoques.id = Produtos.fk_estoque";
+		BigDecimal total = new BigDecimal("0.00");
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
 
-				while (rs.next()) {
-					total = rs.getBigDecimal("totalLucro");
-				}
-
-				if(total == null) {
-					total = new BigDecimal("0.00");
-				}
-				return total;
-
-			} catch (SQLException e) {
-				throw new RuntimeException(e);
+			while (rs.next()) {
+				total = rs.getBigDecimal("totalLucro");
 			}
+
+			if(total == null) {
+				total = new BigDecimal("0.00");
+			}
+			return total;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
 	}
-
+}

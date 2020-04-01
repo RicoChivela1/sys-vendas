@@ -4,21 +4,24 @@
 
 <html>
 <head>
- 
-<link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.css"  >
-<script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
-<script src="jquery/js/jquery-1.8.3.js"></script> 
 
-<link rel="stylesheet" href="css/style.css">
+
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="magestic/vendors/mdi/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="magestic/vendors/base/vendor.bundle.base.css">
+<link rel="stylesheet" href="magestic/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+<link rel="stylesheet" href="magestic/css/style.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="jquery/js/jquery-1.8.3.js"></script>
+<link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.css"/>
+<script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <script type="text/javascript" src="js/script.js"></script>
-
-
 <link href="bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">	
 <script src="bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js"></script>
-
 <script type="text/javascript" src="js/campos.js"> </script>
 
 <title>Orçamento</title>
@@ -32,13 +35,18 @@
 
 <div id="container">
 	
-<fieldset class="caixa" >
-<legend>Orçamento:</legend>
+<div class="container-scroller">
+        <div class="content-wrapper">	
+	
+	
+			<div class="row">     
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">ORÇAMENTO</h2>
+                  <h4 class="card-description">CLIENTE</h4>
+                  
 
-	<form action="salvaOrcamento" method="post">
-		<div class="titOrcamento">Cliente</div>
-		
-		<fieldset class="campoOrcamento" title="Adicionar um cliente é opcional.">
 		
 		<c:choose>
 			<c:when test="${empty sessaoCliente.nome}">
@@ -64,11 +72,26 @@
 				</div>
 			</c:when>
 		</c:choose>		
-		</fieldset>
 		
-		<div class="titOrcamento">Produtos </div>
+					</div>
+                  </div>
+                  
+                  
+                </div>
+              </div>
+	
+              
+              <form action="salvaOrcamento" method="post">
+              
+              <div class="row">     
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  
+                  <h4 class="card-description">PRODUTOS</h4>
+                  
 		
-		<fieldset class="campoOrcamento" title="Adicione produtos aqui para que as opções de pagamento apareçam. Boas vendas!">
+	
 		<c:choose>
 			
 			<c:when test="${empty carroCompras}">
@@ -127,14 +150,42 @@
 			</c:when>
 		</c:choose>
 		
-		</fieldset>
+		
 
+</div>
+        </div>
+        </div>
+        </div>
+
+
+<div class="row">     
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+
+
+
+
+
+
+
+
+
+
+
+                  
 		<c:choose>
 			<c:when test="${not empty carroCompras}">
-
-				<div class="titOrcamento"> Pagamento</div>
+<br />
+			<div class="row">     
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  
+                  <h4 class="card-description">FORMA DE PAGAMENTO</h4>
+                  
 		
-					<fieldset class="campoOrcamento">
+					
 		
 		<div class="esqValorOrc">
 			<label for="valor">Subtotal: </label>
@@ -202,15 +253,30 @@
 	
 	
 		</div>
+		
+		</div>
+        </div>
+        </div>
+        </div>
 	
-	</fieldset>
 	
 </c:when>
 </c:choose>
-	</form>		
-</fieldset>	
-	
-</div>		
+
+ </div>
+  </div>
+   </div>
+    </div>
+             
+              
+		
+	</form>
+					
+          
+            </div>
+        </div>
+</div>
+
 <footer class="site-footer push">
     <c:import url="rodape.jsp"/>
 </footer>

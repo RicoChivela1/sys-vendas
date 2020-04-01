@@ -1,12 +1,10 @@
 package br.com.aluizio.sysvendas.service;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import br.com.aluizio.sysvendas.dao.CarrinhoDao;
 import br.com.aluizio.sysvendas.dao.PagamentoDao;
 import br.com.aluizio.sysvendas.dao.ProdutoDao;
-import br.com.aluizio.sysvendas.model.Produto;
 
 /**
  * VisaoGeral.java
@@ -24,7 +22,7 @@ public class VisaoGeral {
 	public static BigDecimal getExtimativaBruta() {
 		System.out.println("Extimativa de Lucro");
 		BigDecimal extimativaBruta = new BigDecimal("0.00");
-		extimativaBruta = new PagamentoDao().buscaExtimativas();
+		extimativaBruta = new PagamentoDao().buscaLucroBruto();
 		return extimativaBruta;
 
 	}
@@ -36,26 +34,25 @@ public class VisaoGeral {
 	 */
 	public static BigDecimal getExtimativaLiquida() {
 		BigDecimal extimativaLiquida = new BigDecimal("0.00");
-		extimativaLiquida = new PagamentoDao().buscaExtimativas();
+		extimativaLiquida = new PagamentoDao().buscaLucroLiquido();
 		System.out.println("Busca extimativas: "+extimativaLiquida);
-		return extimativaLiquida.subtract(getTotalInvestido());
+		return extimativaLiquida;
 		
 	}
 
 	/**
-	 * Total Lucro Bruto
+	 * Total Lucro Bruto Vendido
 	 * 
 	 * @return BigDecimal totalVendas
 	 */
-	public static BigDecimal getLucroBruto() {
-		// Total Vendas 
+	public static BigDecimal getLucroBruto() { 
 		BigDecimal lucroBruto = new BigDecimal("0.00");
 		lucroBruto = new CarrinhoDao().getLucroBruto();
 		return lucroBruto;
 	}
 
 	/**
-	 * Total Lucro Liquido
+	 * Total Lucro Liquido Vendido
 	 * 
 	 * @return BigDecimal totalVendas - totalInvestido
 	 */
@@ -73,8 +70,9 @@ public class VisaoGeral {
 	
 	public static BigDecimal getTotalInvestido() {
 		ProdutoDao produtoDao = new ProdutoDao();
-		BigDecimal totalInvestido = (BigDecimal) produtoDao.getTotalInvestido();
-	
+		BigDecimal totalInvestido = new BigDecimal("0.00");
+		totalInvestido = (BigDecimal) produtoDao.getTotalInvestido();
+		
 		System.out.println("Visão Geral- Get Total Investido");
 		return totalInvestido;
 	}

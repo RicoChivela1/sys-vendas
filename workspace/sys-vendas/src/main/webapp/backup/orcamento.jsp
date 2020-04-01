@@ -15,6 +15,7 @@
 
 <script type="text/javascript" src="js/script.js"></script>
 
+
 <link href="bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">	
 <script src="bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js"></script>
 

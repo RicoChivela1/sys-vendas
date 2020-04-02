@@ -275,13 +275,13 @@ public class PagamentoDao {
 
 	// Extimativa de LucroBruto
 	public BigDecimal buscaLucroBruto() {
-		String sql = "select sum(sugestaoVenda) as lucroBruto from produtos";
+		String sql = "select (sum(produtos.sugestaoVenda) * estoques.qtdEntrada) as lucroExtimadoBruto from produtos join estoques on produtos.fk_estoque = estoques.id";
 		BigDecimal total = new BigDecimal("0.00");
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				total = rs.getBigDecimal("lucroBruto");
+				total = rs.getBigDecimal("lucroExtimadoBruto");
 			}
 
 			if(total == null) {
@@ -297,13 +297,13 @@ public class PagamentoDao {
 
 //Extimativa de Lucro Liquido
 	public BigDecimal buscaLucroLiquido() {
-		String sql = "select (sum(sugestaoVenda) - sum(custoUnid)) as lucroLiquido from produtos";
+		String sql = "select (sum(produtos.sugestaoVenda) * estoques.qtdEntrada) - (sum(produtos.custoUnid) * estoques.qtdEntrada)  as lucroExtimadoLiquido from produtos join estoques on produtos.fk_estoque = estoques.id";
 		BigDecimal total = new BigDecimal("0.00");
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				total = rs.getBigDecimal("lucroLiquido");
+				total = rs.getBigDecimal("lucroExtimadoLiquido");
 			}
 
 			if(total == null) {

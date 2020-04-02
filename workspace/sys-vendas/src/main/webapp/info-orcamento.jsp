@@ -89,7 +89,7 @@
 	</div>
 	</fieldset>
 	
-	<form action="gerencia-cliente.jsp?filtro=" method="post">
+	<form action="busca-cliente.jsp?filtro=" method="post">
 	<fieldset class="campo">
 	<legend>Cliente</legend>
 	

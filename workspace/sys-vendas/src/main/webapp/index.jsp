@@ -91,14 +91,14 @@
                       <div class="d-flex flex-wrap justify-content-xl-between">
                         
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item" title="Tudo que foi investido desde o começo">
-                          <i class="mdi mdi-eye mr-3 icon-lg text-success"></i>
+                          <i class="mdi mdi-currency-usd mr-3 icon-lg text-danger"></i>
                           <div class="d-flex flex-column justify-content-around">
                             <small class="mb-1 text-muted">Total Investido</small>
                             <h5 class="mr-2 mb-0">R$ ${totalInvestido}</h5>
                           </div>
                         </div>
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item" title="Lucros dos já vendidos com desconto de custos">
-                          <i class="mdi mdi-eye mr-3 icon-lg text-success"></i>
+                          <i class="mdi mdi-currency-usd mr-3 icon-lg text-success"></i>
                           <div class="d-flex flex-column justify-content-around">
                           
   
@@ -107,14 +107,14 @@
                           </div>
                         </div>
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item" title="Dívidas que extrapolaram a data de recebimento">
-                          <i class="mdi mdi-eye mr-3 icon-lg text-success"></i>
+                          <i class="mdi mdi-flag mr-3 icon-lg text-danger"></i>
                           <div class="d-flex flex-column justify-content-around">
                             <small class="mb-1 text-muted">Total em Atraso</small>
                             <h5 class="mr-2 mb-0">R$ ${totalAtraso}</h5>
                           </div>
                         </div>
                         <div class="d-flex py-3 border-md-right flex-grow-1 align-items-center justify-content-center p-3 item" title="Dívidas à serem recebidas">
-                          <i class="mdi mdi-eye mr-3 icon-lg text-success"></i>
+                          <i class="mdi mdi-eye mr-3 icon-lg text-danger"></i>
                           <div class="d-flex flex-column justify-content-around">
                              <small class="mb-1 text-muted">Total Dívidas</small>
                             <h5 class="mr-2 mb-0">R$ ${totalDividas}</h5>
@@ -126,28 +126,28 @@
                       <div class="d-flex flex-wrap justify-content-xl-between">
                         
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item" title="Lucro dos já vendidos SEM descontos de custos" >
-                          <i class="mdi mdi-currency-usd mr-3 icon-lg text-danger"></i>
+                          <i class="mdi mdi-currency-usd mr-3 icon-lg text-success"></i>
                           <div class="d-flex flex-column justify-content-around">
                             <small class="mb-1 text-muted">Lucro Total Bruto</small>
                             <h5 class="mr-2 mb-0">R$ ${lucroBruto}</h5>
                           </div>
                         </div>
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item"title="Lucro dos já vendidos COM desconto de custo">
-                          <i class="mdi mdi-currency-usd mr-3 icon-lg text-danger"></i>
+                          <i class="mdi mdi-currency-usd mr-3 icon-lg text-success"></i>
                           <div class="d-flex flex-column justify-content-around">
                             <small class="mb-1 text-muted">Lucro Total Líquido</small>
                             <h5 class="mr-2 mb-0">R$ ${lucroLiquido}</h5>
                           </div>
                         </div>
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item" title="Extimativa de lucro dos já vendidos e do estoque SEM descontos de custo">
-                          <i class="mdi mdi-currency-usd mr-3 icon-lg text-danger"></i>
+                          <i class="mdi mdi-flag mr-3 icon-lg text-success"></i>
                           <div class="d-flex flex-column justify-content-around">
                             <small class="mb-1 text-muted">Lucro Extimado Bruto</small>
                             <h5 class="mr-2 mb-0">R$ ${extimativaBruta}</h5>
                           </div>
                         </div>
                         <div class="d-flex py-3 border-md-right flex-grow-1 align-items-center justify-content-center p-3 item" title="Extimativa de lucro dos já vendidos e do estoque COM descontos de custo">
-                          <i class="mdi mdi-currency-usd mr-3 icon-lg text-danger"></i>
+                          <i class="mdi mdi-flag mr-3 icon-lg text-success"></i>
                           <div class="d-flex flex-column justify-content-around">
                             <small class="mb-1 text-muted">Lucro Extimado Líquido</small>
                             <h5 class="mr-2 mb-0">R$ ${extimativaLiquida}</h5>
@@ -166,21 +166,21 @@
                           </div>
                         </div>
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item" title="Dívidas à receber hoje">
-                          <i class="mdi mdi-flag mr-3 icon-lg text-danger"></i>
+                          <i class="mdi mdi-flag mr-3 icon-lg text-success"></i>
                           <div class="d-flex flex-column justify-content-around">
                             <small class="mb-1 text-muted">À Receber Hoje</small>
                             <h5 class="mr-2 mb-0">R$ ${valorAReceberHoje}</h5>
                           </div>
                         </div>
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item" title="Dívidas à receber nesta semana">
-                          <i class="mdi mdi-flag mr-3 icon-lg text-danger"></i>
+                          <i class="mdi mdi-currency-usd mr-3 icon-lg text-danger"></i>
                           <div class="d-flex flex-column justify-content-around">
                             <small class="mb-1 text-muted">À Receber Semana</small>
                             <h5 class="mr-2 mb-0">R$ ${valorAReceberSemana}</h5>
                           </div>
                         </div>
                         <div class="d-flex py-3 border-md-right flex-grow-1 align-items-center justify-content-center p-3 item"title="Dívidas à receber este mês">
-                          <i class="mdi mdi-flag mr-3 icon-lg text-danger"></i>
+                          <i class="mdi mdi-eye mr-3 icon-lg text-success"></i>
                           <div class="d-flex flex-column justify-content-around">
                             <small class="mb-1 text-muted">À Receber Mês</small>
                             <h5 class="mr-2 mb-0">R$ ${valorAReceberMes}</h5>

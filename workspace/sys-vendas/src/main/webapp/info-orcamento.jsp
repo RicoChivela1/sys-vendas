@@ -5,28 +5,32 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<title>Info Orçamento</title>
+
 <meta charset="utf-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="magestic/vendors/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="magestic/vendors/base/vendor.bundle.base.css">
 <link rel="stylesheet" href="magestic/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-<link rel="stylesheet" href="magestic/css/style.css">
 
 
+<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="js/script.js"></script>
-<script src="jquery/js/jquery-1.8.3.js"></script>
+
 <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.css"  >
 <script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
 
 		<link href="bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">	
 		<script src="bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js"></script>
 		<script src="js/trava.js"></script>
+		
+		<script src="jquery/js/jquery-1.8.3.js"></script>
+		
 
-<link rel="stylesheet" href="css/style.css">
-<title>Info Orçamento</title>
+
 </head>
 <body>
                        
@@ -279,7 +283,12 @@
 							<input type="hidden" name="totalParcelas" value="${orcamento.totalParcelas}">
 							<input type="hidden" name="fkOrcamento" value="${orcamento.id}">
 								<div id="divSalvaPagamentos">
+									<!-- COnflito -->
 									<input id="chkToggle" name="trava" type="checkbox" data-style="slow"> 
+									<script src="jquery/js/jquery-1.8.3.js"></script>
+									<link href="bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">	
+		<script src="bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js"></script>
+		<script src="js/trava.js"></script>
 								</div>
 							 				 
 						</form>	
@@ -292,10 +301,9 @@
 	</div>
 
 
-
 <footer class="site-footer push">
     <c:import url="rodape.jsp"/>
 </footer>
-
+	
 </body>
 </html>

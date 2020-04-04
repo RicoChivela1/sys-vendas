@@ -15,7 +15,6 @@ $(document).ready(function(){
 	var elemento;
 	//Detecta mudanças no toggle
 	$('input[name=trava]').change(function () {
-		//$("#divSalvaPagamentos").empty();
 		var checado = $(this).prop('checked');	
 		console.log("Total de parcelas: "+t);
 		
@@ -49,15 +48,13 @@ $(document).ready(function(){
 			
 			elemento.append("<link href='bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.min.css' rel='stylesheet'>");	
 			elemento.append("<script src='bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js'></script>");	
-			elemento.append("<script src='jquery/js/jquery-1.8.3.js'></script>");	
-		
+			
 		}
 		
 		//Adiciona botão submit
 		$("#divSalvaPagamentos").prepend("<button type='submit' id='asd' name='asd' onClick='ocultarBtnEfetivarPagamento()' class='btn btn-success btn-lg'> <i class='fa fa-money' > </i> Registrar Pagamento </button> ");
 		$("#divSalvaPagamentos").append("<link href='bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.min.css' rel='stylesheet'>");	
 		$("#divSalvaPagamentos").append("<script src='bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js'></script>");	
-		$("#divSalvaPagamentos").append("<script src='jquery/js/jquery-1.8.3.js'></script>");
 		//cancela a edição
 		if ($('input[name=trava]').is(":checked") == false){
 			location.reload();

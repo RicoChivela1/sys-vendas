@@ -170,6 +170,8 @@ div.btnCarrinho {
 
 /*valores vermelhos*/
 .valores{
+	font-size: 17px;
+    font-weight: bold;
 	color: red; 
 	 
 }
@@ -479,7 +481,8 @@ td#tdPagar {
 .camposAPagar{
 	border:0px;
 	color: red;	
-	font-size: 12px;
+	font-size: 17px;
+    font-weight: bold;
 	width: 120px;
 	background: transparent;
 }
@@ -488,7 +491,8 @@ td#tdPagar {
 .camposQuitados{
 	border:0px;
 	color: #00ca00;	
-	font-size: 12px;
+	font-size: 17px;
+    font-weight: bold;
 	width: 120px;
 	background: transparent;
 }

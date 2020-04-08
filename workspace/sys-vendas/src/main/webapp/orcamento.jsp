@@ -5,7 +5,6 @@
 <html>
 <head>
 
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -13,7 +12,7 @@
 <link rel="stylesheet" href="magestic/vendors/base/vendor.bundle.base.css">
 <link rel="stylesheet" href="magestic/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
 <link rel="stylesheet" href="magestic/css/style.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/switchbutton.css">
 <script src="jquery/js/jquery-1.8.3.js"></script>
 <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.css"/>
 <script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>

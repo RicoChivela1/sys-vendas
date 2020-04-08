@@ -17,7 +17,6 @@ $(document).ready(function(){
 	var elemento;
 	//Detecta mudanças no toggle
 	$('input[name=trava]').change(function () {
-		//$("#divSalvaPagamentos").empty();
 		var checado = $(this).prop('checked');	
 		console.log("Total de parcelas: "+t);
 		
@@ -37,8 +36,7 @@ $(document).ready(function(){
 				elemento.empty();
 						
 				//adiciona o checkbox no pai
-				//elemento.append("<input type='checkbox' data-toggle='toggle' id='checkBoxPagar["+i+"]' name='checkBoxPagar["+i+"]' data-on='Quitado' data-off='A Pagar' data-onstyle='success' data-offstyle='danger' data-size='mini' checked > ");
-				//elemento.append("<input id='chkPagar' type='checkbox'> ");
+
 				elemento.append("<div class='check-radio'><input type='checkbox' name='checkBoxPagar["+i+"]'/></div>");
 				
 				//ajusta o status do checkbox

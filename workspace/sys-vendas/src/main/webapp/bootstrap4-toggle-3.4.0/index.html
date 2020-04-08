@@ -6,12 +6,12 @@
 	<meta name="description" content="Bootstrap 4 Toggle is a bootstrap plugin that converts checkboxes into responsive toggles.">
 	<meta name="keywords" content="bootstrap, toggle, switch, bootstrap-toggle, bootstrap-switch, bootstrap-checkbox">
 	<meta name="author" content="https://github.com/gitbrent">
-	<meta name="version" content="v3.4.0">
+	<meta name="version" content="v3.7.0">
 	<meta name="robots" content="index, follow">
 	<meta name="revisit-after" content="1 month">
 	<title>Bootstrap 4 Toggle Switch Button Checkbox</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/bootstrap4-toggle.css">
@@ -55,7 +55,7 @@
 		<section id="updated" class="container my-5">
 			<div class="alert alert-success" role="alert">
 				<h3 class="alert-heading">Made for Bootstrap 4!</h3>
-				<h6 class="font-weight-light">This page and all of the switch buttons shown are running on Bootstrap 4.2</h6>
+				<h6 class="font-weight-light">This page and all of the switch buttons shown are running on Bootstrap 4.3</h6>
 				<hr>
 				<div class="row">
 					<div class="col-12 col-md-4 mb-1 mb-md-0">
@@ -100,8 +100,8 @@
 			<hr>
 
 			<h3 class="text-secondary mt-4">CDN</h3>
-			<code class="highlight">&lt;link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet"&gt;
-&lt;script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"&gt;&lt;/script&gt;</code>
+			<code class="highlight">&lt;link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet"&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"&gt;&lt;/script&gt;</code>
 
 			<h3 class="text-secondary mt-4">Download</h3>
 			<a href="https://github.com/gitbrent/bootstrap4-toggle/releases/latest">GitHub Latest release</a>
@@ -110,7 +110,7 @@
 			<code class="highlight">npm install bootstrap4-toggle</code>
 
 			<h3 class="text-secondary mt-4">Yarn</h3>
-			<code class="highlight">yarn install bootstrap4-toggle</code>
+			<code class="highlight">yarn add bootstrap4-toggle</code>
 		</section>
 
 		<section id="demos" class="container my-5">
@@ -329,7 +329,7 @@
 							<td>
 								Style of the <em>on</em> toggle.<br>Possible values are:
 								<code>primary</code>, <code>secondary</code>, <code>success</code>, <code>danger</code>, <code>warning</code>, <code>info</code>, <code>light</code>, <code>dark</code><br>
-								<small class="text-muted">Refer to Bootstrap <a href="https://getbootstrap.com/docs/4.2/components/buttons/" target="_blank">Button Options</a> documentation for more information.</small>
+								<small class="text-muted">Refer to Bootstrap <a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Button Options</a> documentation for more information.</small>
 							</td>
 						</tr>
 						<tr>
@@ -339,7 +339,7 @@
 							<td>
 								Style of the <em>off</em> toggle.<br>Possible values are:
 								<code>primary</code>, <code>secondary</code>, <code>success</code>, <code>danger</code>, <code>warning</code>, <code>info</code>, <code>light</code>, <code>dark</code><br>
-								<small class="text-muted">Refer to Bootstrap <a href="https://getbootstrap.com/docs/4.2/components/buttons/" target="_blank">Button Options</a> documentation for more information.</small>
+								<small class="text-muted">Refer to Bootstrap <a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Button Options</a> documentation for more information.</small>
 							</td>
 						</tr>
 						<tr>
@@ -350,7 +350,7 @@
 								Size of the toggle. If set to <em>null</em>, button is default/normal size.<br>
 								Possible values are:
 								<code>lg</code>, <code>sm</code>, <code>xs</code><br>
-								<small class="text-muted">Refer to Bootstrap <a href="https://getbootstrap.com/docs/4.2/components/buttons/#sizes" target="_blank">Button Sizes</a> documentation for more information.</small>
+								<small class="text-muted">Refer to Bootstrap <a href="https://getbootstrap.com/docs/4.3/components/buttons/#sizes" target="_blank">Button Sizes</a> documentation for more information.</small>
 							</td>
 						</tr>
 						<tr>
@@ -445,6 +445,20 @@
 				</tbody>
 				</table>
 			</div>
+
+			<h3 class="text-secondary mt-4">Checked State</h3>
+			<p>You can determine the checked state of a toggle using the `checked` property.</p>
+			<div class="example">
+				<input id="toggle-state" type="checkbox" data-toggle="toggle">
+			</div>
+			<div id="chkState" class="example">
+				<button type="button" class="btn btn-outline-primary" onClick="showChkState()">Show Toggle State</button>
+			</div>
+			<p>
+				<div>Use the element property for checked state</div>
+				<code>document.getElementById('toggle-state').checked</code>
+				<div>Returns true/false</div>
+			</p>
 		</section>
 
 		<section id="events" class="container my-5 d-none d-sm-none d-md-block">
@@ -452,8 +466,11 @@
 			<hr>
 
 			<h3 class="text-secondary mt-4">Event Propagation</h3>
-			<p><span class="label label-primary">Note</span> All events are propagated to and from input element to the toggle. </p>
-			<p>You should listen to events from the <code>&lt;input type="checkbox"></code> directly rather than look for custom events.</p>
+			<p>
+				<div class="label label-primary">Notes</div>
+				&bull;&nbsp;All events are propagated to and from input element to the toggle.<br>
+				&bull;&nbsp;Listen for events on the <code>&lt;input type="checkbox"></code> directly as the toggle stays synced with the input.
+			</p>
 			<div class="example">
 				<input id="toggle-event" type="checkbox" data-toggle="toggle">
 				<div id="console-event"></div>
@@ -464,6 +481,33 @@
 						})
 					})
 				</script>
+			</div>
+			<h3 class="text-secondary mt-4">Stopping Event Propagation</h3>
+			<p>
+				Passing <code>true</code> to the on/off methods will enable the silent option to prevent the control from propagating the change event in
+				cases where you want to update the controls on/off state, but do not want to fire the onChange event.
+			</p>
+			<div class="example">
+				<input id="toggle-silent" type="checkbox" data-toggle="toggle" onchange="$('#chgConsole').text(new Date().toISOString()+' ... change event fired!')">
+				<button class="btn btn-success" onclick="toggleApiOnSilent()" >On by API (silent)</button>
+				<button class="btn btn-success"  onclick="toggleApiOffSilent()">Off by API (silent)</button>
+				<button class="btn btn-warning" onclick="toggleApiOnNotSilent()">On by API (not silent)</button>
+				<button class="btn btn-warning" onclick="toggleApiOffNotSilent()">On by API (not silent)</button>
+				<script>
+					function toggleApiOnSilent() {
+						$('#toggle-silent').bootstrapToggle('on', true);
+					}
+					function toggleApiOffSilent() {
+						$('#toggle-silent').bootstrapToggle('off', true);
+					}
+					function toggleApiOnNotSilent() {
+						$('#toggle-silent').bootstrapToggle('on');
+					}
+					function toggleApiOffNotSilent() {
+						$('#toggle-silent').bootstrapToggle('off');
+					}
+				</script>
+				<pre class="mb-0"><code id="chgConsole" class="text-info"></code></pre>
 			</div>
 
 			<h3 class="text-secondary mt-4">API vs Input</h3>
@@ -507,11 +551,18 @@
 	</footer>
 
 	<!-- vvv scripts vvv -->
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
 	<script src="doc/script.js"></script>
 	<script src="js/bootstrap4-toggle.js"></script>
 	<!-- ^^^ scripts ^^^ -->
+	<script>
+		function showChkState() {
+			$('#chkState .badge').remove();
+			var chkBool = document.getElementById('toggle-state').checked;
+			$('#chkState button').after('<div class="badge badge-success px-3 py-2 mb-2 mx-3">'+chkBool+'</div>');
+		}
+	</script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75147115-4"></script>
 	<script>

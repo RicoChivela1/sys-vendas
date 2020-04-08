@@ -1,21 +1,30 @@
-[![MIT Licence](https://img.shields.io/github/license/gitbrent/bootstrap4-toggle.svg)](https://opensource.org/licenses/mit-license.php)   [![Bootstrap 4.2.1](https://img.shields.io/badge/bootstrap-4.2.1-green.svg?style=flat-square)](https://getbootstrap.com/docs/4.1)  [![Known Vulnerabilities](https://snyk.io/test/npm/bootstrap4-toggle/badge.svg)](https://snyk.io/test/npm/bootstrap4-toggle)   [![JSDelivr Badge](https://data.jsdelivr.com/v1/package/gh/gitbrent/bootstrap4-toggle/badge)](https://www.jsdelivr.com/package/gh/gitbrent/bootstrap4-toggle)
+[![MIT Licence](https://img.shields.io/github/license/gitbrent/bootstrap4-toggle.svg)](https://opensource.org/licenses/mit-license.php)   [![Bootstrap 4.2.1](https://img.shields.io/badge/bootstrap-4.3.1-green.svg?style=flat-square)](https://getbootstrap.com/docs/4.1)  [![Known Vulnerabilities](https://snyk.io/test/npm/bootstrap4-toggle/badge.svg)](https://snyk.io/test/npm/bootstrap4-toggle)  [![npm downloads](https://img.shields.io/npm/dm/bootstrap4-toggle.svg)](https://www.npmjs.com/package/bootstrap4-toggle)  [![JSDelivr Badge](https://data.jsdelivr.com/v1/package/gh/gitbrent/bootstrap4-toggle/badge)](https://www.jsdelivr.com/package/gh/gitbrent/bootstrap4-toggle)
 
 # Bootstrap 4 Toggle
 
 **Bootstrap 4 Toggle** is a bootstrap plugin/widget that converts checkboxes into toggles.
 
-Visit https://gitbrent.github.io/bootstrap4-toggle/ for interactive demos.
-
 **************************************************************************************************
+
+#### Library Distributions
+Project                                                                                    |Description
+-------------------------------------------------------------------------------------------|-------------------------------------------------------
+[bootstrap4-toggle](https://github.com/gitbrent/bootstrap4-toggle)                         | Supports bootstrap4 (requires jQuery)
+[bootstrap-switch-button](https://github.com/gitbrent/bootstrap-switch-button)             | Supports bootstrap4+ (ES6 class, no dependencies)
+[bootstrap-switch-button-react](https://github.com/gitbrent/bootstrap-switch-button-react) | Supports bootstrap4+ (React component, no dependencies)
+
+# Demos
+**Demos and API Docs:** https://gitbrent.github.io/bootstrap4-toggle/  
+
+![Demo GIF](https://github.com/gitbrent/bootstrap4-toggle/blob/master/doc/bootstrap4-toggle-demo.gif?raw=true)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Demos](#demos)
 - [Installation](#installation)
-  - [Download](#download)
   - [CDN](#cdn)
+  - [Download](#download)
   - [NPM](#npm)
   - [Yarn](#yarn)
 - [Usage](#usage)
@@ -26,21 +35,19 @@ Visit https://gitbrent.github.io/bootstrap4-toggle/ for interactive demos.
   - [Methods](#methods)
 - [Events](#events)
   - [Event Propagation](#event-propagation)
+  - [Stopping Event Propagation](#stopping-event-propagation)
   - [API vs Input](#api-vs-input)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 **************************************************************************************************
 
-# Demos
-Visit https://gitbrent.github.io/bootstrap4-toggle/ for interactive checkbox toggle demos.
-
 # Installation
 
 ## CDN
 ```html
-<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">  
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">  
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 ```
 
 ## Download
@@ -53,7 +60,7 @@ npm install bootstrap4-toggle
 
 ## Yarn
 ```ksh
-yarn install bootstrap4-toggle
+yarn add bootstrap4-toggle
 ```
 
 # Usage
@@ -141,6 +148,32 @@ You should listen to events from the `<input type="checkbox">` directly rather t
       $('#console-event').html('Toggle: ' + $(this).prop('checked'))
     })
   })
+</script>
+```
+
+## Stopping Event Propagation
+Passing `true` to the on/off methods will enable the silent option to prevent the control from propagating the change event in
+cases where you want to update the controls on/off state, but do not want to fire the onChange event.
+
+```html
+<input id="toggle-silent" type="checkbox" data-toggle="toggle">
+<button class="btn btn-success" onclick="toggleApiOnSilent()" >On by API (silent)</button>
+<button class="btn btn-success" onclick="toggleApiOffSilent()">Off by API (silent)</button>
+<button class="btn btn-warning" onclick="toggleApiOnNotSilent()">On by API (not silent)</button>
+<button class="btn btn-warning" onclick="toggleApiOffNotSilent()">On by API (not silent)</button>
+<script>
+  function toggleApiOnSilent() {
+    $('#toggle-silent').bootstrapToggle('on', true);
+  }
+  function toggleApiOffSilent() {
+    $('#toggle-silent').bootstrapToggle('off', true);
+  }
+  function toggleApiOnNotSilent() {
+    $('#toggle-silent').bootstrapToggle('on');
+  }
+  function toggleApiOffNotSilent() {
+    $('#toggle-silent').bootstrapToggle('off');
+  }
 </script>
 ```
 

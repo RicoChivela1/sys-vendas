@@ -5,7 +5,35 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
-- Outline button support [3.4.0]
+
+## [3.7.0](https://github.com/gitbrent/bootstrap4-toggle/tree/v3.7.0) 2019-??-??
+### [Full Changelog](https://github.com/gitbrent/bootstrap4-toggle/compare/v3.6.0...v3.7.0)
+
+## [3.6.0](https://github.com/gitbrent/bootstrap4-toggle/tree/v3.6.0) 2019-10-17
+### [Full Changelog](https://github.com/gitbrent/bootstrap4-toggle/compare/v3.5.0...v3.6.0)
+### Added
+- Added option to change toggle without triggering onChange event (silent toggle) [\#7](https://github.com/gitbrent/bootstrap4-toggle/issue/7) ([aswin1980](https://github.com/aswin1980))
+- Added accessibility properties to labels [\#11](https://github.com/gitbrent/bootstrap4-toggle/issue/11) ([aproquot](https://github.com/aproquot))
+### Changed
+- Fixed URLs in js and css file top comment [\#5](https://github.com/gitbrent/bootstrap4-toggle/issue/5) ([wilecoyte78](https://github.com/wilecoyte78))
+- Disable style is not working [\#18](https://github.com/gitbrent/bootstrap4-toggle/issue/18) ([rychlym](https://github.com/rychlym))
+
+## [3.5.0](https://github.com/gitbrent/bootstrap4-toggle/tree/v3.5.0) 2019-07-02
+### [Full Changelog](https://github.com/gitbrent/bootstrap4-toggle/compare/v3.4.0...v3.5.0)
+### Added
+- Added ARIA `role="button"` tag to toggle
+- Added `cursor: pointer;` style to toggle
+### Changed
+- Fixed: Touch not working on mobile [\#2](https://github.com/gitbrent/bootstrap4-toggle/issue/2) ([wilecoyte78](https://github.com/wilecoyte78))
+- Updated to Bootstrap version 4.3.1
+- Updated README with better Yarn instructions
+
+## [3.4.0](https://github.com/gitbrent/bootstrap4-toggle/tree/v3.4.0) 2019-01-03
+### [Full Changelog](https://github.com/gitbrent/bootstrap4-toggle/compare/v3.3.0...v3.4.0)
+### Added
+- Outline button styles are now available
+### Changed
+- Updated to Bootstrap version 4.2.1
 
 ## [3.3.0](https://github.com/gitbrent/bootstrap4-toggle/tree/v3.3.0) 2018-12-19
 ### [Full Changelog](https://github.com/gitbrent/bootstrap4-toggle/compare/v3.2.0...v3.3.0)

@@ -44,9 +44,7 @@ $(document).ready(function(){
 			$("#tbodyParcelas").append("<td> <input type='date' id='fieldsMedio' class='form-control' name='parcelaData["+i+"]' value="+stringData+"> </td> ");
 			
 			//Checkbox de pagamento
-			//$("#tbodyParcelas").append("<td id='tdPagar'> <input type='checkbox'  name='checkBoxPagar["+i+"]' data-toggle='toggle' data-onstyle='success' data-offstyle='outline-danger'  data-on='Recebido' data-off='A receber' data-width='130' id='ckbx' data-size='small'> </td>");
-			
-			
+			$("#tbodyParcelas").append("<td id='tdPagar'> <input type='checkbox'  name='checkBoxPagar["+i+"]' data-toggle='toggle' data-onstyle='success' data-offstyle='outline-danger'  data-on='Recebido' data-off='A receber' data-width='130' id='ckbx' data-size='small'> </td>")			
 			$('#ckbx').append("<script>","$(function(){$(name='checkBoxPagar["+i+"]').change(function(){	$(this).prop('checked');alert('- CheckBox: "+i+" - Valor: '+$('name='checkBoxPagar["+i+"]').prop('checked'));});});","</script>");
 			
 			//Marca a primeira parcela como paga

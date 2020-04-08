@@ -27,8 +27,8 @@
 		<script src="bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js"></script>
 		<script src="js/trava.js"></script>
 		
-		<script src="jquery/js/jquery-1.8.3.js"></script>
-		
+		<script src="jquery/js/jquery-1.9.1.min.js"></script>
+		<link rel="stylesheet" href="css/switchbutton.css"  >
 
 
 </head>
@@ -285,10 +285,10 @@
 								<div id="divSalvaPagamentos">
 									<!-- COnflito -->
 									<input id="chkToggle" name="trava" type="checkbox" data-style="slow"> 
-									<script src="jquery/js/jquery-1.8.3.js"></script>
-									<link href="bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">	
-		<script src="bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js"></script>
-		<script src="js/trava.js"></script>
+									<script src="jquery/js/jquery-1.9.1.min.js"></script>
+									
+									<script src="bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js"></script>
+									<script src="js/trava.js"></script>
 								</div>
 							 				 
 						</form>	

@@ -1,7 +1,7 @@
 /*\
 |*| ========================================================================
-|*| Bootstrap Toggle: bootstrap4-toggle.js v3.4.0
-|*| https://gitbrent.github.io/bootstrap-toggle/
+|*| Bootstrap Toggle: bootstrap4-toggle.js v3.7.0
+|*| https://gitbrent.github.io/bootstrap4-toggle/
 |*| ========================================================================
 |*| Copyright 2018-2019 Brent Ely
 |*| Licensed under MIT
@@ -20,7 +20,7 @@
 		this.render()
 	}
 
-	Toggle.VERSION  = '3.4.0-beta'
+	Toggle.VERSION  = '3.7.0-beta'
 
 	Toggle.DEFAULTS = {
 		on: 'On',
@@ -54,15 +54,15 @@
 			: this.options.size === 'small' || this.options.size === 'sm' ? 'btn-sm'
 			: this.options.size === 'mini'  || this.options.size === 'xs' ? 'btn-xs'
 			: ''
-		var $toggleOn = $('<label class="btn">').html(this.options.on)
+		var $toggleOn = $('<label for="'+ this.$element.prop('id') +'" class="btn">').html(this.options.on)
 			.addClass(this._onstyle + ' ' + size)
-		var $toggleOff = $('<label class="btn">').html(this.options.off)
+		var $toggleOff = $('<label for="'+ this.$element.prop('id') +'" class="btn">').html(this.options.off)
 			.addClass(this._offstyle + ' ' + size)
 		var $toggleHandle = $('<span class="toggle-handle btn btn-light">')
 			.addClass(size)
 		var $toggleGroup = $('<div class="toggle-group">')
 			.append($toggleOn, $toggleOff, $toggleHandle)
-		var $toggle = $('<div class="toggle btn" data-toggle="toggle">')
+		var $toggle = $('<div class="toggle btn" data-toggle="toggle" role="button">')
 			.addClass( this.$element.prop('checked') ? this._onstyle : this._offstyle+' off' )
 			.addClass(size).addClass(this.options.style)
 
@@ -108,11 +108,13 @@
 	}
 
 	Toggle.prototype.enable = function () {
+		this.$toggle.removeClass('disabled')
 		this.$toggle.removeAttr('disabled')
 		this.$element.prop('disabled', false)
 	}
 
 	Toggle.prototype.disable = function () {
+		this.$toggle.addClass('disabled')
 		this.$toggle.attr('disabled', 'disabled')
 		this.$element.prop('disabled', true)
 	}
@@ -143,13 +145,17 @@
 	// ========================
 
 	function Plugin(option) {
+		var optArg = Array.prototype.slice.call( arguments, 1 )[0]
+
 		return this.each(function () {
 			var $this   = $(this)
 			var data    = $this.data('bs.toggle')
 			var options = typeof option == 'object' && option
 
 			if (!data) $this.data('bs.toggle', (data = new Toggle(this, options)))
-			if (typeof option == 'string' && data[option]) data[option]()
+			if (typeof option === 'string' && data[option] && typeof optArg === 'boolean') data[option](optArg)
+			else if (typeof option === 'string' && data[option]) data[option]()
+			//else if (option && !data[option]) console.log('bootstrap-toggle: error: method `'+ option +'` does not exist!');
 		})
 	}
 
@@ -173,10 +179,9 @@
 		$('input[type=checkbox][data-toggle^=toggle]').bootstrapToggle()
 	})
 
-	$(document).on('touch.bs.toggle click.bs.toggle', 'div[data-toggle^=toggle]', function(e) {
+	$(document).on('click.bs.toggle', 'div[data-toggle^=toggle]', function(e) {
 		var $checkbox = $(this).find('input[type=checkbox]')
 		$checkbox.bootstrapToggle('toggle')
 		e.preventDefault()
 	})
-
 }(jQuery);

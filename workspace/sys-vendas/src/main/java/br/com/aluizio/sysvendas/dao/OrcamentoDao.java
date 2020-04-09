@@ -21,9 +21,6 @@ import br.com.aluizio.sysvendas.model.Vendas;
 
 /**
  * OrcamentoDao.java
- * 
- * @author Aluizio Monteiro
- * @date 24 de nov de 2018
  */
 
 public class OrcamentoDao {
@@ -192,15 +189,18 @@ public class OrcamentoDao {
 		}
 	}
 
-	// Lista Orcamento pelo cliente
-	public List<Orcamento> getList(Cliente clienteBuscado) {
+	/**
+	 * Lista todos os orçamentos
+	 * 
+	 * @return
+	 */
+	public List<Orcamento> getList() {
 		String sql = "select * from orcamentos as o " + "right join clientes as c on o.fk_cliente = c.id "
-				+ "right join usuarios as u on o.fk_usuario = u.id " + "where o.fk_cliente = ?";
+				+ "right join usuarios as u on o.fk_usuario = u.id";
 		List<Orcamento> list = new ArrayList<>();
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 
-			stmt.setInt(1, clienteBuscado.getId());
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -372,4 +372,87 @@ public class OrcamentoDao {
 			throw new RuntimeException(e);
 		}
 	}
+
+	// Busca orcamento pelo nome do cliente
+	public List<Orcamento> buscaOrcamentoPorCliente(Cliente clienteBuscado) {
+		List<Orcamento> list = new ArrayList<>();
+		String sql = null;
+		String termo = null;
+
+		if (!existOrcamento(clienteBuscado)) {
+			System.out.println("Erro ao buscar orcamento");
+			sql = "select * from orcamentos as o inner join clientes as c inner join usuarios as u on o.fk_cliente = c.id and o.fk_usuario = u.id where o.id >= ?";
+			termo = "1";
+		} else if (existOrcamento(clienteBuscado)) {
+			sql = "select * from orcamentos as o inner join clientes as c inner join usuarios as u on o.fk_cliente = c.id and o.fk_usuario = u.id where c.nome like ?";
+			termo = "%" + clienteBuscado.getNome() + "%";
+		}
+		
+		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+				stmt.setString(1, termo);
+				ResultSet rs = stmt.executeQuery();
+				while (rs.next()) {
+
+					Cliente cliente = new Cliente();
+					cliente.setId(rs.getInt("fk_cliente"));
+					cliente.setNome(rs.getString("c.nome"));
+
+					Usuario usuario = new Usuario();
+					usuario.setId(rs.getInt("fk_usuario"));
+					usuario.setNome(rs.getString("u.nome"));
+
+					Orcamento orcamento = new Orcamento();
+					orcamento.setCliente(cliente);
+					orcamento.setId(rs.getInt("o.id"));
+					orcamento.setUsuario(usuario);
+
+					orcamento.setDescontos(rs.getBigDecimal("o.descontos"));
+					orcamento.setTotalOrcamento(rs.getBigDecimal("o.totalOrcamento"));
+
+					orcamento.setDataLancamento(rs.getDate("o.dataLancamento").toLocalDate());
+					orcamento.setSubTotalOrcamento(rs.getBigDecimal("o.subTotalOrcamento"));
+					orcamento.setTotalParcelas(rs.getInt("totalParcelas"));
+					orcamento.setParcelasPagas(rs.getInt("parcelasPagas"));
+					orcamento.setParcelasAPagar(rs.getInt("parcelasAPagar"));
+					list.add(orcamento);
+				}
+			
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		
+		return list;
+
+	}
+
+	// Verifica se existe orçamento para o cliente
+	public boolean existOrcamento(Cliente cliente) {
+		ClienteDao dao = new ClienteDao();
+
+		// Se o cliente não existe
+		if (!dao.existCliente(cliente)) {
+			System.out.println("Cliente não existe");
+			return false;
+		} else {
+			String sql = "select * from Orcamentos as o inner join Clientes as c on o.fk_cliente = c.id where c.nome like ?";
+
+			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+				String termo = "%" + cliente.getNome() + "%";
+				stmt.setString(1, termo);
+				ResultSet rs = stmt.executeQuery();
+
+				if (!rs.next()) {
+					System.out.println("Orçamento não existe");
+					return false;
+				} else {
+					System.out.println("Orçamento existe  linha 450");
+					return true;
+				}
+
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+	}
+
 }

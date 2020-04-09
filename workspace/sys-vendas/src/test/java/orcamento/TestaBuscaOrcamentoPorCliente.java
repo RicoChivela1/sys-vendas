@@ -7,22 +7,32 @@ import br.com.aluizio.sysvendas.model.Cliente;
 import br.com.aluizio.sysvendas.model.Orcamento;
 
 /**
- * TestaLista.java
- * 
- * Busca orçamentos pelo id do cliente
+ * Busca orcamentos por cliente
  */
 
-public class TestaListaOrcamentos {
-
+public class TestaBuscaOrcamentoPorCliente {
 	public static void main(String[] args) {
-		//id buscado
 		Cliente cliente = new Cliente();
-		cliente.setId(1); //1, 2 e 8.
+		cliente.setNome("");
+		OrcamentoDao dao = new OrcamentoDao();
 		
-		List<Orcamento> list = (List<Orcamento>) new OrcamentoDao().buscaOrcamentoPorCliente(cliente);
-
+		List<Orcamento> list = dao.buscaOrcamentoPorCliente(cliente);
+		
 		for (Orcamento orcamento : list) {
 			System.out.println(orcamento);
-		}
+		}	
+		
+		System.out.println("Busca por nome realizada com sucesso");
 	}
 }
+
+
+
+
+
+
+
+
+
+
+

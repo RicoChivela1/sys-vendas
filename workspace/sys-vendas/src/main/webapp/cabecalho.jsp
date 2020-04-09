@@ -88,8 +88,8 @@
                 	<li class="pushy-submenu">
                         <button><i id="iconMenu" class="mdi mdi-cart"> </i> Orçamento</button>
                         <ul>
-                            <li class="pushy-link"><a href="orcamento.jsp?filtro="><i id="iconMenu" class="mdi mdi-cart-plus"> </i> Novo Orçamento</a></li>
-                            <li class="pushy-link"><a href="busca-orcamentos.jsp?filtro="><i id="iconMenu" class="mdi mdi-file-find"> </i> Buscar Orçamento</a></li>   
+                            <li class="pushy-link"><a href="orcamento.jsp"><i id="iconMenu" class="mdi mdi-cart-plus"> </i> Novo Orçamento</a></li>
+                            <li class="pushy-link"><a href="busca-orcamento.jsp"><i id="iconMenu" class="mdi mdi-file-find"> </i> Buscar Orçamento</a></li>   
                         </ul>
                     </li>
                     

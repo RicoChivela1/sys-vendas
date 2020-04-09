@@ -59,11 +59,11 @@
 				<div class="esquerda">
 					<label>Nome:</label>
 		 				 
-		 	<input id ="fieldsMedio" type="text" name="nomeCliente" readonly ="readonly" value="${sessaoCliente.nome} ${sessaoCliente.sobreNome}" class="form-control"/>
+		 	<input id ="fieldsMedio" type="text" name="nomeCliente"  required="required"  value="${sessaoCliente.nome} ${sessaoCliente.sobreNome}" class="form-control"/>
 				</div>
 				<div class="direita">
 					<label>Celular:</label>
-					<input id ="fieldsMedio" type="text" name="celularCliente" readonly ="readonly" value="${sessaoCliente.celular}" class="form-control"/>
+					<input id ="fieldsMedio" type="text" name="celularCliente" required="required" value="${sessaoCliente.celular}" class="form-control"/>
 				</div>
 				<div id="btnFormOrca">
 					<a href="busca-cliente.jsp?filtro=" title="Escolha outro Cliente"><i class="fa fa-refresh" style="font-size:24px;"></i></a>

@@ -114,7 +114,7 @@
                 <div class="card-body">
                   
                    <h4 class="card-description">Info Cliente</h4>
-					<form action="busca-cliente.jsp?filtro=" method="post">
+					<form action="gerenciar-cliente.jsp" method="post">
 						
 						<div class="table-responsive">
 							<table class="table table-hover">

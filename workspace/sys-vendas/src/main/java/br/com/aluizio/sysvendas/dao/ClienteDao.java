@@ -15,8 +15,6 @@ import br.com.aluizio.sysvendas.model.EnumSituacao;
 
 /**
  * ClienteDao.java
- * 
- * @author Aluizio Monteiro 20 de ago de 2018
  */
 
 public class ClienteDao implements IDAO {

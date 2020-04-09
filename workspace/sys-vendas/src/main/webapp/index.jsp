@@ -24,7 +24,7 @@
 
 
 
-<title>Dashboard</title>
+<title>Painel Administrativo</title>
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -554,40 +554,16 @@
               </div>
             </div>
           </div>
-          
-          
-          
-          
-          
-          
-          
+     
           <div class="row">
           
             <div class="col-md-12 stretch-card">
-              <div class="card">
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
+              <div class="card">              
                 <div class="card-body">
                   
                   <h4 class="card-description">ÚLTIMOS LANÇAMENTOS</h4>
                       <form action="gerenciar-orcamento.jsp" method="post">
-	
-	
-	<div class="table-responsive">
+				<div class="table-responsive">
 				<table  class="table table-hover">
 				<caption>Últimos Lançamentos</caption>
 					   <thead>
@@ -626,7 +602,6 @@
 							</c:when>
 						</c:choose>
 			      	</td>
-
 					    <td> 
 			      			${orcamento.parcelasPagas}
 			      		- 
@@ -634,10 +609,7 @@
 			      		</td>
 			      		<td> 
 					    	<div class="btnAcoes">
-
-					      		<button type="submit" name="detalhes" title="Mais informações." value="${orcamento.id}" class="btn btn-outline-info btn-sm" > <i class="fa fa-info-circle" ></i> Info</button>
-					    		
-					      		
+					      		<button type="submit" name="detalhes" title="Mais informações." value="${orcamento.id}" class="btn btn-outline-info btn-sm" > <i class="fa fa-info-circle" ></i> Info</button>			      		
 							</div>
 					  	</td>	
 					  </tr>

@@ -1,4 +1,4 @@
 
 
-	&#169; - junior.speedtech@gmail.com - 2019
+	&#169; - Sisvendas - 2020
 

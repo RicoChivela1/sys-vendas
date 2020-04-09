@@ -50,14 +50,6 @@ public class GerenciaOrcamento extends HttpServlet {
     		
     		pagina = "/info-orcamento.jsp";
     	}
-
-    	
-    	
-    	
-    	
-    	
-    	
-    	
     	
     	//Exibe informações completas sobre o cliente
     	String info = request.getParameter("infoCliente");
@@ -75,7 +67,7 @@ public class GerenciaOrcamento extends HttpServlet {
 					.buscaPorId(clienteBuscado);
     		
 			List<Orcamento> list = (List<Orcamento>) 
-					new OrcamentoDao().getList(cliente);
+					new OrcamentoDao().buscaOrcamentoPorCliente(cliente);
 			
 			request.setAttribute("list", list);
 			request.setAttribute("cliente", cliente);

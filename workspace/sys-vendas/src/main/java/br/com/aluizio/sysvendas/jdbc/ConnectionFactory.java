@@ -17,7 +17,6 @@ public class ConnectionFactory {
     private String timezone = "?useTimezone=true&serverTimezone=UTC&useSSL=false";
     private String chave = "&allowPublicKeyRetrieval=true";
 
-
     private String url = driver + "//" + server + "/" + database + timezone + chave;
 
     public Connection getConnection() {

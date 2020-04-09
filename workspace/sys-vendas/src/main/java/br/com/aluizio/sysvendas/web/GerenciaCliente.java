@@ -54,7 +54,7 @@ public class GerenciaCliente extends HttpServlet {
 					.buscaPorId(clienteBuscado);
     		
 			List<Orcamento> list = (List<Orcamento>) 
-					new OrcamentoDao().getList(cliente);
+					new OrcamentoDao().buscaOrcamentoPorCliente(cliente);
 			
 			request.setAttribute("list", list);
 			request.setAttribute("cliente", cliente);

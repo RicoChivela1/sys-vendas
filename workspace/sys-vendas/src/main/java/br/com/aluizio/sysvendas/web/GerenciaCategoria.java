@@ -16,7 +16,6 @@ import br.com.aluizio.sysvendas.model.Categoria;
 /**
  * Servlet responsável pelas funcionalidades dos botões
  * da página busca-categoria.jsp.
- * Recebe os ids dos clientes
  */
 @WebServlet("/gerencia-categoria.jsp")
 public class GerenciaCategoria extends HttpServlet {
@@ -33,7 +32,8 @@ public class GerenciaCategoria extends HttpServlet {
     		categoriaid.setId(Integer.parseInt(request.getParameter("alterar")));
     		Categoria categoria = (Categoria) new CategoriaDao()
 					.buscaPorId(categoriaid);
-    		
+    		JOptionPane.showMessageDialog(null, "Registro alterado com sucesso!");
+			System.out.println("Alterando a categoria de id: "+categoriaid);
 			request.setAttribute("categoria", categoria);
     		pagina = "/alterar-categoria.jsp";
     	}
@@ -43,6 +43,7 @@ public class GerenciaCategoria extends HttpServlet {
     		categoriaid.setId(Integer.parseInt(request.getParameter("remover")));
 			new CategoriaDao().remover(categoriaid);
 			JOptionPane.showMessageDialog(null, "Registro removido com sucesso!");
+			System.out.println("Removendo a categoria de id: "+categoriaid);
     		pagina = "/index.jsp";
     	} 
     	

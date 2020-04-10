@@ -23,7 +23,6 @@
 <link rel="stylesheet" href="css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
 <title>Buscar Categorias</title>
 </head>
 <body>
@@ -61,7 +60,7 @@
               <div class="card">
                 <div class="card-body">     
                    <h4 class="card-description">LISTA DE CATEGORIAS</h4>
-					<form action="gerenciar-categoria.jsp" method="post">
+					<form action="gerencia-categoria.jsp" method="post">
 					<c:choose>	
 						<c:when test="${empty categorias}">
 							<div class="box">

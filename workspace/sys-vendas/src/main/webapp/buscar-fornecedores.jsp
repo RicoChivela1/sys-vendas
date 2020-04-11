@@ -104,7 +104,9 @@
 									 	  <td>${fornecedor.observacao}</td>
 									      <td> 
 									      <div class="btnAcoes">
-									  
+									     
+									  	<input type="hidden" name="pessoa" value="${fornecedor.pessoa}">
+									  	<input type="hidden" name="fornecedorId" value="${fornecedor.id}">
 									      <button type="submit" name="info" value="${fornecedor.id}"  class="btn btn-info btn-sm" title="Mais Informações."> <i class="fa fa-info-circle"></i> Info</button>
 									      <button type="submit" name="alterar" value="${fornecedor.id}"  class="btn btn-warning btn-sm" title="Alterar Fornecedor."> <i class="fa fa-pencil-square-o"></i> Alterar</button>
 										  <button type="submit" name="remover" value="${fornecedor.id}" class="btn btn-danger btn-sm" title="Remover fornecedor do sistema."> <i class="	fa fa-trash-o"></i> Remover</button>

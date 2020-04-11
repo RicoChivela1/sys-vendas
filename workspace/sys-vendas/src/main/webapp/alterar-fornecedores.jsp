@@ -46,7 +46,7 @@
 		<div class="radio">
 				
 				<input type="radio" id="pessoa1" name="pessoa" value="${fornecedor.pessoa}"
-					> <label for="situacao1">Física</label>&nbsp; <input
+					> <label for="situacao1">Fisica</label>&nbsp; <input
 					type="radio" id="pessoa2" name="pessoa" value="${fornecedor.pessoa}"> <label
 					for="situacao2">Jurídica</label>
 		</div>

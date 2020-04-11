@@ -17,7 +17,7 @@ import br.com.aluizio.sysvendas.model.Fornecedor;
  * Servlet responsável pelas funcionalidades dos botões da página
  * busca-fornecedor.jsp. Recebe os ids dos fornecedores
  */
-@WebServlet("/gerencia-fornecedor.jsp")
+@WebServlet("/gerenciar-fornecedor.jsp")
 public class GerenciaFornecedor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -39,7 +39,7 @@ public class GerenciaFornecedor extends HttpServlet {
 			request.setAttribute("fornecedor", fornecedorDao);
 
 			// formulário de alteração
-			pagina = "/alterar-fornecedor.jsp";
+			pagina = "/alterar-fornecedores.jsp";
 		}
 
 		// Remover Fornecedor
@@ -62,7 +62,7 @@ public class GerenciaFornecedor extends HttpServlet {
 			///////////////////////////////
 			///////////////////////////////////
 			////////////////////////////////
-			pagina = "/info-fornecedor.jsp";
+			pagina = "/info-fornecedores.jsp";
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(pagina);

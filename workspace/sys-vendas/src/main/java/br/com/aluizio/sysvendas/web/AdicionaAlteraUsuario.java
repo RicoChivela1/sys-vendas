@@ -19,7 +19,7 @@ import br.com.aluizio.sysvendas.service.CarregarDashboard;
  * 29 de ago de 2018
  */
 
-@WebServlet({"/adicionar-usuarios.jsp", "/alterar-usuarios.jsp"})
+@WebServlet({"/adicionar-usuario.jsp", "/alterar-usuario.jsp"})
 public class AdicionaAlteraUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
      

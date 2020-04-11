@@ -23,16 +23,10 @@ public class CategoriaDao implements IDAO {
 		this.connection = new ConnectionFactory().getConnection();
 	}
 
-	@Override
-	public void adicionaAltera(Object object) {
-		String sql = "";
+	//inserir Categoria
+	public void adicionar(Object object) {
+		String sql = "Insert into Categorias (nome) value (?)";
 		Categoria categoria = (Categoria) object;
-
-		if (categoria.getId() == null) {
-			sql = "Insert into Categorias (nome) value (?)";
-		} else {
-			sql = "update Categorias set nome=? where id=" + categoria.getId();
-		}
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setString(1, categoria.getNome());
@@ -42,27 +36,35 @@ public class CategoriaDao implements IDAO {
 		}
 	}
 
-	/*// Busca Categoria pelo id do produto
-	public Object buscaPorProdutoId(Object object) {
-		Produto produto = (Produto) object;
-		Categoria categoria = new Categoria();
-		String sql = "select * from Categorias join Produtos "
-				+ " on Categorias.id = Produtos.fk_categoria where Produtos.id=?";
+	//Alterar Categoria
+	public void alterar(Object object) {
+
+		String sql = "update Categorias set nome= ? where id= ? ";
+		Categoria categoria = (Categoria) object;
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-			stmt.setInt(1, produto.getId());
-			System.out.println("Id do Produto: " + produto.getId());
-			ResultSet rs = stmt.executeQuery();
-			if (rs.next()) {
-				categoria.setId(rs.getInt("id"));
-				categoria.setNome(rs.getString("nome"));
-			}
-
+			stmt.setString(1, categoria.getNome());
+			stmt.setInt(2, categoria.getId());
+			stmt.execute();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-		return categoria;
-	}*/
+	}
+
+	/*
+	 * // Busca Categoria pelo id do produto public Object buscaPorProdutoId(Object
+	 * object) { Produto produto = (Produto) object; Categoria categoria = new
+	 * Categoria(); String sql = "select * from Categorias join Produtos " +
+	 * " on Categorias.id = Produtos.fk_categoria where Produtos.id=?";
+	 * 
+	 * try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+	 * stmt.setInt(1, produto.getId()); System.out.println("Id do Produto: " +
+	 * produto.getId()); ResultSet rs = stmt.executeQuery(); if (rs.next()) {
+	 * categoria.setId(rs.getInt("id")); categoria.setNome(rs.getString("nome")); }
+	 * 
+	 * } catch (SQLException e) { throw new RuntimeException(e); } return categoria;
+	 * }
+	 */
 
 	// Busca por nome
 	@Override
@@ -152,11 +154,11 @@ public class CategoriaDao implements IDAO {
 			throw new RuntimeException(e);
 		}
 	}
+
 	@Override
 	public Object buscaPorId(Object object) {
 		Categoria categoria = (Categoria) object;
-		String sql = "select * from Categorias "
-				+ " where id=?";
+		String sql = "select * from Categorias " + " where id=?";
 
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setInt(1, categoria.getId());
@@ -171,6 +173,12 @@ public class CategoriaDao implements IDAO {
 			throw new RuntimeException(e);
 		}
 		return categoria;
+	}
+
+	@Override
+	public void adicionaAltera(Object object) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

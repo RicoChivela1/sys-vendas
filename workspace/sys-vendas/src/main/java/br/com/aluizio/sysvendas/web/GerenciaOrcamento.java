@@ -48,7 +48,7 @@ public class GerenciaOrcamento extends HttpServlet {
     		Orcamento orcamento = dao.buscaOrcamentoPorId(orcBuscado);
     		request.setAttribute("orcamento", orcamento);
     		
-    		pagina = "/info-orcamento.jsp";
+    		pagina = "/info-orcamentos.jsp";
     	}
     	
     	//Exibe informações completas sobre o cliente
@@ -71,7 +71,7 @@ public class GerenciaOrcamento extends HttpServlet {
 			
 			request.setAttribute("list", list);
 			request.setAttribute("cliente", cliente);
-    		pagina = "/info-cliente.jsp";
+    		pagina = "/info-clientes.jsp";
     	}
 
     	//alterar clientes
@@ -90,7 +90,7 @@ public class GerenciaOrcamento extends HttpServlet {
 			request.setAttribute("cliente", cliente);
     	
     		//formulário de alteração
-    		pagina = "/alterar-cliente.jsp";
+    		pagina = "/alterar-clientes.jsp";
     	}
     	
     	//remove cliente

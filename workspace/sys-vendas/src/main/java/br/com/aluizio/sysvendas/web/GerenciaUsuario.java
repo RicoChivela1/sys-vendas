@@ -16,7 +16,7 @@ import br.com.aluizio.sysvendas.model.Usuario;
  * Servlet responsável pelas funcionalidades dos botões da página
  * busca-usuarios.jsp. Recebe os ids dos usuários
  */
-@WebServlet("/gerencia-usuario.jsp")
+@WebServlet("/gerenciar-usuario.jsp")
 public class GerenciaUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,7 +36,7 @@ public class GerenciaUsuario extends HttpServlet {
 			///////////////////////////////
 			///////////////////////////////////
 			////////////////////////////////
-			pagina = "/info-usuario.jsp";
+			pagina = "/info-usuarios.jsp";
 		}
 
 		// Alterar Usuário
@@ -50,7 +50,7 @@ public class GerenciaUsuario extends HttpServlet {
 			request.setAttribute("usuario", usuarioDao);
 
 			// formulário de alteração
-			pagina = "/alterar-usuario.jsp";
+			pagina = "/alterar-usuarios.jsp";
 		}
 
 		// Remover Usuário

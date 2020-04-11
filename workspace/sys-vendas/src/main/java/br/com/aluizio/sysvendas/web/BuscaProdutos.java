@@ -17,7 +17,7 @@ import br.com.aluizio.sysvendas.model.Produto;
  * Filtra a busca pelo nome. 
  * Se o filtro for vazio, retorna a lista completa.
  */
-@WebServlet("/busca-produto.jsp")
+@WebServlet("/buscar-produto.jsp")
 public class BuscaProdutos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -35,7 +35,7 @@ public class BuscaProdutos extends HttpServlet {
 		
 		request.setAttribute("produtos", produtos);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/busca-produtos.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/buscar-produtos.jsp");
 		rd.forward(request, response);
 	}
 }

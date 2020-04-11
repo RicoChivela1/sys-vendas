@@ -38,7 +38,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-description">BUSCAR CATEGORIA</h4>
-                  <form action="busca-categoria.jsp" method="post">
+                  <form action="buscar-categoria.jsp" method="post">
 					<div id="divBusca">
 					<div class="campoBusca">		
 						<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva um nome para pesquisar"/> 
@@ -60,7 +60,7 @@
               <div class="card">
                 <div class="card-body">     
                    <h4 class="card-description">LISTA DE CATEGORIAS</h4>
-					<form action="gerencia-categoria.jsp" method="post">
+					<form action="gerenciar-categoria.jsp" method="post">
 					<c:choose>	
 						<c:when test="${empty categorias}">
 							<div class="box">
@@ -68,7 +68,7 @@
 								<label class="listaNula">Não encontramos registros.</label>	
 							</div>
 							<div>
-								<a href="busca-categoria.jsp?filtro=" title="Listar todas as categorias."> Ver todas.</a> |
+								<a href="buscar-categoria.jsp?filtro=" title="Listar todas as categorias."> Ver todas.</a> |
 								<a href="cadastrar-categoria.jsp" title="Cadastrar uma nova categoria."> Adicionar </a> |
 								<a href="orcamento.jsp" title="Página de orçamento."> Orçamento </a>
 							</div>			

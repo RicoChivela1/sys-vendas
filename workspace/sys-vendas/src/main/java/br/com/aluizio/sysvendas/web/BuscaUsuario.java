@@ -19,7 +19,7 @@ import br.com.aluizio.sysvendas.model.Usuario;
  * @author Aluizio Monteiro
  * 26 de set de 2018
  */
-@WebServlet("/busca-usuario.jsp")
+@WebServlet("/buscar-usuario.jsp")
 public class BuscaUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,7 +36,7 @@ public class BuscaUsuario extends HttpServlet {
 		List<Object> usuarios = dao.buscaPorNome(usuario);
 		request.setAttribute("usuarios", usuarios);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/busca-usuarios.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/buscar-usuarios.jsp");
 		rd.forward(request, response);
 	}
 }

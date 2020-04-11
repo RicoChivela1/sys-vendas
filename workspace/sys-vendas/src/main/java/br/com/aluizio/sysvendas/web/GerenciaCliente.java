@@ -58,7 +58,7 @@ public class GerenciaCliente extends HttpServlet {
 			
 			request.setAttribute("list", list);
 			request.setAttribute("cliente", cliente);
-    		pagina = "/info-cliente.jsp";
+    		pagina = "/info-clientes.jsp";
     	}
 
     	//alterar clientes
@@ -77,7 +77,7 @@ public class GerenciaCliente extends HttpServlet {
 			request.setAttribute("cliente", cliente);
     	
     		//formulário de alteração
-    		pagina = "/alterar-cliente.jsp";
+    		pagina = "/alterar-clientes.jsp";
     	}
     	
     	//remove cliente
@@ -92,7 +92,7 @@ public class GerenciaCliente extends HttpServlet {
 			new ClienteDao().remover(clienteARemover);
     	
 			//Vai para lista de clientes
-    		pagina = "/busca-clientes.jsp";
+    		pagina = "/buscar-clientes.jsp";
     		
     	} 
     	

@@ -2,6 +2,7 @@ package br.com.aluizio.sysvendas.web;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +12,6 @@ import javax.swing.JOptionPane;
 
 import br.com.aluizio.sysvendas.dao.CategoriaDao;
 import br.com.aluizio.sysvendas.model.Categoria;
-import br.com.aluizio.sysvendas.service.CarregarDashboard;
 
 /**
  * Servlet invocada por alterar-categoria.jsp
@@ -19,28 +19,23 @@ import br.com.aluizio.sysvendas.service.CarregarDashboard;
  * @author Aluizio Monteiro 28 de sep de 2018
  */
 
-@WebServlet({"/adicionar-categoria.jsp", "/alterar-categoria.jsp"})
-public class AdicionaAlteraCategoria extends HttpServlet {
+@WebServlet("/alterar-categoria.jsp")
+public class AlteraCategoria extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String message = "";
+		
 		Categoria categoria = new Categoria();
-
-		if (req.getParameter("categoriaId") != null) {
-			categoria.setId(Integer.parseInt(req.getParameter("categoriaId")));
-			message = "Categoria adicionada com sucesso.";
-		} else {
-			message = "Categoria alterada com sucesso.";
-		}
-
 		categoria.setNome(req.getParameter("nome"));
-		new CategoriaDao().adicionaAltera(categoria);
+		categoria.setId(Integer.parseInt(req.getParameter("id")));
+				
+		new CategoriaDao().alterar(categoria);
 
-		JOptionPane.showMessageDialog(null, message);
+		JOptionPane.showMessageDialog(null, "Categoria atualizada com sucesso.");
 
 		// Carrega a index.jsp
-		CarregarDashboard.carregarDashboard(req, resp);
-		
+		// CarregarDashboard.carregarDashboard(req, resp);
+		RequestDispatcher rd = req.getRequestDispatcher("/buscar-categoria.jsp?filtro=");
+		rd.forward(req, resp);
 	}
 }

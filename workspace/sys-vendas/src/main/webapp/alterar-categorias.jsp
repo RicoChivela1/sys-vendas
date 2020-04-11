@@ -30,6 +30,7 @@
 				<div class="esquerda">
 					<div class="caixa">
 						<label for="nome">Nome:</label> 
+						<input type="hidden" name="id" value="${categoria.id}">
 						<input id="fieldComum" required="required" name="nome" value="${categoria.nome}" class="form-control" >
 					</div>
 					
@@ -40,7 +41,7 @@
 	</fieldset>
 		<div id="btnForm">
 			<input type="submit" class="btn btn-primary" name="Enviar"> 
-			<input type="hidden" name="categriaId" value="${categoria.id}">	
+				
 		</div>
 	</form>
 </div>

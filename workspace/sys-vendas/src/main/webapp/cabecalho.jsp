@@ -66,30 +66,30 @@
                     <li class="pushy-submenu">
                         <button id="first-link"><i id="iconMenu" class="mdi mdi-playlist-plus"> </i>Cadastrar</button>
                         <ul>
-                            <li class="pushy-link"><a href="cadastrar-categoria.jsp"><i id="iconMenu" class="mdi mdi mdi-seal"> </i>Categoria</a></li>
-                            <li class="pushy-link"><a href="cadastrar-cliente.jsp"><i id="iconMenu" class="mdi mdi-worker"> </i>Cliente</a></li>
-                            <li class="pushy-link"><a href="cadastrar-fornecedor.jsp"><i id="iconMenu" class="mdi mdi-truck-delivery"> </i>Fornecedor</a></li>
-                            <li class="pushy-link"><a href="cadastrar-produto.jsp"><i id="iconMenu" class="mdi mdi-shopping"> </i>Produto</a></li> 
-                            <li class="pushy-link"><a href="cadastrar-usuario.jsp"><i id="iconMenu" class="mdi mdi-account-key"> </i> Usuário</a></li>
+                            <li class="pushy-link"><a href="cadastrar-categorias.jsp"><i id="iconMenu" class="mdi mdi mdi-seal"> </i>Categoria</a></li>
+                            <li class="pushy-link"><a href="cadastrar-clientes.jsp"><i id="iconMenu" class="mdi mdi-worker"> </i>Cliente</a></li>
+                            <li class="pushy-link"><a href="cadastrar-fornecedores.jsp"><i id="iconMenu" class="mdi mdi-truck-delivery"> </i>Fornecedor</a></li>
+                            <li class="pushy-link"><a href="cadastrar-produtos.jsp"><i id="iconMenu" class="mdi mdi-shopping"> </i>Produto</a></li> 
+                            <li class="pushy-link"><a href="cadastrar-usuarios.jsp"><i id="iconMenu" class="mdi mdi-account-key"> </i> Usuário</a></li>
                              
                         </ul>
                     </li>
                     <li class="pushy-submenu">
                         <button><i id="iconMenu" class="mdi mdi-yeast"> </i> Pesquisar</button>
                         <ul>
-                            <li class="pushy-link"><a href="busca-categoria.jsp?filtro="><i id="iconMenu" class="mdi mdi mdi-seal"> </i> Categoria</a></li>
-                            <li class="pushy-link"><a href="busca-cliente.jsp?filtro="><i id="iconMenu" class="mdi mdi-worker"> </i> Cliente</a></li>
-                            <li class="pushy-link"><a href="busca-fornecedor.jsp?filtro="><i id="iconMenu" class="mdi mdi-truck-delivery"> </i> Fornecedor</a></li>
-                            <li class="pushy-link"><a href="busca-produto.jsp?filtro="><i id="iconMenu" class="mdi mdi-shopping"> </i> Produto</a></li>
-                            <li class="pushy-link"><a href="busca-usuario.jsp?filtro="><i id="iconMenu" class="mdi mdi-account-key"> </i> Usuário</a></li>
+                            <li class="pushy-link"><a href="buscar-categoria.jsp?filtro="><i id="iconMenu" class="mdi mdi mdi-seal"> </i> Categoria</a></li>
+                            <li class="pushy-link"><a href="buscar-cliente.jsp?filtro="><i id="iconMenu" class="mdi mdi-worker"> </i> Cliente</a></li>
+                            <li class="pushy-link"><a href="buscar-fornecedor.jsp?filtro="><i id="iconMenu" class="mdi mdi-truck-delivery"> </i> Fornecedor</a></li>
+                            <li class="pushy-link"><a href="buscar-produto.jsp?filtro="><i id="iconMenu" class="mdi mdi-shopping"> </i> Produto</a></li>
+                            <li class="pushy-link"><a href="buscar-usuario.jsp?filtro="><i id="iconMenu" class="mdi mdi-account-key"> </i> Usuário</a></li>
                         </ul>
                     </li>
                 	
                 	<li class="pushy-submenu">
                         <button><i id="iconMenu" class="mdi mdi-cart"> </i> Orçamento</button>
                         <ul>
-                            <li class="pushy-link"><a href="orcamento.jsp"><i id="iconMenu" class="mdi mdi-cart-plus"> </i> Novo Orçamento</a></li>
-                            <li class="pushy-link"><a href="busca-orcamento.jsp"><i id="iconMenu" class="mdi mdi-file-find"> </i> Buscar Orçamento</a></li>   
+                            <li class="pushy-link"><a href="orcamentos.jsp"><i id="iconMenu" class="mdi mdi-cart-plus"> </i> Novo Orçamento</a></li>
+                            <li class="pushy-link"><a href="buscar-orcamento.jsp"><i id="iconMenu" class="mdi mdi-file-find"> </i> Buscar Orçamento</a></li>   
                         </ul>
                     </li>
                     

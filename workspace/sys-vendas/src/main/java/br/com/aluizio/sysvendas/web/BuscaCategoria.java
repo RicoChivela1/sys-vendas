@@ -17,7 +17,7 @@ import br.com.aluizio.sysvendas.model.Categoria;
  * Busca uma categoria 
  * Se o filtro for vazio, retorna a lista completa de categorias.
  */
-@WebServlet("/busca-categoria.jsp")
+@WebServlet("/buscar-categoria.jsp")
 public class BuscaCategoria extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -35,7 +35,7 @@ public class BuscaCategoria extends HttpServlet {
 		
 		request.setAttribute("categorias", categorias);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/busca-categorias.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/buscar-categorias.jsp");
 		rd.forward(request, response);
 	}
 }

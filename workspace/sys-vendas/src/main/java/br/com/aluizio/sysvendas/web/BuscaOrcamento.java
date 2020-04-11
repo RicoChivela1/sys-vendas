@@ -18,7 +18,7 @@ import br.com.aluizio.sysvendas.model.Orcamento;
  * Obtem a lista de orçamentos e envia para a página "busca-orcamentos.jsp".
  */
 
-@WebServlet("/busca-orcamento.jsp")
+@WebServlet("/buscar-orcamento.jsp")
 public class BuscaOrcamento extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -39,7 +39,7 @@ public class BuscaOrcamento extends HttpServlet {
 		
 		request.setAttribute("orcamentos", orcamentos);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/busca-orcamentos.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/buscar-orcamentos.jsp");
 		rd.forward(request, response);
 	}
 }

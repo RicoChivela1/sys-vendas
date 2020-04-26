@@ -31,11 +31,17 @@ public class GerenciaUsuario extends HttpServlet {
 		if (request.getParameter("info") != null) {
 			int id = Integer.parseInt(request.getParameter("info"));
 			System.out.println("Id da info do usuario é: " + id);
-
-			// to do
-			///////////////////////////////
-			///////////////////////////////////
-			////////////////////////////////
+	
+			// objeto contendo o id do usuario
+			Usuario usuarioBuscado = new Usuario();
+			usuarioBuscado.setId(id);
+			
+			// busca produto pelo id e o coloca na requisição
+			usuario = (Usuario) new UsuarioDao().buscaPorId(usuarioBuscado);
+			
+			request.setAttribute("usuario", usuario);
+			
+			// página de info
 			pagina = "/info-usuarios.jsp";
 		}
 

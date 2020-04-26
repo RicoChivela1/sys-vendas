@@ -2,6 +2,7 @@ package br.com.aluizio.sysvendas.web;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,12 +13,9 @@ import javax.swing.JOptionPane;
 import br.com.aluizio.sysvendas.dao.FornecedorDao;
 import br.com.aluizio.sysvendas.model.EnumPessoa;
 import br.com.aluizio.sysvendas.model.Fornecedor;
-import br.com.aluizio.sysvendas.service.CarregarDashboard;
 
 /**
  * Servlet implementation class NovoFornecedor
- * @author Aluizio Monteiro
- * 28 de ago de 2018
  */
 @WebServlet("/adicionar-fornecedor.jsp")
 public class AdicionaFornecedor extends HttpServlet{
@@ -48,14 +46,14 @@ public class AdicionaFornecedor extends HttpServlet{
 		fornecedor.setObservacao(req.getParameter("observacao"));
 		
 		//Salva Fornecedor
-		new FornecedorDao().adicionaAltera(fornecedor);
+		new FornecedorDao().adiciona(fornecedor);
 		System.out.println("Fornecedor salvo");
 		
-		JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso");
+		JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso!");
 		
 		//Carrega a index.jsp
-		CarregarDashboard.carregarDashboard(req, resp);
-		
+		RequestDispatcher rd = req.getRequestDispatcher("/buscar-fornecedor.jsp?filtro=");
+		rd.forward(req, resp);
 	
 	}
 }

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +22,6 @@ import br.com.aluizio.sysvendas.model.Categoria;
 import br.com.aluizio.sysvendas.model.Estoque;
 import br.com.aluizio.sysvendas.model.Produto;
 import br.com.aluizio.sysvendas.model.ProdutoFornecedor;
-import br.com.aluizio.sysvendas.service.CarregarDashboard;
 
 /**
  * Servlet implementation class NovoCliente
@@ -55,7 +55,7 @@ public class AlteraProduto extends HttpServlet {
 		// imagem separa em uma classe que recebe request e retorna string
 
 		// Path da pasta no computador
-		File dir = new File("C:\\Users\\Júnior\\Desktop\\uploads");
+		File dir = new File("C:\\Users\\junior\\Desktop\\uploads");
 		File arquivo = null;
 
 		// Se o diretório não existe ele cria
@@ -80,8 +80,8 @@ public class AlteraProduto extends HttpServlet {
 		Categoria categoria = new Categoria();
 		categoria.setId(categoriaId);
 		categoria.setNome(req.getParameter("categoria"));
-		CategoriaDao categoriaDao = new CategoriaDao();
-		categoriaDao.adicionaAltera(categoria);
+		//CategoriaDao categoriaDao = new CategoriaDao();
+		//categoriaDao.altera(categoria);
 
 		// Cria este estoque para levar o id a ser buscado
 		Estoque estoque = new Estoque();
@@ -96,7 +96,7 @@ public class AlteraProduto extends HttpServlet {
 		estoque.setQtdEntrada(qtdAdicional);
 		estoque.setQtdMinima(qtdMinima);
 		EstoqueDao estoqueDao = new EstoqueDao();
-		estoqueDao.adicionaAltera(estoque);
+		estoqueDao.altera(estoque);
 
 		// seta a imagem
 		String caminho = String.valueOf(arquivo);
@@ -117,7 +117,7 @@ public class AlteraProduto extends HttpServlet {
 		produto.setEstoque(estoque);
 
 		ProdutoDao produtoDao = new ProdutoDao();
-		produtoDao.adicionaAltera(produto);
+		produtoDao.altera(produto);
 		
 	//Atualizar relacionamento
 		ProdutoFornecedor produtoFornecedor = new ProdutoFornecedor();
@@ -127,8 +127,8 @@ public class AlteraProduto extends HttpServlet {
 		new ProdutoFornecedorDao().alterar(produtoFornecedor);
 		JOptionPane.showMessageDialog(null, message);
 
-		//Carrega a index.jsp
-		CarregarDashboard.carregarDashboard(req, resp);
+		RequestDispatcher rd = req.getRequestDispatcher("/buscar-produto.jsp?filtro=");
+		rd.forward(req, resp);
 	}
 
 	// Método que pega o nome do arquivo

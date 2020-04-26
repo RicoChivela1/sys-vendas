@@ -41,7 +41,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-description">BUSCAR PRODUTO</h4>
-                  <form action="busca-produto.jsp" method="post">
+                  <form action="buscar-produto.jsp" method="post">
 						<div id="divBusca">
 						<div class="campoBusca">		
 							<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva um nome para pesquisar"/> 
@@ -62,7 +62,7 @@
               <div class="card">
                 <div class="card-body">     
                    <h4 class="card-description">LISTA DE PRODUTOS</h4>
-					<form action="gerencia-produto.jsp" method="post">
+					<form action="gerenciar-produto.jsp" method="post">
 
 						<c:choose>	
 							<c:when test="${empty produtos}">

@@ -121,6 +121,41 @@ public class ProdutoDao implements IDAO {
 		}
 	}
 
+	
+	// Alterar Produto
+		public void altera(Object object) {
+			Produto produto = (Produto) object;
+			String sql = "update Produtos set nome=?, descricao=?, indicacao=?, "
+						+ " volume=?, custoUnid=?, sugestaoVenda=?, fk_categoria=?, " 
+						+ " fk_estoque=?, lucro=?, percentual=?, imagem=? "
+						+ " where id=?"; 
+			
+				try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+
+				stmt.setString(1, produto.getNome());
+				stmt.setString(2, produto.getDescricao());
+				stmt.setString(3, produto.getIndicacao());
+				stmt.setString(4, produto.getVolume());
+				stmt.setBigDecimal(5, produto.getCustoUnid());
+				stmt.setBigDecimal(6, produto.getSugestaoVenda());
+				stmt.setInt(7, produto.getCategoria().getId());
+				//stmt.setInt(7, 96);
+				stmt.setInt(8, produto.getEstoque().getId());
+				stmt.setBigDecimal(9, produto.getLucro());
+				stmt.setDouble(10, produto.getPercentual());
+				stmt.setString(11, produto.getImagem());
+				stmt.setInt(12, produto.getId());
+				
+				stmt.execute();
+
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
+		
+		
+		
 	// Remove Produto
 	@Override
 	public void remover(Object object) {
@@ -410,4 +445,11 @@ public class ProdutoDao implements IDAO {
 			throw new RuntimeException(e);
 		}
 	}
+
+	@Override
+	public void adiciona(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
 }
+

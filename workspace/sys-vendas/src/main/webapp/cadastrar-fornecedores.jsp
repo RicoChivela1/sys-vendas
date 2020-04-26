@@ -46,9 +46,9 @@
 							<label>Pessoa:</label>
 							<div class="radio">
 								<input type="radio" id="pessoa1" name="pessoa" value="FISICA"
-									checked> <label for="situacao1">Física</label> &nbsp;<input
-									type="radio" id="pessoa2" name="pessoa" value="JURIDICA"> <label
-									for="situacao2">Jurídica</label>
+									> <label for="situacao1">Física</label> &nbsp;<input
+									type="radio" id="pessoa2" name="pessoa" value="JURIDICA" checked> 
+									<label for="situacao2">Jurídica</label>
 							</div>
 							
 						</div>

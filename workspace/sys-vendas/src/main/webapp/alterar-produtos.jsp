@@ -37,7 +37,7 @@
 	<div class="esquerda">
 	 <div id=""> 
 		<div >	      
-  			<input type="file" class=" btn btn-primary"  name="imagem" id="imagem" onchange="previewImagem()" />
+  			<input type="file" class=" btn btn-primary"  name="imagem" id="imagem" onchange="previewImagem()" value="${produto.imagem}"/>
     	</div>
         <img class="preview" src="carregadorImagem?id=${produto.id} "/>
    	 </div>	
@@ -45,28 +45,25 @@
 			<div class="caixa">
 				<label for="fornecedorId"  >Fornecedor:</label> 
 				
-				<select name="fornecedorId" id="selectDeProdutos" class="form-control" >
-					<option value="0">SELECIONE</option>
-					<option selected value="${produto.fornecedor.id}">${produto.fornecedor.nome}</option>
+   				<select name="fornecedorId" id="selectDeProdutos" class="form-control" required="required">
+						<option value="0">SELECIONE</option>
+						<c:forEach var="fornecedor" items="${fornecedorDao.list}">
+							<option value="${fornecedor.id}">${fornecedor.nome}</option>
+						</c:forEach>
+						<option selected>${produto.fornecedor.nome}</option>
+					</select>
 					
-					<c:forEach var="fornecedor" items="${fornecedorDao.list}">
-						<option value="${fornecedor.id}">${fornecedor.nome}</option>
-					<input type="hidden" value="${fornecedor.nome}" name="fornecedor" >
-					</c:forEach>
-					
-				</select>
-   			
    				<span class="input-group-btn">
 					<a id="linkSelect" href="cadastrar-fornecedor.jsp">&#10010; Novo Fornecedor</a>
 				</span>
 			</div>
 		</div>
-
+                 
 			<div class="direita">
 			
 				<div class="caixa">
 					<label for="cat" >Categoria:</label> 
-					<select name="cat" id="selectDeProdutos" class="form-control" >
+					<select name="cat" id="selectDeProdutos" class="form-control" required="required">
 						<option value="0">SELECIONE</option>
 						<c:forEach var="lista" items="${categoriaDao.list}">
 							<option value="${lista.nome}">${lista.nome}</option>
@@ -129,7 +126,7 @@
 					<label for="percentual"
 					id="labelsProdutosValor">Percentual
 					Venda:</label> <input  type="text" name="percentual" size="30"
-					class="form-control" id="fieldsValor" required="required">
+					class="form-control" id="fieldsValor" value="${produto.percentual}" required="required">
 
 				</div>
 				</div>

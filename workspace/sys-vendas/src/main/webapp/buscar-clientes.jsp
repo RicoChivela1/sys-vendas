@@ -39,7 +39,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-description">BUSCAR CLIENTE</h4>
-					<form action="busca-cliente.jsp" method="post">
+					<form action="buscar-cliente.jsp" method="post">
 						<div id="divBusca">
 						<div class="campoBusca">		
 							<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva um nome para pesquisar"/> 

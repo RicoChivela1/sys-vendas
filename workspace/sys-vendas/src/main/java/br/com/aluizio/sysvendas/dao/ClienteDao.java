@@ -24,49 +24,78 @@ public class ClienteDao implements IDAO {
 		this.connection = new ConnectionFactory().getConnection();
 	}
 
-	// Adiciona e Altera Cliente
-	@Override
-	public void adicionaAltera(Object object) {
-		Cliente cliente = (Cliente) object;
-		String sql;
-		if (cliente.getId() == null) {
-			sql = "insert into Clientes (pessoa, situacao," + " sexo, nome, sobreNome, nascimento, "
-					+ " email, celular, endereco, bairro, cidade, "
-					+ " complemento, numero, uf, cep, fone, observacao) "
-					+ " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		} else {
-			sql = "update Clientes set pessoa=?, situacao=?," + " sexo=?, nome=?, sobreNome=?, nascimento=?, "
-					+ " email=?, celular=?, endereco=?, bairro=?, cidade=?, "
-					+ " complemento=?, numero=?, uf=?, cep=?, fone=?, observacao=? " + " where id=" + cliente.getId();
+	// Altera Cliente
+		public void altera(Object object) {
+			Cliente cliente = (Cliente) object;
+
+				String sql = "update Clientes set pessoa=?, situacao=?," + " sexo=?, nome=?, sobreNome=?, nascimento=?, "
+						+ " email=?, celular=?, endereco=?, bairro=?, cidade=?, "
+						+ " complemento=?, numero=?, uf=?, cep=?, fone=?, observacao=? " + " where id=" + cliente.getId();
+
+			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+				stmt.setString(1, cliente.getPessoa().name());
+				stmt.setString(2, cliente.getSituacao().name());
+				stmt.setString(3, cliente.getSexo().name());
+				stmt.setString(4, cliente.getNome());
+				stmt.setString(5, cliente.getSobreNome());
+				stmt.setDate(6, java.sql.Date.valueOf(cliente.getNascimento()));
+				stmt.setString(7, cliente.getEmail());
+				stmt.setString(8, cliente.getCelular());
+				stmt.setString(9, cliente.getEndereco());
+				stmt.setString(10, cliente.getBairro());
+				stmt.setString(11, cliente.getCidade());
+				stmt.setString(12, cliente.getComplemento());
+				stmt.setString(13, cliente.getNumero());
+				stmt.setString(14, cliente.getUf());
+				stmt.setString(15, cliente.getCep());
+				stmt.setString(16, cliente.getFone());
+				stmt.setString(17, cliente.getObservacao());
+
+				stmt.execute();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+
+			}
 		}
 
-		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-			stmt.setString(1, cliente.getPessoa().name());
-			stmt.setString(2, cliente.getSituacao().name());
-			stmt.setString(3, cliente.getSexo().name());
-			stmt.setString(4, cliente.getNome());
-			stmt.setString(5, cliente.getSobreNome());
-			stmt.setDate(6, java.sql.Date.valueOf(cliente.getNascimento()));
-			stmt.setString(7, cliente.getEmail());
-			stmt.setString(8, cliente.getCelular());
-			stmt.setString(9, cliente.getEndereco());
-			stmt.setString(10, cliente.getBairro());
-			stmt.setString(11, cliente.getCidade());
-			stmt.setString(12, cliente.getComplemento());
-			stmt.setString(13, cliente.getNumero());
-			stmt.setString(14, cliente.getUf());
-			stmt.setString(15, cliente.getCep());
-			stmt.setString(16, cliente.getFone());
-			stmt.setString(17, cliente.getObservacao());
+		
+		// Adiciona Cliente
+		public void adiciona(Object object) {
+			Cliente cliente = (Cliente) object;
+			String sql ="insert into Clientes (pessoa, situacao," + " sexo, nome, sobreNome, nascimento, "
+						+ " email, celular, endereco, bairro, cidade, "
+						+ " complemento, numero, uf, cep, fone, observacao) "
+						+ " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			
+			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+				stmt.setString(1, cliente.getPessoa().name());
+				stmt.setString(2, cliente.getSituacao().name());
+				stmt.setString(3, cliente.getSexo().name());
+				stmt.setString(4, cliente.getNome());
+				stmt.setString(5, cliente.getSobreNome());
+				stmt.setDate(6, java.sql.Date.valueOf(cliente.getNascimento()));
+				stmt.setString(7, cliente.getEmail());
+				stmt.setString(8, cliente.getCelular());
+				stmt.setString(9, cliente.getEndereco());
+				stmt.setString(10, cliente.getBairro());
+				stmt.setString(11, cliente.getCidade());
+				stmt.setString(12, cliente.getComplemento());
+				stmt.setString(13, cliente.getNumero());
+				stmt.setString(14, cliente.getUf());
+				stmt.setString(15, cliente.getCep());
+				stmt.setString(16, cliente.getFone());
+				stmt.setString(17, cliente.getObservacao());
 
-			stmt.execute();
+				stmt.execute();
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
 
+			}
 		}
-	}
 
 	// Excluir
 	@Override
@@ -243,6 +272,12 @@ public class ClienteDao implements IDAO {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	@Override
+	public void adicionaAltera(Object object) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

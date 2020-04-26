@@ -21,7 +21,6 @@ import br.com.aluizio.sysvendas.model.Categoria;
 import br.com.aluizio.sysvendas.model.Estoque;
 import br.com.aluizio.sysvendas.model.Produto;
 import br.com.aluizio.sysvendas.model.ProdutoFornecedor;
-import br.com.aluizio.sysvendas.service.CarregarDashboard;
 
 /**
  * Servlet implementation class NovoCliente
@@ -142,9 +141,9 @@ public class AdicionaProduto extends HttpServlet {
 		new ProdutoFornecedorDao().relacionar(produtoFornecedor);
 
 		JOptionPane.showMessageDialog(null, message);
-
-		//Carrega a index.jsp
-		CarregarDashboard.carregarDashboard(req, resp);
+		
+		RequestDispatcher rd = req.getRequestDispatcher("buscar-produto.jsp?filtro=");
+		rd.forward(req, resp);
 	}
 	
 	// Método que pega o nome do arquivo

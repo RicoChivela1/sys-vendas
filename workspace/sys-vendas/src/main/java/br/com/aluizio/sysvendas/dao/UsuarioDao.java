@@ -199,4 +199,16 @@ public class UsuarioDao implements IDAO {
 		}
 	}
 
+	@Override
+	public void altera(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void adiciona(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

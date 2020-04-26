@@ -47,21 +47,25 @@ public class GerenciaFornecedor extends HttpServlet {
 			fornecedor.setId(Integer.parseInt(request.getParameter("remover")));
 			new FornecedorDao().remover(fornecedor);
 			JOptionPane.showMessageDialog(null,"Fornecedor removido com sucesso!");
-			pagina = "/index.jsp";
+			pagina = "/buscar-fornecedor.jsp?filtro=";
 		}
 		
 		//Info Fornecedor
 		if (request.getParameter("info") != null) {
 			int id = Integer.parseInt(request.getParameter("info"));
-			fornecedor.setId(id);
+			fornecedor.setId(id);	
+		
+			System.out.println("Id da info do fornecedor é: " + id);
+	
+			// objeto contendo o id do produto
+			Fornecedor fornecedorBuscado = new Fornecedor();
+			fornecedorBuscado.setId(id);
 			
-
-			System.out.println("Id da info do usuario é: " + id);
-
-			// to do
-			///////////////////////////////
-			///////////////////////////////////
-			////////////////////////////////
+			// busca produto pelo id e o coloca na requisição
+			fornecedor = (Fornecedor) new FornecedorDao().buscaPorId(fornecedorBuscado);
+			request.setAttribute("fornecedor", fornecedor);
+			
+			// página de info
 			pagina = "/info-fornecedores.jsp";
 		}
 		

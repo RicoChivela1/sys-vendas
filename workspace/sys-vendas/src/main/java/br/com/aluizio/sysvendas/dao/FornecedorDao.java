@@ -25,40 +25,62 @@ public class FornecedorDao implements IDAO {
 		this.connection = new ConnectionFactory().getConnection();
 	}
 
-	// Adicionar
-	@Override
-	public void adicionaAltera(Object object) {
-		String sql = "";
-		Fornecedor fornecedor = (Fornecedor) object;
-
-		if (fornecedor.getId() == null) {
+	// Adicionar Fornecedor
+		@Override
+		public void adiciona(Object object) {
+			String sql = "";
+			Fornecedor fornecedor = (Fornecedor) object;
 			sql = "Insert into Fornecedores (pessoa, nome, " + "cnpjCpf, cep, endereco, bairro, cidade, complemento, "
-					+ "uf, fone, email, observacao) " + "values (?,?,?,?,?,?,?,?,?,?,?,?)";
-		} else {
+						+ "uf, fone, email, observacao) " + "values (?,?,?,?,?,?,?,?,?,?,?,?)";
+			
+			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+				stmt.setString(1, fornecedor.getPessoa().name());
+				stmt.setString(2, fornecedor.getNome());
+				stmt.setString(3, fornecedor.getCnpjCpf());
+				stmt.setString(4, fornecedor.getCep());
+				stmt.setString(5, fornecedor.getEndereco());
+				stmt.setString(6, fornecedor.getBairro());
+				stmt.setString(7, fornecedor.getCidade());
+				stmt.setString(8, fornecedor.getComplemento());
+				stmt.setString(9, fornecedor.getUf());
+				stmt.setString(10, fornecedor.getFone());
+				stmt.setString(11, fornecedor.getEmail());
+				stmt.setString(12, fornecedor.getObservacao());
+
+				stmt.execute();
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		
+		// Alterar Fornecedor
+		
+		public void altera(Object object) {
+			String sql = "";
+			Fornecedor fornecedor = (Fornecedor) object;
 			sql = "Update Fornecedores set pessoa=?, nome=?, "
-					+ "cnpjCpf=?, cep=?, endereco=?, bairro=?, cidade=?, complemento=?, "
-					+ "uf=?, fone=?, email=?, observacao=? where id="+ fornecedor.getId();
-		}
+						+ "cnpjCpf=?, cep=?, endereco=?, bairro=?, cidade=?, complemento=?, "
+						+ "uf=?, fone=?, email=?, observacao=? where id="+ fornecedor.getId();
+			
+			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+				stmt.setString(1, fornecedor.getPessoa().name());
+				stmt.setString(2, fornecedor.getNome());
+				stmt.setString(3, fornecedor.getCnpjCpf());
+				stmt.setString(4, fornecedor.getCep());
+				stmt.setString(5, fornecedor.getEndereco());
+				stmt.setString(6, fornecedor.getBairro());
+				stmt.setString(7, fornecedor.getCidade());
+				stmt.setString(8, fornecedor.getComplemento());
+				stmt.setString(9, fornecedor.getUf());
+				stmt.setString(10, fornecedor.getFone());
+				stmt.setString(11, fornecedor.getEmail());
+				stmt.setString(12, fornecedor.getObservacao());
 
-		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-			stmt.setString(1, fornecedor.getPessoa().name());
-			stmt.setString(2, fornecedor.getNome());
-			stmt.setString(3, fornecedor.getCnpjCpf());
-			stmt.setString(4, fornecedor.getCep());
-			stmt.setString(5, fornecedor.getEndereco());
-			stmt.setString(6, fornecedor.getBairro());
-			stmt.setString(7, fornecedor.getCidade());
-			stmt.setString(8, fornecedor.getComplemento());
-			stmt.setString(9, fornecedor.getUf());
-			stmt.setString(10, fornecedor.getFone());
-			stmt.setString(11, fornecedor.getEmail());
-			stmt.setString(12, fornecedor.getObservacao());
-
-			stmt.execute();
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
+				stmt.execute();
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
 		}
-	}
 
 	// Remover
 	@Override
@@ -216,6 +238,12 @@ public class FornecedorDao implements IDAO {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	@Override
+	public void adicionaAltera(Object object) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	/*

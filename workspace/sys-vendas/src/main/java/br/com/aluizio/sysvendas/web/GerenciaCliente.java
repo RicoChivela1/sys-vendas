@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 import br.com.aluizio.sysvendas.dao.ClienteDao;
 import br.com.aluizio.sysvendas.dao.OrcamentoDao;
@@ -91,9 +92,9 @@ public class GerenciaCliente extends HttpServlet {
     		//Remove
 			new ClienteDao().remover(clienteARemover);
     	
+			JOptionPane.showMessageDialog(null, "Cliente removido com sucesso!");
 			//Vai para lista de clientes
-    		pagina = "/buscar-clientes.jsp";
-    		
+    		pagina = "/buscar-cliente.jsp?filtro=";
     	} 
     	
     	RequestDispatcher rd = request.getRequestDispatcher(pagina);

@@ -21,7 +21,7 @@ public class ConnectionFactory {
 
     public Connection getConnection() {
         try {
-        	Class.forName("com.mysql.cj.jdbc.Driver");
+        	Class.forName("com.mysql.jdbc.Driver");
             return DriverManager.getConnection(url, user, pass);
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);

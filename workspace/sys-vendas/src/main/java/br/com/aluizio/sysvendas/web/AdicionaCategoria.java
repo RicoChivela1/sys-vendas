@@ -15,6 +15,7 @@ import br.com.aluizio.sysvendas.model.Categoria;
 
 /**
  * Servlet invocada por adicionar-categorias.jsp
+ * 
  */
 
 @WebServlet("/adicionar-categoria.jsp")
@@ -30,8 +31,6 @@ public class AdicionaCategoria extends HttpServlet {
 
 		JOptionPane.showMessageDialog(null, "Categoria inserida com sucesso.");
 
-		// Carrega a index.jsp
-		// CarregarDashboard.carregarDashboard(req, resp);
 		RequestDispatcher rd = req.getRequestDispatcher("/buscar-categoria.jsp?filtro=");
 		rd.forward(req, resp);
 	}

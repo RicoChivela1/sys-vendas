@@ -41,7 +41,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-description">BUSCAR FORNECEDOR</h4>
-                  <form action="busca-fornecedor.jsp" method="post">
+                  <form action="buscar-fornecedor.jsp" method="post">
 						<div id="divBusca">
 						<div class="campoBusca" >		
 							<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva um nome para pesquisar." /> 
@@ -62,7 +62,7 @@
               <div class="card">
                 <div class="card-body">     
                    <h4 class="card-description">LISTA DE FORNECEDORES</h4>
-					<form action="gerencia-fornecedor.jsp" method="post">
+					<form action="gerenciar-fornecedor.jsp" method="post">
 						<c:choose>	
 							<c:when test="${empty fornecedor}">
 								<div class="box">
@@ -70,7 +70,7 @@
 									<label class="listaNula">Não encontramos registros.</label>	
 								</div>
 								<div>
-									<a href="busca-fornecedor.jsp?filtro=" title="Listar todos os fornecedores."> Ver todos</a> |
+									<a href="buscar-fornecedor.jsp?filtro=" title="Listar todos os fornecedores."> Ver todos</a> |
 									<a href="cadastrar-fornecedor.jsp" title="Cadastrar um novo fornecedor."> Adicionar </a> |
 									<a href="orcamento.jsp" title="Página de orçamento."> Orçamento </a>
 								</div>	

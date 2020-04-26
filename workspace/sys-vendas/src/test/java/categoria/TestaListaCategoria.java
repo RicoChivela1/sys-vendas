@@ -6,8 +6,6 @@ import br.com.aluizio.sysvendas.dao.CategoriaDao;
 
 /**
  * TestaListaCategoria.java
- * @author Aluizio Monteiro
- * 27 de ago de 2018
  */
 
 public class TestaListaCategoria {

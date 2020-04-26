@@ -40,7 +40,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-description">BUSCAR USUÁRIO</h4>
-                  <form action="busca-usuario.jsp" method="post">
+                  <form action="buscar-usuario.jsp" method="post">
 						<div id="divBusca">
 						<div class="campoBusca">		
 							<input type="text" class="form-control mr-sm-2" name="filtro" placeholder="Busca por nome" title="Escreva algo para pesquisar."/> 
@@ -61,7 +61,7 @@
               <div class="card">
                 <div class="card-body">     
                    <h4 class="card-description">LISTA DE USUÁRIOS</h4>
-					<form action="gerencia-usuario.jsp" method="post">
+					<form action="gerenciar-usuario.jsp" method="post">
 						<c:choose>	
 							<c:when test="${empty usuarios}">
 							<div class="box">
@@ -69,7 +69,7 @@
 								<label class="listaNula">Não encontramos registros.</label>	
 							</div>
 							<div>
-								<a href="busca-usuario.jsp?filtro=" title="Listar todos os usuários."> Ver todos.</a> | 
+								<a href="buscar-usuario.jsp?filtro=" title="Listar todos os usuários."> Ver todos.</a> | 
 								<a href="cadastrar-usuario.jsp" title="Cadastrar um novo usuário."> Adicionar </a> |
 								<a href="orcamento.jsp" title="Página de orçamento."> Orçamento </a>
 							</div>

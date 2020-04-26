@@ -31,7 +31,7 @@
 <div id="container">
 <div class="container-scroller">
         <div class="content-wrapper">
-       <form action="adicionar-clientes.jsp" method="post">
+       <form action="adicionar-cliente.jsp" method="post">
           <div class="row">  
             <div class="col-md-12 stretch-card">
               <div class="card">

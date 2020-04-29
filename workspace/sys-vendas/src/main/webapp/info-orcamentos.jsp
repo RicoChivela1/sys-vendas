@@ -258,6 +258,7 @@
 									<td id="tdStatus">
 									<c:set var="quitado" value="QUITADO" />
 									<c:set var="apagar" value="A_PAGAR" />
+									<c:set var="vencida" value="EM_ATRASO" />
 									<c:set var="status" value="${pagamento.status}" />
 										<c:choose>
 											<c:when test="${pagamento.status == quitado}">
@@ -266,6 +267,10 @@
 											
 											<c:when test="${pagamento.status == apagar}">
 												<input class="camposAPagar" name="inputStatus[${pagamento.numParcela}]" type="text" value="${pagamento.status}" readonly="readonly" title="Esta parcela ainda não foi paga!">
+											</c:when>
+											
+											<c:when test="${pagamento.status == vencida}">
+												<input class="camposEmAtraso" name="inputStatus[${pagamento.numParcela}]" type="text" value="${pagamento.status}" readonly="readonly" title="Esta parcela está vencida!">
 											</c:when>
 										</c:choose>
 										

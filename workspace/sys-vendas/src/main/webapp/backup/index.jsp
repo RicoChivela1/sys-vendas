@@ -308,7 +308,7 @@
 				  </tbody>
 				</table>
 				<div>
-					<a href="buscar-orcamento.jsp?filtro=" title="Listar todas as dívidas a receber.">Ver todas </a> |
+					<a href="gerenciar-produto.jsp?filtro=" title="Listar todas as dívidas a receber.">Ver todas </a> |
 				</div>
 			</div>
 		</c:when>
@@ -555,24 +555,10 @@
                 <div class="card-body">
                   
                   <h4 class="card-description">ÚLTIMOS LANÇAMENTOS</h4>
-        
-        
-        
-        
-        <form action="gerenciar-orcamento.jsp" method="post">
-        
-        <c:choose>
-        	<c:when test="${empty orcamentos}">
-        		<div class="box">
-					<div>
-						<label class="listaNula">Não encontramos registros.</label>	
-					</div>
-				</div>
-			</c:when>
-			<c:when test="${not empty orcamentos}">
+                      <form action="gerenciar-orcamento.jsp" method="post">
 				<div class="table-responsive">
 				<table  class="table table-hover">
-				
+				<caption>Últimos Lançamentos</caption>
 					   <thead>
 					    <tr>
 					      <th>Data da Compra</th>
@@ -623,12 +609,7 @@
 				   </c:forEach>
 				  </tbody>
 				</table>
-				<div>
-				<a href="buscar-orcamento.jsp?filtro=" title="Listar todos os orcamentos.">Ver todos </a> |
 			</div>
-			</div>
-			</c:when>
-			</c:choose>
 		</form>
                 
                   </div>

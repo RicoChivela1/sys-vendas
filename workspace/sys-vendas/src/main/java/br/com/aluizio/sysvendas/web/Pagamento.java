@@ -74,7 +74,7 @@ public class Pagamento extends HttpServlet {
 
 		JOptionPane.showMessageDialog(null, "Registrado com Sucesso!");
 
-		RequestDispatcher rd = request.getRequestDispatcher("/info-orcamento.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/info-orcamentos.jsp");
 		rd.forward(request, response);
 		System.out.println("Pagamento efetuado com sucesso.");
 	}

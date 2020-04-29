@@ -478,26 +478,37 @@ td#tdPagar {
 
 
 /*Campos A_PAGAR da info-cliente.jsp*/
-.camposAPagar{
-	border:0px;
-	color: red;	
-	font-size: 17px;
+.camposAPagar {
+    border-radius: 10px;
+    border-style: hidden;
+    font-size: 13px;
     font-weight: bold;
-	width: 120px;
-	background: transparent;
+    width: 120px;
+    text-align: center;
+    background: #ffff0087;
 }
 
 /*Campo QUITADO da info-cliente.jsp*/
 .camposQuitados{
-	border:0px;
-	color: #00ca00;	
-	font-size: 17px;
+	border-radius:10px;
+	border-style: hidden;
+	font-size: 13px;
     font-weight: bold;
 	width: 120px;
-	background: transparent;
+	text-align: center;
+	background: #a0fba0;
 }
 
-
+/*Campos EM_ATRASO da info-cliente.jsp*/
+.camposEmAtraso{
+	border-radius:10px;
+	border-style: hidden;
+	font-size: 13px;
+    font-weight: bold;
+	width: 120px;
+	text-align: center;
+	background: #ffbaba;
+}
 div#divSalvaPagamentos{
     margin-bottom: 30px;
     background-color: #f7f6f6;

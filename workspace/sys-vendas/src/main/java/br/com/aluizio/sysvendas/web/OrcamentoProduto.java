@@ -50,7 +50,7 @@ public class OrcamentoProduto extends HttpServlet {
 		list = (ArrayList<Carrinho>) sessionProdutos.getAttribute("carroCompras");
 		list.remove(Integer.parseInt(request.getParameter("id")));
 		atualizaTotal();
-		response.sendRedirect("orcamento.jsp");
+		response.sendRedirect("orcamentos.jsp");
 	}
 
 	private void agregar(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -105,7 +105,7 @@ public class OrcamentoProduto extends HttpServlet {
 
 		sessionProdutos.setAttribute("carroCompras", list);
 		atualizaTotal();
-		response.sendRedirect("orcamento.jsp");
+		response.sendRedirect("orcamentos.jsp");
 	}
 
 	public void atualizaTotal() {

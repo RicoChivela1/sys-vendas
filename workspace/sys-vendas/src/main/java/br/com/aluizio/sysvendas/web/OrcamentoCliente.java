@@ -50,7 +50,7 @@ public class OrcamentoCliente extends HttpServlet {
 		//request.getRequestDispatcher("/index.html").forward(request, response);
 		
 		//sessaoCliente.invalidate();
-		response.sendRedirect("orcamento.jsp");
+		response.sendRedirect("orcamentos.jsp");
 	}
 
 	// Adiciona na lista
@@ -75,6 +75,6 @@ public class OrcamentoCliente extends HttpServlet {
 
 		// envia o cliente para a session
 		sessaoCliente.setAttribute("sessaoCliente", cliente);
-		response.sendRedirect("orcamento.jsp");
+		response.sendRedirect("orcamentos.jsp");
 	}
 }

@@ -9,6 +9,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.aluizio.sysvendas.dao.PagamentoDao;
 import br.com.aluizio.sysvendas.model.Dividas;
 import br.com.aluizio.sysvendas.model.Investimentos;
 import br.com.aluizio.sysvendas.model.Orcamento;
@@ -29,6 +30,10 @@ public abstract class CarregarDashboard extends HttpServlet {
 
 	public static void carregarDashboard(HttpServletRequest request, ServletResponse response) throws ServletException, IOException {
 			
+		//Verifica parcelas com data vencida
+		PagamentoDao dao = new PagamentoDao();
+		dao.verificaPagamentosVencidos();
+		
 		// Carrega dashboard
 	
 		// Lista a receber

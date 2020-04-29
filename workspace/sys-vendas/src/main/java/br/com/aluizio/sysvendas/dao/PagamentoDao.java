@@ -28,6 +28,7 @@ public class PagamentoDao {
 
 	public PagamentoDao() {
 		this.connection = new ConnectionFactory().getConnection();
+		verificaPagamentosVencidos();
 	}
 
 	// Inserir
@@ -264,7 +265,6 @@ public class PagamentoDao {
 
 			while (rs.next()) {
 				total = rs.getBigDecimal("totalLucro");
-
 			}
 			return total;
 
@@ -320,8 +320,6 @@ public class PagamentoDao {
 	// Extimativa de Lucro
 		public BigDecimal buscaExtimativas() {
 			String sql = "select sum(valorParcela) as totalLucro from pagamentos";
-			//String sql = "select (qtdDisponivel) * (sum(lucro)) as totalLucro from Produtos join Estoques "
-			//	+ "on Estoques.id = Produtos.fk_estoque";
 			BigDecimal total = new BigDecimal("0.00");
 			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 				ResultSet rs = stmt.executeQuery();
@@ -334,6 +332,50 @@ public class PagamentoDao {
 					total = new BigDecimal("0.00");
 				}
 				return total;
+
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		
+		/////////////////////////////////////////
+		
+		//Busca status para atualizar
+		public void verificaPagamentosVencidos() {
+			System.out.println("Verificando pagamentos vencidos...");
+			String sql = "select * from pagamentos";
+			Pagamentos pagamento = new Pagamentos();
+			LocalDate agora = LocalDate.now(); 
+			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+				ResultSet rs = stmt.executeQuery();
+
+				while (rs.next()) {
+					pagamento.setId(rs.getInt("id"));
+					pagamento.setParcelaData(rs.getDate("parcelaData").toLocalDate());
+					pagamento.setStatus(EnumStatus.valueOf(rs.getString("status")));
+					
+					if(agora.isAfter(pagamento.getParcelaData()) && (EnumStatus.A_PAGAR.equals(pagamento.getStatus()))) {
+						updateStatus(pagamento);
+					}
+					System.out.println("Data dos pagamentos verificados!");
+				}
+				
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		
+		// AlterarStatus
+		public void updateStatus(Pagamentos pagamento) {
+
+			String sql = "Update Pagamentos set status=? where id=?";
+
+			try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+		
+				stmt.setString(1, EnumStatus.EM_ATRASO.name());
+				stmt.setInt(2, pagamento.getId());
+
+				stmt.execute();
 
 			} catch (SQLException e) {
 				throw new RuntimeException(e);

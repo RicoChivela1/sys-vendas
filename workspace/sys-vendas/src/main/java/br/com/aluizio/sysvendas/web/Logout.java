@@ -21,15 +21,14 @@ public class Logout extends HttpServlet {
 			throws ServletException, IOException {
 		
 		//Deslogar em 10 minutos
-		request.getSession().setMaxInactiveInterval(10 * 60);
+		request.getSession().setMaxInactiveInterval(1 * 30);
 		
 		request.getSession().removeAttribute("usuarioLogado");
 		
 		request.getSession().removeAttribute("carroCompras");
 		request.getSession().removeAttribute("sessaoCliente");
 		request.getSession().removeAttribute("total");
-		
-		System.out.println("Usuário deslogado");
 		request.getRequestDispatcher("/index.html").forward(request, response);
+		System.out.println("Usuário deslogado");
 	}
 }

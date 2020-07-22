@@ -427,7 +427,7 @@ public class ProdutoDao implements IDAO {
 	
 	//Retorna o valor Investido
 	public Object getTotalInvestido() {
-		String sql = "select (produtos.custoUnid * estoques.qtdEntrada) "
+		String sql = "select sum(produtos.custoUnid * estoques.qtdEntrada) "
 				+ "from produtos join estoques on fk_estoque = estoques.id";
 		Object totalInvestido = null;
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {

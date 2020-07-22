@@ -1,4 +1,4 @@
-package br.com.aluizio.sysvendas.web;
+package backup;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -21,17 +21,26 @@ import br.com.aluizio.sysvendas.model.EnumSituacao;
  * Servlet responsável por adicionar um cliente
  */
 
-@WebServlet("/adicionar-cliente.jsp")
+//@WebServlet("/adicionar-cliente.jsp")
 public class AdicionaCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		String message = "Cliente adicionado com sucesso.";
+		String message = "";
 
 		// Cria cliente
 		Cliente cliente = new Cliente();
+
+		// Verifica se adiciona ou atualiza
+		if (req.getParameter("clienteId") != null) {// atualiza
+			int id = Integer.parseInt(req.getParameter("clienteId"));
+			cliente.setId(id);
+			message = "Cliente atualizado com sucesso.";
+		} else {
+			message = "Cliente adicionado com sucesso.";
+		}
 
 		// Enum vs Radio
 		EnumSituacao situacao = EnumSituacao.valueOf(req.getParameter("situacao"));
@@ -63,7 +72,7 @@ public class AdicionaCliente extends HttpServlet {
 		cliente.setObservacao(req.getParameter("observacao"));
 
 		// Salva Cliente
-		new ClienteDao().adiciona(cliente);
+		new ClienteDao().adicionaAltera(cliente);
 
 		JOptionPane.showMessageDialog(null, message);
 		System.out.println(message);

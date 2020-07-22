@@ -67,7 +67,7 @@
 											</c:forEach>
 										</select> 
 										<span class="input-group-btn">
-												<a id="linkSelect" href="cadastrar-fornecedor.jsp">&#10010; Novo Fornecedor</a>
+												<a id="linkSelect" href="cadastrar-fornecedores.jsp">&#10010; Novo Fornecedor</a>
 										</span>
 									</div>
 								</div>
@@ -83,7 +83,7 @@
 											</c:forEach>
 										</select> 
 										<span class="input-group-btn">
-											<a id="linkSelect" href="cadastrar-categoria.jsp">&#10010; Nova Categoria</a>
+											<a id="linkSelect" href="cadastrar-categorias.jsp">&#10010; Nova Categoria</a>
 										</span>
 									</div>
 								</div>

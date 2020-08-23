@@ -25,7 +25,7 @@ import br.com.aluizio.sysvendas.model.Usuario;
 import br.com.aluizio.sysvendas.service.CarregarDashboard;
 
 /**
- * Salva um orcamento relacionado com um cliente. Isto não efetiva uma venda.
+ * Salva um orcamento relacionado com um cliente.
  * 
  * @date 30/11/2018
  * @author Aluizio Monteiro 30 de nov de 2018

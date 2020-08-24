@@ -1,5 +1,5 @@
 
-![N|Solid](https://github.com/aluiziomonteiro/sys-vendas/blob/dev/fotos-sisvendas/logo.png?raw=true)  ![N|Solid](https://github.com/aluiziomonteiro/sys-vendas/blob/dev/fotos-sisvendas/logo.png?raw=true)
+ ![N|Solid](https://github.com/aluiziomonteiro/sys-vendas/blob/dev/fotos-sisvendas/logo.png?raw=true)
 
 
 > Sistema destinado ao controle de vendas, estoque e pagamentos

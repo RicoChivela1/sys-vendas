@@ -77,7 +77,7 @@
 3. Realize o cadastro de um Produto pelo menu: "Cadastrar/Produto";
 4. Associe a Categoria e o Fornecedor ao Produto;
 5. Realize o cadastro de uma Cliente pelo menu: "Cadastrar/Cliente".
-<br /><br /> <br /><br />
+<br /><br />
 ![N|Solid](https://github.com/aluiziomonteiro/sys-vendas/blob/dev/fotos-sisvendas/tela-menu-cadastro01.png?raw=true) 
 
 

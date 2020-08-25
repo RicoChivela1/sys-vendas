@@ -2,11 +2,11 @@
  ![N|Solid](https://github.com/aluiziomonteiro/sys-vendas/blob/dev/fotos-sisvendas/logo.png?raw=true)
 
 
-> Sistema destinado ao controle de vendas, estoque e pagamentos
+> Sistema de controle de vendas, estoque e pagamentos
 
 <br /><br />
 
-## Sobre o SysVendas
+## 🚀 Começando
 #### Se você trabalha com vendas certamente sabe da importância de manter os estoques sempre bem organizados.
 #### É através dessa organização que podemos observar quais são os produtos que mais venderam, que estão acabando ou simplesmente se estão disponíveis para venda.
 #### A organização das vendas é tão importante quanto a do estoque, ambos quando combinados possibilitam ao gerente do negócio visualizar se o dinheiro presente em caixa bate com a quantidade e valores vendidos durante o dia, semana, mês etc.
@@ -16,7 +16,7 @@
 ![N|Solid](https://github.com/aluiziomonteiro/sys-vendas/blob/dev/fotos-sisvendas/tela-dashboard01.png?raw=true)
 
 <br /><br />
-## Funcionalidades
+## 🛠️ Funcionalidades
 
 -	Cadastros Gerais
 -	O valor que o usuário já investiu em compras de Produtos 
@@ -36,7 +36,7 @@
 -	Controle de quantidade de produtos em estoque
 
 <br /><br />
-## Tecnologias de produção
+## 📦 Tecnologias de produção
 
 - JDK 8x;
 - Eclipse;
@@ -51,7 +51,7 @@
 
 <br /><br />
 
-## Instalação para desenvolvimento
+## 🔧 Instalação para desenvolvimento
 
 1. Crie uma conexão no Worckbench tendo como user e pass: root, root;
 2. Baixe o schema em: https://github.com/aluiziomonteiro/sys-vendas/blob/dev/docs/schema_sys_vendas.sql;
@@ -67,7 +67,7 @@
 ![N|Solid](https://github.com/aluiziomonteiro/sys-vendas/blob/dev/fotos-sisvendas/tela-login.png?raw=true) 
 
 <br /><br />
-## Execução
+## ⚙️ Execução
 ### Input de informações no sistema
 
 > Após efetuar o login no sistema faça
@@ -77,7 +77,7 @@
 3. Realize o cadastro de um Produto pelo menu: "Cadastrar/Produto";
 4. Associe a Categoria e o Fornecedor ao Produto;
 5. Realize o cadastro de uma Cliente pelo menu: "Cadastrar/Cliente".
-<br /><br />
+<br /><br /> <br /><br />
 ![N|Solid](https://github.com/aluiziomonteiro/sys-vendas/blob/dev/fotos-sisvendas/tela-menu-cadastro01.png?raw=true) 
 
 
@@ -92,16 +92,16 @@
 ![N|Solid](https://github.com/aluiziomonteiro/sys-vendas/blob/dev/fotos-sisvendas/tela-orcamento04.png?raw=true) 
 
 <br /><br />
-## Notas
+## 📋 Notas
 > O projeto SysVendas está em constante desenvolvimento. 
 
 <br /><br />
 
-## Contato
-#### •	Autor: Aluizio Monteiro  
+## ✒️ Autor
+#### •	Nome: Aluizio Monteiro dos Santos Júnior  
 #### •	Fone: (61) 993321872 
 #### •	Linkedin: https://www.linkedin.com/in/aluizio-monteiro-b084b714a/ 
 <br /><br />
 
-## Licença
+## 📄 Licença
 
